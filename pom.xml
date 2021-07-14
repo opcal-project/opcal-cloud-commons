@@ -52,6 +52,13 @@
 		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		
+		<!-- sonar -->
+        <sonar.projectKey>opcal-xena-project_opcal-cloud-commons</sonar.projectKey>
+        <sonar.organization>opcal-project</sonar.organization>
+        <sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey>
+        <sonar.exclusions>**/*Application.java,**/ServletInitializer.java,**/.flattened-pom.xml</sonar.exclusions>
+        <sonar.scanner.force-deprecated-java-version>true</sonar.scanner.force-deprecated-java-version>
 
 		<!-- plugin version -->
 		<maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
