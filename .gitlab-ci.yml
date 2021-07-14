@@ -18,32 +18,33 @@ cache:
     - .m2/repository
     - .sonar/cache
     
-.test-template : &test-base
-  stage: test
+.test-templete : &test-templete
   script:
     - ./mvnw clean $MAVEN_CLI_OPTS test verify sonar:sonar -Dgpg.skip=true
     - bash <(curl -s https://codecov.io/bash) -t "${CODECOV_TOKEN}"
     
-.deploy-template: &deploy-base
-  stage: deploy
+.deploy-template: &deploy-template
   before_script:
     - apt-get update && apt-get install -y gnupg2
     - export GPG_TTY=$(tty)
     - echo "${GPG_PRI}" | gpg --batch --import
     
 test:
-  <<: *test-base
+  stage: test
+  <<: *test-templete
   except:
     changes:
       - "*.md"
       
 test-tags:
-  <<: *test-base
+  stage: test
+  <<: *test-templete
   only:
     - tags
       
 deploy-snapshot:
-  <<: *deploy-base
+  stage: deploy
+  <<: *deploy-template
   script:
     - ./mvnw clean $MAVEN_CLI_OPTS deploy -Dgpg.passphrase=${GPG_PASSPHRASE} -Dmaven.test.skip=true -s settings.xml
   except:
@@ -54,7 +55,8 @@ deploy-snapshot:
 
       
 deploy-release :
-  <<: *deploy-base
+  stage: deploy
+  <<: *deploy-template
   script:
     - SNAPSHOT_VERSION=$(./mvnw help:evaluate -Dexpression=project.version | grep "^[^\\[]" |grep -v Download)
     - RELEASE_VERSION=${SNAPSHOT_VERSION/-SNAPSHOT/}
