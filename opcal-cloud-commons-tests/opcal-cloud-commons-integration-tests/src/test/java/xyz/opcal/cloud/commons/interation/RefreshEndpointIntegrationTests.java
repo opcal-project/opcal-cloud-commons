@@ -15,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 
 @SpringBootTest(classes = RefreshEndpointIntegrationTests.ClientApp.class, properties = {
 		"management.endpoints.web.exposure.include=*" }, webEnvironment = WebEnvironment.RANDOM_PORT)
-public class RefreshEndpointIntegrationTests {
+class RefreshEndpointIntegrationTests {
 
 	private static final String BASE_PATH = new WebEndpointProperties().getBasePath();
 
@@ -23,7 +23,7 @@ public class RefreshEndpointIntegrationTests {
 	private int port;
 
 	@Test
-	public void webAccess() throws Exception {
+	void webAccess() throws Exception {
 		TestRestTemplate template = new TestRestTemplate();
 		ResponseEntity<String> entity = template.getForEntity("http://localhost:" + this.port + BASE_PATH + "/info", null, String.class);
 		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
