@@ -47,7 +47,7 @@
 		<spring-cloud.version>2020.0.3</spring-cloud.version>
 
 		<!-- jdk version -->
-		<maven.compiler.release>11</maven.compiler.release>
+		<java.version>11</java.version>
 		<!-- encoding -->
 		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -61,14 +61,10 @@
 		<sonar.scanner.force-deprecated-java-version>true</sonar.scanner.force-deprecated-java-version>
 
 		<!-- plugin version -->
-		<maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
-		<maven-javadoc-plugin-version>3.2.0</maven-javadoc-plugin-version>
-		<maven-resource-plugin-version>3.2.0</maven-resource-plugin-version>
-		<maven-source-plugin-version>3.2.1</maven-source-plugin-version>
-		<maven-surefire-plugin-version>3.0.0-M5</maven-surefire-plugin-version>
 		<flatten-maven-plugin-version>1.2.2</flatten-maven-plugin-version>
-		<jacoco-maven-plugin-version>0.8.5</jacoco-maven-plugin-version>
-
+		<jacoco-maven-plugin-version>0.8.7</jacoco-maven-plugin-version>
+		<maven-gpg-plugin-version>3.0.1</maven-gpg-plugin-version>
+		<maven-release-plugin-version>3.0.0-M4</maven-release-plugin-version>
 	</properties>
 
 
@@ -205,6 +201,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
+				<version>${maven-gpg-plugin-version}</version>
 				<executions>
 					<execution>
 						<id>sign-artifacts</id>
@@ -225,7 +222,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>3.0.0-M1</version>
+				<version>${maven-release-plugin-version}</version>
 				<configuration>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 					<useReleaseProfile>false</useReleaseProfile>
@@ -238,5 +235,7 @@
 
 	<modules>
 		<module>opcal-cloud-commons-dependencies</module>
+		<module>opcal-cloud-parent</module>
+		<module>opcal-cloud-commons-tests</module>
 	</modules>
 </project>
