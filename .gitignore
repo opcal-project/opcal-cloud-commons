@@ -45,3 +45,5 @@ build/
 ### OS system file ###
 **/.DS_Store
 **/.directory
+
+pom.xml.versionsBackup
