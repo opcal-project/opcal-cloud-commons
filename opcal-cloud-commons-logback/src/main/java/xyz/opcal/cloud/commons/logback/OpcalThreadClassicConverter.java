@@ -13,7 +13,7 @@ public class OpcalThreadClassicConverter extends ClassicConverter {
 	public String convert(ILoggingEvent event) {
 		String systemId = event.getMDCPropertyMap().get(OpcalLogbackConstants.MDC_THREAD_ID);
 		if (StringUtils.isBlank(systemId)) {
-			systemId = UUID.nameUUIDFromBytes(String.valueOf(Thread.currentThread().getId()).getBytes()).toString().replaceAll("-", "");
+			systemId = StringUtils.replace(UUID.nameUUIDFromBytes(String.valueOf(Thread.currentThread().getId()).getBytes()).toString(), "-", "" + "");
 		}
 		return systemId;
 
