@@ -22,7 +22,7 @@ cache:
   stage: test
   script:
     - ./mvnw clean $MAVEN_CLI_OPTS test verify sonar:sonar -Dgpg.skip=true
-#    - bash <(curl -s https://codecov.io/bash) -t "${CODECOV_TOKEN}"
+    - bash <(curl -s https://codecov.io/bash) -t "${CODECOV_TOKEN}"
     
 .deploy-template: &deploy-template
   stage: deploy
