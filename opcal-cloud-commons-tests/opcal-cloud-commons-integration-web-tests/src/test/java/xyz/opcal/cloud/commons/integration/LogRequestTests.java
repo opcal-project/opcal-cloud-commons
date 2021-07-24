@@ -28,8 +28,7 @@ class LogRequestTests {
 
     public static final String ADD_USER_API = "/user/add";
     public static final String UPDATE_USER_API = "/user/{id}?name={name}&age={age}";
-    private @Autowired
-    TestRestTemplate testRestTemplate;
+    private @Autowired TestRestTemplate testRestTemplate;
 
     @Test
     @Order(0)

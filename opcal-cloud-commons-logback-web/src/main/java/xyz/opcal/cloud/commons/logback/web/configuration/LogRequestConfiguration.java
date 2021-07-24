@@ -12,7 +12,7 @@ import xyz.opcal.cloud.commons.logback.web.http.config.LogRequestConfig;
 public class LogRequestConfiguration {
 
 	@Bean
-	LogRequestFilter logRequestFilter() {
+    LogRequestFilter logRequestFilter() {
 		return new LogRequestFilter();
 	}
 

@@ -22,8 +22,7 @@ import xyz.opcal.cloud.commons.logback.web.annotation.EnableRequestId;
 class LogRequestIdTests {
 
     public static final String GET_USER_API = "/user/{id}";
-    private @Autowired
-    TestRestTemplate testRestTemplate;
+    private @Autowired TestRestTemplate testRestTemplate;
 
     @Test
     void getUser() {

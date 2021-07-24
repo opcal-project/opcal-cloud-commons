@@ -1,0 +1,7 @@
+opcal:
+  cloud:
+    log:
+      web:
+        disable-paths:
+          - /ignore/**
+          - /skip/**
