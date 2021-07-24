@@ -1,7 +1,6 @@
 package xyz.opcal.cloud.commons.integration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,8 +16,8 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import xyz.opcal.cloud.commons.integration.entity.UserResult;
 import xyz.opcal.cloud.commons.integration.entity.User;
+import xyz.opcal.cloud.commons.integration.entity.UserResult;
 import xyz.opcal.cloud.commons.logback.web.LogWebConstants;
 import xyz.opcal.cloud.commons.logback.web.annotation.EnableLogRequest;
 
