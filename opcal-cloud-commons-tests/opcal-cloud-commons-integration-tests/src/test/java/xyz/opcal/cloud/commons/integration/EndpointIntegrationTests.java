@@ -1,4 +1,4 @@
-package xyz.opcal.cloud.commons.interation;
+package xyz.opcal.cloud.commons.integration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,9 +13,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-@SpringBootTest(classes = RefreshEndpointIntegrationTests.ClientApp.class, properties = {
+@SpringBootTest(classes = EndpointIntegrationTests.ClientApp.class, properties = {
 		"management.endpoints.web.exposure.include=*" }, webEnvironment = WebEnvironment.RANDOM_PORT)
-class RefreshEndpointIntegrationTests {
+class EndpointIntegrationTests {
 
 	private static final String BASE_PATH = new WebEndpointProperties().getBasePath();
 
@@ -25,7 +25,7 @@ class RefreshEndpointIntegrationTests {
 	@Test
 	void webAccess() throws Exception {
 		TestRestTemplate template = new TestRestTemplate();
-		ResponseEntity<String> entity = template.getForEntity("http://localhost:" + this.port + BASE_PATH + "/info", null, String.class);
+		ResponseEntity<String> entity = template.getForEntity("http://localhost:" + this.port + BASE_PATH + "/info", String.class);
 		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
 	}
 

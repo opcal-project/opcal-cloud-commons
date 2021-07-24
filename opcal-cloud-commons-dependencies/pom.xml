@@ -34,6 +34,11 @@
                 <artifactId>opcal-cloud-commons-logback</artifactId>
                 <version>0.1.0-SNAPSHOT</version>
             </dependency>
+            <dependency>
+                <groupId>xyz.opcal.cloud</groupId>
+                <artifactId>opcal-cloud-commons-logback-web</artifactId>
+                <version>0.1.0-SNAPSHOT</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
