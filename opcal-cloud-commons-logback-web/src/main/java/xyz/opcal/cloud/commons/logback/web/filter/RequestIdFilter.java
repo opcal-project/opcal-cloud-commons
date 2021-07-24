@@ -11,7 +11,6 @@ import org.slf4j.MDC;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.filter.OncePerRequestFilter;
 import xyz.opcal.cloud.commons.logback.OpcalLogbackConstants;
-import xyz.opcal.cloud.commons.logback.web.LogWebConstants;
 import xyz.opcal.cloud.commons.logback.web.utils.RequestUtils;
 
 @Order(-99)
