@@ -101,7 +101,7 @@
                                     <pluginExecutionFilter>
                                         <groupId>org.codehaus.mojo</groupId>
                                         <artifactId>flatten-maven-plugin</artifactId>
-                                        <versionRange>[1.0.0,)</versionRange>
+                                        <versionRange>[${flatten-maven-plugin-version},)</versionRange>
                                         <goals>
                                             <goal>flatten</goal>
                                         </goals>
