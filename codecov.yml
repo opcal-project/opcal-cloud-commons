@@ -1,4 +1,4 @@
 ignore:
   - "**/*Application.java"
-  - "**/ServletInitializer.java"
+  - "**/*ServletInitializer.java"
   - "**/.flattened-pom.xml"
