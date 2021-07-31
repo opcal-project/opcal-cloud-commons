@@ -37,9 +37,6 @@
     </developers>
 
     <properties>
-        <!-- spring version -->
-        <spring-boot.version>2.5.2</spring-boot.version>
-        <spring-cloud.version>2020.0.3</spring-cloud.version>
 
         <!-- jdk version -->
         <java.version>11</java.version>

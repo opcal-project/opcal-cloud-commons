@@ -3,14 +3,11 @@ package xyz.opcal.cloud.commons.logback.web.http;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-
 import javax.servlet.ServletOutputStream;
 import javax.servlet.WriteListener;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
-
-import org.bouncycastle.util.io.TeeOutputStream;
-
+import org.apache.commons.io.output.TeeOutputStream;
 import lombok.Getter;
 
 public class LogResponseWrapper extends HttpServletResponseWrapper {

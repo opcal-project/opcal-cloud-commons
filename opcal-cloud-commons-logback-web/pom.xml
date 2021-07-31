@@ -23,6 +23,11 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-context</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
         </dependency>
