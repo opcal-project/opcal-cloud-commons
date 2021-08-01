@@ -12,10 +12,10 @@ public class OpcalPatternLayoutEncoder extends PatternLayoutEncoderBase<ILogging
 
 	@Override
 	public void start() {
-		PatternLayout.defaultConverterMap.put("clr", ColorConverter.class.getName());
-		PatternLayout.defaultConverterMap.put("wex", WhitespaceThrowableProxyConverter.class.getName());
-		PatternLayout.defaultConverterMap.put("wEx", ExtendedWhitespaceThrowableProxyConverter.class.getName());
-		PatternLayout.defaultConverterMap.put(OpcalLogbackConstants.CURRENT_THREAD_ID, OpcalThreadClassicConverter.class.getName());
+		PatternLayout.DEFAULT_CONVERTER_MAP.put("clr", ColorConverter.class.getName());
+		PatternLayout.DEFAULT_CONVERTER_MAP.put("wex", WhitespaceThrowableProxyConverter.class.getName());
+		PatternLayout.DEFAULT_CONVERTER_MAP.put("wEx", ExtendedWhitespaceThrowableProxyConverter.class.getName());
+		PatternLayout.DEFAULT_CONVERTER_MAP.put(OpcalLogbackConstants.CURRENT_THREAD_ID, OpcalThreadClassicConverter.class.getName());
 		PatternLayout patternLayout = new PatternLayout();
 		patternLayout.setContext(context);
 		patternLayout.setPattern(getPattern());
