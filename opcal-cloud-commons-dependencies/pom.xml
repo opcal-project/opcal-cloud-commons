@@ -41,4 +41,17 @@
         </dependencies>
     </dependencyManagement>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <configuration combine.self="override">
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>bom</flattenMode>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
