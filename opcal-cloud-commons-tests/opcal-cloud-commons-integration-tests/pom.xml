@@ -9,6 +9,7 @@
 		<relativePath>../../opcal-cloud-parent</relativePath>
 	</parent>
 	<artifactId>opcal-cloud-commons-integration-tests</artifactId>
+	<name>opcal-cloud-commons-integration-tests</name>
 
 	<properties>
 		<maven.deploy.skip>true</maven.deploy.skip>

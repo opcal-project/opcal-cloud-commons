@@ -11,6 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>opcal-cloud-commons-integration-web-tests</artifactId>
+    <name>opcal-cloud-commons-integration-web-tests</name>
 
     <properties>
         <maven.deploy.skip>true</maven.deploy.skip>
