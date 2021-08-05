@@ -19,39 +19,43 @@ package xyz.opcal.cloud.commons.logback;
 import org.springframework.boot.logging.logback.ColorConverter;
 import org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter;
 import org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter;
+
 import ch.qos.logback.classic.PatternLayout;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.pattern.PatternLayoutEncoderBase;
 
 /**
- * A logback pattern layout encoder which will convert custom thread id to the pattern
- * and integrating with Spring's logback converters.
- * Usage in logback.xml
- * <pre>{@code
+ * A logback pattern layout encoder which will convert custom thread id to the
+ * pattern and integrating with Spring's logback converters. Usage in
+ * logback.xml
+ * 
+ * <pre>
+ * {@code
  * 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
  *      <encoder class="xyz.opcal.cloud.commons.logback.OpcalPatternLayoutEncoder">
  *          <pattern>%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){yellow} %clr(---){faint} %clr([%15.15t - %currentThreadId]){magenta} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}</pattern>
  *      </encoder>
  *  </appender>
- * }</pre>
+ * }
+ * </pre>
  *
  * @since 0.1.0
  */
 public class OpcalPatternLayoutEncoder extends PatternLayoutEncoderBase<ILoggingEvent> {
 
-    @Override
-    public void start() {
-        PatternLayout.defaultConverterMap.put("clr", ColorConverter.class.getName());
-        PatternLayout.defaultConverterMap.put("wex", WhitespaceThrowableProxyConverter.class.getName());
-        PatternLayout.defaultConverterMap.put("wEx", ExtendedWhitespaceThrowableProxyConverter.class.getName());
-        PatternLayout.defaultConverterMap.put(OpcalLogbackConstants.CURRENT_THREAD_ID, OpcalThreadClassicConverter.class.getName());
-        PatternLayout patternLayout = new PatternLayout();
-        patternLayout.setContext(context);
-        patternLayout.setPattern(getPattern());
-        patternLayout.setOutputPatternAsHeader(outputPatternAsHeader);
-        patternLayout.start();
-        this.layout = patternLayout;
-        super.start();
-    }
+	@Override
+	public void start() {
+		PatternLayout.defaultConverterMap.put("clr", ColorConverter.class.getName());
+		PatternLayout.defaultConverterMap.put("wex", WhitespaceThrowableProxyConverter.class.getName());
+		PatternLayout.defaultConverterMap.put("wEx", ExtendedWhitespaceThrowableProxyConverter.class.getName());
+		PatternLayout.defaultConverterMap.put(OpcalLogbackConstants.CURRENT_THREAD_ID, OpcalThreadClassicConverter.class.getName());
+		PatternLayout patternLayout = new PatternLayout();
+		patternLayout.setContext(context);
+		patternLayout.setPattern(getPattern());
+		patternLayout.setOutputPatternAsHeader(outputPatternAsHeader);
+		patternLayout.start();
+		this.layout = patternLayout;
+		super.start();
+	}
 
 }

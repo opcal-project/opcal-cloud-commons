@@ -24,7 +24,8 @@ import ch.qos.logback.classic.pattern.ClassicConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 
 /**
- *	Custom thread id converter.
+ * Custom thread id converter.
+ * 
  * @since 0.1.0
  */
 public class OpcalThreadClassicConverter extends ClassicConverter {

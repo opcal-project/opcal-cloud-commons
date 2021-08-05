@@ -23,6 +23,6 @@ import lombok.Setter;
 @Setter
 public class UserResult {
 
-    private User user;
-    private String msg;
+	private User user;
+	private String msg;
 }

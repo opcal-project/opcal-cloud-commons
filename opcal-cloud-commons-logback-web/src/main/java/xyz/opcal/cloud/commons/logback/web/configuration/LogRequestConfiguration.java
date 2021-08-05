@@ -24,11 +24,11 @@ import xyz.opcal.cloud.commons.logback.web.filter.LogRequestFilter;
 import xyz.opcal.cloud.commons.logback.web.http.config.LogRequestConfig;
 
 @Configuration
-@EnableConfigurationProperties(value = {LogRequestConfig.class})
+@EnableConfigurationProperties(value = { LogRequestConfig.class })
 public class LogRequestConfiguration {
 
 	@Bean
-    LogRequestFilter logRequestFilter() {
+	LogRequestFilter logRequestFilter() {
 		return new LogRequestFilter();
 	}
 

@@ -25,13 +25,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class OpcalLogbackConstants {
 
-    /**
-     * Key name for custom's thread id in MDC
-     */
-    public static final String MDC_THREAD_ID = "mdcThreadId";
+	/**
+	 * Key name for custom's thread id in MDC
+	 */
+	public static final String MDC_THREAD_ID = "mdcThreadId";
 
-    /**
-     * Variable name for logback pattern
-     */
-    public static final String CURRENT_THREAD_ID = "currentThreadId";
+	/**
+	 * Variable name for logback pattern
+	 */
+	public static final String CURRENT_THREAD_ID = "currentThreadId";
 }

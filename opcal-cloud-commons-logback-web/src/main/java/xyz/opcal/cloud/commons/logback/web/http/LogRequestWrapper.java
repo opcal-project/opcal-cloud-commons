@@ -23,19 +23,22 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
+
 import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
+
 import org.apache.commons.lang3.StringUtils;
+
 import lombok.Getter;
 import xyz.opcal.cloud.commons.logback.web.LogWebConstants;
 
 public class LogRequestWrapper extends HttpServletRequestWrapper {
 
 	@Getter
-	private String requestId;
-	private String requestBody;
+	private final String requestId;
+	private final String requestBody;
 
 	public LogRequestWrapper(String requestId, HttpServletRequest request, String requestBody) {
 		super(request);
@@ -72,7 +75,6 @@ public class LogRequestWrapper extends HttpServletRequestWrapper {
 		}
 		return super.getHeaders(name);
 	}
-
 
 	@Override
 	public ServletInputStream getInputStream() throws IOException {

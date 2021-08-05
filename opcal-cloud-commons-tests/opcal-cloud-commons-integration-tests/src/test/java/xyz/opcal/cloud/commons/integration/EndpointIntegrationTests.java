@@ -39,7 +39,7 @@ class EndpointIntegrationTests {
 	private int port;
 
 	@Test
-	void webAccess() throws Exception {
+	void webAccess() {
 		TestRestTemplate template = new TestRestTemplate();
 		ResponseEntity<String> entity = template.getForEntity("http://localhost:" + this.port + BASE_PATH + "/info", String.class);
 		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
