@@ -4,3 +4,11 @@
 [![codecov](https://codecov.io/gl/opcal-project/opcal-cloud-commons/branch/main/graph/badge.svg?token=AEBJ3Z5AJX)](https://codecov.io/gl/opcal-project/opcal-cloud-commons)
 
 commons project module for system
+
+current version 0.1.0
+
+## Current dependencies version
+
+Spring-boot: 2.5.2
+
+Spring-cloud: 2020.0.3
