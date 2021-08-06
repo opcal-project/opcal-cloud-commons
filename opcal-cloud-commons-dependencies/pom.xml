@@ -10,6 +10,7 @@
     <artifactId>opcal-cloud-commons-dependencies</artifactId>
     <packaging>pom</packaging>
     <name>opcal-cloud-commons-dependencies</name>
+    <description>bom project</description>
     <properties>
         <!-- dependencies version -->
         <com.google.guava.version>30.0-jre</com.google.guava.version>

@@ -12,6 +12,7 @@
 
     <artifactId>opcal-cloud-commons-logback-web</artifactId>
     <name>opcal-cloud-commons-logback-web</name>
+    <description>logback api for web request</description>
 
     <dependencies>
         <dependency>
