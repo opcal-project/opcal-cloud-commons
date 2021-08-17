@@ -21,7 +21,6 @@ cache:
   stage: test
   script:
     - apt update && apt install curl -y
-    - printenv
     - ./mvnw clean $MAVEN_CLI_OPTS test verify sonar:sonar -Dgpg.skip=true
     - curl -Os https://uploader.codecov.io/latest/linux/codecov
     - chmod +x codecov && ./codecov -t ${CODECOV_TOKEN}
