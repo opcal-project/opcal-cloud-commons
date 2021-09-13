@@ -35,18 +35,20 @@
         <sonar.exclusions>**/*Application.java,**/ServletInitializer.java,**/.flattened-pom.xml</sonar.exclusions>
         <sonar.scanner.force-deprecated-java-version>true</sonar.scanner.force-deprecated-java-version>
 
+        <lombok.version>1.18.20</lombok.version>
+
         <!-- plugin version -->
         <flatten-maven-plugin-version>1.2.2</flatten-maven-plugin-version>
         <jacoco-maven-plugin-version>0.8.7</jacoco-maven-plugin-version>
         <maven-gpg-plugin-version>3.0.1</maven-gpg-plugin-version>
         <maven-release-plugin-version>3.0.0-M4</maven-release-plugin-version>
         <versions-maven-plugin-version>2.8.1</versions-maven-plugin-version>
-        <lombok.version>1.18.20</lombok.version>
         <maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
         <maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
         <maven-javadoc-plugin-version>3.3.0</maven-javadoc-plugin-version>
         <maven-resource-plugin-version>3.2.0</maven-resource-plugin-version>
         <maven-source-plugin-version>3.2.1</maven-source-plugin-version>
+        <lombok-plugin-version>1.18.20.0</lombok-plugin-version>
 <!--        <maven-surefire-plugin-version>3.0.0-M5</maven-surefire-plugin-version>-->
 <!--        <maven-failsafe-plugin-version>3.0.0-M5</maven-failsafe-plugin-version>-->
     </properties>
