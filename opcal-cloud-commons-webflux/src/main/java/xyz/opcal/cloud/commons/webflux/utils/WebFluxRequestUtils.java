@@ -16,6 +16,10 @@
 
 package xyz.opcal.cloud.commons.webflux.utils;
 
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.util.Objects;
+import java.util.Optional;
 import javax.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.RegExUtils;
@@ -28,31 +32,38 @@ import xyz.opcal.cloud.commons.webflux.WebConstants;
 @UtilityClass
 public class WebFluxRequestUtils {
 
-    public static final String B_H_REG_EX = "[\\n\\r\\t]";
-    public static final String B_H_REG_EX_REPLACEMENT = "_";
+	public static final String B_H_REG_EX = "[\\n\\r\\t]";
+	public static final String B_H_REG_EX_REPLACEMENT = "_";
 
-    public static String cleanTaint(String value) {
-        return RegExUtils.replaceAll(value, B_H_REG_EX, B_H_REG_EX_REPLACEMENT);
-    }
+	public static String cleanTaint(String value) {
+		return RegExUtils.replaceAll(value, B_H_REG_EX, B_H_REG_EX_REPLACEMENT);
+	}
 
-    public static String cleanHeaderTaint(@NotNull ServerHttpRequest request, String headerName) {
-        return cleanTaint(request.getHeaders().getFirst(headerName));
-    }
+	public static String cleanHeaderTaint(@NotNull ServerHttpRequest request, String headerName) {
+		return cleanTaint(request.getHeaders().getFirst(headerName));
+	}
 
-    public static String getRequestId(@NotNull ServerHttpRequest request) {
-        return cleanHeaderTaint(request, WebConstants.HEADER_X_REQUEST_ID);
-    }
+	public static String getRequestId(@NotNull ServerHttpRequest request) {
+		return cleanHeaderTaint(request, WebConstants.HEADER_X_REQUEST_ID);
+	}
 
-    public static String getIp(@NotNull ServerHttpRequest request) {
-        String workerClientIp = cleanHeaderTaint(request, WebConstants.HEADER_W_CONNECTING_IP);
-        String ip = StringUtils.isNotBlank(workerClientIp) ? workerClientIp : cleanHeaderTaint(request, WebConstants.HEADER_CF_CONNECTING_IP);
-        if (StringUtils.isBlank(ip)) {
-            ip = cleanHeaderTaint(request, WebConstants.HEADER_X_REAL_IP);
-        }
-        if (StringUtils.isBlank(ip) || StringUtils.equals(ip, WebConstants.LOCALHOST_IP)) {
-            ip = request.getRemoteAddress().getAddress().getHostAddress();
-        }
-        return ip;
-    }
+	public static String getIp(@NotNull ServerHttpRequest request) {
+		String workerClientIp = cleanHeaderTaint(request, WebConstants.HEADER_W_CONNECTING_IP);
+		String ip = StringUtils.isNotBlank(workerClientIp) ? workerClientIp : cleanHeaderTaint(request, WebConstants.HEADER_CF_CONNECTING_IP);
+		if (StringUtils.isBlank(ip)) {
+			ip = cleanHeaderTaint(request, WebConstants.HEADER_X_REAL_IP);
+		}
+		if (StringUtils.isBlank(ip) || StringUtils.equals(ip, WebConstants.LOCALHOST_IP)) {
+			ip = remoteIp(request.getRemoteAddress());
+		}
+		return ip;
+	}
+
+	private String remoteIp(InetSocketAddress inetSocketAddress) {
+		return Optional.ofNullable(inetSocketAddress).stream() //
+				.filter(Objects::nonNull).map(InetSocketAddress::getAddress) //
+				.filter(Objects::nonNull).map(InetAddress::getHostAddress) //
+				.findFirst().orElse(WebConstants.LOCALHOST_IP);
+	}
 
 }
