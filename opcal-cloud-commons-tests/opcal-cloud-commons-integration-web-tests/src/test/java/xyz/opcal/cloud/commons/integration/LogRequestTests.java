@@ -36,8 +36,8 @@ import org.springframework.http.ResponseEntity;
 
 import xyz.opcal.cloud.commons.integration.entity.User;
 import xyz.opcal.cloud.commons.integration.entity.UserResult;
-import xyz.opcal.cloud.commons.logback.web.LogWebConstants;
 import xyz.opcal.cloud.commons.logback.web.annotation.EnableLogRequest;
+import xyz.opcal.cloud.commons.web.WebConstants;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @EnableLogRequest
@@ -60,26 +60,26 @@ class LogRequestTests {
 		assertEquals(HttpStatus.OK, result1.getStatusCode());
 
 		HttpHeaders headers = new HttpHeaders();
-		headers.set(LogWebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
-		headers.set(LogWebConstants.HEADER_W_CONNECTING_IP, "10.0.0.1");
+		headers.set(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
+		headers.set(WebConstants.HEADER_W_CONNECTING_IP, "10.0.0.1");
 		ResponseEntity<UserResult> result2 = testRestTemplate.postForEntity(ADD_USER_API, new HttpEntity<>(user, headers), UserResult.class);
 		assertEquals(HttpStatus.OK, result2.getStatusCode());
 
 		headers = new HttpHeaders();
-		headers.set(LogWebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
-		headers.set(LogWebConstants.HEADER_CF_CONNECTING_IP, "10.0.0.2");
+		headers.set(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
+		headers.set(WebConstants.HEADER_CF_CONNECTING_IP, "10.0.0.2");
 		ResponseEntity<UserResult> result3 = testRestTemplate.postForEntity(ADD_USER_API, new HttpEntity<>(user, headers), UserResult.class);
 		assertEquals(HttpStatus.OK, result3.getStatusCode());
 
 		headers = new HttpHeaders();
-		headers.set(LogWebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
-		headers.set(LogWebConstants.HEADER_X_REAL_IP, "10.0.0.3");
+		headers.set(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
+		headers.set(WebConstants.HEADER_X_REAL_IP, "10.0.0.3");
 		ResponseEntity<UserResult> result4 = testRestTemplate.postForEntity(ADD_USER_API, new HttpEntity<>(user, headers), UserResult.class);
 		assertEquals(HttpStatus.OK, result4.getStatusCode());
 
 		headers = new HttpHeaders();
-		headers.set(LogWebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
-		headers.set(LogWebConstants.HEADER_X_REAL_IP, LogWebConstants.LOCALHOST_IP);
+		headers.set(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
+		headers.set(WebConstants.HEADER_X_REAL_IP, WebConstants.LOCALHOST_IP);
 		ResponseEntity<UserResult> result5 = testRestTemplate.postForEntity(ADD_USER_API, new HttpEntity<>(user, headers), UserResult.class);
 		assertEquals(HttpStatus.OK, result5.getStatusCode());
 	}
@@ -94,8 +94,8 @@ class LogRequestTests {
 		urlVariables.put("age", 20);
 
 		HttpHeaders headers = new HttpHeaders();
-		headers.set(LogWebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
-		headers.set(LogWebConstants.HEADER_X_REAL_IP, "10.0.0.4");
+		headers.set(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
+		headers.set(WebConstants.HEADER_X_REAL_IP, "10.0.0.4");
 		ResponseEntity<UserResult> result = testRestTemplate.postForEntity(UPDATE_USER_API, new HttpEntity<>(headers), UserResult.class, urlVariables);
 		assertEquals(HttpStatus.OK, result.getStatusCode());
 

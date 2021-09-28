@@ -40,12 +40,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.slf4j.Slf4j;
 import xyz.opcal.cloud.commons.logback.OpcalLogbackConstants;
-import xyz.opcal.cloud.commons.logback.web.LogWebConstants;
 import xyz.opcal.cloud.commons.logback.web.http.LogRequestWrapper;
 import xyz.opcal.cloud.commons.logback.web.http.LogResponseWrapper;
 import xyz.opcal.cloud.commons.logback.web.http.PathMatcher;
 import xyz.opcal.cloud.commons.logback.web.http.config.LogRequestConfig;
-import xyz.opcal.cloud.commons.logback.web.utils.RequestUtils;
+import xyz.opcal.cloud.commons.web.WebConstants;
+import xyz.opcal.cloud.commons.web.utils.RequestUtils;
 
 @Slf4j
 @Order(-90)
@@ -106,7 +106,7 @@ public class LogRequestFilter extends OncePerRequestFilter {
 		try {
 			requestWrapper = new LogRequestWrapper(requestId, request, requestBody);
 			responseWrapper = new LogResponseWrapper(requestId, response);
-			responseWrapper.addHeader(LogWebConstants.HEADER_X_REQUEST_ID, requestId);
+			responseWrapper.addHeader(WebConstants.HEADER_X_REQUEST_ID, requestId);
 			filterChain.doFilter(requestWrapper, responseWrapper);
 		} finally {
 			long millis = System.currentTimeMillis() - startTime;

@@ -14,23 +14,17 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.logback.web.annotation;
+package xyz.opcal.cloud.commons.web;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import xyz.opcal.cloud.commons.web.annotation.EnableRequestId;
 
-import org.springframework.context.annotation.Import;
+@SpringBootApplication
+@EnableRequestId
+public class WebTestApplication {
 
-import xyz.opcal.cloud.commons.logback.web.configuration.LogRequestConfiguration;
-
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-@EnableLogRequestId
-@Import(LogRequestConfiguration.class)
-public @interface EnableLogRequest {
-
+    public static void main(String[] args) {
+        SpringApplication.run(WebTestApplication.class, args);
+    }
 }

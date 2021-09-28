@@ -19,20 +19,13 @@ package xyz.opcal.cloud.commons.logback.web.http;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.List;
 
 import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
-import org.apache.commons.lang3.StringUtils;
-
 import lombok.Getter;
-import xyz.opcal.cloud.commons.logback.web.LogWebConstants;
 
 public class LogRequestWrapper extends HttpServletRequestWrapper {
 
@@ -44,36 +37,6 @@ public class LogRequestWrapper extends HttpServletRequestWrapper {
 		super(request);
 		this.requestId = requestId;
 		this.requestBody = requestBody;
-	}
-
-	public boolean hasRequestId() {
-		return !StringUtils.isBlank(super.getHeader(LogWebConstants.HEADER_X_REQUEST_ID));
-	}
-
-	@Override
-	public String getHeader(String name) {
-		if (StringUtils.equalsIgnoreCase(name, LogWebConstants.HEADER_X_REQUEST_ID) && !hasRequestId()) {
-			return requestId;
-		}
-		return super.getHeader(name);
-	}
-
-	@Override
-	public Enumeration<String> getHeaderNames() {
-		if (!hasRequestId()) {
-			List<String> names = Collections.list(super.getHeaderNames());
-			names.add(LogWebConstants.HEADER_X_REQUEST_ID);
-			return Collections.enumeration(names);
-		}
-		return super.getHeaderNames();
-	}
-
-	@Override
-	public Enumeration<String> getHeaders(String name) {
-		if (StringUtils.equalsIgnoreCase(name, LogWebConstants.HEADER_X_REQUEST_ID) && !hasRequestId()) {
-			return Collections.enumeration(Arrays.asList(requestId));
-		}
-		return super.getHeaders(name);
 	}
 
 	@Override

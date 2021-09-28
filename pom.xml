@@ -265,5 +265,7 @@
         <module>opcal-cloud-commons-tests</module>
         <module>opcal-cloud-commons-logback</module>
         <module>opcal-cloud-commons-logback-web</module>
+        <module>opcal-cloud-commons-web</module>
+        <module>opcal-cloud-commons-webflux</module>
     </modules>
 </project>

@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Opcal
+ * Copyright 2021-2021 Opcal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.logback.web;
+package xyz.opcal.cloud.commons.logback.web.configuration;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class LogWebConstants {
+import xyz.opcal.cloud.commons.logback.web.filter.LogRequestIdFilter;
 
-	public static final String HEADER_X_REQUEST_ID = "X-Request-Id";
-	public static final String HEADER_X_REAL_IP = "x-real-ip";
+@Configuration
+public class LogRequestIdConfiguration {
 
-	public static final String HEADER_W_CONNECTING_IP = "worker-connecting-ip";
-	public static final String HEADER_CF_CONNECTING_IP = "CF-Connecting-IP";
+	@Bean
+	public LogRequestIdFilter logRequestIdFilter() {
+		return new LogRequestIdFilter();
+	}
 
-	public static final String LOCALHOST_IP = "127.0.0.1";
 }

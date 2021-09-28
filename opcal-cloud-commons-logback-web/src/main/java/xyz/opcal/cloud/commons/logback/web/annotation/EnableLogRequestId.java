@@ -24,12 +24,14 @@ import java.lang.annotation.Target;
 
 import org.springframework.context.annotation.Import;
 
-import xyz.opcal.cloud.commons.logback.web.configuration.RequestIdConfiguration;
+import xyz.opcal.cloud.commons.logback.web.configuration.LogRequestIdConfiguration;
+import xyz.opcal.cloud.commons.web.annotation.EnableRequestId;
 
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@Import(RequestIdConfiguration.class)
-public @interface EnableRequestId {
+@EnableRequestId
+@Import(LogRequestIdConfiguration.class)
+public @interface EnableLogRequestId {
 
 }

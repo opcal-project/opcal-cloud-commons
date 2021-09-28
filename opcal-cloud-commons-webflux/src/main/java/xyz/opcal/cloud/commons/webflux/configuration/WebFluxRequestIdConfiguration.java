@@ -14,19 +14,18 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.logback.web.configuration;
+package xyz.opcal.cloud.commons.webflux.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import xyz.opcal.cloud.commons.logback.web.filter.RequestIdFilter;
+import xyz.opcal.cloud.commons.webflux.filter.WebFluxRequestIdFilter;
 
 @Configuration
-public class RequestIdConfiguration {
+public class WebFluxRequestIdConfiguration {
 
-	@Bean
-	public RequestIdFilter requestIdFilter() {
-		return new RequestIdFilter();
-	}
-
+    @Bean
+    public WebFluxRequestIdFilter webFluxRequestIdFilter() {
+        return new WebFluxRequestIdFilter();
+    }
 }

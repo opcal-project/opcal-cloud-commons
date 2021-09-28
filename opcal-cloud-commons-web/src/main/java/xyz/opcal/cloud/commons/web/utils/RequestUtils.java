@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.logback.web.utils;
+package xyz.opcal.cloud.commons.web.utils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
@@ -23,7 +23,7 @@ import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import lombok.experimental.UtilityClass;
-import xyz.opcal.cloud.commons.logback.web.LogWebConstants;
+import xyz.opcal.cloud.commons.web.WebConstants;
 
 @UtilityClass
 public class RequestUtils {
@@ -35,20 +35,23 @@ public class RequestUtils {
 		return RegExUtils.replaceAll(value, B_H_REG_EX, B_H_REG_EX_REPLACEMENT);
 	}
 
+	public static String cleanHeaderTaint(@NotNull HttpServletRequest request, String headerName) {
+		return cleanTaint(request.getHeader(headerName));
+	}
+
 	public static String getRequestId(@NotNull HttpServletRequest request) {
-		String requestId = request.getHeader(LogWebConstants.HEADER_X_REQUEST_ID);
-		return cleanTaint(requestId);
+		return cleanHeaderTaint(request, WebConstants.HEADER_X_REQUEST_ID);
 	}
 
 	public static String getIp(@NotNull HttpServletRequest request) {
-		String workerClientIp = request.getHeader(LogWebConstants.HEADER_W_CONNECTING_IP);
-		String ip = StringUtils.isNotBlank(workerClientIp) ? workerClientIp : request.getHeader(LogWebConstants.HEADER_CF_CONNECTING_IP);
+		String workerClientIp = cleanHeaderTaint(request, WebConstants.HEADER_W_CONNECTING_IP);
+		String ip = StringUtils.isNotBlank(workerClientIp) ? workerClientIp : cleanHeaderTaint(request, WebConstants.HEADER_CF_CONNECTING_IP);
 		if (StringUtils.isBlank(ip)) {
-			ip = request.getHeader(LogWebConstants.HEADER_X_REAL_IP);
+			ip = cleanHeaderTaint(request, WebConstants.HEADER_X_REAL_IP);
 		}
-		if (StringUtils.isBlank(ip) || StringUtils.equals(ip, LogWebConstants.LOCALHOST_IP)) {
+		if (StringUtils.isBlank(ip) || StringUtils.equals(ip, WebConstants.LOCALHOST_IP)) {
 			ip = request.getRemoteAddr();
 		}
-		return cleanTaint(ip);
+		return ip;
 	}
 }

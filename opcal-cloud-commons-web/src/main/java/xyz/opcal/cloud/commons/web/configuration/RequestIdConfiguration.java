@@ -14,23 +14,17 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.logback.web.annotation;
+package xyz.opcal.cloud.commons.web.configuration;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import xyz.opcal.cloud.commons.web.filter.RequestIdFilter;
 
-import org.springframework.context.annotation.Import;
+@Configuration
+public class RequestIdConfiguration {
 
-import xyz.opcal.cloud.commons.logback.web.configuration.LogRequestConfiguration;
-
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-@EnableLogRequestId
-@Import(LogRequestConfiguration.class)
-public @interface EnableLogRequest {
-
+    @Bean
+    public RequestIdFilter requestIdFilter() {
+        return new RequestIdFilter();
+    }
 }

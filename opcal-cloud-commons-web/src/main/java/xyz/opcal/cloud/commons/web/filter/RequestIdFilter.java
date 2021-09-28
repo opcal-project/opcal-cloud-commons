@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Opcal
+ * Copyright 2021-2021 Opcal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,39 +14,31 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.logback.web.filter;
+package xyz.opcal.cloud.commons.web.filter;
 
 import java.io.IOException;
 import java.util.UUID;
-
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.MDC;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.filter.OncePerRequestFilter;
+import xyz.opcal.cloud.commons.web.http.RequestIdWrapper;
+import xyz.opcal.cloud.commons.web.utils.RequestUtils;
 
-import xyz.opcal.cloud.commons.logback.OpcalLogbackConstants;
-import xyz.opcal.cloud.commons.logback.web.utils.RequestUtils;
-
-@Order(-99)
+@Order(-100)
 public class RequestIdFilter extends OncePerRequestFilter {
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-
 		String requestId = RequestUtils.getRequestId(request);
+		HttpServletRequest chainRequest = request;
 		if (StringUtils.isBlank(requestId)) {
 			requestId = UUID.randomUUID().toString().replace("-", "");
+			chainRequest = new RequestIdWrapper(requestId, request);
 		}
-		MDC.put(OpcalLogbackConstants.MDC_THREAD_ID, requestId);
-		try {
-			filterChain.doFilter(request, response);
-		} finally {
-			MDC.clear();
-		}
+		filterChain.doFilter(chainRequest, response);
 	}
 }

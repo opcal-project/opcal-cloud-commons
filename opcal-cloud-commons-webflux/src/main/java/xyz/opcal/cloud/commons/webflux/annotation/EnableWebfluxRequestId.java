@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.logback.web.annotation;
+package xyz.opcal.cloud.commons.webflux.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -24,13 +24,12 @@ import java.lang.annotation.Target;
 
 import org.springframework.context.annotation.Import;
 
-import xyz.opcal.cloud.commons.logback.web.configuration.LogRequestConfiguration;
+import xyz.opcal.cloud.commons.webflux.configuration.WebFluxRequestIdConfiguration;
 
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@EnableLogRequestId
-@Import(LogRequestConfiguration.class)
-public @interface EnableLogRequest {
+@Import(WebFluxRequestIdConfiguration.class)
+public @interface EnableWebfluxRequestId {
 
 }

@@ -32,11 +32,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import xyz.opcal.cloud.commons.integration.entity.User;
-import xyz.opcal.cloud.commons.logback.web.LogWebConstants;
-import xyz.opcal.cloud.commons.logback.web.annotation.EnableRequestId;
+import xyz.opcal.cloud.commons.logback.web.annotation.EnableLogRequestId;
+import xyz.opcal.cloud.commons.web.WebConstants;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@EnableRequestId
+@EnableLogRequestId
 class LogRequestIdTests {
 
 	public static final String GET_USER_API = "/user/{id}";
@@ -50,7 +50,7 @@ class LogRequestIdTests {
 		assertThat(result1.getStatusCode()).isEqualTo(HttpStatus.OK);
 
 		HttpHeaders headers = new HttpHeaders();
-		headers.set(LogWebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
+		headers.set(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
 
 		ResponseEntity<User> result2 = testRestTemplate.exchange(GET_USER_API, HttpMethod.GET, new HttpEntity<>(headers), User.class, urlVariables);
 		assertThat(result2.getStatusCode()).isEqualTo(HttpStatus.OK);

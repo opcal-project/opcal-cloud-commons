@@ -38,7 +38,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
 import xyz.opcal.cloud.commons.logback.web.LogWebApplication;
-import xyz.opcal.cloud.commons.logback.web.LogWebConstants;
+import xyz.opcal.cloud.commons.web.WebConstants;
 
 @SpringBootTest(classes = LogWebApplication.class, webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(OrderAnnotation.class)
@@ -57,18 +57,18 @@ class LogWebTests {
 		assertEquals(HttpStatus.OK, result1.getStatusCode());
 
 		HttpHeaders headers = new HttpHeaders();
-		headers.set(LogWebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
+		headers.set(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
 		ResponseEntity<String> result2 = testRestTemplate.exchange(GET_API, HttpMethod.GET, new HttpEntity<>(headers), String.class);
 		assertEquals(HttpStatus.OK, result2.getStatusCode());
 
 		headers = new HttpHeaders();
-		headers.set(LogWebConstants.HEADER_X_REQUEST_ID, UUID.randomUUID().toString());
+		headers.set(WebConstants.HEADER_X_REQUEST_ID, UUID.randomUUID().toString());
 		headers.setContentType(MediaType.IMAGE_GIF);
 		ResponseEntity<String> result3 = testRestTemplate.exchange(GET_API, HttpMethod.GET, new HttpEntity<>(headers), String.class);
 		assertEquals(HttpStatus.OK, result3.getStatusCode());
 
 		headers = new HttpHeaders();
-		headers.set(LogWebConstants.HEADER_X_REQUEST_ID, UUID.randomUUID().toString());
+		headers.set(WebConstants.HEADER_X_REQUEST_ID, UUID.randomUUID().toString());
 		ResponseEntity<String> result4 = testRestTemplate.exchange("/skip/get", HttpMethod.GET, new HttpEntity<>(headers), String.class);
 		assertEquals(HttpStatus.OK, result4.getStatusCode());
 	}
@@ -81,26 +81,26 @@ class LogWebTests {
 		assertEquals(HttpStatus.OK, result1.getStatusCode());
 
 		HttpHeaders headers = new HttpHeaders();
-		headers.set(LogWebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
-		headers.set(LogWebConstants.HEADER_W_CONNECTING_IP, "10.0.0.1");
+		headers.set(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
+		headers.set(WebConstants.HEADER_W_CONNECTING_IP, "10.0.0.1");
 		ResponseEntity<String> result2 = testRestTemplate.postForEntity(POST_API, new HttpEntity<>(UUID.randomUUID(), headers), String.class);
 		assertEquals(HttpStatus.OK, result2.getStatusCode());
 
 		headers = new HttpHeaders();
-		headers.set(LogWebConstants.HEADER_X_REQUEST_ID, UUID.randomUUID().toString());
-		headers.set(LogWebConstants.HEADER_CF_CONNECTING_IP, "10.0.0.2");
+		headers.set(WebConstants.HEADER_X_REQUEST_ID, UUID.randomUUID().toString());
+		headers.set(WebConstants.HEADER_CF_CONNECTING_IP, "10.0.0.2");
 		ResponseEntity<String> result3 = testRestTemplate.postForEntity(POST_API, new HttpEntity<>(UUID.randomUUID(), headers), String.class);
 		assertEquals(HttpStatus.OK, result3.getStatusCode());
 
 		headers = new HttpHeaders();
-		headers.set(LogWebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
-		headers.set(LogWebConstants.HEADER_X_REAL_IP, "10.0.0.3");
+		headers.set(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
+		headers.set(WebConstants.HEADER_X_REAL_IP, "10.0.0.3");
 		ResponseEntity<String> result4 = testRestTemplate.postForEntity(POST_API, new HttpEntity<>(UUID.randomUUID(), headers), String.class);
 		assertEquals(HttpStatus.OK, result4.getStatusCode());
 
 		headers = new HttpHeaders();
-		headers.set(LogWebConstants.HEADER_X_REQUEST_ID, UUID.randomUUID().toString());
-		headers.set(LogWebConstants.HEADER_X_REAL_IP, LogWebConstants.LOCALHOST_IP);
+		headers.set(WebConstants.HEADER_X_REQUEST_ID, UUID.randomUUID().toString());
+		headers.set(WebConstants.HEADER_X_REAL_IP, WebConstants.LOCALHOST_IP);
 		ResponseEntity<String> result5 = testRestTemplate.postForEntity(POST_API, new HttpEntity<>(UUID.randomUUID(), headers), String.class);
 		assertEquals(HttpStatus.OK, result5.getStatusCode());
 	}
@@ -114,8 +114,8 @@ class LogWebTests {
 		urlVariables.put("name", UUID.randomUUID());
 
 		HttpHeaders headers = new HttpHeaders();
-		headers.set(LogWebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
-		headers.set(LogWebConstants.HEADER_X_REAL_IP, "10.0.0.4");
+		headers.set(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
+		headers.set(WebConstants.HEADER_X_REAL_IP, "10.0.0.4");
 		ResponseEntity<String> result = testRestTemplate.exchange(DELETE_API, HttpMethod.DELETE, new HttpEntity<>(headers), String.class, urlVariables);
 		assertEquals(HttpStatus.OK, result.getStatusCode());
 
