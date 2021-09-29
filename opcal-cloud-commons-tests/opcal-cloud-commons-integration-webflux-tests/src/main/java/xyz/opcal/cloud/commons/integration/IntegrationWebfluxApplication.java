@@ -14,22 +14,19 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.webflux.annotation;
+package xyz.opcal.cloud.commons.integration;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import org.springframework.context.annotation.Import;
+import xyz.opcal.cloud.commons.logback.webflux.annotation.EnableLogWebfluxRequest;
 
-import xyz.opcal.cloud.commons.webflux.configuration.WebfluxRequestIdConfiguration;
+@SpringBootApplication
+@EnableLogWebfluxRequest
+public class IntegrationWebfluxApplication {
 
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-@Import(WebfluxRequestIdConfiguration.class)
-public @interface EnableWebfluxRequestId {
+	public static void main(String[] args) {
+		SpringApplication.run(IntegrationWebfluxApplication.class, args);
+	}
 
 }

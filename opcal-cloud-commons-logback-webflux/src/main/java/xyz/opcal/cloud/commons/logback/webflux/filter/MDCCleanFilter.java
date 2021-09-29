@@ -1,5 +1,5 @@
 /*
- * Copyright 2021-2021 Opcal
+ * Copyright 2021 Opcal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,36 +14,22 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.webflux.filter;
+package xyz.opcal.cloud.commons.logback.webflux.filter;
 
-import java.util.UUID;
-
-import org.apache.commons.lang3.StringUtils;
+import org.slf4j.MDC;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 
 import reactor.core.publisher.Mono;
-import xyz.opcal.cloud.commons.webflux.WebConstants;
-import xyz.opcal.cloud.commons.webflux.utils.WebFluxRequestUtils;
 
-@Order(-100)
-public class WebFluxRequestIdFilter implements WebFilter {
+@Order(Ordered.LOWEST_PRECEDENCE)
+public class MDCCleanFilter implements WebFilter {
 
 	@Override
 	public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
-		String requestId = WebFluxRequestUtils.getRequestId(exchange.getRequest());
-		ServerWebExchange chainExchange = exchange;
-		if (StringUtils.isBlank(requestId)) {
-			String newReqId = UUID.randomUUID().toString().replace("-", "");
-			chainExchange = exchange.mutate().request( //
-					exchange.getRequest().mutate() //
-							.headers(httpHeaders -> httpHeaders.add(WebConstants.HEADER_X_REQUEST_ID, newReqId)) //
-							.build() //
-			).build();
-		}
-		return chain.filter(chainExchange);
+		return chain.filter(exchange).doFinally(signalType -> MDC.clear());
 	}
-
 }

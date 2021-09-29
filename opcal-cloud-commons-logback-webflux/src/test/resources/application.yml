@@ -1,0 +1,7 @@
+opcal:
+  cloud:
+    log:
+      webflux:
+        disable-paths:
+          - /ignore/**
+          - /skip/**

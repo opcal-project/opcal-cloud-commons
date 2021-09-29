@@ -18,5 +18,6 @@
 	<modules>
 		<module>opcal-cloud-commons-integration-tests</module>
 		<module>opcal-cloud-commons-integration-web-tests</module>
+		<module>opcal-cloud-commons-integration-webflux-tests</module>
 	</modules>
 </project>

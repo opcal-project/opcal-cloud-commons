@@ -27,10 +27,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
@@ -39,7 +37,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.slf4j.Slf4j;
-import xyz.opcal.cloud.commons.logback.OpcalLogbackConstants;
 import xyz.opcal.cloud.commons.logback.web.http.LogRequestWrapper;
 import xyz.opcal.cloud.commons.logback.web.http.LogResponseWrapper;
 import xyz.opcal.cloud.commons.logback.web.http.PathMatcher;
@@ -88,9 +85,6 @@ public class LogRequestFilter extends OncePerRequestFilter {
 		long startTime = System.currentTimeMillis();
 
 		String requestId = RequestUtils.getRequestId(request);
-		if (StringUtils.isBlank(requestId)) {
-			requestId = MDC.get(OpcalLogbackConstants.MDC_THREAD_ID);
-		}
 		String requestBody = IOUtils.toString(request.getInputStream(), StandardCharsets.UTF_8);
 
 		String requestURI = request.getRequestURI();

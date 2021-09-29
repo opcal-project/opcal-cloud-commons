@@ -14,18 +14,15 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.webflux.configuration;
+package xyz.opcal.cloud.commons.integration.entity;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import lombok.Getter;
+import lombok.Setter;
 
-import xyz.opcal.cloud.commons.webflux.filter.WebFluxRequestIdFilter;
+@Getter
+@Setter
+public class ProductResult {
 
-@Configuration
-public class WebFluxRequestIdConfiguration {
-
-    @Bean
-    public WebFluxRequestIdFilter webFluxRequestIdFilter() {
-        return new WebFluxRequestIdFilter();
-    }
+    private Product product;
+    private String msg;
 }

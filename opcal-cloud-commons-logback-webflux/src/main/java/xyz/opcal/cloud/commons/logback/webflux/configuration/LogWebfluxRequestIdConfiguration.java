@@ -14,22 +14,23 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.logback.web.configuration;
+package xyz.opcal.cloud.commons.logback.webflux.configuration;
 
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import xyz.opcal.cloud.commons.logback.web.filter.LogRequestFilter;
-import xyz.opcal.cloud.commons.logback.web.http.config.LogRequestConfig;
+import xyz.opcal.cloud.commons.logback.webflux.filter.LogWebfluxRequestIdFilter;
+import xyz.opcal.cloud.commons.logback.webflux.filter.MDCCleanFilter;
 
 @Configuration
-@EnableConfigurationProperties(value = { LogRequestConfig.class })
-public class LogRequestConfiguration {
+public class LogWebfluxRequestIdConfiguration {
 
-	@Bean
-	public LogRequestFilter logRequestFilter() {
-		return new LogRequestFilter();
-	}
+    @Bean
+    public LogWebfluxRequestIdFilter logWebfluxRequestIdFilter() {
+        return new LogWebfluxRequestIdFilter();
+    }
 
+    @Bean
+    public MDCCleanFilter mdcCleanFilter() {
+        return new MDCCleanFilter();
+    }
 }

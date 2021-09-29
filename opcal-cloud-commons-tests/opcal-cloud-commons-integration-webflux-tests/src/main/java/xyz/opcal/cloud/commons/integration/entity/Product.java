@@ -14,22 +14,21 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.webflux.annotation;
+package xyz.opcal.cloud.commons.integration.entity;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.math.BigDecimal;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-import org.springframework.context.annotation.Import;
+@Getter
+@Setter
+@ToString
+public class Product {
 
-import xyz.opcal.cloud.commons.webflux.configuration.WebfluxRequestIdConfiguration;
-
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-@Import(WebfluxRequestIdConfiguration.class)
-public @interface EnableWebfluxRequestId {
+    private long id;
+    private String name;
+    private BigDecimal price;
+    private String description;
 
 }
