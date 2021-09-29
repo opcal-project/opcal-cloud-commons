@@ -16,19 +16,19 @@
 
 package xyz.opcal.cloud.commons.logback.webflux.configuration;
 
-import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import xyz.opcal.cloud.commons.logback.webflux.filter.LogWebfluxRequestFilter;
 import xyz.opcal.cloud.commons.logback.webflux.http.config.LogWebfluxConfig;
 
 @Configuration
-@EnableConfigurationProperties(value = {LogWebfluxConfig.class})
+@EnableConfigurationProperties(value = { LogWebfluxConfig.class })
 public class LogWebfluxRequestConfiguration {
 
-    @Bean
-    public LogWebfluxRequestFilter logWebfluxRequestFilter() {
-        return new LogWebfluxRequestFilter();
-    }
+	@Bean
+	public LogWebfluxRequestFilter logWebfluxRequestFilter() {
+		return new LogWebfluxRequestFilter();
+	}
 }
