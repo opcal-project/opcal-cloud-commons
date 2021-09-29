@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Opcal
+ * Copyright 2021-2021 Opcal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.logback.webflux.http.config;
+package xyz.opcal.cloud.commons.core.log.config;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.MediaType;
 
@@ -27,11 +26,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@ConfigurationProperties(LogWebfluxConfig.PREFIX)
 @RefreshScope
-public class LogWebfluxConfig {
-
-	public static final String PREFIX = "opcal.cloud.log.webflux";
+public class LogRequestConfig {
 
 	private String[] disableMediaTypes = new String[] { MediaType.APPLICATION_PDF_VALUE.toLowerCase(), MediaType.APPLICATION_XHTML_XML_VALUE.toLowerCase(),
 			MediaType.IMAGE_GIF_VALUE.toLowerCase(), MediaType.IMAGE_JPEG_VALUE.toLowerCase(), MediaType.IMAGE_PNG_VALUE.toLowerCase(),

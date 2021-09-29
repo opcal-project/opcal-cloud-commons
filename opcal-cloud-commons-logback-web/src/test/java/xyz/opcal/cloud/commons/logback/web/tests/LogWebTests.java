@@ -37,8 +37,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
+import xyz.opcal.cloud.commons.core.web.WebConstants;
 import xyz.opcal.cloud.commons.logback.web.LogWebApplication;
-import xyz.opcal.cloud.commons.web.WebConstants;
 
 @SpringBootTest(classes = LogWebApplication.class, webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(OrderAnnotation.class)

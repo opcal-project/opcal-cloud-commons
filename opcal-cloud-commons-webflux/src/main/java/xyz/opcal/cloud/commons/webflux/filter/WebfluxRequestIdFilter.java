@@ -25,7 +25,7 @@ import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 
 import reactor.core.publisher.Mono;
-import xyz.opcal.cloud.commons.webflux.WebConstants;
+import xyz.opcal.cloud.commons.core.web.WebConstants;
 import xyz.opcal.cloud.commons.webflux.utils.WebFluxRequestUtils;
 
 @Order(-100)

@@ -268,5 +268,6 @@
         <module>opcal-cloud-commons-web</module>
         <module>opcal-cloud-commons-webflux</module>
         <module>opcal-cloud-commons-logback-webflux</module>
+        <module>opcal-cloud-commons-core</module>
     </modules>
 </project>

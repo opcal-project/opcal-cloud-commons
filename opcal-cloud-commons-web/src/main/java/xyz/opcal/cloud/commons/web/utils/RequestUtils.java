@@ -19,24 +19,17 @@ package xyz.opcal.cloud.commons.web.utils;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
 
-import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import lombok.experimental.UtilityClass;
-import xyz.opcal.cloud.commons.web.WebConstants;
+import xyz.opcal.cloud.commons.core.web.WebConstants;
+import xyz.opcal.cloud.commons.core.web.utils.TaintUtils;
 
 @UtilityClass
 public class RequestUtils {
 
-	public static final String B_H_REG_EX = "[\\n\\r\\t]";
-	public static final String B_H_REG_EX_REPLACEMENT = "_";
-
-	public static String cleanTaint(String value) {
-		return RegExUtils.replaceAll(value, B_H_REG_EX, B_H_REG_EX_REPLACEMENT);
-	}
-
 	public static String cleanHeaderTaint(@NotNull HttpServletRequest request, String headerName) {
-		return cleanTaint(request.getHeader(headerName));
+		return TaintUtils.cleanTaint(request.getHeader(headerName));
 	}
 
 	public static String getRequestId(@NotNull HttpServletRequest request) {

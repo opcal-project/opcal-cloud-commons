@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.web;
+package xyz.opcal.cloud.commons.core.web;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

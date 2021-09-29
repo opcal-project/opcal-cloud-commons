@@ -17,12 +17,11 @@
 package xyz.opcal.cloud.commons.web.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.UUID;
+
 import org.apache.commons.lang3.StringUtils;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -33,7 +32,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import xyz.opcal.cloud.commons.web.WebConstants;
+
+import xyz.opcal.cloud.commons.core.web.WebConstants;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class InfoRequestTests {

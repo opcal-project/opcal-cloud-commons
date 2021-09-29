@@ -20,27 +20,21 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.util.Objects;
 import java.util.Optional;
+
 import javax.validation.constraints.NotNull;
 
-import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 
 import lombok.experimental.UtilityClass;
-import xyz.opcal.cloud.commons.webflux.WebConstants;
+import xyz.opcal.cloud.commons.core.web.WebConstants;
+import xyz.opcal.cloud.commons.core.web.utils.TaintUtils;
 
 @UtilityClass
 public class WebFluxRequestUtils {
 
-	public static final String B_H_REG_EX = "[\\n\\r\\t]";
-	public static final String B_H_REG_EX_REPLACEMENT = "_";
-
-	public static String cleanTaint(String value) {
-		return RegExUtils.replaceAll(value, B_H_REG_EX, B_H_REG_EX_REPLACEMENT);
-	}
-
 	public static String cleanHeaderTaint(@NotNull ServerHttpRequest request, String headerName) {
-		return cleanTaint(request.getHeaders().getFirst(headerName));
+		return TaintUtils.cleanTaint(request.getHeaders().getFirst(headerName));
 	}
 
 	public static String getRequestId(@NotNull ServerHttpRequest request) {

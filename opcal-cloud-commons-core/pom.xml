@@ -11,19 +11,26 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>opcal-cloud-commons-web</artifactId>
-    <name>opcal-cloud-commons-web</name>
-    <description>Web Utils Component</description>
+    <artifactId>opcal-cloud-commons-core</artifactId>
+    <name>opcal-cloud-commons-core</name>
+    <description>core component</description>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <scope>provided</scope>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-context</artifactId>
         </dependency>
         <dependency>
-            <groupId>xyz.opcal.cloud</groupId>
-            <artifactId>opcal-cloud-commons-core</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
     </dependencies>
 
@@ -39,4 +46,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

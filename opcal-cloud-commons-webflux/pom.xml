@@ -22,18 +22,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-context</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
+            <groupId>xyz.opcal.cloud</groupId>
+            <artifactId>opcal-cloud-commons-core</artifactId>
         </dependency>
     </dependencies>
 

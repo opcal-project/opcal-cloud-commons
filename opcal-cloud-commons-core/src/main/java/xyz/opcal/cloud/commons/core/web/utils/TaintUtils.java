@@ -1,5 +1,5 @@
 /*
- * Copyright 2021-2021 Opcal
+ * Copyright 2021 Opcal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,20 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.webflux;
+package xyz.opcal.cloud.commons.core.web.utils;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.RegExUtils;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class WebConstants {
+import lombok.experimental.UtilityClass;
 
-	public static final String HEADER_X_REQUEST_ID = "X-Request-Id";
-	public static final String HEADER_X_REAL_IP = "x-real-ip";
+@UtilityClass
+public class TaintUtils {
 
-	public static final String HEADER_W_CONNECTING_IP = "worker-connecting-ip";
-	public static final String HEADER_CF_CONNECTING_IP = "CF-Connecting-IP";
+	public static final String B_H_REG_EX = "[\\n\\r\\t]";
+	public static final String B_H_REG_EX_REPLACEMENT = "_";
 
-	public static final String LOCALHOST_IP = "127.0.0.1";
+	public static String cleanTaint(String value) {
+		return RegExUtils.replaceAll(value, B_H_REG_EX, B_H_REG_EX_REPLACEMENT);
+	}
+
 }

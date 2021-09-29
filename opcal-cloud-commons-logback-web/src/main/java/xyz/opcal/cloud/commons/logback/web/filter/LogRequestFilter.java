@@ -37,11 +37,11 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.slf4j.Slf4j;
+import xyz.opcal.cloud.commons.core.web.WebConstants;
 import xyz.opcal.cloud.commons.logback.web.http.LogRequestWrapper;
 import xyz.opcal.cloud.commons.logback.web.http.LogResponseWrapper;
 import xyz.opcal.cloud.commons.logback.web.http.PathMatcher;
-import xyz.opcal.cloud.commons.logback.web.http.config.LogRequestConfig;
-import xyz.opcal.cloud.commons.web.WebConstants;
+import xyz.opcal.cloud.commons.core.log.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.web.utils.RequestUtils;
 
 @Slf4j
@@ -68,7 +68,7 @@ public class LogRequestFilter extends OncePerRequestFilter {
 
 	@Override
 	protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-		String contentType = RequestUtils.cleanTaint(request.getHeader(HttpHeaders.CONTENT_TYPE));
+		String contentType = RequestUtils.cleanHeaderTaint(request, HttpHeaders.CONTENT_TYPE);
 		if (logRequestConfig.isDisableMediaType(contentType)) {
 			log.debug("request [{}] contentType [{}] will not be logged in this filter.", request.getRequestURI(), contentType);
 			return true;

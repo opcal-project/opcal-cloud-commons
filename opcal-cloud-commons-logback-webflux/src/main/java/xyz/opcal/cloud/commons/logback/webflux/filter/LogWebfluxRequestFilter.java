@@ -38,9 +38,9 @@ import org.springframework.web.server.WebFilterChain;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
+import xyz.opcal.cloud.commons.core.log.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.webflux.http.LogRequestDecorator;
 import xyz.opcal.cloud.commons.logback.webflux.http.LogResponseDecorator;
-import xyz.opcal.cloud.commons.logback.webflux.http.config.LogWebfluxConfig;
 import xyz.opcal.cloud.commons.webflux.utils.WebFluxRequestUtils;
 
 @Slf4j
@@ -52,7 +52,7 @@ public class LogWebfluxRequestFilter implements WebFilter {
 
 	private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
-	private @Autowired LogWebfluxConfig logWebfluxConfig;
+	private @Autowired LogRequestConfig logWebfluxConfig;
 
 	private String[] disablePaths = new String[0];
 

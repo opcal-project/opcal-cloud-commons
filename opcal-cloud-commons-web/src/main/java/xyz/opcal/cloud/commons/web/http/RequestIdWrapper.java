@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import org.apache.commons.lang3.StringUtils;
 
 import lombok.Getter;
-import xyz.opcal.cloud.commons.web.WebConstants;
+import xyz.opcal.cloud.commons.core.web.WebConstants;
 
 public class RequestIdWrapper extends HttpServletRequestWrapper {
 

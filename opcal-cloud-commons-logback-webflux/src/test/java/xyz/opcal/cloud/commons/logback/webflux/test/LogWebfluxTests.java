@@ -31,7 +31,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-import xyz.opcal.cloud.commons.webflux.WebConstants;
+import xyz.opcal.cloud.commons.core.web.WebConstants;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(OrderAnnotation.class)

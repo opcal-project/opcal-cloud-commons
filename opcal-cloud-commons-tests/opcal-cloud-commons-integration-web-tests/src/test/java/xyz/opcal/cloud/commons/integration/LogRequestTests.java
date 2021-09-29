@@ -34,10 +34,10 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import xyz.opcal.cloud.commons.core.web.WebConstants;
 import xyz.opcal.cloud.commons.integration.entity.User;
 import xyz.opcal.cloud.commons.integration.entity.UserResult;
 import xyz.opcal.cloud.commons.logback.web.annotation.EnableLogRequest;
-import xyz.opcal.cloud.commons.web.WebConstants;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @EnableLogRequest
