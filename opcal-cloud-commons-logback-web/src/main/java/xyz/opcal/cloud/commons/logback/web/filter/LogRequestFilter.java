@@ -18,6 +18,7 @@ package xyz.opcal.cloud.commons.logback.web.filter;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.FilterChain;
@@ -95,16 +96,14 @@ public class LogRequestFilter extends OncePerRequestFilter {
 
 		String remoteIp = RequestUtils.getIp(request);
 
-		LogRequestWrapper requestWrapper = null;
-		LogResponseWrapper responseWrapper = null;
+		LogRequestWrapper requestWrapper = new LogRequestWrapper(requestId, request, requestBody);
+		LogResponseWrapper responseWrapper = new LogResponseWrapper(requestId, response);
 		try {
-			requestWrapper = new LogRequestWrapper(requestId, request, requestBody);
-			responseWrapper = new LogResponseWrapper(requestId, response);
 			responseWrapper.addHeader(WebConstants.HEADER_X_REQUEST_ID, requestId);
 			filterChain.doFilter(requestWrapper, responseWrapper);
 		} finally {
 			long millis = System.currentTimeMillis() - startTime;
-			requestLogger.info("url [{}] request id [{}]  response body [{}]", requestURI, requestId, responseWrapper);
+			requestLogger.info("url [{}] request id [{}] status [{}] response body [{}]", requestURI, requestId, responseWrapper.getStatus(), responseWrapper);
 			accessLogger.info("remote ip [{}] url [{}] request id [{}] finished in [{}] milliseconds", remoteIp, requestURI, requestId, millis);
 		}
 	}

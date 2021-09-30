@@ -109,7 +109,7 @@ public class LogWebfluxRequestFilter implements WebFilter {
 			long millis = System.currentTimeMillis() - startTime;
 			requestLogger.info("url [{}] method [{}] request id [{}] request parameter [{}] body [{}]", requestURI, method, requestId, parameters,
 					logRequestDecorator);
-			requestLogger.info("url [{}] request id [{}]  response body [{}]", requestURI, requestId, logResponseDecorator);
+			requestLogger.info("url [{}] request id [{}] status [{}] response body [{}]", requestURI, requestId, logResponseDecorator.getStatusCode() ,logResponseDecorator);
 			accessLogger.info("remote ip [{}] url [{}] request id [{}] finished in [{}] milliseconds", remoteIp, requestURI, requestId, millis);
 		});
 	}
