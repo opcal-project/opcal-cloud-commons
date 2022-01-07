@@ -33,7 +33,7 @@ import ch.qos.logback.core.pattern.PatternLayoutEncoderBase;
  * {@code
  * 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
  *      <encoder class="xyz.opcal.cloud.commons.logback.OpcalPatternLayoutEncoder">
- *          <pattern>%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){yellow} %clr(---){faint} %clr([%15.15t - %currentThreadId]){magenta} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}</pattern>
+ *          <property name="logPattern" value="%gray(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}) %highlight(${LOG_LEVEL_PATTERN:-%5p}) %yellow(${PID:- }) %gray(---) %magenta([%32.32currentThreadId]) %cyan(%-40.40logger{39}) %gray(:) %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
  *      </encoder>
  *  </appender>
  * }
