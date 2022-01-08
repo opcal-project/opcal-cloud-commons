@@ -5,7 +5,7 @@
 
 commons project module for system
 
-current version 0.1.0
+current release version 0.1.0
 
 ## Current dependencies version
 
