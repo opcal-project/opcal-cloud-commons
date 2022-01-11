@@ -5,8 +5,6 @@
 
 commons project module for system
 
-current release version 0.1.0
-
 ## Release Train Table
 |  Release  |   Branch  | Spring Boot | Spring Cloud |
 |   :---:   |   :---:   |    :---:    |     :---:    |
