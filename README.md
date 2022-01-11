@@ -7,8 +7,8 @@ commons project module for system
 
 current release version 0.1.0
 
-## Current dependencies version
-
-Spring-boot: 2.5.2
-
-Spring-cloud: 2020.0.3
+## Release Train Table
+|  Release  |   Branch  | Spring Boot | Spring Cloud |
+|   :---:   |   :---:   |    :---:    |     :---:    |
+| 0.2.5.1   |    main   |   2.5.8     |   2020.0.4   |
+| 0.2.3.1   |  0.2.3.x  |   2.3.12    |  Hoxton.SR12 |
