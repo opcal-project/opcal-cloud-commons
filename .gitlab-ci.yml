@@ -38,9 +38,22 @@ test:
   except:
     changes:
       - "*.md"
-      
+
 test-tags:
   <<: *test-templete
+  only:
+    - tags
+
+test-temurin:
+  <<: *test-templete
+  image: eclipse-temurin:11-jdk-focal
+  except:
+    changes:
+      - "*.md"
+
+test-tags-temurin:
+  <<: *test-templete
+  image: eclipse-temurin:11-jdk-focal
   only:
     - tags
       
