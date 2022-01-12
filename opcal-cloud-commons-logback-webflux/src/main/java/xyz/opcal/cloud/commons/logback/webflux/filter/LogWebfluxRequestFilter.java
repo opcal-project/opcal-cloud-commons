@@ -38,10 +38,10 @@ import org.springframework.web.server.WebFilterChain;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
-import xyz.opcal.cloud.commons.core.log.config.LogRequestConfig;
+import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.webflux.http.LogRequestDecorator;
 import xyz.opcal.cloud.commons.logback.webflux.http.LogResponseDecorator;
-import xyz.opcal.cloud.commons.webflux.utils.WebFluxRequestUtils;
+import xyz.opcal.cloud.commons.web.utils.ServerHttpRequestUtils;
 
 @Slf4j
 @Order(-90)
@@ -65,7 +65,7 @@ public class LogWebfluxRequestFilter implements WebFilter {
 
 	boolean notFilter(ServerWebExchange exchange) {
 		ServerHttpRequest request = exchange.getRequest();
-		String contentType = WebFluxRequestUtils.cleanHeaderTaint(request, HttpHeaders.CONTENT_TYPE);
+		String contentType = ServerHttpRequestUtils.cleanHeaderTaint(request, HttpHeaders.CONTENT_TYPE);
 		if (logWebfluxConfig.isDisableMediaType(contentType)) {
 			log.debug("request [{}] contentType [{}] will not be logged in this filter.", request.getPath().value(), contentType);
 			return true;
@@ -84,9 +84,9 @@ public class LogWebfluxRequestFilter implements WebFilter {
 		}
 		long startTime = System.currentTimeMillis();
 		ServerHttpRequest request = exchange.getRequest();
-		String requestId = WebFluxRequestUtils.getRequestId(request);
+		String requestId = ServerHttpRequestUtils.getRequestId(request);
 		String requestURI = request.getURI().getPath();
-		String remoteIp = WebFluxRequestUtils.getIp(request);
+		String remoteIp = ServerHttpRequestUtils.getIp(request);
 		String method = Optional.ofNullable(request.getMethod()).orElse(HttpMethod.GET).name();
 		String parameters = request.getURI().getQuery();
 

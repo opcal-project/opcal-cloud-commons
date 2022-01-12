@@ -32,11 +32,7 @@
         </dependency>
         <dependency>
             <groupId>xyz.opcal.cloud</groupId>
-            <artifactId>opcal-cloud-commons-logback</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>xyz.opcal.cloud</groupId>
-            <artifactId>opcal-cloud-commons-webflux</artifactId>
+            <artifactId>opcal-cloud-commons-logback-http</artifactId>
         </dependency>
     </dependencies>
 

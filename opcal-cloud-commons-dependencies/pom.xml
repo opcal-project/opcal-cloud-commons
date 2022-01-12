@@ -31,22 +31,17 @@
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
-                <artifactId>opcal-cloud-commons-core</artifactId>
+                <artifactId>opcal-cloud-commons-logback</artifactId>
+                <version>0.2.5.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.opcal.cloud</groupId>
+                <artifactId>opcal-cloud-commons-logback-http</artifactId>
                 <version>0.2.5.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-web</artifactId>
-                <version>0.2.5.1-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>xyz.opcal.cloud</groupId>
-                <artifactId>opcal-cloud-commons-webflux</artifactId>
-                <version>0.2.5.1-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>xyz.opcal.cloud</groupId>
-                <artifactId>opcal-cloud-commons-logback</artifactId>
                 <version>0.2.5.1-SNAPSHOT</version>
             </dependency>
             <dependency>

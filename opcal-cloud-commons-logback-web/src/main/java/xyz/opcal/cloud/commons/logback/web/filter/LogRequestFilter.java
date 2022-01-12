@@ -18,7 +18,6 @@ package xyz.opcal.cloud.commons.logback.web.filter;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.FilterChain;
@@ -38,12 +37,12 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.slf4j.Slf4j;
-import xyz.opcal.cloud.commons.core.web.WebConstants;
+import xyz.opcal.cloud.commons.web.WebConstants;
 import xyz.opcal.cloud.commons.logback.web.http.LogRequestWrapper;
 import xyz.opcal.cloud.commons.logback.web.http.LogResponseWrapper;
 import xyz.opcal.cloud.commons.logback.web.http.PathMatcher;
-import xyz.opcal.cloud.commons.core.log.config.LogRequestConfig;
-import xyz.opcal.cloud.commons.web.utils.RequestUtils;
+import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
+import xyz.opcal.cloud.commons.web.utils.HttpServletRequestUtils;
 
 @Slf4j
 @Order(-90)
@@ -69,7 +68,7 @@ public class LogRequestFilter extends OncePerRequestFilter {
 
 	@Override
 	protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-		String contentType = RequestUtils.cleanHeaderTaint(request, HttpHeaders.CONTENT_TYPE);
+		String contentType = HttpServletRequestUtils.cleanHeaderTaint(request, HttpHeaders.CONTENT_TYPE);
 		if (logRequestConfig.isDisableMediaType(contentType)) {
 			log.debug("request [{}] contentType [{}] will not be logged in this filter.", request.getRequestURI(), contentType);
 			return true;
@@ -85,7 +84,7 @@ public class LogRequestFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 		long startTime = System.currentTimeMillis();
 
-		String requestId = RequestUtils.getRequestId(request);
+		String requestId = HttpServletRequestUtils.getRequestId(request);
 		String requestBody = IOUtils.toString(request.getInputStream(), StandardCharsets.UTF_8);
 
 		String requestURI = request.getRequestURI();
@@ -94,7 +93,7 @@ public class LogRequestFilter extends OncePerRequestFilter {
 		String parameters = objectMapper.writeValueAsString(request.getParameterMap());
 		requestLogger.info("url [{}] method [{}] request id [{}] request parameter [{}] body [{}]", requestURI, method, requestId, parameters, requestBody);
 
-		String remoteIp = RequestUtils.getIp(request);
+		String remoteIp = HttpServletRequestUtils.getIp(request);
 
 		LogRequestWrapper requestWrapper = new LogRequestWrapper(requestId, request, requestBody);
 		LogResponseWrapper responseWrapper = new LogResponseWrapper(requestId, response);

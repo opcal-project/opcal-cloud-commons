@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Opcal
+ * Copyright 2022 Opcal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,17 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.web.configuration;
+package xyz.opcal.cloud.commons.web.utils;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
+import org.junit.jupiter.api.Test;
 
-@Configuration
-public class RequestIdConfiguration {
+class TaintUtilsTests {
 
-    @Bean
-    public RequestIdFilter requestIdFilter() {
-        return new RequestIdFilter();
+    @Test
+    void cleanTaint() {
+        String taintValue = "a\nb\rc\td\r\ne";
+        assertEquals("a_b_c_d__e", TaintUtils.cleanTaint(taintValue));
     }
 }

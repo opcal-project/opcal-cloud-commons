@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Opcal
+ * Copyright 2021-2022 Opcal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.logback.webflux.annotation;
+package xyz.opcal.cloud.commons.web.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -23,14 +23,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import org.springframework.context.annotation.Import;
-import xyz.opcal.cloud.commons.logback.webflux.configuration.LogWebfluxRequestIdConfiguration;
-import xyz.opcal.cloud.commons.web.annotation.EnableReactiveRequestId;
+import xyz.opcal.cloud.commons.web.configuration.ReactiveRequestIdConfiguration;
+
 
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@EnableReactiveRequestId
-@Import(LogWebfluxRequestIdConfiguration.class)
-public @interface EnableLogWebfluxRequestId {
+@Import(ReactiveRequestIdConfiguration.class)
+public @interface EnableReactiveRequestId {
 
 }

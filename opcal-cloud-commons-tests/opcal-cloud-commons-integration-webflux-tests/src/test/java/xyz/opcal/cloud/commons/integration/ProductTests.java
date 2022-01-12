@@ -26,8 +26,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-import xyz.opcal.cloud.commons.core.web.WebConstants;
 import xyz.opcal.cloud.commons.integration.entity.Product;
+import xyz.opcal.cloud.commons.web.WebConstants;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class ProductTests {

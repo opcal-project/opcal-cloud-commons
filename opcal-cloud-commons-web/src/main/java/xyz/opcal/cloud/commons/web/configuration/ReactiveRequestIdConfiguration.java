@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Opcal
+ * Copyright 2021-2022 Opcal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,13 +19,13 @@ package xyz.opcal.cloud.commons.web.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
+import xyz.opcal.cloud.commons.web.reactive.filter.ReactiveRequestIdFilter;
 
 @Configuration
-public class RequestIdConfiguration {
+public class ReactiveRequestIdConfiguration {
 
     @Bean
-    public RequestIdFilter requestIdFilter() {
-        return new RequestIdFilter();
+    public ReactiveRequestIdFilter reactiveRequestIdFilter() {
+        return new ReactiveRequestIdFilter();
     }
 }
