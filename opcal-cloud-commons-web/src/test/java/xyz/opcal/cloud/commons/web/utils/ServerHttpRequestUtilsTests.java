@@ -76,4 +76,12 @@ class ServerHttpRequestUtilsTests {
         MockServerHttpRequest request = MockServerHttpRequest.get("/").header(WebConstants.HEADER_X_REAL_IP, IP_3).build();
         assertEquals(IP_3, ServerHttpRequestUtils.getIp(request));
     }
+
+    @Test
+    @Order(7)
+    void getIp5() {
+        MockServerHttpRequest request = MockServerHttpRequest.get("/").header(WebConstants.HEADER_X_REAL_IP, WebConstants.LOCALHOST_IP).build();
+        assertEquals(WebConstants.LOCALHOST_IP, ServerHttpRequestUtils.getIp(request));
+    }
+
 }

@@ -86,4 +86,12 @@ class HttpServletRequestUtilsTests {
 		this.request.addHeader(WebConstants.HEADER_X_REAL_IP, IP_3);
 		assertEquals(IP_3, HttpServletRequestUtils.getIp(this.request));
 	}
+
+	@Test
+	@Order(7)
+	void getIp5() {
+		this.request.addHeader(WebConstants.HEADER_X_REAL_IP, WebConstants.LOCALHOST_IP);
+		assertEquals(WebConstants.LOCALHOST_IP, HttpServletRequestUtils.getIp(this.request));
+	}
+
 }
