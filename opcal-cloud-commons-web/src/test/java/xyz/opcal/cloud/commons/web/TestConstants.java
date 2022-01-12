@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Opcal
+ * Copyright 2022 Opcal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,16 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.web.configuration;
+package xyz.opcal.cloud.commons.web;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
-import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class TestConstants {
 
-@Configuration
-public class RequestIdConfiguration {
+    public static final String IP_1 = "10.0.0.1";
+    public static final String IP_2 = "10.0.0.2";
+    public static final String IP_3 = "10.0.0.3";
 
-    @Bean
-    public RequestIdFilter requestIdFilter() {
-        return new RequestIdFilter();
-    }
 }

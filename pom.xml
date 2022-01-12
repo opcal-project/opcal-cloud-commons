@@ -261,12 +261,11 @@
     <modules>
         <module>opcal-cloud-commons-dependencies</module>
         <module>opcal-cloud-parent</module>
-        <module>opcal-cloud-commons-tests</module>
-        <module>opcal-cloud-commons-logback</module>
-        <module>opcal-cloud-commons-logback-web</module>
         <module>opcal-cloud-commons-web</module>
-        <module>opcal-cloud-commons-webflux</module>
+        <module>opcal-cloud-commons-logback</module>
+        <module>opcal-cloud-commons-logback-http</module>
+        <module>opcal-cloud-commons-logback-web</module>
         <module>opcal-cloud-commons-logback-webflux</module>
-        <module>opcal-cloud-commons-core</module>
+        <module>opcal-cloud-commons-tests</module>
     </modules>
 </project>

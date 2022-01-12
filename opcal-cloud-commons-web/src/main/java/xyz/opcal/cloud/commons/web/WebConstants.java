@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Opcal
+ * Copyright 2021-2022 Opcal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.web.configuration;
+package xyz.opcal.cloud.commons.web;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
-import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class WebConstants {
 
-@Configuration
-public class RequestIdConfiguration {
+	public static final String HEADER_X_REQUEST_ID = "X-Request-Id";
+	public static final String HEADER_X_REAL_IP = "x-real-ip";
 
-    @Bean
-    public RequestIdFilter requestIdFilter() {
-        return new RequestIdFilter();
-    }
+	public static final String HEADER_W_CONNECTING_IP = "worker-connecting-ip";
+	public static final String HEADER_CF_CONNECTING_IP = "CF-Connecting-IP";
+
+	public static final String LOCALHOST_IP = "127.0.0.1";
 }

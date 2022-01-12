@@ -21,7 +21,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import xyz.opcal.cloud.commons.core.log.config.LogRequestConfig;
+import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.webflux.filter.LogWebfluxRequestFilter;
 
 @Configuration

@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Opcal
+ * Copyright 2021-2021 Opcal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,44 +14,34 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.logback.web.filter;
+package xyz.opcal.cloud.commons.web.servlet.filter;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.MDC;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import xyz.opcal.cloud.commons.logback.OpcalLogbackConstants;
-import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
+import xyz.opcal.cloud.commons.web.servlet.http.IdRequestWrapper;
 import xyz.opcal.cloud.commons.web.utils.HttpServletRequestUtils;
 
-@Order(-99)
-public class LogRequestIdFilter extends OncePerRequestFilter {
+@Order(-100)
+public class RequestIdFilter extends OncePerRequestFilter {
 
-	/**
-	 * Filter Chain after RequestIdFilter, requestId is not null.
-	 * 
-	 * @see RequestIdFilter
-	 * @param request
-	 * @param response
-	 * @param filterChain
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-
-		MDC.put(OpcalLogbackConstants.MDC_THREAD_ID, HttpServletRequestUtils.getRequestId(request));
-		try {
-			filterChain.doFilter(request, response);
-		} finally {
-			MDC.clear();
+		String requestId = HttpServletRequestUtils.getRequestId(request);
+		HttpServletRequest chainRequest = request;
+		if (StringUtils.isBlank(requestId)) {
+			requestId = UUID.randomUUID().toString().replace("-", "");
+			chainRequest = new IdRequestWrapper(requestId, request);
 		}
+		filterChain.doFilter(chainRequest, response);
 	}
 }

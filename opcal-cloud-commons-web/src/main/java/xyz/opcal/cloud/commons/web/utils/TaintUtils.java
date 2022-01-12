@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Opcal
+ * Copyright 2021-2022 Opcal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,20 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.web.configuration;
+package xyz.opcal.cloud.commons.web.utils;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.apache.commons.lang3.RegExUtils;
 
-import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
+import lombok.experimental.UtilityClass;
 
-@Configuration
-public class RequestIdConfiguration {
+@UtilityClass
+public class TaintUtils {
 
-    @Bean
-    public RequestIdFilter requestIdFilter() {
-        return new RequestIdFilter();
-    }
+	public static final String B_H_REG_EX = "[\\n\\r\\t]";
+	public static final String B_H_REG_EX_REPLACEMENT = "_";
+
+	public static String cleanTaint(String value) {
+		return RegExUtils.replaceAll(value, B_H_REG_EX, B_H_REG_EX_REPLACEMENT);
+	}
+
 }
