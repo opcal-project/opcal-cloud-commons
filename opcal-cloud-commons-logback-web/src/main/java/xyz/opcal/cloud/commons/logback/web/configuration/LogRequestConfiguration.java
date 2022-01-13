@@ -21,6 +21,8 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.web.filter.LogRequestFilter;
 
@@ -35,8 +37,8 @@ public class LogRequestConfiguration {
 	}
 
 	@Bean
-	public LogRequestFilter logRequestFilter() {
-		return new LogRequestFilter();
+	public LogRequestFilter logRequestFilter(ObjectMapper objectMapper, LogRequestConfig logRequestConfig) {
+		return new LogRequestFilter(objectMapper, logRequestConfig);
 	}
 
 }

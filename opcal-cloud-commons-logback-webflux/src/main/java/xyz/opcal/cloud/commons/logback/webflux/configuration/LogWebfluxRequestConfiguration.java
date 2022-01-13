@@ -35,7 +35,7 @@ public class LogWebfluxRequestConfiguration {
 	}
 
 	@Bean
-	public LogWebfluxRequestFilter logWebfluxRequestFilter() {
-		return new LogWebfluxRequestFilter();
+	public LogWebfluxRequestFilter logWebfluxRequestFilter(LogRequestConfig logWebfluxConfig) {
+		return new LogWebfluxRequestFilter(logWebfluxConfig);
 	}
 }

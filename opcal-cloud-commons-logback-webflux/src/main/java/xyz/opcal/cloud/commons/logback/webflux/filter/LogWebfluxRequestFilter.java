@@ -19,12 +19,9 @@ package xyz.opcal.cloud.commons.logback.webflux.filter;
 import java.util.Arrays;
 import java.util.Optional;
 
-import javax.annotation.PostConstruct;
-
 import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -51,12 +48,14 @@ public class LogWebfluxRequestFilter implements WebFilter {
 	private static final Logger accessLogger = LoggerFactory.getLogger("accessLogger");
 
 	private final AntPathMatcher pathMatcher = new AntPathMatcher();
-
-	private @Autowired LogRequestConfig logWebfluxConfig;
-
+	private final LogRequestConfig logWebfluxConfig;
 	private String[] disablePaths = new String[0];
 
-	@PostConstruct
+	public LogWebfluxRequestFilter(LogRequestConfig logWebfluxConfig) {
+		this.logWebfluxConfig = logWebfluxConfig;
+		init();
+	}
+
 	public void init() {
 		if (ArrayUtils.isNotEmpty(logWebfluxConfig.getDisablePaths())) {
 			disablePaths = logWebfluxConfig.getDisablePaths();
@@ -109,7 +108,8 @@ public class LogWebfluxRequestFilter implements WebFilter {
 			long millis = System.currentTimeMillis() - startTime;
 			requestLogger.info("url [{}] method [{}] request id [{}] request parameter [{}] body [{}]", requestURI, method, requestId, parameters,
 					logRequestDecorator);
-			requestLogger.info("url [{}] request id [{}] status [{}] response body [{}]", requestURI, requestId, logResponseDecorator.getStatusCode() ,logResponseDecorator);
+			requestLogger.info("url [{}] request id [{}] status [{}] response body [{}]", requestURI, requestId, logResponseDecorator.getStatusCode(),
+					logResponseDecorator);
 			accessLogger.info("remote ip [{}] url [{}] request id [{}] finished in [{}] milliseconds", remoteIp, requestURI, requestId, millis);
 		});
 	}
