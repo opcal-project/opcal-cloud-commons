@@ -16,7 +16,13 @@ cache:
   paths:
     - .m2/repository
     - .sonar/cache
-    
+
+.test-only : &test-only
+  stage: test
+  script:
+    - ./mvnw clean $MAVEN_CLI_OPTS test -Dgpg.skip=true
+
+
 .test-templete : &test-templete
   stage: test
   script:
@@ -45,14 +51,14 @@ test-tags:
     - tags
 
 test-temurin:
-  <<: *test-templete
+  <<: *test-only
   image: eclipse-temurin:11-jdk-focal
   except:
     changes:
       - "*.md"
 
 test-tags-temurin:
-  <<: *test-templete
+  <<: *test-only
   image: eclipse-temurin:11-jdk-focal
   only:
     - tags
