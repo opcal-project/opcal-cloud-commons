@@ -17,6 +17,7 @@
 package xyz.opcal.cloud.commons.web.utils;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static xyz.opcal.cloud.commons.web.TestConstants.IP_1;
 import static xyz.opcal.cloud.commons.web.TestConstants.IP_2;
 import static xyz.opcal.cloud.commons.web.TestConstants.IP_3;
@@ -41,6 +42,12 @@ class HttpServletRequestUtilsTests {
 		this.request.setScheme("http");
 		this.request.setServerName("localhost");
 		this.request.setServerPort(80);
+	}
+
+	@Test
+	@Order(0)
+	void testConstructor() {
+		assertThrows(UnsupportedOperationException.class, () -> PrivateConstructorUtils.invokePrivateConstructor(HttpServletRequestUtils.class));
 	}
 
 	@Test

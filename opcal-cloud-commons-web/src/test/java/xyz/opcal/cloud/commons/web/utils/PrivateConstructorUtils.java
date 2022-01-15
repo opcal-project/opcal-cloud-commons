@@ -16,21 +16,20 @@
 
 package xyz.opcal.cloud.commons.web.utils;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
-import org.junit.jupiter.api.Test;
+class PrivateConstructorUtils {
 
-class TaintUtilsTests {
+	static <T> void invokePrivateConstructor(final Class<T> type) throws Throwable {
+		final Constructor<T> constructor = type.getDeclaredConstructor();
 
-    @Test
-    void testConstructor() {
-        assertThrows(UnsupportedOperationException.class, () -> PrivateConstructorUtils.invokePrivateConstructor(TaintUtils.class));
-    }
+		constructor.setAccessible(true);
 
-    @Test
-    void cleanTaint() {
-        String taintValue = "a\nb\rc\td\r\ne";
-        assertEquals("a_b_c_d__e", TaintUtils.cleanTaint(taintValue));
-    }
+		try {
+			constructor.newInstance();
+		} catch (InvocationTargetException ex) {
+			throw ex.getTargetException();
+		}
+	}
 }
