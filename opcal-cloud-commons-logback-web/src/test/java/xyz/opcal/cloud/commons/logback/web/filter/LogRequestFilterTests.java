@@ -41,11 +41,13 @@ import org.springframework.web.filter.CompositeFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.extern.slf4j.Slf4j;
 import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.web.http.LogRequestWrapper;
 import xyz.opcal.cloud.commons.logback.web.http.LogResponseWrapper;
 import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
 
+@Slf4j
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class LogRequestFilterTests {
 
@@ -118,6 +120,7 @@ class LogRequestFilterTests {
 			assertNotNull(((LogResponseWrapper) filterResponse).getRequestId());
 
 			filterResponse.getOutputStream().write(objectMapper.writeValueAsBytes(result));
+			log.info("request [{}]", filterRequest);
 		};
 
 		setup(objectMapper, new LogRequestConfig()).doFilter(request, response, filterChain);

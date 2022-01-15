@@ -25,25 +25,32 @@ import java.util.Collections;
 import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 import xyz.opcal.cloud.commons.web.WebConstants;
 
 class IdRequestWrapperTests {
 
-    @Test
-    void requestIdTest() {
-        String requestId = UUID.randomUUID().toString().replace("-", "");
-        MockHttpServletRequest request = new MockHttpServletRequest();
-        IdRequestWrapper idRequestWrapper = new IdRequestWrapper(requestId, request);
-        assertEquals(requestId, idRequestWrapper.getRequestId());
+	@Test
+	void requestIdTest() {
+		String requestId = UUID.randomUUID().toString().replace("-", "");
+		MockHttpServletRequest request = new MockHttpServletRequest();
+		request.addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
 
-        assertNotNull(idRequestWrapper.getHeader(WebConstants.HEADER_X_REQUEST_ID));
+		IdRequestWrapper idRequestWrapper = new IdRequestWrapper(requestId, request);
+		assertEquals(requestId, idRequestWrapper.getRequestId());
 
-        assertNotNull(idRequestWrapper.getHeaderNames());
-        assertThat(WebConstants.HEADER_X_REQUEST_ID, in(Collections.list(idRequestWrapper.getHeaderNames())));
+		assertNotNull(idRequestWrapper.getHeader(WebConstants.HEADER_X_REQUEST_ID));
 
-        assertNotNull(idRequestWrapper.getHeaders(WebConstants.HEADER_X_REQUEST_ID));
-        assertThat(requestId, in(Collections.list(idRequestWrapper.getHeaders(WebConstants.HEADER_X_REQUEST_ID))));
-    }
+		assertNotNull(idRequestWrapper.getHeaderNames());
+		assertThat(WebConstants.HEADER_X_REQUEST_ID, in(Collections.list(idRequestWrapper.getHeaderNames())));
+
+		assertNotNull(idRequestWrapper.getHeaders(WebConstants.HEADER_X_REQUEST_ID));
+		assertThat(requestId, in(Collections.list(idRequestWrapper.getHeaders(WebConstants.HEADER_X_REQUEST_ID))));
+
+		assertNotNull(idRequestWrapper.getHeader(HttpHeaders.CONTENT_TYPE));
+		assertThat(MediaType.APPLICATION_JSON_VALUE, in(Collections.list(idRequestWrapper.getHeaders(HttpHeaders.CONTENT_TYPE))));
+	}
 }

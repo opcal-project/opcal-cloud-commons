@@ -129,6 +129,7 @@ class LogWebfluxRequestFilterTests {
 			if (Objects.nonNull(dataBuffer)) {
 				dataBuffer.toString(Charset.defaultCharset());// mock doing something
 				response.setStatusCode(HttpStatus.OK);
+				response.writeAndFlushWith(Flux.just(Flux.just(response.bufferFactory().wrap("ok".getBytes(StandardCharsets.UTF_8)))));
 				return response.writeWith(Flux.just(response.bufferFactory().wrap("ok".getBytes(StandardCharsets.UTF_8))));
 			}
 			return Mono.empty();
