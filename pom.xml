@@ -18,7 +18,7 @@
 
     <properties>
         <!-- spring version -->
-        <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
+        <spring-cloud.version>2020.0.5</spring-cloud.version>
 
         <!-- jdk version -->
         <java.version>11</java.version>
