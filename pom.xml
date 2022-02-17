@@ -11,7 +11,7 @@
 
     <groupId>xyz.opcal.cloud</groupId>
     <artifactId>opcal-cloud-commons</artifactId>
-    <version>0.2.4.1-SNAPSHOT</version>
+    <version>0.2.4.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>opcal-cloud-commons</name>
     <description>commons project module for system</description>
