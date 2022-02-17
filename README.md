@@ -9,6 +9,7 @@ commons project module for system
 |  Release  |   Branch  | Spring Boot | Spring Cloud |
 |   :---:   |   :---:   |    :---:    |     :---:    |
 | 0.2.5.1   |    main   |   2.5.8     |   2020.0.4   |
+| 0.2.4.1   |  0.2.4.x  |   2.4.13    |   2020.0.5   |
 | 0.2.3.1   |  0.2.3.x  |   2.3.12    |  Hoxton.SR12 |
 
 ## How to Use
