@@ -8,6 +8,19 @@ commons project module for system
 ## Release Train Table
 |  Release  |   Branch  | Spring Boot | Spring Cloud |
 |   :---:   |   :---:   |    :---:    |     :---:    |
-| 0.2.5.1   |    main   |   2.5.8     |   2020.0.4   |
+| 0.2.6.1-SNAPSHOT   |    main   |   2.6.3     |   2021.0.1   |
+| 0.2.5.2   |  0.2.5.x  |   2.5.9     |   2020.0.5   |
 | 0.2.4.1   |  0.2.4.x  |   2.4.13    |   2020.0.5   |
 | 0.2.3.1   |  0.2.3.x  |   2.3.12    |  Hoxton.SR12 |
+
+## How to Use
+### Add maven parent
+
+```xml
+<parent>
+    <groupId>xyz.opcal.cloud</groupId>
+    <artifactId>opcal-cloud-parent</artifactId>
+    <version>0.2.5.2</version>
+    <relativePath/>
+</parent>
+```
