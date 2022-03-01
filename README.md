@@ -20,7 +20,7 @@ commons project module for system
 <parent>
     <groupId>xyz.opcal.cloud</groupId>
     <artifactId>opcal-cloud-parent</artifactId>
-    <version>0.2.5.2</version>
+    <version>0.2.5.3</version>
     <relativePath/>
 </parent>
 ```
