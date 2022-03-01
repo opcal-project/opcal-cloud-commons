@@ -9,7 +9,7 @@ commons project module for system
 |  Release  |   Branch  | Spring Boot | Spring Cloud |
 |   :---:   |   :---:   |    :---:    |     :---:    |
 | 0.2.6.1-SNAPSHOT   |    main   |   2.6.3     |   2021.0.1   |
-| 0.2.5.2   |  0.2.5.x  |   2.5.9     |   2020.0.5   |
+| 0.2.5.3   |  0.2.5.x  |   2.5.10    |   2020.0.5   |
 | 0.2.4.1   |  0.2.4.x  |   2.4.13    |   2020.0.5   |
 | 0.2.3.1   |  0.2.3.x  |   2.3.12    |  Hoxton.SR12 |
 
@@ -20,7 +20,7 @@ commons project module for system
 <parent>
     <groupId>xyz.opcal.cloud</groupId>
     <artifactId>opcal-cloud-parent</artifactId>
-    <version>0.2.5.2</version>
+    <version>0.2.5.3</version>
     <relativePath/>
 </parent>
 ```
