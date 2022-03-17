@@ -34,8 +34,6 @@
         <sonar.exclusions>**/*Application.java,**/ServletInitializer.java,**/.flattened-pom.xml</sonar.exclusions>
         <sonar.scanner.force-deprecated-java-version>true</sonar.scanner.force-deprecated-java-version>
 
-        <lombok.version>1.18.22</lombok.version>
-
         <!-- plugin version -->
         <flatten-maven-plugin-version>1.2.7</flatten-maven-plugin-version>
         <jacoco-maven-plugin-version>0.8.7</jacoco-maven-plugin-version>
@@ -48,8 +46,6 @@
         <maven-resource-plugin-version>3.2.0</maven-resource-plugin-version>
         <maven-source-plugin-version>3.2.1</maven-source-plugin-version>
         <lombok-plugin-version>1.18.20.0</lombok-plugin-version>
-<!--        <maven-surefire-plugin-version>3.0.0-M5</maven-surefire-plugin-version>-->
-<!--        <maven-failsafe-plugin-version>3.0.0-M5</maven-failsafe-plugin-version>-->
     </properties>
 
     <licenses>
