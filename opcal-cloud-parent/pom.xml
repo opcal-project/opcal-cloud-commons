@@ -29,16 +29,16 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
+                <groupId>xyz.opcal.cloud</groupId>
+                <artifactId>opcal-cloud-commons-dependencies</artifactId>
+                <version>0.2.4.2-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>xyz.opcal.cloud</groupId>
-                <artifactId>opcal-cloud-commons-dependencies</artifactId>
-                <version>0.2.4.2-SNAPSHOT</version>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -61,5 +61,22 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <configuration combine.self="override">
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>bom</flattenMode>
+                    <pomElements>
+                        <parent>resolve</parent>
+                        <properties>keep</properties>
+                    </pomElements>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
