@@ -7,6 +7,7 @@
         <groupId>xyz.opcal.cloud</groupId>
         <artifactId>opcal-cloud-commons-dependencies</artifactId>
         <version>0.2.6.3-SNAPSHOT</version>
+        <relativePath>../opcal-cloud-commons-dependencies</relativePath>
     </parent>
 
     <artifactId>opcal-cloud-parent</artifactId>
