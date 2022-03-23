@@ -16,6 +16,9 @@
     <name>opcal-cloud-parent</name>
 
     <properties>
+        <!-- spring cloud version -->
+        <spring-cloud.version>2021.0.1</spring-cloud.version>
+
         <!-- compiler properties -->
         <resource.delimiter>@</resource.delimiter>
         <maven.compiler.source>${java.version}</maven.compiler.source>
