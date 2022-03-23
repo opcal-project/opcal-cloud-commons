@@ -2,14 +2,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>xyz.opcal.cloud</groupId>
-        <artifactId>opcal-cloud-commons-dependencies</artifactId>
+        <artifactId>opcal-cloud-commons</artifactId>
         <version>0.2.6.3-SNAPSHOT</version>
-        <relativePath>../opcal-cloud-commons-dependencies</relativePath>
     </parent>
-
     <artifactId>opcal-cloud-parent</artifactId>
     <packaging>pom</packaging>
     <description>opcal cloud parent pom</description>
@@ -29,6 +26,13 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>xyz.opcal.cloud</groupId>
+                <artifactId>opcal-cloud-commons-dependencies</artifactId>
+                <version>0.2.6.3-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -65,7 +69,7 @@
                     <updatePomFile>true</updatePomFile>
                     <flattenMode>bom</flattenMode>
                     <pomElements>
-                        <parent>keep</parent>
+                        <parent>resolve</parent>
                         <properties>keep</properties>
                     </pomElements>
                 </configuration>
