@@ -69,8 +69,6 @@
                 <artifactId>flatten-maven-plugin</artifactId>
                 <configuration>
                     <pomElements>
-                        <updatePomFile>true</updatePomFile>
-                        <flattenMode>bom</flattenMode>
                         <properties>keep</properties>
                     </pomElements>
                 </configuration>
