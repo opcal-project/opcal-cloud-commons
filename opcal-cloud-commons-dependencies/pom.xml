@@ -65,6 +65,9 @@
                 <configuration combine.self="override">
                     <updatePomFile>true</updatePomFile>
                     <flattenMode>bom</flattenMode>
+                    <pomElements>
+                        <parent>keep</parent>
+                    </pomElements>
                 </configuration>
             </plugin>
         </plugins>
