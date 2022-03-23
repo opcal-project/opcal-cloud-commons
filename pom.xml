@@ -17,9 +17,6 @@
     <description>commons project module for system</description>
 
     <properties>
-        <!-- spring version -->
-        <spring-cloud.version>2021.0.1</spring-cloud.version>
-
         <!-- jdk version -->
         <java.version>11</java.version>
 

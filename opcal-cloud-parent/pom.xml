@@ -7,7 +7,6 @@
         <groupId>xyz.opcal.cloud</groupId>
         <artifactId>opcal-cloud-commons-dependencies</artifactId>
         <version>0.2.6.3-SNAPSHOT</version>
-        <relativePath>../opcal-cloud-commons-dependencies</relativePath>
     </parent>
 
     <artifactId>opcal-cloud-parent</artifactId>
@@ -16,6 +15,10 @@
     <name>opcal-cloud-parent</name>
 
     <properties>
+
+        <!-- spring version -->
+        <spring-cloud.version>2021.0.1</spring-cloud.version>
+
         <!-- compiler properties -->
         <resource.delimiter>@</resource.delimiter>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -26,6 +29,18 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
