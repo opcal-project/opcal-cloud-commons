@@ -62,4 +62,20 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <configuration>
+                    <pomElements>
+                        <updatePomFile>true</updatePomFile>
+                        <flattenMode>bom</flattenMode>
+                        <properties>keep</properties>
+                    </pomElements>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

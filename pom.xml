@@ -138,9 +138,6 @@
                     <configuration>
                         <updatePomFile>true</updatePomFile>
                         <flattenMode>bom</flattenMode>
-                        <pomElements>
-                            <properties>keep</properties>
-                        </pomElements>
                     </configuration>
                     <executions>
                         <execution>
