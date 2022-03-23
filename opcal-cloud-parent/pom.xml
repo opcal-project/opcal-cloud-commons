@@ -6,13 +6,25 @@
     <parent>
         <groupId>xyz.opcal.cloud</groupId>
         <artifactId>opcal-cloud-commons</artifactId>
-        <version>0.2.3.2-SNAPSHOT</version>
+        <version>0.2.3.3-SNAPSHOT</version>
     </parent>
 
     <artifactId>opcal-cloud-parent</artifactId>
     <packaging>pom</packaging>
     <description>opcal cloud parent pom</description>
     <name>opcal-cloud-parent</name>
+
+    <properties>
+        <!-- compiler properties -->
+        <resource.delimiter>@</resource.delimiter>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <!-- encoding -->
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -26,7 +38,7 @@
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-dependencies</artifactId>
-                <version>0.2.3.2-SNAPSHOT</version>
+                <version>0.2.3.3-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
