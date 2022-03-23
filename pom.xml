@@ -15,6 +15,7 @@
     <packaging>pom</packaging>
     <name>opcal-cloud-commons</name>
     <description>commons project module for system</description>
+    <url>https://gitlab.com/opcal-project/opcal-cloud-commons</url>
 
     <properties>
         <!-- spring version -->
