@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
     <name>opcal-cloud-commons</name>
     <description>commons project module for system</description>
-
+    <url>https://gitlab.com/opcal-project/opcal-cloud-commons</url>
     <properties>
         <!-- spring version -->
         <spring-cloud.version>2020.0.5</spring-cloud.version>
@@ -49,8 +49,6 @@
         <maven-resource-plugin-version>3.2.0</maven-resource-plugin-version>
         <maven-source-plugin-version>3.2.1</maven-source-plugin-version>
         <lombok-plugin-version>1.18.20.0</lombok-plugin-version>
-<!--        <maven-surefire-plugin-version>3.0.0-M5</maven-surefire-plugin-version>-->
-<!--        <maven-failsafe-plugin-version>3.0.0-M5</maven-failsafe-plugin-version>-->
     </properties>
 
     <licenses>
