@@ -8,8 +8,8 @@ commons project module for system
 ## Release Train Table
 |  Release  |   Branch  | Spring Boot | Spring Cloud |
 |   :---:   |   :---:   |    :---:    |     :---:    |
-| 0.2.6.4   |    main   |   2.6.5     |   2021.0.1   |
-| 0.2.5.7   |  0.2.5.x  |   2.5.11    |   2020.0.5   |
+| 0.2.6.5   |    main   |   2.6.6     |   2021.0.1   |
+| 0.2.5.8   |  0.2.5.x  |   2.5.12    |   2020.0.5   |
 | 0.2.4.2   |  0.2.4.x  |   2.4.13    |   2020.0.5   |
 | 0.2.3.3   |  0.2.3.x  |   2.3.12    |  Hoxton.SR12 |
 
