@@ -14,13 +14,13 @@ commons project module for system
 | 0.2.3.3   |  0.2.3.x  |   2.3.12    |  Hoxton.SR12 |
 
 ## How to Use
-### Add maven parent
+### Using maven parent
 
 ```xml
 <parent>
     <groupId>xyz.opcal.cloud</groupId>
     <artifactId>opcal-cloud-parent</artifactId>
-    <version>0.2.6.3</version>
+    <version>0.2.6.5</version>
     <relativePath/>
 </parent>
 ```
