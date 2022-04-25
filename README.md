@@ -8,10 +8,10 @@ commons project module for system
 ## Release Train Table
 |  Release  |   Branch  | Spring Boot | Spring Cloud |
 |   :---:   |   :---:   |    :---:    |     :---:    |
-| 0.2.6.1   |    main   |   2.6.4     |   2021.0.1   |
-| 0.2.5.5   |  0.2.5.x  |   2.5.10    |   2020.0.5   |
-| 0.2.4.1   |  0.2.4.x  |   2.4.13    |   2020.0.5   |
-| 0.2.3.1   |  0.2.3.x  |   2.3.12    |  Hoxton.SR12 |
+| 0.2.6.6   |    main   |   2.6.7     |   2021.0.1   |
+| 0.2.5.9   |  0.2.5.x  |   2.5.13    |   2020.0.5   |
+| 0.2.4.2   |  0.2.4.x  |   2.4.13    |   2020.0.5   |
+| 0.2.3.3   |  0.2.3.x  |   2.3.12    |  Hoxton.SR12 |
 
 ## How to Use
 ### Add maven parent
