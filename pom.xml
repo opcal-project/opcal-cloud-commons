@@ -11,7 +11,7 @@
 
     <groupId>xyz.opcal.cloud</groupId>
     <artifactId>opcal-cloud-commons</artifactId>
-    <version>${revision}</version>
+    <version>0.2.6.7-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>opcal-cloud-commons</name>
     <description>commons project module for system</description>
@@ -19,8 +19,7 @@
 
     <properties>
         <!-- project version -->
-        <revision>0.2.6.7-SNAPSHOT</revision>
-        <opcal-cloud.revision>${revision}</opcal-cloud.revision>
+        <opcal-cloud.revision>${project.version}</opcal-cloud.revision>
 
         <!-- spring version -->
         <spring-cloud.version>2021.0.2</spring-cloud.version>
