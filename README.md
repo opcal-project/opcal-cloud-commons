@@ -16,11 +16,12 @@ commons project module for system
 ## How to Use
 ### Using maven parent
 
+Replace {opcal-cloud.version} that if necessary to support required Spring Boot and Spring Cloud version.
 ```xml
 <parent>
     <groupId>xyz.opcal.cloud</groupId>
     <artifactId>opcal-cloud-parent</artifactId>
-    <version>0.2.6.7</version>
+    <version>{opcal-cloud.version}</version>
     <relativePath/>
 </parent>
 ```
