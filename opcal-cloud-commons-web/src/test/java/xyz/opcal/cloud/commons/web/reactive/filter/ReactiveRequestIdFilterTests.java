@@ -20,13 +20,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.mock.http.server.reactive.MockServerHttpRequest;
 import org.springframework.mock.web.server.MockServerWebExchange;
 import org.springframework.web.server.ServerWebExchange;
+import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebHandler;
 import org.springframework.web.server.handler.FilteringWebHandler;
 
@@ -39,7 +42,12 @@ class ReactiveRequestIdFilterTests {
 	@Test
 	void requestIdFilter() {
 		RequestIdWebHandler targetHandler = new RequestIdWebHandler();
-		new FilteringWebHandler(targetHandler, Collections.singletonList(new ReactiveRequestIdFilter()))
+		List<WebFilter> filters = Arrays.asList(new ReactiveRequestIdFilter(), //
+				(exchange, chain) -> chain.filter(exchange).contextWrite(context -> {
+					assertNotNull(context.get(WebConstants.HEADER_X_REQUEST_ID));
+					return context;
+				}));
+		new FilteringWebHandler(targetHandler, filters) //
 				.handle(MockServerWebExchange.from(MockServerHttpRequest.get("/"))) //
 				.block(Duration.ZERO);
 		assertNotNull(targetHandler.getRequestId());

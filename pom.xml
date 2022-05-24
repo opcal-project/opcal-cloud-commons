@@ -26,6 +26,8 @@
         <!-- jdk version -->
         <java.version>11</java.version>
 
+        <playtika-feign-reactive.version>3.2.1</playtika-feign-reactive.version>
+
         <!-- encoding -->
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -330,5 +332,7 @@
         <module>opcal-cloud-commons-logback-web</module>
         <module>opcal-cloud-commons-logback-webflux</module>
         <module>opcal-cloud-commons-tests</module>
+        <module>opcal-cloud-commons-openfeign</module>
+        <module>opcal-cloud-commons-feign-reactive</module>
     </modules>
 </project>

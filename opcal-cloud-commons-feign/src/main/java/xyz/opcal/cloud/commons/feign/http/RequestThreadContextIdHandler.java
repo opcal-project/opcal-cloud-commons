@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Opcal
+ * Copyright 2022 Opcal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,17 +14,15 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.integration;
+package xyz.opcal.cloud.commons.feign.http;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import xyz.opcal.cloud.commons.web.WebConstants;
+import xyz.opcal.cloud.commons.web.context.RequestThreadContext;
 
-@EnableFeignClients
-@SpringBootApplication
-public class IntegrationWebApplication {
+public class RequestThreadContextIdHandler implements RequestIdHandler{
 
-	public static void main(String[] args) {
-		SpringApplication.run(IntegrationWebApplication.class, args);
-	}
+    @Override
+    public String getRequestId() {
+        return (String) RequestThreadContext.get(WebConstants.HEADER_X_REQUEST_ID);
+    }
 }

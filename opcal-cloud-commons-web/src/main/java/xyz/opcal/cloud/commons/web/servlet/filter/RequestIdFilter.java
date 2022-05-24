@@ -28,6 +28,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import xyz.opcal.cloud.commons.web.WebConstants;
 import xyz.opcal.cloud.commons.web.servlet.http.IdRequestWrapper;
 import xyz.opcal.cloud.commons.web.utils.HttpServletRequestUtils;
 
@@ -42,6 +43,7 @@ public class RequestIdFilter extends OncePerRequestFilter {
 			requestId = UUID.randomUUID().toString().replace("-", "");
 			chainRequest = new IdRequestWrapper(requestId, request);
 		}
+		request.setAttribute(WebConstants.HEADER_X_REQUEST_ID, requestId);
 		filterChain.doFilter(chainRequest, response);
 	}
 }

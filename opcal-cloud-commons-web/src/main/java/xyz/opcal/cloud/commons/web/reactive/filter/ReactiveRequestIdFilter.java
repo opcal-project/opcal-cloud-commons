@@ -16,6 +16,8 @@
 
 package xyz.opcal.cloud.commons.web.reactive.filter;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
@@ -26,6 +28,7 @@ import org.springframework.web.server.WebFilterChain;
 
 import reactor.core.publisher.Mono;
 import xyz.opcal.cloud.commons.web.WebConstants;
+import xyz.opcal.cloud.commons.web.context.RequestThreadContext;
 import xyz.opcal.cloud.commons.web.utils.ServerHttpRequestUtils;
 
 @Order(-100)
@@ -33,17 +36,22 @@ public class ReactiveRequestIdFilter implements WebFilter {
 
 	@Override
 	public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
+		RequestThreadContext.setRequestContext(Collections.synchronizedMap(new HashMap<>()));
 		String requestId = ServerHttpRequestUtils.getRequestId(exchange.getRequest());
 		ServerWebExchange chainExchange = exchange;
 		if (StringUtils.isBlank(requestId)) {
-			String newReqId = UUID.randomUUID().toString().replace("-", "");
+			requestId = UUID.randomUUID().toString().replace("-", "");
+			String newReqId = requestId;
 			chainExchange = exchange.mutate().request( //
 					exchange.getRequest().mutate() //
 							.headers(httpHeaders -> httpHeaders.add(WebConstants.HEADER_X_REQUEST_ID, newReqId)) //
 							.build() //
 			).build();
 		}
-		return chain.filter(chainExchange);
+		String transformRequestId = requestId;
+		RequestThreadContext.put(WebConstants.HEADER_X_REQUEST_ID, transformRequestId);
+		return chain.filter(chainExchange).contextWrite(context -> context.put(WebConstants.HEADER_X_REQUEST_ID, transformRequestId))
+				.doFinally(signalType -> RequestThreadContext.clear());
 	}
 
 }

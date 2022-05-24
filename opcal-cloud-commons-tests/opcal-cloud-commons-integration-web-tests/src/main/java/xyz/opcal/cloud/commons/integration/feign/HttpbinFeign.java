@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Opcal
+ * Copyright 2022 Opcal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,17 +14,25 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.integration;
+package xyz.opcal.cloud.commons.integration.feign;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.GetMapping;
 
-@EnableFeignClients
-@SpringBootApplication
-public class IntegrationWebApplication {
+import feign.Logger;
 
-	public static void main(String[] args) {
-		SpringApplication.run(IntegrationWebApplication.class, args);
+@FeignClient(name = "httpbin", url = "https://httpbin.org", configuration = HttpbinFeign.FeignConfiguration.class)
+public interface HttpbinFeign {
+
+	@GetMapping("/get")
+	String get();
+
+	public static class FeignConfiguration {
+
+		@Bean
+		Logger.Level feignLoggerLevel() {
+			return Logger.Level.FULL;
+		}
 	}
 }

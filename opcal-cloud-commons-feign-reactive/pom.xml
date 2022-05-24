@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>xyz.opcal.cloud</groupId>
+        <artifactId>opcal-cloud-parent</artifactId>
+        <version>0.2.6.8-SNAPSHOT</version>
+        <relativePath>../opcal-cloud-parent</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>opcal-cloud-commons-feign-reactive</artifactId>
+
+    <name>opcal-cloud-commons-feign-reactive</name>
+    <description>feign reactive support</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>xyz.opcal.cloud</groupId>
+            <artifactId>opcal-cloud-commons-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.playtika.reactivefeign</groupId>
+            <artifactId>feign-reactor-spring-cloud-starter</artifactId>
+            <type>pom</type>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <configuration combine.self="override">
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>bom</flattenMode>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

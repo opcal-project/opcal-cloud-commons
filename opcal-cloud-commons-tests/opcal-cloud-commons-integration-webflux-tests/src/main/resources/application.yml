@@ -1,0 +1,4 @@
+reactive:
+  feign:
+    loadbalancer:
+      enabled: true

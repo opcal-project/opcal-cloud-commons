@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Opcal
+ * Copyright 2022 Opcal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,17 +14,21 @@
  * limitations under the License.
  */
 
-package xyz.opcal.cloud.commons.integration;
+package xyz.opcal.cloud.commons.feign.annotation;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-@EnableFeignClients
-@SpringBootApplication
-public class IntegrationWebApplication {
+import org.springframework.context.annotation.Import;
 
-	public static void main(String[] args) {
-		SpringApplication.run(IntegrationWebApplication.class, args);
-	}
+import xyz.opcal.cloud.commons.feign.configuration.FeignRequestIdConfiguration;
+
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+@Import(FeignRequestIdConfiguration.class)
+public @interface FeignRequestId {
 }
