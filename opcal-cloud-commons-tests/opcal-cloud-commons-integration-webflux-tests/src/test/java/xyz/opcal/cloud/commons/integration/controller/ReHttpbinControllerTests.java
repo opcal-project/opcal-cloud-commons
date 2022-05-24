@@ -30,6 +30,7 @@ class ReHttpbinControllerTests {
 	public static final String HTTPBIN_API = "/httpbin/ip";
 	public static final String FEIGN_API = "/httpbin/feign/ip";
 	public static final String REACTIVE_FEIGN_API = "/httpbin/reactivefeign/ip";
+	public static final String EMPTYHEADER_API = "/httpbin/emptyheader/ip";
 
 	private @Autowired WebTestClient webTestClient;
 
@@ -51,6 +52,13 @@ class ReHttpbinControllerTests {
 	@Test
 	void reactiveFeignIp() {
 		webTestClient.get().uri(REACTIVE_FEIGN_API) //
+				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
+				.exchange().expectStatus().isOk();
+	}
+
+	@Test
+	void emptyheaderIp() {
+		webTestClient.get().uri(EMPTYHEADER_API) //
 				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
 				.exchange().expectStatus().isOk();
 	}

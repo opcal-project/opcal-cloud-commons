@@ -56,6 +56,11 @@ public class ReHttpbinController {
 		return reactiveHttpbinFeign.ip();
 	}
 
+	@GetMapping("/emptyheader/ip")
+	public Mono<String> emptyheaderIp() {
+		return reactiveHttpbinFeign.ip().contextWrite(context -> context.delete(WebConstants.HEADER_X_REQUEST_ID));
+	}
+
 	private ExchangeFilterFunction logHeader() {
 		return ExchangeFilterFunction.ofRequestProcessor(clientRequest -> {
 			clientRequest.headers().forEach((name, values) -> values.forEach(value -> log.info("header logs \n{}={}", name, value)));
