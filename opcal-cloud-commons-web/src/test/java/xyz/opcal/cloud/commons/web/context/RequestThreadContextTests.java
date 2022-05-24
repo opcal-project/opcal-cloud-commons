@@ -39,7 +39,9 @@ class RequestThreadContextTests {
 		assertNotNull(RequestThreadContext.get(TEST_KEY));
 		assertNull(RequestThreadContext.get(null));
 		assertDoesNotThrow(() -> RequestThreadContext.remove(TEST_KEY));
+		assertDoesNotThrow(() -> RequestThreadContext.remove(null));
 		assertDoesNotThrow(RequestThreadContext::clear);
+		assertDoesNotThrow(() -> RequestThreadContext.setRequestContext(null));
 	}
 
 }

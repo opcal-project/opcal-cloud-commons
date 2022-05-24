@@ -2,3 +2,4 @@ ignore:
   - "**/*Application.java"
   - "**/*ServletInitializer.java"
   - "**/.flattened-pom.xml"
+  - "opcal-cloud-commons-tests/**"
