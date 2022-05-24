@@ -13,7 +13,7 @@
 
     <artifactId>opcal-cloud-commons-feign</artifactId>
 
-    <name>opcal-cloud-commons-openfeign</name>
+    <name>opcal-cloud-commons-feign</name>
     <description>openfeign support</description>
 
     <dependencies>

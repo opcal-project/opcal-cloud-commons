@@ -332,7 +332,7 @@
         <module>opcal-cloud-commons-logback-web</module>
         <module>opcal-cloud-commons-logback-webflux</module>
         <module>opcal-cloud-commons-tests</module>
-        <module>opcal-cloud-commons-openfeign</module>
+        <module>opcal-cloud-commons-feign</module>
         <module>opcal-cloud-commons-feign-reactive</module>
     </modules>
 </project>
