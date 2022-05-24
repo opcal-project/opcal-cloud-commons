@@ -17,6 +17,10 @@
     <name>opcal-cloud-commons-feign-reactive</name>
     <description>feign reactive support</description>
 
+    <properties>
+        <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}../opcal-cloud-commons-tests/opcal-cloud-commons-integration-webflux-tests/target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>xyz.opcal.cloud</groupId>
