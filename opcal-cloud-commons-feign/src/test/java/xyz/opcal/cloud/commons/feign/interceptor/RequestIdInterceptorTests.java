@@ -25,6 +25,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -38,6 +39,15 @@ class RequestIdInterceptorTests {
 
 	@Test
 	@Order(0)
+	void testDefaultNull() {
+		RequestIdInterceptor requestIdInterceptor = new RequestIdInterceptor(null);
+		RequestTemplate template = new RequestTemplate();
+		requestIdInterceptor.apply(template);
+		assertNotNull(template.headers().get(WebConstants.HEADER_X_REQUEST_ID));
+	}
+
+	@Test
+	@Order(1)
 	void testDefault() {
 		RequestIdInterceptor requestIdInterceptor = new RequestIdInterceptor(Arrays.asList(new ServletRequestIdHandler()));
 		RequestTemplate template = new RequestTemplate();
@@ -46,7 +56,7 @@ class RequestIdInterceptorTests {
 	}
 
 	@Test
-	@Order(1)
+	@Order(2)
 	void testDefaultList() {
 		RequestIdInterceptor requestIdInterceptor = new RequestIdInterceptor(Arrays.asList(new ServletRequestIdHandler(), new RequestThreadContextIdHandler()));
 		RequestTemplate template = new RequestTemplate();
@@ -55,7 +65,7 @@ class RequestIdInterceptorTests {
 	}
 
 	@Test
-	@Order(2)
+	@Order(3)
 	void testWithHolder() {
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		request.setScheme("http");
@@ -63,6 +73,8 @@ class RequestIdInterceptorTests {
 		request.setServerPort(80);
 		request.addHeader(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
 		RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
+		RequestContextHolder.getRequestAttributes().setAttribute(WebConstants.HEADER_X_REQUEST_ID, request.getHeader(WebConstants.HEADER_X_REQUEST_ID),
+				RequestAttributes.SCOPE_REQUEST);
 		ServletRequestIdHandler servletRequestIdHandler = new ServletRequestIdHandler();
 		RequestIdInterceptor requestIdInterceptor = new RequestIdInterceptor(Arrays.asList(servletRequestIdHandler));
 		RequestTemplate template = new RequestTemplate();
