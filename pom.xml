@@ -37,7 +37,7 @@
         <sonar.projectKey>opcal-project_opcal-cloud-commons</sonar.projectKey>
         <sonar.organization>opcal-project</sonar.organization>
         <sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey>
-        <sonar.exclusions>**/*Application.java,**/ServletInitializer.java,**/.flattened-pom.xml</sonar.exclusions>
+        <sonar.exclusions>**/*Application.java,**/ServletInitializer.java,**/.flattened-pom.xml,**/opcal-cloud-commons-tests/**</sonar.exclusions>
         <sonar.scanner.force-deprecated-java-version>true</sonar.scanner.force-deprecated-java-version>
 
         <!-- plugin version -->
