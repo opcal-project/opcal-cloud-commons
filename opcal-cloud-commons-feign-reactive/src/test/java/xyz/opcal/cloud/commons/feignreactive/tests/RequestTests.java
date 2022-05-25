@@ -36,7 +36,7 @@ class RequestTests {
 				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
 				.exchange().expectStatus().isOk();
 
-		webTestClient.get().uri("/headers") //
+		webTestClient.get().uri("/empty/headers") //
 				.exchange().expectStatus().isOk();
 	}
 

@@ -26,9 +26,12 @@ import reactivefeign.spring.config.EnableReactiveFeignClients;
 import reactor.core.publisher.Mono;
 import xyz.opcal.cloud.commons.feignreactive.annotation.ReactiveFeignRequestId;
 import xyz.opcal.cloud.commons.feignreactive.client.HttpBinClient;
+import xyz.opcal.cloud.commons.web.WebConstants;
+import xyz.opcal.cloud.commons.web.annotation.EnableReactiveRequestId;
 
 @RestController
 @ReactiveFeignRequestId
+@EnableReactiveRequestId
 @EnableReactiveFeignClients
 @SpringBootApplication
 public class FeignReactiveTestApplication {
@@ -42,5 +45,10 @@ public class FeignReactiveTestApplication {
 	@GetMapping("/headers")
 	public Mono<String> headers() {
 		return httpBinClient.headers();
+	}
+
+	@GetMapping("/empty/headers")
+	public Mono<String> emptyHeaders() {
+		return httpBinClient.headers().contextWrite(context -> context.delete(WebConstants.HEADER_X_REQUEST_ID));
 	}
 }

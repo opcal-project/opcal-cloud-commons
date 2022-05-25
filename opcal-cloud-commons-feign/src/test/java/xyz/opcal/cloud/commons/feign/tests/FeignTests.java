@@ -23,8 +23,12 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import xyz.opcal.cloud.commons.feign.FeignTestApplication;
+import xyz.opcal.cloud.commons.feign.annotation.FeignRequestId;
 import xyz.opcal.cloud.commons.web.WebConstants;
+import xyz.opcal.cloud.commons.web.annotation.EnableReactiveRequestId;
 
+@FeignRequestId
+@EnableReactiveRequestId
 @SpringBootTest(classes = FeignTestApplication.class, webEnvironment = WebEnvironment.RANDOM_PORT)
 class FeignTests {
 
