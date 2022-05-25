@@ -26,9 +26,16 @@ import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 
+import xyz.opcal.cloud.commons.web.utils.PrivateConstructorUtils;
+
 class RequestThreadContextTests {
 
 	static final String TEST_KEY = "timestamp";
+
+	@Test
+	void testConstructor() {
+		assertThrows(UnsupportedOperationException.class, () -> PrivateConstructorUtils.invokePrivateConstructor(RequestThreadContext.class));
+	}
 
 	@Test
 	void test() {

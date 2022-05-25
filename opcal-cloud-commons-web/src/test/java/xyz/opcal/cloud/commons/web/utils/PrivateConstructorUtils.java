@@ -19,9 +19,9 @@ package xyz.opcal.cloud.commons.web.utils;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-class PrivateConstructorUtils {
+public class PrivateConstructorUtils {
 
-	static <T> void invokePrivateConstructor(final Class<T> type) throws Throwable {
+	public static <T> void invokePrivateConstructor(final Class<T> type) throws Throwable {
 		final Constructor<T> constructor = type.getDeclaredConstructor();
 
 		constructor.setAccessible(true);
