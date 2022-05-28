@@ -27,8 +27,8 @@ import xyz.opcal.cloud.commons.feign.annotation.FeignRequestId;
 import xyz.opcal.cloud.commons.web.WebConstants;
 import xyz.opcal.cloud.commons.web.annotation.EnableReactiveRequestId;
 
-@FeignRequestId
 @EnableReactiveRequestId
+@FeignRequestId
 @SpringBootTest(classes = FeignTestApplication.class, webEnvironment = WebEnvironment.RANDOM_PORT)
 class FeignTests {
 
