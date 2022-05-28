@@ -16,17 +16,16 @@
 
 package xyz.opcal.cloud.commons.logback.web.configuration;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.web.filter.LogRequestFilter;
 
-@Configuration
 public class LogRequestConfiguration {
 
 	@Bean
@@ -37,6 +36,7 @@ public class LogRequestConfiguration {
 	}
 
 	@Bean
+	@ConditionalOnMissingBean
 	public LogRequestFilter logRequestFilter(ObjectMapper objectMapper, LogRequestConfig logRequestConfig) {
 		return new LogRequestFilter(objectMapper, logRequestConfig);
 	}

@@ -29,15 +29,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 
 import reactivefeign.spring.config.EnableReactiveFeignClients;
-import xyz.opcal.cloud.commons.feign.annotation.FeignRequestId;
-import xyz.opcal.cloud.commons.feignreactive.annotation.ReactiveFeignRequestId;
-import xyz.opcal.cloud.commons.logback.webflux.annotation.EnableLogWebfluxRequest;
+import xyz.opcal.cloud.commons.autoconfigure.annotation.EnableOpcalCloud;
 
+@EnableOpcalCloud
 @Configuration
 @SpringBootApplication
-@EnableLogWebfluxRequest
-@FeignRequestId
-@ReactiveFeignRequestId
 @EnableFeignClients
 @EnableReactiveFeignClients
 public class IntegrationWebfluxApplication {

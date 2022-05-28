@@ -17,15 +17,13 @@
 package xyz.opcal.cloud.commons.web.configuration;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import xyz.opcal.cloud.commons.web.reactive.filter.ReactiveRequestIdFilter;
 
-@Configuration
 public class ReactiveRequestIdConfiguration {
 
-    @Bean
-    public ReactiveRequestIdFilter reactiveRequestIdFilter() {
-        return new ReactiveRequestIdFilter();
-    }
+	@Bean
+	public ReactiveRequestIdFilter reactiveRequestIdFilter() {
+		return new ReactiveRequestIdFilter();
+	}
 }

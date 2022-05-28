@@ -349,6 +349,7 @@
 
     <modules>
         <module>opcal-cloud-commons-dependencies</module>
+        <module>opcal-cloud-commons-build</module>
         <module>opcal-cloud-parent</module>
         <module>opcal-cloud-commons-web</module>
         <module>opcal-cloud-commons-logback</module>
@@ -358,5 +359,6 @@
         <module>opcal-cloud-commons-tests</module>
         <module>opcal-cloud-commons-feign</module>
         <module>opcal-cloud-commons-feign-reactive</module>
+        <module>opcal-cloud-commons-autoconfigure</module>
     </modules>
 </project>

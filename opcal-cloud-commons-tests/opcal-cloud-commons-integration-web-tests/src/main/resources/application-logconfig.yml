@@ -1,0 +1,10 @@
+opcal:
+  cloud:
+    log:
+      servlet:
+        request: true
+      web:
+        disable-paths:
+          - "/disable-test-path"
+        disable-media-types:
+          - "application/pdf"

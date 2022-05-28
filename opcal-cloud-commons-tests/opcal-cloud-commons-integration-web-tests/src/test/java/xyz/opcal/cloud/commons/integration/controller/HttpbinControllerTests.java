@@ -23,22 +23,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ActiveProfiles;
 
-import xyz.opcal.cloud.commons.logback.web.annotation.EnableLogRequest;
-import xyz.opcal.cloud.commons.logback.web.annotation.EnableLogRequestId;
-import xyz.opcal.cloud.commons.feign.annotation.FeignRequestId;
 import xyz.opcal.cloud.commons.web.WebConstants;
 
-@EnableLogRequest
-@EnableLogRequestId
-@FeignRequestId
-@EnableFeignClients
+@ActiveProfiles("httpbin")
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class HttpbinControllerTests {
 

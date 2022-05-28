@@ -16,15 +16,15 @@
 
 package xyz.opcal.cloud.commons.logback.web.configuration;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import xyz.opcal.cloud.commons.logback.web.filter.LogRequestIdFilter;
 
-@Configuration
 public class LogRequestIdConfiguration {
 
 	@Bean
+	@ConditionalOnMissingBean
 	public LogRequestIdFilter logRequestIdFilter() {
 		return new LogRequestIdFilter();
 	}

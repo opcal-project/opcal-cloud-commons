@@ -16,16 +16,16 @@
 
 package xyz.opcal.cloud.commons.web.configuration;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
 
-@Configuration
 public class RequestIdConfiguration {
 
-    @Bean
-    public RequestIdFilter requestIdFilter() {
-        return new RequestIdFilter();
-    }
+	@Bean
+	@ConditionalOnMissingBean
+	public RequestIdFilter requestIdFilter() {
+		return new RequestIdFilter();
+	}
 }

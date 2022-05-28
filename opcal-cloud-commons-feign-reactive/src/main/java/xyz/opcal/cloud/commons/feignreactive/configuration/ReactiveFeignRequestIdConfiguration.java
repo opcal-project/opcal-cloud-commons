@@ -17,13 +17,9 @@
 package xyz.opcal.cloud.commons.feignreactive.configuration;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 
 import xyz.opcal.cloud.commons.feignreactive.interceptor.RequestIdReactiveHttpRequestInterceptor;
 
-@Configuration
-@ComponentScan("xyz.opcal.cloud.commons.feignreactive")
 public class ReactiveFeignRequestIdConfiguration {
 
 	@Bean

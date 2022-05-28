@@ -20,8 +20,6 @@ import java.util.List;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 
 import xyz.opcal.cloud.commons.feign.http.RequestIdHandler;
 import xyz.opcal.cloud.commons.feign.http.RequestThreadContextIdHandler;
@@ -29,8 +27,6 @@ import xyz.opcal.cloud.commons.feign.http.ServletRequestIdHandler;
 import xyz.opcal.cloud.commons.feign.interceptor.RequestIdInterceptor;
 import xyz.opcal.cloud.commons.web.reactive.filter.ReactiveRequestIdFilter;
 
-@Configuration
-@ComponentScan("xyz.opcal.cloud.commons.feign")
 public class FeignRequestIdConfiguration {
 
 	@Bean

@@ -1,0 +1,9 @@
+opcal:
+  cloud:
+    web:
+      servlet:
+        request-id: true
+    log:
+      servlet:
+        request-id: true
+        request: true

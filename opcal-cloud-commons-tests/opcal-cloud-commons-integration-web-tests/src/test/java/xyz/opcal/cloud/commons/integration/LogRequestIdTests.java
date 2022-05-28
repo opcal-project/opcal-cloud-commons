@@ -30,13 +30,13 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ActiveProfiles;
 
-import xyz.opcal.cloud.commons.web.WebConstants;
 import xyz.opcal.cloud.commons.integration.entity.User;
-import xyz.opcal.cloud.commons.logback.web.annotation.EnableLogRequestId;
+import xyz.opcal.cloud.commons.web.WebConstants;
 
+@ActiveProfiles("requestId")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@EnableLogRequestId
 class LogRequestIdTests {
 
 	public static final String GET_USER_API = "/user/{id}";

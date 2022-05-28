@@ -16,6 +16,7 @@
 
 package xyz.opcal.cloud.commons.web.webmvc;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
@@ -24,6 +25,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.web.context.WebApplicationContext;
+import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
 
 @SpringJUnitWebConfig(WebmvcConfiguration.class)
 class WebmvcTests {
@@ -34,5 +36,10 @@ class WebmvcTests {
 		webAppContextSetup(wac).build() //
 				.perform(get("/person/{id}", id).accept(MediaType.APPLICATION_JSON)) //
 				.andExpect(status().isOk());
+	}
+
+	@Test
+	void getFilterInstance(WebApplicationContext wac) {
+		assertNotNull(wac.getBean(RequestIdFilter.class));
 	}
 }

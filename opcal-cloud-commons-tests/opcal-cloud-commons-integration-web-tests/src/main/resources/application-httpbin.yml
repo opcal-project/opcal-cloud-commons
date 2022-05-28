@@ -1,0 +1,7 @@
+opcal:
+  cloud:
+    feign:
+      request-id: true
+    log:
+      servlet:
+        request: true

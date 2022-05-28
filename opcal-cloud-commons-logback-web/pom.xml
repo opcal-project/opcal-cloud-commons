@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>xyz.opcal.cloud</groupId>
-        <artifactId>opcal-cloud-parent</artifactId>
+        <artifactId>opcal-cloud-commons-build</artifactId>
         <version>0.2.6.8-SNAPSHOT</version>
-        <relativePath>../opcal-cloud-parent</relativePath>
+        <relativePath>../opcal-cloud-commons-build</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 

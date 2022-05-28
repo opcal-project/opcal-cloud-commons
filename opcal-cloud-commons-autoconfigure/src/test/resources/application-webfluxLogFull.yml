@@ -1,0 +1,9 @@
+opcal:
+  cloud:
+    web:
+      reactive:
+        request-id: true
+    log:
+      reactive:
+        request-id: true
+        request: true
