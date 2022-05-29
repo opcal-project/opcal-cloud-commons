@@ -71,7 +71,7 @@
                 <version>0.2.6.8-SNAPSHOT</version>
             </dependency>
 
-            <!-- import manager-->
+            <!-- import management-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
