@@ -1,0 +1,45 @@
+{
+    "groups": [],
+    "properties": [
+        {
+            "name": "opcal.cloud.web.servlet.request-id",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable setting servlet request id to header 'X-Request-Id'."
+        },
+        {
+            "name": "opcal.cloud.log.servlet.request-id",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable setting servlet request id as thread id for logging."
+        },
+        {
+            "name": "opcal.cloud.log.servlet.request",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable logging servlet request and response."
+        }
+        {
+            "name": "opcal.cloud.web.reactive.request-id",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable setting reactive request id to header 'X-Request-Id'."
+        },
+        {
+            "name": "opcal.cloud.log.reactive.request-id",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable setting reactive request id as thread id for logging."
+        },
+        {
+            "name": "opcal.cloud.log.reactive.request",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable logging reactive request and response."
+        },
+        {
+            "name": "opcal.cloud.feign.request-id",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable setting http header 'X-Request-Id' for feign client."
+        },
+        {
+            "name": "opcal.cloud.feignreactive.request-id",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable setting http header 'X-Request-Id' for feignreactive client."
+        }
+    ]
+}
