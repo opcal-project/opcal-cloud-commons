@@ -15,7 +15,7 @@
             "name": "opcal.cloud.log.servlet.request",
             "type": "java.lang.Boolean",
             "description": "Whether to enable logging servlet request and response."
-        }
+        },
         {
             "name": "opcal.cloud.web.reactive.request-id",
             "type": "java.lang.Boolean",
