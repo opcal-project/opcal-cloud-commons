@@ -22,7 +22,7 @@
         <opcal-cloud.revision>${project.version}</opcal-cloud.revision>
 
         <!-- spring version -->
-        <spring-cloud.version>2021.0.3-SNAPSHOT</spring-cloud.version>
+        <spring-cloud.version>2021.0.3</spring-cloud.version>
         <!-- jdk version -->
         <java.version>11</java.version>
 
