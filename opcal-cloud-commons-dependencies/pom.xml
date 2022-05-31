@@ -5,7 +5,7 @@
     <parent>
         <groupId>xyz.opcal.cloud</groupId>
         <artifactId>opcal-cloud-commons</artifactId>
-        <version>2.7.0.0-SNAPSHOT</version>
+        <version>2.7.1.0-SNAPSHOT</version>
     </parent>
     <artifactId>opcal-cloud-commons-dependencies</artifactId>
     <packaging>pom</packaging>
@@ -33,42 +33,42 @@
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-autoconfigure</artifactId>
-                <version>2.7.0.0-SNAPSHOT</version>
+                <version>2.7.1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback</artifactId>
-                <version>2.7.0.0-SNAPSHOT</version>
+                <version>2.7.1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback-http</artifactId>
-                <version>2.7.0.0-SNAPSHOT</version>
+                <version>2.7.1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-web</artifactId>
-                <version>2.7.0.0-SNAPSHOT</version>
+                <version>2.7.1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback-web</artifactId>
-                <version>2.7.0.0-SNAPSHOT</version>
+                <version>2.7.1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback-webflux</artifactId>
-                <version>2.7.0.0-SNAPSHOT</version>
+                <version>2.7.1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-feign</artifactId>
-                <version>2.7.0.0-SNAPSHOT</version>
+                <version>2.7.1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-feign-reactive</artifactId>
-                <version>2.7.0.0-SNAPSHOT</version>
+                <version>2.7.1.0-SNAPSHOT</version>
             </dependency>
 
             <!-- import management-->
