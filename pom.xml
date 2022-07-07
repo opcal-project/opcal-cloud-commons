@@ -26,6 +26,8 @@
         <!-- jdk version -->
         <java.version>11</java.version>
 
+        <!-- dependency version-->
+        <spring-boot-admin.version>2.7.1</spring-boot-admin.version>
         <playtika-feign-reactive.version>3.2.3</playtika-feign-reactive.version>
 
         <!-- encoding -->
