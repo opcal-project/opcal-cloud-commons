@@ -52,14 +52,14 @@ test-tags:
 
 test-temurin:
   <<: *test-only
-  image: eclipse-temurin:11-jdk-focal
+  image: eclipse-temurin:11-jdk-jammy
   except:
     changes:
       - "*.md"
 
 test-tags-temurin:
   <<: *test-only
-  image: eclipse-temurin:11-jdk-focal
+  image: eclipse-temurin:11-jdk-jammy
   only:
     - tags
       
