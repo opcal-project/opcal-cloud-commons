@@ -16,7 +16,7 @@
 
 package xyz.opcal.cloud.commons.autoconfigure.feign;
 
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -28,8 +28,7 @@ import xyz.opcal.cloud.commons.autoconfigure.web.ServletWebRequestConfiguration;
 import xyz.opcal.cloud.commons.feign.configuration.FeignRequestIdConfiguration;
 import xyz.opcal.cloud.commons.feign.http.RequestThreadContextIdHandler;
 
-@AutoConfigureAfter(value = { ReactiveWebRequestConfiguration.class, ServletWebRequestConfiguration.class })
-@Configuration(proxyBeanMethods = false)
+@AutoConfiguration(after = { ReactiveWebRequestConfiguration.class, ServletWebRequestConfiguration.class })
 public class FeignAutoConfiguration {
 
 	@Configuration(proxyBeanMethods = false)

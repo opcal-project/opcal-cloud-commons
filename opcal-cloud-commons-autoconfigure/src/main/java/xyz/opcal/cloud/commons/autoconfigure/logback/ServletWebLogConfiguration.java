@@ -16,6 +16,7 @@
 
 package xyz.opcal.cloud.commons.autoconfigure.logback;
 
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -24,7 +25,7 @@ import xyz.opcal.cloud.commons.logback.web.configuration.LogRequestConfiguration
 import xyz.opcal.cloud.commons.logback.web.configuration.LogRequestIdConfiguration;
 import xyz.opcal.cloud.commons.web.configuration.RequestIdConfiguration;
 
-@Configuration(proxyBeanMethods = false)
+@AutoConfiguration
 public class ServletWebLogConfiguration {
 
 	@Configuration(proxyBeanMethods = false)

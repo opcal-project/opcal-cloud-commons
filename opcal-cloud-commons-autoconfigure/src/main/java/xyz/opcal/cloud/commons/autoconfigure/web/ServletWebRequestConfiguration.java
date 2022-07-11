@@ -16,13 +16,14 @@
 
 package xyz.opcal.cloud.commons.autoconfigure.web;
 
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 import xyz.opcal.cloud.commons.web.configuration.RequestIdConfiguration;
 
-@Configuration(proxyBeanMethods = false)
+@AutoConfiguration
 public class ServletWebRequestConfiguration {
 
 	@Configuration(proxyBeanMethods = false)

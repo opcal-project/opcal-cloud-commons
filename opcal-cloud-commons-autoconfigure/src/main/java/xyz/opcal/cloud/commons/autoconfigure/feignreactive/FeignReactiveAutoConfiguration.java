@@ -16,7 +16,7 @@
 
 package xyz.opcal.cloud.commons.autoconfigure.feignreactive;
 
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -25,8 +25,7 @@ import xyz.opcal.cloud.commons.autoconfigure.web.ReactiveWebRequestConfiguration
 import xyz.opcal.cloud.commons.autoconfigure.web.ServletWebRequestConfiguration;
 import xyz.opcal.cloud.commons.feignreactive.configuration.ReactiveFeignRequestIdConfiguration;
 
-@AutoConfigureAfter(value = { ReactiveWebRequestConfiguration.class, ServletWebRequestConfiguration.class })
-@Configuration(proxyBeanMethods = false)
+@AutoConfiguration(after = { ReactiveWebRequestConfiguration.class, ServletWebRequestConfiguration.class })
 public class FeignReactiveAutoConfiguration {
 
 	@Configuration(proxyBeanMethods = false)

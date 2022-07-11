@@ -1,7 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  xyz.opcal.cloud.commons.autoconfigure.web.ServletWebRequestConfiguration,\
-  xyz.opcal.cloud.commons.autoconfigure.web.ReactiveWebRequestConfiguration,\
-  xyz.opcal.cloud.commons.autoconfigure.logback.ServletWebLogConfiguration,\
-  xyz.opcal.cloud.commons.autoconfigure.logback.ReactiveWebLogConfiguration,\
-  xyz.opcal.cloud.commons.autoconfigure.feign.FeignAutoConfiguration,\
-  xyz.opcal.cloud.commons.autoconfigure.feignreactive.FeignReactiveAutoConfiguration
