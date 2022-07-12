@@ -11,14 +11,14 @@
 
     <groupId>xyz.opcal.cloud</groupId>
     <artifactId>opcal-cloud-commons</artifactId>
-    <version>0.2.5.10-SNAPSHOT</version>
+    <version>0.2.5.11-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>opcal-cloud-commons</name>
     <description>commons project module for system</description>
     <url>https://gitlab.com/opcal-project/opcal-cloud-commons</url>
     <properties>
         <!-- spring version -->
-        <spring-cloud.version>2020.0.5</spring-cloud.version>
+        <spring-cloud.version>2020.0.6</spring-cloud.version>
 
         <!-- jdk version -->
         <java.version>11</java.version>

@@ -6,7 +6,7 @@
     <parent>
         <groupId>xyz.opcal.cloud</groupId>
         <artifactId>opcal-cloud-parent</artifactId>
-        <version>0.2.5.10-SNAPSHOT</version>
+        <version>0.2.5.11-SNAPSHOT</version>
         <relativePath>../opcal-cloud-parent</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>

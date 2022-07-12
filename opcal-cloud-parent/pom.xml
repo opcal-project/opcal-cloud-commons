@@ -6,7 +6,7 @@
     <parent>
         <groupId>xyz.opcal.cloud</groupId>
         <artifactId>opcal-cloud-commons</artifactId>
-        <version>0.2.5.10-SNAPSHOT</version>
+        <version>0.2.5.11-SNAPSHOT</version>
     </parent>
 
     <artifactId>opcal-cloud-parent</artifactId>
@@ -31,7 +31,7 @@
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-dependencies</artifactId>
-                <version>0.2.5.10-SNAPSHOT</version>
+                <version>0.2.5.11-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
