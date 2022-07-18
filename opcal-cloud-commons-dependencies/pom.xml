@@ -84,6 +84,11 @@
                 <configuration combine.self="override">
                     <updatePomFile>true</updatePomFile>
                     <flattenMode>bom</flattenMode>
+                    <pomElements>
+                        <parent>expand</parent>
+                        <distributionManagement>remove</distributionManagement>
+                        <repositories>remove</repositories>
+                    </pomElements>
                 </configuration>
             </plugin>
         </plugins>
