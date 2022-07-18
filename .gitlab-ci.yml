@@ -1,4 +1,4 @@
-image: openjdk:11-jdk-slim
+image: eclipse-temurin:11-jdk-jammy
 
 stages:
   - test
@@ -16,12 +16,6 @@ cache:
   paths:
     - .m2/repository
     - .sonar/cache
-
-.test-only : &test-only
-  stage: test
-  script:
-    - ./mvnw -U clean $MAVEN_CLI_OPTS test -Dgpg.skip=true
-
 
 .test-templete : &test-templete
   stage: test
@@ -50,19 +44,6 @@ test-tags:
   only:
     - tags
 
-test-temurin:
-  <<: *test-only
-  image: eclipse-temurin:11-jdk-jammy
-  except:
-    changes:
-      - "*.md"
-
-test-tags-temurin:
-  <<: *test-only
-  image: eclipse-temurin:11-jdk-jammy
-  only:
-    - tags
-      
 deploy-snapshot:
   <<: *deploy-template
   script:
