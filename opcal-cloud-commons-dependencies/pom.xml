@@ -3,11 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>xyz.opcal.cloud</groupId>
-        <artifactId>opcal-cloud-commons</artifactId>
-        <version>2.7.1.2-SNAPSHOT</version>
+        <groupId>xyz.opcal.build</groupId>
+		<artifactId>opcal-commons-build-dependencies-parent</artifactId>
+        <version>2.7.2.0-SNAPSHOT</version>
+		<relativePath/>
     </parent>
+	<groupId>xyz.opcal.cloud</groupId>
     <artifactId>opcal-cloud-commons-dependencies</artifactId>
+	<version>2.7.2.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>opcal-cloud-commons-dependencies</name>
     <description>bom project</description>
@@ -33,58 +36,42 @@
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-autoconfigure</artifactId>
-                <version>2.7.1.2-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback</artifactId>
-                <version>2.7.1.2-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback-http</artifactId>
-                <version>2.7.1.2-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-web</artifactId>
-                <version>2.7.1.2-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback-web</artifactId>
-                <version>2.7.1.2-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback-webflux</artifactId>
-                <version>2.7.1.2-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-feign</artifactId>
-                <version>2.7.1.2-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-feign-reactive</artifactId>
-                <version>2.7.1.2-SNAPSHOT</version>
-            </dependency>
-
-            <!-- import management-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.playtika.reactivefeign</groupId>
-                <artifactId>feign-reactor-bom</artifactId>
-                <version>${playtika-feign-reactive.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
