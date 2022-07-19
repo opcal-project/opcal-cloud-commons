@@ -21,6 +21,44 @@
         <commons-io.version>2.8.0</commons-io.version>
     </properties>
 
+    <licenses>
+        <license>
+            <name>Apache v2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
+
+    <distributionManagement>
+        <repository>
+            <id>OSSRH</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+        <snapshotRepository>
+            <id>OSSRH</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <scm>
+        <url>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git/opcal-cloud-commons-dependencies</url>
+        <connection>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git/opcal-cloud-commons-dependencies</connection>
+        <developerConnection>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git/opcal-cloud-commons-dependencies</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>katalala</id>
+            <name>gissily</name>
+            <roles>
+                <role>Founder</role>
+                <role>Maintainer</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
+
     <dependencyManagement>
         <dependencies>
             <dependency>

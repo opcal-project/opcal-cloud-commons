@@ -141,7 +141,6 @@
 						<pomElements>
 							<parent>keep</parent>
 							<properties>keep</properties>
-							<distributionManagement>remove</distributionManagement>
 							<repositories>remove</repositories>
 							<pluginRepositories>remove</pluginRepositories>
 						</pomElements>
