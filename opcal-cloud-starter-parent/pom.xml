@@ -42,17 +42,7 @@
 		</license>
 	</licenses>
 
-	<distributionManagement>
-		<repository>
-			<id>OSSRH</id>
-			<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
-		<snapshotRepository>
-			<id>OSSRH</id>
-			<url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
-
+	<url>https://gitlab.com/opcal-project/opcal-cloud-commons/opcal-cloud-starter-parent</url>
 	<scm>
 		<url>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git/opcal-cloud-starter-parent</url>
 		<connection>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git/opcal-cloud-starter-parent</connection>
@@ -160,10 +150,10 @@
 								<pomElements>
 									<parent>keep</parent>
 									<properties>keep</properties>
+									<dependencyManagement>keep</dependencyManagement>
 									<repositories>remove</repositories>
 									<pluginRepositories>remove</pluginRepositories>
 									<distributionManagement>remove</distributionManagement>
-									<dependencyManagement>keep</dependencyManagement>
 								</pomElements>
 							</configuration>
 							<executions>
@@ -338,6 +328,17 @@
 			</build>
 		</profile>
 	</profiles>
+
+	<distributionManagement>
+		<repository>
+			<id>OSSRH</id>
+			<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+		<snapshotRepository>
+			<id>OSSRH</id>
+			<url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<repositories>
 		<repository>

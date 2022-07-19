@@ -40,6 +40,7 @@
         </snapshotRepository>
     </distributionManagement>
 
+    <url>https://gitlab.com/opcal-project/opcal-cloud-commons/opcal-cloud-commons-dependencies</url>
     <scm>
         <url>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git/opcal-cloud-commons-dependencies</url>
         <connection>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git/opcal-cloud-commons-dependencies</connection>
