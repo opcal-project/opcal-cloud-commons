@@ -155,16 +155,6 @@
 							<groupId>org.codehaus.mojo</groupId>
 							<artifactId>flatten-maven-plugin</artifactId>
 							<version>${flatten-maven-plugin.version}</version>
-							<configuration>
-								<updatePomFile>true</updatePomFile>
-								<flattenMode>oss</flattenMode>
-								<pomElements>
-									<parent>keep</parent>
-									<properties>keep</properties>
-									<dependencyManagement>keep</dependencyManagement>
-									<profiles>remove</profiles>
-								</pomElements>
-							</configuration>
 							<executions>
 								<execution>
 									<id>flatten</id>
@@ -172,13 +162,15 @@
 									<goals>
 										<goal>flatten</goal>
 									</goals>
-								</execution>
-								<execution>
-									<id>flatten.clean</id>
-									<phase>clean</phase>
-									<goals>
-										<goal>clean</goal>
-									</goals>
+									<configuration>
+										<updatePomFile>true</updatePomFile>
+										<flattenMode>bom</flattenMode>
+										<pomElements>
+											<parent>keep</parent>
+											<properties>keep</properties>
+											<profiles>remove</profiles>
+										</pomElements>
+									</configuration>
 								</execution>
 							</executions>
 						</plugin>
@@ -319,19 +311,6 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>javadoc</id>
-								<goals>
-									<goal>jar</goal>
-								</goals>
-								<phase>package</phase>
-							</execution>
-						</executions>
-						<configuration>
-							<failOnError>${javadoc.failOnError}</failOnError>
-							<failOnWarnings>${javadoc.failOnWarnings}</failOnWarnings>
-						</configuration>
 					</plugin>
 				</plugins>
 			</build>
