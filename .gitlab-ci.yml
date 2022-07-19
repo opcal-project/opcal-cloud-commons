@@ -60,6 +60,8 @@ deploy-release :
     - SNAPSHOT_VERSION=$(./mvnw help:evaluate -Dexpression=project.version | grep "^[^\\[]" |grep -v Download)
     - RELEASE_VERSION=${SNAPSHOT_VERSION/-SNAPSHOT/}
     - ./mvnw versions:set -DnewVersion=${RELEASE_VERSION}
+    - ./mvnw versions:set -DnewVersion=${RELEASE_VERSION} -pl opcal-cloud-commons-dependencies
+    - ./mvnw versions:set -DnewVersion=${RELEASE_VERSION} -pl opcal-cloud-starter-parent
     - ./mvnw -U clean $MAVEN_CLI_OPTS deploy -Dgpg.passphrase=${GPG_PASSPHRASE} -Dmaven.test.skip=true -s settings.xml
   only:
     - "/^*.release$/"
