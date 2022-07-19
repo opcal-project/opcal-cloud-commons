@@ -24,7 +24,6 @@ cache:
     - ./mvnw -U clean $MAVEN_CLI_OPTS test verify sonar:sonar -Dgpg.skip=true
     - curl -Os https://uploader.codecov.io/latest/linux/codecov
     - chmod +x codecov && ./codecov -t ${CODECOV_TOKEN} -R $(pwd)
-    #    - bash <(curl -s https://codecov.io/bash) -t "${CODECOV_TOKEN}"
 
 .deploy-template: &deploy-template
   stage: deploy

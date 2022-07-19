@@ -144,7 +144,7 @@
 			<dependency>
 				<groupId>xyz.opcal.cloud</groupId>
 				<artifactId>opcal-cloud-commons-dependencies</artifactId>
-				<version>${project.version}</version>
+				<version>${opcal-cloud.revision}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

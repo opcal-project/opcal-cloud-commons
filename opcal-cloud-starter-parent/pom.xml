@@ -17,6 +17,9 @@
 	<name>opcal-cloud-starter-parent</name>
 
 	<properties>
+		<!-- project version -->
+		<opcal-cloud.revision>2.7.2.0-SNAPSHOT</opcal-cloud.revision>
+
 		<java.version>11</java.version>
 		<!-- compiler properties -->
 		<resource.delimiter>@</resource.delimiter>
@@ -67,7 +70,7 @@
 			<dependency>
 				<groupId>xyz.opcal.cloud</groupId>
 				<artifactId>opcal-cloud-commons-dependencies</artifactId>
-				<version>${project.version}</version>
+				<version>${opcal-cloud.revision}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

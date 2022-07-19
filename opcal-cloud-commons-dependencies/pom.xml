@@ -16,6 +16,9 @@
     <description>bom project</description>
 
     <properties>
+        <!-- project version -->
+        <opcal-cloud.revision>${project.version}</opcal-cloud.revision>
+
         <!-- dependencies version -->
         <com.google.guava.version>30.0-jre</com.google.guava.version>
         <commons-io.version>2.8.0</commons-io.version>
@@ -75,42 +78,42 @@
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-autoconfigure</artifactId>
-                <version>${project.version}</version>
+                <version>${opcal-cloud.revision}</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback</artifactId>
-                <version>${project.version}</version>
+                <version>${opcal-cloud.revision}</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback-http</artifactId>
-                <version>${project.version}</version>
+                <version>${opcal-cloud.revision}</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-web</artifactId>
-                <version>${project.version}</version>
+                <version>${opcal-cloud.revision}</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback-web</artifactId>
-                <version>${project.version}</version>
+                <version>${opcal-cloud.revision}</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback-webflux</artifactId>
-                <version>${project.version}</version>
+                <version>${opcal-cloud.revision}</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-feign</artifactId>
-                <version>${project.version}</version>
+                <version>${opcal-cloud.revision}</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-feign-reactive</artifactId>
-                <version>${project.version}</version>
+                <version>${opcal-cloud.revision}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
