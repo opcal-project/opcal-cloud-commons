@@ -275,9 +275,9 @@
         <module>opcal-cloud-commons-logback-http</module>
         <module>opcal-cloud-commons-logback-web</module>
         <module>opcal-cloud-commons-logback-webflux</module>
-        <module>opcal-cloud-commons-tests</module>
         <module>opcal-cloud-commons-feign</module>
         <module>opcal-cloud-commons-feign-reactive</module>
         <module>opcal-cloud-commons-autoconfigure</module>
+		<module>opcal-cloud-commons-tests</module>
     </modules>
 </project>
