@@ -162,6 +162,7 @@
 									<parent>keep</parent>
 									<properties>keep</properties>
 									<profiles>remove</profiles>
+									<distributionManagement>remove</distributionManagement>
 								</pomElements>
 							</configuration>
 							<executions>
@@ -318,10 +319,6 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-deploy-plugin</artifactId>
 					</plugin>
 				</plugins>
 			</build>
