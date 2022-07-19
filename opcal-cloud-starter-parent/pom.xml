@@ -129,7 +129,7 @@
 
 	<profiles>
 		<profile>
-			<id>deploy</id>
+			<id>build</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
@@ -155,6 +155,15 @@
 							<groupId>org.codehaus.mojo</groupId>
 							<artifactId>flatten-maven-plugin</artifactId>
 							<version>${flatten-maven-plugin.version}</version>
+							<configuration>
+								<updatePomFile>true</updatePomFile>
+								<flattenMode>bom</flattenMode>
+								<pomElements>
+									<parent>keep</parent>
+									<properties>keep</properties>
+									<profiles>remove</profiles>
+								</pomElements>
+							</configuration>
 							<executions>
 								<execution>
 									<id>flatten</id>
@@ -162,15 +171,13 @@
 									<goals>
 										<goal>flatten</goal>
 									</goals>
-									<configuration>
-										<updatePomFile>true</updatePomFile>
-										<flattenMode>bom</flattenMode>
-										<pomElements>
-											<parent>keep</parent>
-											<properties>keep</properties>
-											<profiles>remove</profiles>
-										</pomElements>
-									</configuration>
+								</execution>
+								<execution>
+									<id>flatten.clean</id>
+									<phase>clean</phase>
+									<goals>
+										<goal>clean</goal>
+									</goals>
 								</execution>
 							</executions>
 						</plugin>
@@ -311,6 +318,10 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-deploy-plugin</artifactId>
 					</plugin>
 				</plugins>
 			</build>
