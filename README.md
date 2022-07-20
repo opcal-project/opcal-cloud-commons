@@ -19,7 +19,7 @@ commons project module for system
 
 Replace {opcal-cloud.version} that if necessary to support required Spring Boot and Spring Cloud version.
 
-Version 2.7.2.0, 0.2.6.10 and after
+Version 2.7.1.2, 0.2.6.10 and after
 ```xml
 <parent>
     <groupId>xyz.opcal.cloud</groupId>
@@ -29,7 +29,7 @@ Version 2.7.2.0, 0.2.6.10 and after
 </parent>
 ```
 
-Before 2.7.2.0, 0.2.6.10
+Before 2.7.1.2, 0.2.6.10
 ```xml
 <parent>
     <groupId>xyz.opcal.cloud</groupId>
