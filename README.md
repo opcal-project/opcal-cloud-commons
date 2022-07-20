@@ -8,7 +8,7 @@ commons project module for system
 ## Release Train Table
 |  Release  |   Branch  | Spring Boot | Spring Cloud |
 |   :---:   |   :---:   |    :---:    |     :---:    |
-| 0.2.6.7   |  0.2.6.x  |   2.6.8     |   2021.0.2   |
+| 0.2.6.9   |  0.2.6.x  |   2.6.9     |   2021.0.2   |
 | 0.2.5.9   |  0.2.5.x  |   2.5.13    |   2020.0.5   |
 | 0.2.4.2   |  0.2.4.x  |   2.4.13    |   2020.0.5   |
 | 0.2.3.3   |  0.2.3.x  |   2.3.12    |  Hoxton.SR12 |
@@ -17,6 +17,18 @@ commons project module for system
 ### Using maven parent
 
 Replace {opcal-cloud.version} that if necessary to support required Spring Boot and Spring Cloud version.
+
+Version 2.7.1.2, 0.2.6.10 and after
+```xml
+<parent>
+    <groupId>xyz.opcal.cloud</groupId>
+    <artifactId>opcal-cloud-starter-parent</artifactId>
+    <version>{opcal-cloud.version}</version>
+    <relativePath/>
+</parent>
+```
+
+Before 2.7.1.2, 0.2.6.10
 ```xml
 <parent>
     <groupId>xyz.opcal.cloud</groupId>
