@@ -1,326 +1,240 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.9</version>
-        <relativePath/>
-    </parent>
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>xyz.opcal.build</groupId>
+		<artifactId>opcal-commons-build</artifactId>
+		<version>2.6.9</version>
+		<relativePath/>
+	</parent>
 
-    <groupId>xyz.opcal.cloud</groupId>
-    <artifactId>opcal-cloud-commons</artifactId>
-    <version>0.2.6.10-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>opcal-cloud-commons</name>
-    <description>commons project module for system</description>
-    <url>https://gitlab.com/opcal-project/opcal-cloud-commons</url>
+	<groupId>xyz.opcal.cloud</groupId>
+	<artifactId>opcal-cloud-commons</artifactId>
+	<version>0.2.6.10-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>opcal-cloud-commons</name>
+	<description>commons project module for system</description>
+	<url>https://gitlab.com/opcal-project/opcal-cloud-commons</url>
 
-    <properties>
-        <!-- project version -->
-        <opcal-cloud.revision>${project.version}</opcal-cloud.revision>
+	<properties>
+		<!-- spring version -->
+		<spring-cloud.version>2021.0.3</spring-cloud.version>
+		<!-- dependency version-->
+		<spring-boot-admin.version>2.6.7</spring-boot-admin.version>
+		<playtika-feign-reactive.version>3.2.3</playtika-feign-reactive.version>
 
-        <!-- spring version -->
-        <spring-cloud.version>2021.0.3</spring-cloud.version>
-        <!-- jdk version -->
-        <java.version>11</java.version>
+		<!-- sonar -->
+		<sonar.projectKey>opcal-project_opcal-cloud-commons</sonar.projectKey>
+		<sonar.organization>opcal-project</sonar.organization>
+		<sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey>
+		<sonar.exclusions>**/*Application.java,**/ServletInitializer.java,**/.flattened-pom.xml,**/opcal-cloud-commons-tests/**</sonar.exclusions>
+		<sonar.scanner.force-deprecated-java-version>true</sonar.scanner.force-deprecated-java-version>
+	</properties>
 
-        <!-- dependency version-->
-        <spring-boot-admin.version>2.6.7</spring-boot-admin.version>
-        <playtika-feign-reactive.version>3.2.3</playtika-feign-reactive.version>
+	<licenses>
+		<license>
+			<name>Apache v2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+			<distribution>manual</distribution>
+		</license>
+	</licenses>
 
-        <!-- encoding -->
-        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	<scm>
+		<url>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git</url>
+		<connection>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git</connection>
+		<developerConnection>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
 
-        <!-- sonar -->
-        <sonar.projectKey>opcal-project_opcal-cloud-commons</sonar.projectKey>
-        <sonar.organization>opcal-project</sonar.organization>
-        <sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey>
-        <sonar.exclusions>**/*Application.java,**/ServletInitializer.java,**/.flattened-pom.xml,**/opcal-cloud-commons-tests/**</sonar.exclusions>
-        <sonar.scanner.force-deprecated-java-version>true</sonar.scanner.force-deprecated-java-version>
+	<developers>
+		<developer>
+			<id>katalala</id>
+			<name>gissily</name>
+			<roles>
+				<role>Founder</role>
+				<role>Maintainer</role>
+				<role>Developer</role>
+			</roles>
+		</developer>
+	</developers>
 
-        <!-- plugin version -->
-        <maven-compiler-plugin-version>3.10.1</maven-compiler-plugin-version>
-        <maven-release-plugin-version>3.0.0-M5</maven-release-plugin-version>
-        <maven-resource-plugin-version>3.2.0</maven-resource-plugin-version>
-        <maven-gpg-plugin-version>3.0.1</maven-gpg-plugin-version>
-        <maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
-        <maven-javadoc-plugin-version>3.3.1</maven-javadoc-plugin-version>
-        <maven-source-plugin-version>3.2.1</maven-source-plugin-version>
+	<repositories>
+		<repository>
+			<id>common-sonatype-snapshots</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>opcal-sonatype-snapshots</id>
+			<url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-releases</id>
+			<name>Spring Releases</name>
+			<url>https://repo.spring.io/release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-releases</id>
+			<name>Spring Releases</name>
+			<url>https://repo.spring.io/release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+		</pluginRepository>
+	</pluginRepositories>
 
-        <versions-maven-plugin-version>2.10.0</versions-maven-plugin-version>
-        <flatten-maven-plugin-version>1.2.7</flatten-maven-plugin-version>
-        <jacoco-maven-plugin-version>0.8.8</jacoco-maven-plugin-version>
-        <lombok-plugin-version>1.18.20.0</lombok-plugin-version>
-    </properties>
+	<distributionManagement>
+		<repository>
+			<id>OSSRH</id>
+			<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+		<snapshotRepository>
+			<id>OSSRH</id>
+			<url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
-    <licenses>
-        <license>
-            <name>Apache v2</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
-            <distribution>manual</distribution>
-        </license>
-    </licenses>
+	<dependencyManagement>
+		<dependencies>
+			<!-- import management-->
+			<dependency>
+				<groupId>xyz.opcal.cloud</groupId>
+				<artifactId>opcal-cloud-commons-dependencies</artifactId>
+				<version>0.2.6.10-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-dependencies</artifactId>
+				<version>${spring-boot-admin.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.playtika.reactivefeign</groupId>
+				<artifactId>feign-reactor-bom</artifactId>
+				<version>${playtika-feign-reactive.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
-    <scm>
-        <url>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git</url>
-        <connection>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git</connection>
-        <developerConnection>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git</developerConnection>
-        <tag>HEAD</tag>
-    </scm>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
-    <developers>
-        <developer>
-            <id>katalala</id>
-            <name>gissily</name>
-            <roles>
-                <role>Founder</role>
-                <role>Maintainer</role>
-                <role>Developer</role>
-            </roles>
-        </developer>
-    </developers>
-
-    <repositories>
-        <repository>
-            <id>OSSRH</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>spring-releases</id>
-            <name>Spring Releases</name>
-            <url>https://repo.spring.io/release</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>https://repo.spring.io/snapshot</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-releases</id>
-            <name>Spring Releases</name>
-            <url>https://repo.spring.io/release</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>https://repo.spring.io/snapshot</url>
-        </pluginRepository>
-    </pluginRepositories>
-
-    <distributionManagement>
-        <repository>
-            <id>OSSRH</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-        <snapshotRepository>
-            <id>OSSRH</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-    <profiles>
-        <profile>
-            <id>in-eclipse</id>
-            <activation>
-                <property>
-                    <name>m2e.version</name>
-                </property>
-            </activation>
-            <build>
-                <pluginManagement>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.eclipse.m2e</groupId>
-                            <artifactId>lifecycle-mapping</artifactId>
-                            <version>1.0.0</version>
-                            <configuration>
-                                <lifecycleMappingMetadata>
-                                    <pluginExecutions>
-                                        <pluginExecution>
-                                            <pluginExecutionFilter>
-                                                <groupId>org.codehaus.mojo</groupId>
-                                                <artifactId>flatten-maven-plugin</artifactId>
-                                                <versionRange>[1.0.0,)</versionRange>
-                                                <goals>
-                                                    <goal>flatten</goal>
-                                                </goals>
-                                            </pluginExecutionFilter>
-                                            <action>
-                                                <ignore/>
-                                            </action>
-                                        </pluginExecution>
-                                    </pluginExecutions>
-                                </lifecycleMappingMetadata>
-                            </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
-            </build>
-        </profile>
-    </profiles>
+	<profiles>
+		<profile>
+			<id>in-eclipse</id>
+			<activation>
+				<property>
+					<name>m2e.version</name>
+				</property>
+			</activation>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.eclipse.m2e</groupId>
+							<artifactId>lifecycle-mapping</artifactId>
+							<version>1.0.0</version>
+							<configuration>
+								<lifecycleMappingMetadata>
+									<pluginExecutions>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>org.codehaus.mojo</groupId>
+												<artifactId>flatten-maven-plugin</artifactId>
+												<versionRange>[1.0.0,)</versionRange>
+												<goals>
+													<goal>flatten</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore/>
+											</action>
+										</pluginExecution>
+									</pluginExecutions>
+								</lifecycleMappingMetadata>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+	</profiles>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>flatten-maven-plugin</artifactId>
-                    <version>${flatten-maven-plugin-version}</version>
-                    <configuration>
-                        <updatePomFile>true</updatePomFile>
-                        <flattenMode>bom</flattenMode>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>flatten</id>
-                            <phase>process-resources</phase>
-                            <goals>
-                                <goal>flatten</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>flatten.clean</id>
-                            <phase>clean</phase>
-                            <goals>
-                                <goal>clean</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>${jacoco-maven-plugin-version}</version>
-                    <executions>
-                        <execution>
-                            <id>prepare-agent</id>
-                            <goals>
-                                <goal>prepare-agent</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>report</id>
-                            <goals>
-                                <goal>report</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-gpg-plugin</artifactId>
-                    <version>${maven-gpg-plugin-version}</version>
-                    <executions>
-                        <execution>
-                            <id>sign-artifacts</id>
-                            <phase>verify</phase>
-                            <goals>
-                                <goal>sign</goal>
-                            </goals>
-                            <configuration>
-                                <gpgArguments>
-                                    <arg>--batch</arg>
-                                    <arg>--pinentry-mode</arg>
-                                    <arg>loopback</arg>
-                                </gpgArguments>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>${maven-release-plugin-version}</version>
-                    <configuration>
-                        <autoVersionSubmodules>true</autoVersionSubmodules>
-                        <useReleaseProfile>false</useReleaseProfile>
-                        <releaseProfiles>release</releaseProfiles>
-                        <goals>deploy</goals>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>versions-maven-plugin</artifactId>
-                    <version>${versions-maven-plugin-version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>${maven-source-plugin-version}</version>
-                    <executions>
-                        <execution>
-                            <id>attach-sources</id>
-                            <goals>
-                                <goal>jar-no-fork</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${maven-javadoc-plugin-version}</version>
-                    <executions>
-                        <execution>
-                            <id>attach-javadocs</id>
-                            <goals>
-                                <goal>jar</goal>
-                            </goals>
-                            <inherited>true</inherited>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <doclint>none</doclint>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
-                <configuration>
-                    <updatePomFile>true</updatePomFile>
-                    <flattenMode>bom</flattenMode>
-                    <pomElements>
-                        <parent/>
-                    </pomElements>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -349,18 +263,17 @@
         </plugins>
     </build>
 
-    <modules>
-        <module>opcal-cloud-commons-dependencies</module>
-        <module>opcal-cloud-commons-build</module>
-        <module>opcal-cloud-parent</module>
-        <module>opcal-cloud-commons-web</module>
-        <module>opcal-cloud-commons-logback</module>
-        <module>opcal-cloud-commons-logback-http</module>
-        <module>opcal-cloud-commons-logback-web</module>
-        <module>opcal-cloud-commons-logback-webflux</module>
-        <module>opcal-cloud-commons-tests</module>
-        <module>opcal-cloud-commons-feign</module>
-        <module>opcal-cloud-commons-feign-reactive</module>
-        <module>opcal-cloud-commons-autoconfigure</module>
-    </modules>
+	<modules>
+		<module>opcal-cloud-commons-dependencies</module>
+		<module>opcal-cloud-starter-parent</module>
+		<module>opcal-cloud-commons-web</module>
+		<module>opcal-cloud-commons-logback</module>
+		<module>opcal-cloud-commons-logback-http</module>
+		<module>opcal-cloud-commons-logback-web</module>
+		<module>opcal-cloud-commons-logback-webflux</module>
+		<module>opcal-cloud-commons-feign</module>
+		<module>opcal-cloud-commons-feign-reactive</module>
+		<module>opcal-cloud-commons-autoconfigure</module>
+		<module>opcal-cloud-commons-tests</module>
+	</modules>
 </project>

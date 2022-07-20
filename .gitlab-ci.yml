@@ -1,11 +1,11 @@
-image: openjdk:11-jdk-slim
+image: eclipse-temurin:11-jdk-jammy
 
 stages:
   - test
   - deploy
 
 variables:
-  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+  MAVEN_CLI_OPTS: "--batch-mode --errors --show-version"
   MAVEN_OPTS: "-Dmaven.repo.local=${CI_PROJECT_DIR}/.m2/repository"
   SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
   GIT_DEPTH: "0"
@@ -17,12 +17,6 @@ cache:
     - .m2/repository
     - .sonar/cache
 
-.test-only : &test-only
-  stage: test
-  script:
-    - ./mvnw -U clean $MAVEN_CLI_OPTS test -Dgpg.skip=true
-
-
 .test-templete : &test-templete
   stage: test
   script:
@@ -30,7 +24,6 @@ cache:
     - ./mvnw -U clean $MAVEN_CLI_OPTS test verify sonar:sonar -Dgpg.skip=true
     - curl -Os https://uploader.codecov.io/latest/linux/codecov
     - chmod +x codecov && ./codecov -t ${CODECOV_TOKEN} -R $(pwd)
-    #    - bash <(curl -s https://codecov.io/bash) -t "${CODECOV_TOKEN}"
 
 .deploy-template: &deploy-template
   stage: deploy
@@ -38,7 +31,7 @@ cache:
     - apt-get update && apt-get install -y gnupg2
     - export GPG_TTY=$(tty)
     - echo "${GPG_PRI}" | gpg --batch --import
-    
+
 test:
   <<: *test-templete
   except:
@@ -50,36 +43,25 @@ test-tags:
   only:
     - tags
 
-test-temurin:
-  <<: *test-only
-  image: eclipse-temurin:11-jdk-jammy
-  except:
-    changes:
-      - "*.md"
-
-test-tags-temurin:
-  <<: *test-only
-  image: eclipse-temurin:11-jdk-jammy
-  only:
-    - tags
-      
 deploy-snapshot:
   <<: *deploy-template
   script:
     - ./mvnw -U clean $MAVEN_CLI_OPTS deploy -Dgpg.passphrase=${GPG_PASSPHRASE} -Dmaven.test.skip=true -s settings.xml
   except:
     refs:
-     - "/^*.release$/"
+      - "/^*.release$/"
     changes:
       - "*.md"
 
-      
+
 deploy-release :
   <<: *deploy-template
   script:
     - SNAPSHOT_VERSION=$(./mvnw help:evaluate -Dexpression=project.version | grep "^[^\\[]" |grep -v Download)
     - RELEASE_VERSION=${SNAPSHOT_VERSION/-SNAPSHOT/}
     - ./mvnw versions:set -DnewVersion=${RELEASE_VERSION}
+    - ./mvnw versions:set -DnewVersion=${RELEASE_VERSION} -pl opcal-cloud-commons-dependencies
+    - ./mvnw versions:set -DnewVersion=${RELEASE_VERSION} -pl opcal-cloud-starter-parent
     - ./mvnw -U clean $MAVEN_CLI_OPTS deploy -Dgpg.passphrase=${GPG_PASSPHRASE} -Dmaven.test.skip=true -s settings.xml
   only:
     - "/^*.release$/"

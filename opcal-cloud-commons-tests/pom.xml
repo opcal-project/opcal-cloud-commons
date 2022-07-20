@@ -1,11 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>xyz.opcal.cloud</groupId>
-		<artifactId>opcal-cloud-commons</artifactId>
+		<artifactId>opcal-cloud-starter-parent</artifactId>
 		<version>0.2.6.10-SNAPSHOT</version>
+		<relativePath>../opcal-cloud-starter-parent</relativePath>
 	</parent>
 	<artifactId>opcal-cloud-commons-tests</artifactId>
 	<packaging>pom</packaging>
@@ -14,10 +15,40 @@
 
 	<properties>
 		<maven.deploy.skip>true</maven.deploy.skip>
+		<maven.install.skip>true</maven.install.skip>
+		<jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
 	</properties>
+
 	<modules>
 		<module>opcal-cloud-commons-integration-tests</module>
 		<module>opcal-cloud-commons-integration-web-tests</module>
 		<module>opcal-cloud-commons-integration-webflux-tests</module>
 	</modules>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>${jacoco-maven-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>prepare-agent</id>
+							<goals>
+								<goal>prepare-agent</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>report</id>
+							<goals>
+								<goal>report</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
 </project>

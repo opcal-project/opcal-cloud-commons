@@ -4,9 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>xyz.opcal.cloud</groupId>
-        <artifactId>opcal-cloud-parent</artifactId>
+        <artifactId>opcal-cloud-commons-tests</artifactId>
         <version>0.2.6.10-SNAPSHOT</version>
-        <relativePath>../../opcal-cloud-parent</relativePath>
     </parent>
     <artifactId>opcal-cloud-commons-integration-tests</artifactId>
     <name>opcal-cloud-commons-integration-tests</name>

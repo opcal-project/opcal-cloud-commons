@@ -6,9 +6,8 @@
 
     <parent>
         <groupId>xyz.opcal.cloud</groupId>
-        <artifactId>opcal-cloud-commons-build</artifactId>
+        <artifactId>opcal-cloud-commons</artifactId>
         <version>0.2.6.10-SNAPSHOT</version>
-        <relativePath>../opcal-cloud-commons-build</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
