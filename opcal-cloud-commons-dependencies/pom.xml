@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>xyz.opcal.cloud</groupId>
 	<artifactId>opcal-cloud-commons-dependencies</artifactId>
-	<version>0.2.6.11-SNAPSHOT</version>
+	<version>0.2.6.12-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>opcal-cloud-commons-dependencies</name>
 	<description>bom project</description>
@@ -75,42 +75,42 @@
 			<dependency>
 				<groupId>xyz.opcal.cloud</groupId>
 				<artifactId>opcal-cloud-commons-autoconfigure</artifactId>
-				<version>0.2.6.11-SNAPSHOT</version>
+				<version>0.2.6.12-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>xyz.opcal.cloud</groupId>
 				<artifactId>opcal-cloud-commons-logback</artifactId>
-				<version>0.2.6.11-SNAPSHOT</version>
+				<version>0.2.6.12-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>xyz.opcal.cloud</groupId>
 				<artifactId>opcal-cloud-commons-logback-http</artifactId>
-				<version>0.2.6.11-SNAPSHOT</version>
+				<version>0.2.6.12-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>xyz.opcal.cloud</groupId>
 				<artifactId>opcal-cloud-commons-web</artifactId>
-				<version>0.2.6.11-SNAPSHOT</version>
+				<version>0.2.6.12-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>xyz.opcal.cloud</groupId>
 				<artifactId>opcal-cloud-commons-logback-web</artifactId>
-				<version>0.2.6.11-SNAPSHOT</version>
+				<version>0.2.6.12-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>xyz.opcal.cloud</groupId>
 				<artifactId>opcal-cloud-commons-logback-webflux</artifactId>
-				<version>0.2.6.11-SNAPSHOT</version>
+				<version>0.2.6.12-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>xyz.opcal.cloud</groupId>
 				<artifactId>opcal-cloud-commons-feign</artifactId>
-				<version>0.2.6.11-SNAPSHOT</version>
+				<version>0.2.6.12-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>xyz.opcal.cloud</groupId>
 				<artifactId>opcal-cloud-commons-feign-reactive</artifactId>
-				<version>0.2.6.11-SNAPSHOT</version>
+				<version>0.2.6.12-SNAPSHOT</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
