@@ -135,13 +135,6 @@
 
 	<repositories>
 		<repository>
-			<id>opcal-sonatype-snapshots</id>
-			<url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
 			<id>common-sonatype-snapshots</id>
 			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
 			<snapshots>
@@ -171,6 +164,10 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
+		</repository>
+		<repository>
+			<id>opcal-sonatype-public</id>
+			<url>https://s01.oss.sonatype.org/content/groups/public/</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>
