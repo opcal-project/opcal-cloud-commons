@@ -1,6 +1,6 @@
 #!/bin/bash
 ## this script depends on xmlstarlet
-
+set -e
 
 SCRIPT=`readlink -f "${BASH_SOURCE:-$0}"`
 
