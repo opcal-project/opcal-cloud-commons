@@ -7,6 +7,7 @@ DIR_PATH=`dirname ${SCRIPT}`
 VERSION=$1
 
 echo ${VERSION}
+${DIR_PATH}/mvnw -U clean compile >> /dev/null 2>&1
 
 ${DIR_PATH}/mvnw versions:set -DnewVersion=${VERSION}
 ${DIR_PATH}/mvnw versions:set -DnewVersion=${VERSION} -pl opcal-cloud-commons-dependencies
