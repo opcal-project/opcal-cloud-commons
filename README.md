@@ -8,7 +8,7 @@ commons project module for system
 ## Release Train Table
 |  Release  |   Branch  | Spring Boot | Spring Cloud |
 |   :---:   |   :---:   |    :---:    |     :---:    |
-| 0.2.6.9   |  0.2.6.x  |   2.6.9     |   2021.0.2   |
+| 0.2.6.13  |  0.2.6.x  |   2.6.11    |   2021.0.3   |
 | 0.2.5.9   |  0.2.5.x  |   2.5.13    |   2020.0.5   |
 | 0.2.4.2   |  0.2.4.x  |   2.4.13    |   2020.0.5   |
 | 0.2.3.3   |  0.2.3.x  |   2.3.12    |  Hoxton.SR12 |
@@ -36,4 +36,18 @@ Before 2.7.1.2, 0.2.6.10
     <version>{opcal-cloud.version}</version>
     <relativePath/>
 </parent>
+```
+
+### Using maven dependencyManagement
+
+```xml
+<dependencyManagement>
+	<dependency>
+        <groupId>xyz.opcal.cloud</groupId>
+        <artifactId>opcal-cloud-commons-dependencies</artifactId>
+        <version>{opcal-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+	</dependency>
+</dependencyManagement>
 ```
