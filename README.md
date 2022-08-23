@@ -42,12 +42,12 @@ Before 2.7.1.2, 0.2.6.10
 
 ```xml
 <dependencyManagement>
-	<dependency>
+    <dependency>
         <groupId>xyz.opcal.cloud</groupId>
         <artifactId>opcal-cloud-commons-dependencies</artifactId>
         <version>{opcal-cloud.version}</version>
         <type>pom</type>
         <scope>import</scope>
-	</dependency>
+    </dependency>
 </dependencyManagement>
 ```
