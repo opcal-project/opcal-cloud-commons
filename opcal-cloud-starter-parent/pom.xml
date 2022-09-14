@@ -27,9 +27,9 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<!-- dependency version-->
-		<spring-cloud.version>2021.0.3</spring-cloud.version>
-		<spring-boot-admin.version>2.7.1</spring-boot-admin.version>
-		<playtika-feign-reactive.version>3.2.3</playtika-feign-reactive.version>
+		<spring-cloud.version>2021.0.4</spring-cloud.version>
+		<spring-boot-admin.version>2.6.8</spring-boot-admin.version>
+		<playtika-feign-reactive.version>3.2.6</playtika-feign-reactive.version>
 	</properties>
 
 	<licenses>

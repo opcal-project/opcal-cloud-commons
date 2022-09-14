@@ -17,10 +17,10 @@
 
 	<properties>
 		<!-- spring version -->
-		<spring-cloud.version>2021.0.3</spring-cloud.version>
+		<spring-cloud.version>2021.0.4</spring-cloud.version>
 		<!-- dependency version-->
 		<spring-boot-admin.version>2.6.8</spring-boot-admin.version>
-		<playtika-feign-reactive.version>3.2.5</playtika-feign-reactive.version>
+		<playtika-feign-reactive.version>3.2.6</playtika-feign-reactive.version>
 
 		<!-- sonar -->
 		<sonar.projectKey>opcal-project_opcal-cloud-commons</sonar.projectKey>
