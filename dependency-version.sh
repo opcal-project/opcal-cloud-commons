@@ -10,7 +10,10 @@ declare -A props
 
 file=${DIR_PATH}/dependencyManagement.properties
 while IFS='=' read -r key value; do
-    props[${key}]="${value}"
+  if [ -z "${key}" ];then
+    continue
+  fi
+  props[${key}]="${value}"
 done < ${file}
 
 for i in "${!props[@]}"
