@@ -8,7 +8,7 @@ DIR_PATH=`dirname ${SCRIPT}`
 
 declare -A props
 
-file=${DIR_PATH}/dependencyManagement.properties
+file=${DIR_PATH}/dependencies.properties
 while IFS='=' read -r key value; do
   if [ -z "${key}" ];then
     continue

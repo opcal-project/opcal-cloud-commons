@@ -6,7 +6,7 @@ SCRIPT=`readlink -f "${BASH_SOURCE:-$0}"`
 
 DIR_PATH=`dirname ${SCRIPT}`
 
-VERSION=$1
+VERSION=$(grep "opcal-commons-build.version" ${DIR_PATH}/dependencies.properties|cut -d'=' -f2)
 
 echo "opcal build version is [${VERSION}]"
 # update xyz.opcal.build version
