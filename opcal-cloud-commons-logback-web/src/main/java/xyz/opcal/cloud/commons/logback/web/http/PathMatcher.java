@@ -16,8 +16,8 @@
 
 package xyz.opcal.cloud.commons.logback.web.http;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.constraints.NotNull;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.constraints.NotNull;
 
 import org.springframework.util.AntPathMatcher;
 

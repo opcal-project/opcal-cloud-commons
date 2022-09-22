@@ -16,8 +16,9 @@
 
 package xyz.opcal.cloud.commons.web.utils;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.constraints.NotNull;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.StringUtils;
 

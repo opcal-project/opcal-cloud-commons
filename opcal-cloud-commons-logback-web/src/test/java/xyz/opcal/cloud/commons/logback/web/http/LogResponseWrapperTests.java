@@ -21,9 +21,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.IOException;
 import java.util.UUID;
 
-import javax.servlet.ServletOutputStream;
+import jakarta.servlet.ServletOutputStream;
 
 import org.junit.jupiter.api.Test;
+
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import lombok.extern.slf4j.Slf4j;
