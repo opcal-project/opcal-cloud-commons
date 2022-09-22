@@ -1,4 +1,4 @@
-image: eclipse-temurin:11-jdk-jammy
+image: eclipse-temurin:17-jdk-jammy
 
 stages:
   - test
