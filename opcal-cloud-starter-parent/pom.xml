@@ -15,7 +15,7 @@
 	<name>opcal-cloud-starter-parent</name>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 		<!-- compiler properties -->
 		<resource.delimiter>@</resource.delimiter>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
@@ -27,8 +27,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<!-- dependency version-->
-		<spring-cloud.version>2021.0.4</spring-cloud.version>
-		<spring-boot-admin.version>2.7.4</spring-boot-admin.version>
+		<spring-cloud.version>2022.0.0-M4</spring-cloud.version>
+		<spring-boot-admin.version>2.7.5</spring-boot-admin.version>
 		<playtika-feign-reactive.version>3.2.6</playtika-feign-reactive.version>
 	</properties>
 
