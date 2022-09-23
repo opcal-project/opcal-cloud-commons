@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>xyz.opcal.build</groupId>
 		<artifactId>opcal-commons-build</artifactId>
-		<version>2.6.11</version>
+		<version>2.6.12-SNAPSHOT</version>
 		<relativePath/>
 	</parent>
 
@@ -19,7 +19,7 @@
 		<!-- spring version -->
 		<spring-cloud.version>2021.0.4</spring-cloud.version>
 		<!-- dependency version-->
-		<spring-boot-admin.version>2.6.8</spring-boot-admin.version>
+		<spring-boot-admin.version>2.6.9</spring-boot-admin.version>
 		<playtika-feign-reactive.version>3.2.6</playtika-feign-reactive.version>
 
 		<!-- sonar -->
