@@ -8,8 +8,9 @@ commons project module for system
 ## Release Train Table
 |  Release  |   Branch  | Spring Boot | Spring Cloud |
 |   :---:   |   :---:   |    :---:    |     :---:    |
-| 2.7.3.1   |    main   |   2.7.3     |   2021.0.4   |
-| 0.2.6.13  |  0.2.6.x  |   2.6.11    |   2021.0.4   |
+| 3.0.0.0   |   main    |   3.0.0-M5  |  2022.0.0-M4 |
+| 2.7.4.0   |   2.7.x   |   2.7.4     |   2021.0.4   |
+| 2.6.12.0  |  0.2.6.x  |   2.6.12    |   2021.0.4   |
 | 0.2.5.9   |  0.2.5.x  |   2.5.13    |   2020.0.5   |
 | 0.2.4.2   |  0.2.4.x  |   2.4.13    |   2020.0.5   |
 | 0.2.3.3   |  0.2.3.x  |   2.3.12    |  Hoxton.SR12 |
@@ -19,7 +20,6 @@ commons project module for system
 
 Replace {opcal-cloud.version} that if necessary to support required Spring Boot and Spring Cloud version.
 
-Version 2.7.1.2, 0.2.6.10 and after
 ```xml
 <parent>
     <groupId>xyz.opcal.cloud</groupId>
@@ -29,26 +29,16 @@ Version 2.7.1.2, 0.2.6.10 and after
 </parent>
 ```
 
-Before 2.7.1.2, 0.2.6.10
-```xml
-<parent>
-    <groupId>xyz.opcal.cloud</groupId>
-    <artifactId>opcal-cloud-parent</artifactId>
-    <version>{opcal-cloud.version}</version>
-    <relativePath/>
-</parent>
-```
-
 ### Using maven dependencyManagement
 
 ```xml
 <dependencyManagement>
-	<dependency>
+    <dependency>
         <groupId>xyz.opcal.cloud</groupId>
         <artifactId>opcal-cloud-commons-dependencies</artifactId>
         <version>{opcal-cloud.version}</version>
         <type>pom</type>
         <scope>import</scope>
-	</dependency>
+    </dependency>
 </dependencyManagement>
 ```
