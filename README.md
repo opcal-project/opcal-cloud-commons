@@ -19,7 +19,6 @@ commons project module for system
 
 Replace {opcal-cloud.version} that if necessary to support required Spring Boot and Spring Cloud version.
 
-Version 2.7.1.2, 0.2.6.10 and after
 ```xml
 <parent>
     <groupId>xyz.opcal.cloud</groupId>
@@ -29,26 +28,15 @@ Version 2.7.1.2, 0.2.6.10 and after
 </parent>
 ```
 
-Before 2.7.1.2, 0.2.6.10
-```xml
-<parent>
-    <groupId>xyz.opcal.cloud</groupId>
-    <artifactId>opcal-cloud-parent</artifactId>
-    <version>{opcal-cloud.version}</version>
-    <relativePath/>
-</parent>
-```
-
 ### Using maven dependencyManagement
 
 ```xml
 <dependencyManagement>
-	<dependency>
+    <dependency>
         <groupId>xyz.opcal.cloud</groupId>
         <artifactId>opcal-cloud-commons-dependencies</artifactId>
         <version>{opcal-cloud.version}</version>
         <type>pom</type>
         <scope>import</scope>
-	</dependency>
+    </dependency>
 </dependencyManagement>
-```
