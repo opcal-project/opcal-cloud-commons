@@ -17,6 +17,8 @@
 		<!-- dependencies version -->
 		<com.google.guava.version>31.1-jre</com.google.guava.version>
 		<commons-io.version>2.11.0</commons-io.version>
+		<spring-boot-admin.version>2.6.9</spring-boot-admin.version>
+		<playtika-feign-reactive.version>3.2.6</playtika-feign-reactive.version>
 	</properties>
 
 	<licenses>
@@ -69,6 +71,20 @@
 				<groupId>commons-io</groupId>
 				<artifactId>commons-io</artifactId>
 				<version>${commons-io.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-dependencies</artifactId>
+				<version>${spring-boot-admin.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.playtika.reactivefeign</groupId>
+				<artifactId>feign-reactor-bom</artifactId>
+				<version>${playtika-feign-reactive.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>xyz.opcal.cloud</groupId>
