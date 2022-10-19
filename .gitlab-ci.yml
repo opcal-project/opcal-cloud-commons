@@ -1,4 +1,4 @@
-image: eclipse-temurin:11-jdk-jammy
+image: eclipse-temurin:11-jdk
 
 stages:
   - test
@@ -34,9 +34,14 @@ cache:
 
 test:
   <<: *test-templete
+  variables:
+    MAVEN_OPTS: "-Dmaven.repo.local=/root/.m2/repository"
+    SONAR_USER_HOME: "/root/.sonar"
   except:
     changes:
       - "*.md"
+  tags:
+    - build
 
 test-tags:
   <<: *test-templete
@@ -45,14 +50,18 @@ test-tags:
 
 deploy-snapshot:
   <<: *deploy-template
+  variables:
+    MAVEN_OPTS: "-Dmaven.repo.local=/root/.m2/repository"
+    SONAR_USER_HOME: "/root/.sonar"
   script:
     - ./mvnw -U clean $MAVEN_CLI_OPTS deploy -Dgpg.passphrase=${GPG_PASSPHRASE} -Dmaven.test.skip=true -s settings.xml
   except:
     refs:
-      - "/^*.release$/"
+     - "/^*.release$/"
     changes:
       - "*.md"
-
+  tags:
+    - build
 
 deploy-release :
   <<: *deploy-template
