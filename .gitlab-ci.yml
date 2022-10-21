@@ -36,7 +36,9 @@ test:
   <<: *test-templete
   variables:
     MAVEN_OPTS: "-Dmaven.repo.local=/root/.m2/repository"
-    SONAR_USER_HOME: "/root/.sonar"
+    SONAR_USER_HOME: "/root/.sonar/${CI_PROJECT_NAME}"
+  before_script:
+    - mkdir -p ${SONAR_USER_HOME} && ls -la ${SONAR_USER_HOME}
   except:
     changes:
       - "*.md"
@@ -52,7 +54,7 @@ deploy-snapshot:
   <<: *deploy-template
   variables:
     MAVEN_OPTS: "-Dmaven.repo.local=/root/.m2/repository"
-    SONAR_USER_HOME: "/root/.sonar"
+    SONAR_USER_HOME: "/root/.sonar/${CI_PROJECT_NAME}"
   script:
     - ./mvnw -U clean $MAVEN_CLI_OPTS deploy -Dgpg.passphrase=${GPG_PASSPHRASE} -Dmaven.test.skip=true -s settings.xml
   except:
