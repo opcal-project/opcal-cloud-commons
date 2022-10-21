@@ -38,7 +38,7 @@ test:
     MAVEN_OPTS: "-Dmaven.repo.local=/root/.m2/repository"
     SONAR_USER_HOME: "/root/.sonar/${CI_PROJECT_NAME}"
   before_script:
-    - mkdir -p ${SONAR_USER_HOME} && ls -la ${SONAR_USER_HOME}
+    - mkdir -p ${SONAR_USER_HOME}
   except:
     changes:
       - "*.md"
