@@ -29,6 +29,6 @@ fi
 
 echo "next version is [${NEXT_VERSION}]"
 
-${ROOT_PATH}/versions-set.sh ${NEXT_VERSION}
+${SCRIPT_DIR_PATH}/versions-set.sh ${NEXT_VERSION}
 
 echo ${NEXT_VERSION} > /tmp/NEXT_DEVELOPMENT_VERSION
