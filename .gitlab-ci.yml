@@ -73,7 +73,7 @@ deploy-release :
 #    - ./mvnw versions:set -DnewVersion=${RELEASE_VERSION}
 #    - ./mvnw versions:set -DnewVersion=${RELEASE_VERSION} -pl opcal-cloud-commons-dependencies
 #    - ./mvnw versions:set -DnewVersion=${RELEASE_VERSION} -pl opcal-cloud-starter-parent
-    - ./versions-set.sh ${RELEASE_VERSION}
+    - ./ci/script/versions-set.sh ${RELEASE_VERSION}
     - ./mvnw -U clean $MAVEN_CLI_OPTS deploy -Dgpg.passphrase=${GPG_PASSPHRASE} -Dmaven.test.skip=true -s settings.xml
   only:
     - "/^*.release$/"
