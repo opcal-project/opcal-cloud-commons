@@ -3,9 +3,11 @@
 NEXT_DIRECTION=$1
 
 SCRIPT=`readlink -f "${BASH_SOURCE:-$0}"`
-DIR_PATH=`dirname ${SCRIPT}`
+SCRIPT_DIR_PATH=`dirname ${SCRIPT}`
+CI_DIR_PATH=`dirname ${SCRIPT_DIR_PATH}`
+ROOT_PATH=`dirname ${CI_DIR_PATH}`
 
-CURRENT_VERSION=$(${DIR_PATH}/mvnw help:evaluate -Dexpression=project.version | grep "^[^\\[]" |grep -v Download)
+CURRENT_VERSION=$(${ROOT_PATH}/mvnw help:evaluate -Dexpression=project.version | grep "^[^\\[]" |grep -v Download)
 VERSION_NUMBER=${CURRENT_VERSION/-SNAPSHOT/}
 
 echo "current version is [${CURRENT_VERSION}]"
@@ -27,4 +29,6 @@ fi
 
 echo "next version is [${NEXT_VERSION}]"
 
-${DIR_PATH}/versions-set.sh ${NEXT_VERSION}
+${SCRIPT_DIR_PATH}/versions-set.sh ${NEXT_VERSION}
+
+echo ${NEXT_VERSION} > /tmp/NEXT_DEVELOPMENT_VERSION
