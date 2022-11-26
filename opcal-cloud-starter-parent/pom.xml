@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.0-RC1</version>
+		<version>3.0.0</version>
 		<relativePath/>
 	</parent>
 
@@ -27,7 +27,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<!-- dependency version-->
-		<spring-cloud.version>2022.0.0-RC1</spring-cloud.version>
+		<spring-cloud.version>2022.0.0-RC2</spring-cloud.version>
 	</properties>
 
 	<licenses>

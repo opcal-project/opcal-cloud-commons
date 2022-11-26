@@ -3,7 +3,7 @@
     <parent>
 		<groupId>xyz.opcal.build</groupId>
 		<artifactId>opcal-commons-build</artifactId>
-		<version>3.0.0-SNAPSHOT</version>
+		<version>3.0.0</version>
         <relativePath/>
     </parent>
 
@@ -17,7 +17,7 @@
 
     <properties>
         <!-- spring version -->
-        <spring-cloud.version>2022.0.0-RC1</spring-cloud.version>
+        <spring-cloud.version>2022.0.0-RC2</spring-cloud.version>
 
         <!-- sonar -->
         <sonar.projectKey>opcal-project_opcal-cloud-commons</sonar.projectKey>
