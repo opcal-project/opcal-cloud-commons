@@ -19,7 +19,7 @@
         <!-- spring version -->
         <spring-cloud.version>2021.0.5</spring-cloud.version>
         <!-- dependency version-->
-        <spring-boot-admin.version>2.7.7</spring-boot-admin.version>
+        <spring-boot-admin.version>2.7.8</spring-boot-admin.version>
         <playtika-feign-reactive.version>3.2.6</playtika-feign-reactive.version>
 
         <!-- sonar -->
