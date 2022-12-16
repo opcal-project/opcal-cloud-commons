@@ -23,14 +23,14 @@ import org.springframework.context.annotation.Import;
 
 import xyz.opcal.cloud.commons.autoconfigure.web.ReactiveWebRequestConfiguration;
 import xyz.opcal.cloud.commons.autoconfigure.web.ServletWebRequestConfiguration;
-import xyz.opcal.cloud.commons.feignreactive.configuration.ReactiveFeignRequestIdConfiguration;
+//import xyz.opcal.cloud.commons.feignreactive.configuration.ReactiveFeignRequestIdConfiguration;
 
 @AutoConfiguration(after = { ReactiveWebRequestConfiguration.class, ServletWebRequestConfiguration.class })
 public class FeignReactiveAutoConfiguration {
 
 	@Configuration(proxyBeanMethods = false)
 	@ConditionalOnProperty(value = "opcal.cloud.feignreactive.request-id", havingValue = "true")
-	@Import(ReactiveFeignRequestIdConfiguration.class)
+//	@Import(ReactiveFeignRequestIdConfiguration.class)
 	static class AutoReactiveFeignRequestIdConfiguration {
 
 	}

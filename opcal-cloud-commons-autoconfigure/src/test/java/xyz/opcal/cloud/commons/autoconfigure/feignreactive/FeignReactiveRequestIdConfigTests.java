@@ -24,15 +24,15 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ActiveProfiles;
 
 import xyz.opcal.cloud.commons.autoconfigure.AutoConfigTestApplication;
-import xyz.opcal.cloud.commons.feignreactive.interceptor.RequestIdReactiveHttpRequestInterceptor;
+//import xyz.opcal.cloud.commons.feignreactive.interceptor.RequestIdReactiveHttpRequestInterceptor;
 
-@ActiveProfiles("feignreactive")
-@SpringBootTest(classes = AutoConfigTestApplication.class)
+//@ActiveProfiles("feignreactive")
+//@SpringBootTest(classes = AutoConfigTestApplication.class)
 class FeignReactiveRequestIdConfigTests {
 
-	@Test
+//	@Test
 	void test(ApplicationContext applicationContext) {
-		assertNotNull(applicationContext.getBean(RequestIdReactiveHttpRequestInterceptor.class));
+//		assertNotNull(applicationContext.getBean(RequestIdReactiveHttpRequestInterceptor.class));
 	}
 
 }

@@ -29,7 +29,7 @@ import org.springframework.context.ApplicationContext;
 import xyz.opcal.cloud.commons.feign.http.RequestThreadContextIdHandler;
 import xyz.opcal.cloud.commons.feign.http.ServletRequestIdHandler;
 import xyz.opcal.cloud.commons.feign.interceptor.RequestIdInterceptor;
-import xyz.opcal.cloud.commons.feignreactive.interceptor.RequestIdReactiveHttpRequestInterceptor;
+//import xyz.opcal.cloud.commons.feignreactive.interceptor.RequestIdReactiveHttpRequestInterceptor;
 import xyz.opcal.cloud.commons.logback.web.filter.LogRequestFilter;
 import xyz.opcal.cloud.commons.logback.web.filter.LogRequestIdFilter;
 import xyz.opcal.cloud.commons.logback.webflux.filter.LogWebfluxRequestFilter;
@@ -94,9 +94,9 @@ class ConfigDisableTests {
 		assertThrows(NoSuchBeanDefinitionException.class, () -> applicationContext.getBean(RequestThreadContextIdHandler.class));
 	}
 
-	@Test
-	@Order(7)
-	void disableFeignreactive(ApplicationContext applicationContext) {
-		assertThrows(NoSuchBeanDefinitionException.class, () -> applicationContext.getBean(RequestIdReactiveHttpRequestInterceptor.class));
-	}
+//	@Test
+//	@Order(7)
+//	void disableFeignreactive(ApplicationContext applicationContext) {
+//		assertThrows(NoSuchBeanDefinitionException.class, () -> applicationContext.getBean(RequestIdReactiveHttpRequestInterceptor.class));
+//	}
 }
