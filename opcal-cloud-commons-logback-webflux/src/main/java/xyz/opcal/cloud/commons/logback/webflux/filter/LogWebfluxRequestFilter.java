@@ -89,8 +89,8 @@ public class LogWebfluxRequestFilter implements WebFilter {
 		String method = Optional.ofNullable(request.getMethod()).orElse(HttpMethod.GET).name();
 		String parameters = request.getURI().getQuery();
 
-		LogRequestDecorator logRequestDecorator = new LogRequestDecorator(request);
-		LogResponseDecorator logResponseDecorator = new LogResponseDecorator(exchange.getResponse());
+		final LogRequestDecorator logRequestDecorator = new LogRequestDecorator(request);
+		final LogResponseDecorator logResponseDecorator = new LogResponseDecorator(exchange.getResponse());
 
 		ServerWebExchangeDecorator exchangeDecorator = new ServerWebExchangeDecorator(exchange) {
 
@@ -111,6 +111,8 @@ public class LogWebfluxRequestFilter implements WebFilter {
 			requestLogger.info("url [{}] request id [{}] status [{}] response body [{}]", requestURI, requestId, logResponseDecorator.getStatusCode(),
 					logResponseDecorator);
 			accessLogger.info("remote ip [{}] url [{}] request id [{}] finished in [{}] milliseconds", remoteIp, requestURI, requestId, millis);
+			logRequestDecorator.close();
+			logResponseDecorator.close();
 		});
 	}
 }
