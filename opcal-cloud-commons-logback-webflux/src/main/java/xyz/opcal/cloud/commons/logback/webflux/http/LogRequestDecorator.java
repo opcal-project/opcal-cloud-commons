@@ -16,7 +16,6 @@
 
 package xyz.opcal.cloud.commons.logback.webflux.http;
 
-import java.io.Closeable;
 import java.io.IOException;
 import java.nio.channels.Channels;
 
@@ -27,7 +26,7 @@ import org.springframework.util.FastByteArrayOutputStream;
 
 import reactor.core.publisher.Flux;
 
-public class LogRequestDecorator extends ServerHttpRequestDecorator implements Closeable {
+public class LogRequestDecorator extends ServerHttpRequestDecorator {
 
 	private final FastByteArrayOutputStream bodyStream;
 
@@ -52,7 +51,6 @@ public class LogRequestDecorator extends ServerHttpRequestDecorator implements C
 		return bodyStream.toString();
 	}
 
-	@Override
 	public void close() {
 		bodyStream.close();
 	}

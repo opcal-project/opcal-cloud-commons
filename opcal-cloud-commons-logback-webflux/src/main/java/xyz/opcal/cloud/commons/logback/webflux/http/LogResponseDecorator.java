@@ -16,11 +16,11 @@
 
 package xyz.opcal.cloud.commons.logback.webflux.http;
 
-import java.io.Closeable;
 import java.io.IOException;
 import java.nio.channels.Channels;
 
 import org.reactivestreams.Publisher;
+
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.core.io.buffer.DataBufferUtils;
 import org.springframework.http.server.reactive.ServerHttpResponse;
@@ -30,7 +30,7 @@ import org.springframework.util.FastByteArrayOutputStream;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public class LogResponseDecorator extends ServerHttpResponseDecorator implements Closeable {
+public class LogResponseDecorator extends ServerHttpResponseDecorator {
 
 	private final FastByteArrayOutputStream bodyStream;
 
@@ -64,7 +64,6 @@ public class LogResponseDecorator extends ServerHttpResponseDecorator implements
 		return bodyStream.toString();
 	}
 
-	@Override
 	public void close() {
 		bodyStream.close();
 	}
