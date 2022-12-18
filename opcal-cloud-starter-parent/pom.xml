@@ -27,7 +27,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<!-- dependency version-->
-		<spring-cloud.version>2022.0.0-SNAPSHOT</spring-cloud.version>
+		<spring-cloud.version>2022.0.0-RC3</spring-cloud.version>
 	</properties>
 
 	<licenses>
