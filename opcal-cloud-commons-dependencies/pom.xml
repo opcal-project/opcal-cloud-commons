@@ -15,7 +15,7 @@
 
     <properties>
         <!-- dependencies version -->
-        <com.google.guava.version>31.1-jre</com.google.guava.version>
+        <google-guava.version>31.1-jre</google-guava.version>
         <commons-io.version>2.11.0</commons-io.version>
         <spring-boot-admin.version>3.0.0</spring-boot-admin.version>
         <playtika-feign-reactive.version>3.2.6</playtika-feign-reactive.version>
@@ -66,7 +66,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>${com.google.guava.version}</version>
+                <version>${google-guava.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>
