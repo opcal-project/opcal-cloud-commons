@@ -18,7 +18,6 @@
         <google-guava.version>31.1-jre</google-guava.version>
         <commons-io.version>2.11.0</commons-io.version>
         <spring-boot-admin.version>3.0.0</spring-boot-admin.version>
-        <playtika-feign-reactive.version>3.2.6</playtika-feign-reactive.version>
         <testcontainers.version>1.17.6</testcontainers.version>
     </properties>
 
@@ -87,13 +86,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>com.playtika.reactivefeign</groupId>-->
-<!--                <artifactId>feign-reactor-bom</artifactId>-->
-<!--                <version>${playtika-feign-reactive.version}</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-autoconfigure</artifactId>
@@ -129,11 +121,6 @@
                 <artifactId>opcal-cloud-commons-feign</artifactId>
                 <version>3.0.2.2-SNAPSHOT</version>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>xyz.opcal.cloud</groupId>-->
-<!--                <artifactId>opcal-cloud-commons-feign-reactive</artifactId>-->
-<!--                <version>3.0.0.0-SNAPSHOT</version>-->
-<!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
 
