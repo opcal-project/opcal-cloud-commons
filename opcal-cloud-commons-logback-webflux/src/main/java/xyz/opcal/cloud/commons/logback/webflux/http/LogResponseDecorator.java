@@ -17,6 +17,7 @@
 package xyz.opcal.cloud.commons.logback.webflux.http;
 
 import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 
 import org.reactivestreams.Publisher;
@@ -52,7 +53,9 @@ public class LogResponseDecorator extends ServerHttpResponseDecorator {
 
 	private DataBuffer transferBuffer(DataBuffer dataBuffer, FastByteArrayOutputStream outputStream) {
 		try {
-			Channels.newChannel(outputStream).write(dataBuffer.toByteBuffer().asReadOnlyBuffer());
+			var tmp = ByteBuffer.allocate(dataBuffer.capacity());
+			dataBuffer.toByteBuffer(tmp);
+			Channels.newChannel(outputStream).write(tmp);
 		} catch (IOException e) {
 			// do nothing
 		}

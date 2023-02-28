@@ -17,6 +17,7 @@
 package xyz.opcal.cloud.commons.logback.webflux.http;
 
 import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 
 import org.springframework.core.io.buffer.DataBuffer;
@@ -39,7 +40,9 @@ public class LogRequestDecorator extends ServerHttpRequestDecorator {
 	public Flux<DataBuffer> getBody() {
 		return super.getBody().doOnNext(dataBuffer -> {
 			try {
-				Channels.newChannel(bodyStream).write(dataBuffer.toByteBuffer().asReadOnlyBuffer());
+				var tmp = ByteBuffer.allocate(dataBuffer.capacity());
+				dataBuffer.toByteBuffer(tmp);
+				Channels.newChannel(bodyStream).write(tmp);
 			} catch (IOException e) {
 				// do nothing
 			}
