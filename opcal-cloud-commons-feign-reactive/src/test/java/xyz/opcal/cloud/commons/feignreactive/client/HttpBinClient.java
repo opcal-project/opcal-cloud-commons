@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import reactivefeign.spring.config.ReactiveFeignClient;
 import reactor.core.publisher.Mono;
 
-@ReactiveFeignClient(name = "reactivehttpbin", url = "https://httpbin.org")
+@ReactiveFeignClient(name = "reactivehttpbin", url = "https://httpbin.opcal.xyz")
 public interface HttpBinClient {
 
 	@GetMapping("/headers")

@@ -27,11 +27,15 @@ import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import feign.RequestInterceptor;
+import feign.RequestTemplate;
 import reactor.core.publisher.Mono;
 import xyz.opcal.cloud.commons.feign.client.HttpBinFeign;
+import xyz.opcal.cloud.commons.web.WebConstants;
 
 @RestController
 @EnableFeignClients(clients = HttpBinFeign.class)
@@ -53,5 +57,13 @@ public class FeignTestApplication {
 	@ConditionalOnMissingBean
 	public HttpMessageConverters messageConverters(ObjectProvider<HttpMessageConverter<?>> converters) {
 		return new HttpMessageConverters(converters.orderedStream().collect(Collectors.toList()));
+	}
+
+	@Component
+	static class CiTokenRequestInterceptor implements RequestInterceptor {
+		@Override
+		public void apply(RequestTemplate template) {
+			template.header("X-CI-TOKEN", System.getenv("CI_TOKEN"));
+		}
 	}
 }

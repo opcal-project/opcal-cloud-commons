@@ -41,8 +41,8 @@ public class ReHttpbinController {
 	public Mono<String> httpbinIp() {
 		return Mono.deferContextual(contextView -> {
 			String requestId = contextView.getOrDefault(WebConstants.HEADER_X_REQUEST_ID, "");
-			return WebClient.builder().baseUrl("https://httpbin.org").filter(logHeader()).build().get().uri("/ip")
-					.header(WebConstants.HEADER_X_REQUEST_ID, requestId).retrieve().bodyToMono(String.class);
+			return WebClient.builder().baseUrl("https://httpbin.opcal.xyz").filter(logHeader()).build().get().uri("/ip")
+					.header(WebConstants.HEADER_X_REQUEST_ID, requestId).header("X-CI-TOKEN", System.getenv("CI_TOKEN")).retrieve().bodyToMono(String.class);
 		});
 	}
 

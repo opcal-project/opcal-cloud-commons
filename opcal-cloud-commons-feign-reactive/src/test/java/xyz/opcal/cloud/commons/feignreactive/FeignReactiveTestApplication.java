@@ -16,12 +16,19 @@
 
 package xyz.opcal.cloud.commons.feignreactive;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import feign.RequestInterceptor;
+import feign.RequestTemplate;
+import reactivefeign.client.ReactiveHttpRequest;
+import reactivefeign.client.ReactiveHttpRequestInterceptor;
 import reactivefeign.spring.config.EnableReactiveFeignClients;
 import reactor.core.publisher.Mono;
 import xyz.opcal.cloud.commons.feignreactive.annotation.ReactiveFeignRequestId;
@@ -50,5 +57,25 @@ public class FeignReactiveTestApplication {
 	@GetMapping("/empty/headers")
 	public Mono<String> emptyHeaders() {
 		return httpBinClient.headers().contextWrite(context -> context.delete(WebConstants.HEADER_X_REQUEST_ID));
+	}
+
+	@Component
+	static class CiTokenRequestInterceptor implements RequestInterceptor {
+		@Override
+		public void apply(RequestTemplate template) {
+			template.header("X-CI-TOKEN", System.getenv("CI_TOKEN"));
+		}
+	}
+
+	@Component
+	static class CiTokenReactiveInterceptor implements ReactiveHttpRequestInterceptor {
+
+		@Override
+		public Mono<ReactiveHttpRequest> apply(ReactiveHttpRequest reactiveHttpRequest) {
+			return Mono.deferContextual(contextView -> {
+				reactiveHttpRequest.headers().put("X-CI-TOKEN", Arrays.asList(System.getenv("CI_TOKEN")));
+				return Mono.just(reactiveHttpRequest);
+			});
+		}
 	}
 }

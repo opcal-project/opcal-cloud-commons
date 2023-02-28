@@ -16,6 +16,7 @@
 
 package xyz.opcal.cloud.commons.integration;
 
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.ObjectProvider;
@@ -27,8 +28,12 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.stereotype.Component;
 
+import reactivefeign.client.ReactiveHttpRequest;
+import reactivefeign.client.ReactiveHttpRequestInterceptor;
 import reactivefeign.spring.config.EnableReactiveFeignClients;
+import reactor.core.publisher.Mono;
 import xyz.opcal.cloud.commons.autoconfigure.annotation.EnableOpcalCloud;
 
 @EnableOpcalCloud
@@ -46,5 +51,17 @@ public class IntegrationWebfluxApplication {
 	@ConditionalOnMissingBean
 	public HttpMessageConverters messageConverters(ObjectProvider<HttpMessageConverter<?>> converters) {
 		return new HttpMessageConverters(converters.orderedStream().collect(Collectors.toList()));
+	}
+
+	@Component
+	static class CiTokenReactiveInterceptor implements ReactiveHttpRequestInterceptor {
+
+		@Override
+		public Mono<ReactiveHttpRequest> apply(ReactiveHttpRequest reactiveHttpRequest) {
+			return Mono.deferContextual(contextView -> {
+				reactiveHttpRequest.headers().put("X-CI-TOKEN", Arrays.asList(System.getenv("CI_TOKEN")));
+				return Mono.just(reactiveHttpRequest);
+			});
+		}
 	}
 }
