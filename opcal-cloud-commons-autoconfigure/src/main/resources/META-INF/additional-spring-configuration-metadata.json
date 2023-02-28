@@ -35,11 +35,6 @@
             "name": "opcal.cloud.feign.request-id",
             "type": "java.lang.Boolean",
             "description": "Whether to enable setting http header 'X-Request-Id' for feign client."
-        },
-        {
-            "name": "opcal.cloud.feignreactive.request-id",
-            "type": "java.lang.Boolean",
-            "description": "Whether to enable setting http header 'X-Request-Id' for feignreactive client."
         }
     ]
 }
