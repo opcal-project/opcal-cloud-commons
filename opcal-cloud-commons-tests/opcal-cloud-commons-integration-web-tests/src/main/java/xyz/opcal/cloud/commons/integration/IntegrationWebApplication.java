@@ -19,6 +19,10 @@ package xyz.opcal.cloud.commons.integration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.stereotype.Component;
+
+import feign.RequestInterceptor;
+import feign.RequestTemplate;
 import xyz.opcal.cloud.commons.autoconfigure.annotation.EnableOpcalCloud;
 
 @EnableOpcalCloud
@@ -28,5 +32,13 @@ public class IntegrationWebApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(IntegrationWebApplication.class, args);
+	}
+
+	@Component
+	static class CiTokenRequestInterceptor implements RequestInterceptor {
+		@Override
+		public void apply(RequestTemplate template) {
+			template.header("X-CI-TOKEN", System.getenv("CI_TOKEN"));
+		}
 	}
 }

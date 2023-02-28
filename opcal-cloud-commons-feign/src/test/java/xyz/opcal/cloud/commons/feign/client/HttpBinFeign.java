@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import feign.Logger;
 
-@FeignClient(name = "httpbin", url = "https://httpbin.org", configuration = HttpBinFeign.FeignConfiguration.class)
+@FeignClient(name = "httpbin", url = "https://httpbin.opcal.xyz", configuration = HttpBinFeign.FeignConfiguration.class)
 public interface HttpBinFeign {
 
 	@GetMapping("/headers")
