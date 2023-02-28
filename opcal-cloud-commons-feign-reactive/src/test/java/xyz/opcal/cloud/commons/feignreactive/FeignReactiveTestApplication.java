@@ -25,8 +25,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import feign.RequestInterceptor;
-import feign.RequestTemplate;
 import reactivefeign.client.ReactiveHttpRequest;
 import reactivefeign.client.ReactiveHttpRequestInterceptor;
 import reactivefeign.spring.config.EnableReactiveFeignClients;
@@ -57,14 +55,6 @@ public class FeignReactiveTestApplication {
 	@GetMapping("/empty/headers")
 	public Mono<String> emptyHeaders() {
 		return httpBinClient.headers().contextWrite(context -> context.delete(WebConstants.HEADER_X_REQUEST_ID));
-	}
-
-	@Component
-	static class CiTokenRequestInterceptor implements RequestInterceptor {
-		@Override
-		public void apply(RequestTemplate template) {
-			template.header("X-CI-TOKEN", System.getenv("CI_TOKEN"));
-		}
 	}
 
 	@Component

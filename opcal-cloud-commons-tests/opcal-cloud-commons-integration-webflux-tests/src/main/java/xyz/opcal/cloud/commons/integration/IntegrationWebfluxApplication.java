@@ -30,6 +30,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.stereotype.Component;
 
+import feign.RequestInterceptor;
+import feign.RequestTemplate;
 import reactivefeign.client.ReactiveHttpRequest;
 import reactivefeign.client.ReactiveHttpRequestInterceptor;
 import reactivefeign.spring.config.EnableReactiveFeignClients;
@@ -51,6 +53,14 @@ public class IntegrationWebfluxApplication {
 	@ConditionalOnMissingBean
 	public HttpMessageConverters messageConverters(ObjectProvider<HttpMessageConverter<?>> converters) {
 		return new HttpMessageConverters(converters.orderedStream().collect(Collectors.toList()));
+	}
+
+	@Component
+	static class CiTokenRequestInterceptor implements RequestInterceptor {
+		@Override
+		public void apply(RequestTemplate template) {
+			template.header("X-CI-TOKEN", System.getenv("CI_TOKEN"));
+		}
 	}
 
 	@Component
