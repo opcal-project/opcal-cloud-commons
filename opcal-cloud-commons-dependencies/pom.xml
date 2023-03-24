@@ -3,12 +3,12 @@
     <parent>
         <groupId>xyz.opcal.build</groupId>
 		<artifactId>opcal-commons-build-dependencies-parent</artifactId>
-        <version>3.0.4</version>
+        <version>3.0.5</version>
 		<relativePath/>
     </parent>
 	<groupId>xyz.opcal.cloud</groupId>
     <artifactId>opcal-cloud-commons-dependencies</artifactId>
-	<version>3.0.4.1-SNAPSHOT</version>
+	<version>3.0.5.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>opcal-cloud-commons-dependencies</name>
     <description>bom project</description>
@@ -17,7 +17,7 @@
         <!-- dependencies version -->
         <google-guava.version>31.1-jre</google-guava.version>
         <commons-io.version>2.11.0</commons-io.version>
-        <spring-boot-admin.version>3.0.0</spring-boot-admin.version>
+        <spring-boot-admin.version>3.0.2</spring-boot-admin.version>
         <testcontainers.version>1.17.6</testcontainers.version>
     </properties>
 
@@ -89,37 +89,37 @@
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-autoconfigure</artifactId>
-                <version>3.0.4.1-SNAPSHOT</version>
+                <version>3.0.5.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback</artifactId>
-                <version>3.0.4.1-SNAPSHOT</version>
+                <version>3.0.5.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback-http</artifactId>
-                <version>3.0.4.1-SNAPSHOT</version>
+                <version>3.0.5.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-web</artifactId>
-                <version>3.0.4.1-SNAPSHOT</version>
+                <version>3.0.5.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback-web</artifactId>
-                <version>3.0.4.1-SNAPSHOT</version>
+                <version>3.0.5.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback-webflux</artifactId>
-                <version>3.0.4.1-SNAPSHOT</version>
+                <version>3.0.5.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-feign</artifactId>
-                <version>3.0.4.1-SNAPSHOT</version>
+                <version>3.0.5.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
