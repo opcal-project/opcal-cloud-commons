@@ -1,0 +1,18 @@
+dependencies: /root/workspace/opcal-cloud-commons-updates/opcal-cloud-commons/dependencies.properties
+update-report: /root/workspace/opcal-cloud-commons-updates/opcal-cloud-commons/target/site/property-updates-report.html
+parent-report: /root/workspace/opcal-cloud-commons-updates/opcal-cloud-commons/target/site/parent-updates-report.html
+version-registers:
+  - property-name: opcal-commons-build.version
+    update-policy: INCREMENTAL
+    group-id: xyz.opcal.build
+    artifact-id: opcal-commons-build
+  - property-name: spring-cloud.version
+    update-policy: INCREMENTAL
+  - property-name: spring-boot-admin.version
+    update-policy: INCREMENTAL
+  - property-name: testcontainers.version
+    update-policy: LATEST
+  - property-name: google-guava.version
+    update-policy: LATEST
+  - property-name: commons-io.version
+    update-policy: LATEST
