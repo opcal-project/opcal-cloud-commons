@@ -1,6 +1,9 @@
 dependencies: /root/workspace/opcal-cloud-commons-updates/opcal-cloud-commons/dependencies.properties
-update-report: /root/workspace/opcal-cloud-commons-updates/opcal-cloud-commons/target/site/property-updates-report.html
-parent-report: /root/workspace/opcal-cloud-commons-updates/opcal-cloud-commons/target/site/parent-updates-report.html
+update-reports:
+  - /root/workspace/opcal-cloud-commons-updates/opcal-cloud-commons/target/site/property-updates-report.html
+  - /root/workspace/opcal-cloud-commons-updates/opcal-cloud-commons/opcal-cloud-commons-dependencies/target/site/property-updates-report.html
+parent-reports:
+  - /root/workspace/opcal-cloud-commons-updates/opcal-cloud-commons/target/site/parent-updates-report.html
 version-registers:
   - property-name: opcal-commons-build.version
     update-policy: INCREMENTAL
