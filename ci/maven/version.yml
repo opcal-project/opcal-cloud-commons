@@ -1,7 +1,6 @@
 dependencies: /root/workspace/opcal-cloud-commons-updates/opcal-cloud-commons/dependencies.properties
 update-reports:
-  - /root/workspace/opcal-cloud-commons-updates/opcal-cloud-commons/target/site/property-updates-report.html
-  - /root/workspace/opcal-cloud-commons-updates/opcal-cloud-commons/opcal-cloud-commons-dependencies/target/site/property-updates-report.html
+  - /root/workspace/opcal-cloud-commons-updates/opcal-cloud-commons/target/site/property-updates-aggregate-report.html
 parent-reports:
   - /root/workspace/opcal-cloud-commons-updates/opcal-cloud-commons/target/site/parent-updates-report.html
 version-registers:
