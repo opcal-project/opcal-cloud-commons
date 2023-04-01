@@ -28,6 +28,8 @@
 
 		<!-- dependency version-->
 		<spring-cloud.version>2022.0.2</spring-cloud.version>
+
+		<versions-maven-plugin.version>2.15.0</versions-maven-plugin.version>
 	</properties>
 
 	<licenses>
@@ -119,7 +121,6 @@
 				<javadoc.failOnError>false</javadoc.failOnError>
 				<javadoc.failOnWarnings>false</javadoc.failOnWarnings>
 				<flatten-maven-plugin.version>1.4.1</flatten-maven-plugin.version>
-				<versions-maven-plugin.version>2.15.0</versions-maven-plugin.version>
 				<maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
 				<maven-release-plugin.version>3.0.0</maven-release-plugin.version>
 				<maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
