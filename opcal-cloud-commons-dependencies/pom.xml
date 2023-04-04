@@ -18,7 +18,7 @@
         <google-guava.version>31.1-jre</google-guava.version>
         <commons-io.version>2.11.0</commons-io.version>
         <spring-boot-admin.version>3.0.2</spring-boot-admin.version>
-        <testcontainers.version>1.17.6</testcontainers.version>
+        <testcontainers.version>1.18.0</testcontainers.version>
     </properties>
 
     <licenses>
