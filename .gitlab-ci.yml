@@ -55,7 +55,7 @@ test-manual:
   tags:
     - build
   rules:
-    - if: $CI_PIPELINE_SOURCE = "push"
+    - if: $CI_PIPELINE_SOURCE == "push"
       when: naver
   when: manual
 
@@ -89,7 +89,7 @@ deploy-snapshot-manual:
   tags:
     - build
   rules:
-    - if: $CI_PIPELINE_SOURCE = "push"
+    - if: $CI_PIPELINE_SOURCE == "push"
       when: naver
   when: manual
 
