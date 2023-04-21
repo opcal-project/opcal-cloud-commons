@@ -39,22 +39,15 @@ test:
     SONAR_USER_HOME: "/root/.sonar/${CI_PROJECT_NAME}"
   before_script:
     - mkdir -p ${SONAR_USER_HOME}
-  except:
-    changes:
-      - "*.md"
   tags:
     - build
-
-test-manual:
-  <<: *test-templete
-  variables:
-    MAVEN_OPTS: "-Dmaven.repo.local=/root/.m2/repository"
-    SONAR_USER_HOME: "/root/.sonar/${CI_PROJECT_NAME}"
-  before_script:
-    - mkdir -p ${SONAR_USER_HOME}
-  tags:
-    - build
-  when: manual
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
+      changes:
+        - "*.md"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_PIPELINE_SOURCE == "web"
 
 test-tags:
   <<: *test-templete
@@ -68,25 +61,18 @@ deploy-snapshot:
     SONAR_USER_HOME: "/root/.sonar/${CI_PROJECT_NAME}"
   script:
     - ./mvnw -U clean $MAVEN_CLI_OPTS deploy -Dgpg.passphrase=${GPG_PASSPHRASE} -Dmaven.test.skip=true -s settings.xml
-  except:
-    refs:
-     - "/^*.release$/"
-    changes:
-      - "*.md"
   tags:
     - build
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
+      changes:
+        - "*.md"
+      when: never
+    - if: $CI_COMMIT_TAG
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_PIPELINE_SOURCE == "web"
 
-deploy-snapshot-manual:
-  <<: *deploy-template
-  variables:
-    MAVEN_OPTS: "-Dmaven.repo.local=/root/.m2/repository"
-    SONAR_USER_HOME: "/root/.sonar/${CI_PROJECT_NAME}"
-  script:
-    - ./mvnw -U clean $MAVEN_CLI_OPTS deploy -Dgpg.passphrase=${GPG_PASSPHRASE} -Dmaven.test.skip=true -s settings.xml
-  tags:
-    - build
-  when: manual
-      
 deploy-release :
   <<: *deploy-template
   script:
