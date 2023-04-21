@@ -56,7 +56,7 @@ test-manual:
     - build
   rules:
     - if: $CI_PIPELINE_SOURCE == "push"
-      when: never
+      when: manual
   when: manual
 
 test-tags:
@@ -90,7 +90,7 @@ deploy-snapshot-manual:
     - build
   rules:
     - if: $CI_PIPELINE_SOURCE == "push"
-      when: never
+      when: manual
   when: manual
 
 deploy-release :
