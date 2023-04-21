@@ -54,6 +54,9 @@ test-manual:
     - mkdir -p ${SONAR_USER_HOME}
   tags:
     - build
+  rules:
+    - if: $CI_PIPELINE_SOURCE = "push"
+      when: naver
   when: manual
 
 test-tags:
@@ -85,6 +88,9 @@ deploy-snapshot-manual:
     - ./mvnw -U clean $MAVEN_CLI_OPTS deploy -Dgpg.passphrase=${GPG_PASSPHRASE} -Dmaven.test.skip=true -s settings.xml
   tags:
     - build
+  rules:
+    - if: $CI_PIPELINE_SOURCE = "push"
+      when: naver
   when: manual
 
 deploy-release :
