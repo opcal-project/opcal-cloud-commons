@@ -8,7 +8,7 @@ commons project module for system
 ## Release Train Table
 |  Release  |   Branch  | Spring Boot | Spring Cloud |
 |   :---:   |   :---:   |    :---:    |     :---:    |
-| 2.7.9.0   |   2.7.x   |   2.7.9     |   2021.0.5   |
+| 2.7.11.0  |   2.7.x   |   2.7.11    |   2021.0.6   |
 | 0.2.6.13  |  0.2.6.x  |   2.6.11    |   2021.0.4   |
 | 0.2.5.9   |  0.2.5.x  |   2.5.13    |   2020.0.5   |
 | 0.2.4.2   |  0.2.4.x  |   2.4.13    |   2020.0.5   |
@@ -40,3 +40,4 @@ Replace {opcal-cloud.version} that if necessary to support required Spring Boot 
         <scope>import</scope>
     </dependency>
 </dependencyManagement>
+```
