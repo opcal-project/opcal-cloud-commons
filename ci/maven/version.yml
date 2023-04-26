@@ -19,4 +19,4 @@ version-registers:
   - property-name: commons-io.version
     update-policy: LATEST
   - property-name: playtika-feign-reactive.version
-    update-policy: LATEST
+    update-policy: INCREMENTAL
