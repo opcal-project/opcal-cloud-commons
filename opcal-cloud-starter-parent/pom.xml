@@ -27,7 +27,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<!-- dependency version-->
-		<spring-cloud.version>2021.0.6</spring-cloud.version>
+		<spring-cloud.version>2021.0.7</spring-cloud.version>
 
 		<flatten-maven-plugin.version>1.4.1</flatten-maven-plugin.version>
 		<versions-maven-plugin.version>2.15.0</versions-maven-plugin.version>

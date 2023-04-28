@@ -18,7 +18,7 @@
 
 	<properties>
 		<!-- spring version -->
-		<spring-cloud.version>2021.0.6</spring-cloud.version>
+		<spring-cloud.version>2021.0.7</spring-cloud.version>
 
 		<!-- sonar -->
 		<sonar.projectKey>opcal-project_opcal-cloud-commons</sonar.projectKey>
