@@ -18,7 +18,7 @@ xmlstarlet edit -P -L -O -u "/_:project/_:parent/_:version" -v ${VERSION} ${ROOT
 ${ROOT_PATH}/mvnw -U clean compile >> /dev/null 2>&1
 
 # get spring boot version from opcal build project
-SPRING_BOOT_VERSION=$(${ROOT_PATH}/mvnw help:evaluate -Dexpression=spring-boot.version | grep "^[^\\[]" |grep -v Download)
+SPRING_BOOT_VERSION=$(${ROOT_PATH}/mvnw help:evaluate -Dexpression=spring-boot.version | grep "^[^\\[]" |grep -v Download |grep -v Progress)
 
 echo "spring boot version is [${SPRING_BOOT_VERSION}]"
 
