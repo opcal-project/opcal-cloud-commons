@@ -19,11 +19,6 @@
 		<!-- spring version -->
 		<spring-cloud.version>2021.0.7</spring-cloud.version>
 
-		<!-- sonar -->
-		<sonar.projectKey>opcal-project_opcal-cloud-commons</sonar.projectKey>
-		<sonar.organization>opcal-project</sonar.organization>
-		<sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey>
-		<sonar.exclusions>**/*Application.java,**/ServletInitializer.java,**/.flattened-pom.xml,**/opcal-cloud-commons-tests/**</sonar.exclusions>
 	</properties>
 
 	<licenses>
