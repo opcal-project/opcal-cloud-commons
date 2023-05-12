@@ -19,6 +19,8 @@
 		<!-- spring version -->
 		<spring-cloud.version>2022.0.2</spring-cloud.version>
 
+		<!-- sonar -->
+		<sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey>
 	</properties>
 
 	<licenses>
