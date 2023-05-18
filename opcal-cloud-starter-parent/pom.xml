@@ -26,9 +26,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<!-- dependency version-->
-		<spring-cloud.version>2022.0.2</spring-cloud.version>
-
 		<flatten-maven-plugin.version>1.4.1</flatten-maven-plugin.version>
 		<versions-maven-plugin.version>2.15.0</versions-maven-plugin.version>
 	</properties>
@@ -67,13 +64,6 @@
 				<groupId>xyz.opcal.cloud</groupId>
 				<artifactId>opcal-cloud-commons-dependencies</artifactId>
 				<version>3.0.7.0-SNAPSHOT</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
