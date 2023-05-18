@@ -20,6 +20,7 @@
         <spring-boot-admin.version>2.7.10</spring-boot-admin.version>
         <playtika-feign-reactive.version>3.3.0</playtika-feign-reactive.version>
         <testcontainers.version>1.18.1</testcontainers.version>
+        <spring-cloud.version>2021.0.7</spring-cloud.version>
     </properties>
 
     <licenses>
@@ -133,6 +134,13 @@
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-feign-reactive</artifactId>
                 <version>2.7.12.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
