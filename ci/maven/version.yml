@@ -12,8 +12,6 @@ version-registers:
     update-policy: INCREMENTAL
   - property-name: spring-boot-admin.version
     update-policy: INCREMENTAL
-  - property-name: testcontainers.version
-    update-policy: LATEST
   - property-name: google-guava.version
     update-policy: LATEST
   - property-name: commons-io.version
