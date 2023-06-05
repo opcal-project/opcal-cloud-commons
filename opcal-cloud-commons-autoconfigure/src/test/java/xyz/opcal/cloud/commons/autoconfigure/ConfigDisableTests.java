@@ -22,14 +22,11 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
-import xyz.opcal.cloud.commons.feign.http.RequestThreadContextIdHandler;
-import xyz.opcal.cloud.commons.feign.http.ServletRequestIdHandler;
-import xyz.opcal.cloud.commons.feign.interceptor.RequestIdInterceptor;
-//import xyz.opcal.cloud.commons.feignreactive.interceptor.RequestIdReactiveHttpRequestInterceptor;
 import xyz.opcal.cloud.commons.logback.web.filter.LogRequestFilter;
 import xyz.opcal.cloud.commons.logback.web.filter.LogRequestIdFilter;
 import xyz.opcal.cloud.commons.logback.webflux.filter.LogWebfluxRequestFilter;
@@ -86,17 +83,4 @@ class ConfigDisableTests {
 		assertThrows(NoSuchBeanDefinitionException.class, () -> applicationContext.getBean(LogWebfluxRequestFilter.class));
 	}
 
-	@Test
-	@Order(6)
-	void disableFeign(ApplicationContext applicationContext) {
-		assertThrows(NoSuchBeanDefinitionException.class, () -> applicationContext.getBean(ServletRequestIdHandler.class));
-		assertThrows(NoSuchBeanDefinitionException.class, () -> applicationContext.getBean(RequestIdInterceptor.class));
-		assertThrows(NoSuchBeanDefinitionException.class, () -> applicationContext.getBean(RequestThreadContextIdHandler.class));
-	}
-
-//	@Test
-//	@Order(7)
-//	void disableFeignreactive(ApplicationContext applicationContext) {
-//		assertThrows(NoSuchBeanDefinitionException.class, () -> applicationContext.getBean(RequestIdReactiveHttpRequestInterceptor.class));
-//	}
 }

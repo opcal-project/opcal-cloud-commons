@@ -49,10 +49,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
-        <dependency>
-            <groupId>xyz.opcal.cloud</groupId>
-            <artifactId>opcal-cloud-commons-feign</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
