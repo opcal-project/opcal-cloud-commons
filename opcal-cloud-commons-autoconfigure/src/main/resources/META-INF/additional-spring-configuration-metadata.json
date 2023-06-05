@@ -30,11 +30,6 @@
             "name": "opcal.cloud.log.reactive.request",
             "type": "java.lang.Boolean",
             "description": "Whether to enable logging reactive request and response."
-        },
-        {
-            "name": "opcal.cloud.feign.request-id",
-            "type": "java.lang.Boolean",
-            "description": "Whether to enable setting http header 'X-Request-Id' for feign client."
         }
     ]
 }

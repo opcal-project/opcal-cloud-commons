@@ -110,11 +110,6 @@
                 <version>3.1.0.0-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>xyz.opcal.cloud</groupId>
-                <artifactId>opcal-cloud-commons-feign</artifactId>
-                <version>3.1.0.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
