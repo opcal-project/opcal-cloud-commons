@@ -39,3 +39,5 @@ version-registers:
     update-policy: LATEST
   - property-name: flatten-maven-plugin.version
     update-policy: LATEST
+  - property-name: jacoco-maven-plugin.version
+    update-policy: LATEST
