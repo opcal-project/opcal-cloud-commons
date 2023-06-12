@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.core.annotation.Order;
+
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
@@ -31,7 +31,6 @@ import xyz.opcal.cloud.commons.web.WebConstants;
 import xyz.opcal.cloud.commons.web.context.RequestThreadContext;
 import xyz.opcal.cloud.commons.web.utils.ServerHttpRequestUtils;
 
-@Order(-100)
 public class ReactiveRequestIdFilter implements WebFilter {
 
 	@Override
