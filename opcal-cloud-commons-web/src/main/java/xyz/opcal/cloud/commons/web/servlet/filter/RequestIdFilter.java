@@ -25,14 +25,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.core.annotation.Order;
+
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import xyz.opcal.cloud.commons.web.WebConstants;
 import xyz.opcal.cloud.commons.web.servlet.http.IdRequestWrapper;
 import xyz.opcal.cloud.commons.web.utils.HttpServletRequestUtils;
 
-@Order(-100)
 public class RequestIdFilter extends OncePerRequestFilter {
 
 	@Override
