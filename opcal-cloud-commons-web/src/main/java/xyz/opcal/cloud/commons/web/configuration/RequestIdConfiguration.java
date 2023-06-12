@@ -28,8 +28,14 @@ public class RequestIdConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean
-	public FilterRegistrationBean<RequestIdFilter> requestIdFilter() {
-		FilterRegistrationBean<RequestIdFilter> registration = new FilterRegistrationBean<>(new RequestIdFilter());
+	public RequestIdFilter requestIdFilter() {
+		return new RequestIdFilter();
+	}
+
+	@Bean
+	@ConditionalOnMissingBean
+	public FilterRegistrationBean<RequestIdFilter> requestIdFilterRegistration(RequestIdFilter requestIdFilter) {
+		FilterRegistrationBean<RequestIdFilter> registration = new FilterRegistrationBean<>(requestIdFilter);
 		registration.setOrder(Ordered.HIGHEST_PRECEDENCE);
 		registration.setDispatcherTypes(DispatcherType.REQUEST, DispatcherType.ASYNC, DispatcherType.FORWARD, DispatcherType.INCLUDE, DispatcherType.ERROR);
 		return registration;
