@@ -19,15 +19,22 @@ package xyz.opcal.cloud.commons.web.webmvc;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
 import xyz.opcal.cloud.commons.web.annotation.EnableRequestId;
+import xyz.opcal.cloud.commons.web.observation.servlet.ServletRequestObservationConvention;
 
 @Configuration
 @EnableRequestId
 @EnableWebMvc
 public class WebmvcConfiguration {
 
-    @Bean
-    public PersonController personController() {
-        return new PersonController();
-    }
+	@Bean
+	public PersonController personController() {
+		return new PersonController();
+	}
+
+	@Bean
+	ServletRequestObservationConvention servletRequestObservationConvention() {
+		return new ServletRequestObservationConvention();
+	}
 }

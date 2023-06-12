@@ -29,6 +29,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-actuator-autoconfigure</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
             <groupId>xyz.opcal.cloud</groupId>
             <artifactId>opcal-cloud-commons-web</artifactId>
             <optional>true</optional>
@@ -62,7 +68,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <scope>test</scope>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 
