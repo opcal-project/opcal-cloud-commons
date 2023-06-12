@@ -25,10 +25,11 @@ import org.springframework.context.annotation.Bean;
 
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationRegistry;
+import xyz.opcal.cloud.commons.web.configuration.ReactiveRequestIdConfiguration;
 import xyz.opcal.cloud.commons.web.observation.reactive.ReactiveRequestObservationConvention;
 import xyz.opcal.cloud.commons.web.reactive.filter.ReactiveRequestIdFilter;
 
-@AutoConfiguration(after = { WebFluxObservationAutoConfiguration.class })
+@AutoConfiguration(after = { WebFluxObservationAutoConfiguration.class, ReactiveRequestIdConfiguration.class })
 @ConditionalOnClass(Observation.class)
 @ConditionalOnBean(ObservationRegistry.class)
 @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
