@@ -18,6 +18,8 @@ package xyz.opcal.cloud.commons.logback.web.configuration;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
 import xyz.opcal.cloud.commons.logback.web.filter.LogRequestIdFilter;
 
@@ -25,6 +27,7 @@ public class LogRequestIdConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean
+	@Order(Ordered.HIGHEST_PRECEDENCE + 1)
 	public LogRequestIdFilter logRequestIdFilter() {
 		return new LogRequestIdFilter();
 	}

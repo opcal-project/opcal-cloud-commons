@@ -24,14 +24,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.MDC;
-import org.springframework.core.annotation.Order;
+
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import xyz.opcal.cloud.commons.logback.OpcalLogbackConstants;
 import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
 import xyz.opcal.cloud.commons.web.utils.HttpServletRequestUtils;
 
-@Order(-99)
 public class LogRequestIdFilter extends OncePerRequestFilter {
 
 	/**

@@ -28,7 +28,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.annotation.Order;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -43,7 +43,6 @@ import xyz.opcal.cloud.commons.web.WebConstants;
 import xyz.opcal.cloud.commons.web.utils.HttpServletRequestUtils;
 
 @Slf4j
-@Order(-90)
 public class LogRequestFilter extends OncePerRequestFilter {
 
 	private static final Logger requestLogger = LoggerFactory.getLogger("requestLogger");

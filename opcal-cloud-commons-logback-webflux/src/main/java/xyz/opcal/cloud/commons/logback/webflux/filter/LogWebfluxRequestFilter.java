@@ -22,7 +22,7 @@ import java.util.Optional;
 import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.annotation.Order;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.server.reactive.ServerHttpRequest;
@@ -41,7 +41,6 @@ import xyz.opcal.cloud.commons.logback.webflux.http.LogResponseDecorator;
 import xyz.opcal.cloud.commons.web.utils.ServerHttpRequestUtils;
 
 @Slf4j
-@Order(-90)
 public class LogWebfluxRequestFilter implements WebFilter {
 
 	private static final Logger requestLogger = LoggerFactory.getLogger("requestLogger");

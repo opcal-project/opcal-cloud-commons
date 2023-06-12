@@ -20,6 +20,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
 import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.webflux.filter.LogWebfluxRequestFilter;
@@ -35,6 +37,7 @@ public class LogWebfluxRequestConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean
+	@Order(Ordered.HIGHEST_PRECEDENCE + 2)
 	public LogWebfluxRequestFilter logWebfluxRequestFilter(LogRequestConfig logWebfluxConfig) {
 		return new LogWebfluxRequestFilter(logWebfluxConfig);
 	}
