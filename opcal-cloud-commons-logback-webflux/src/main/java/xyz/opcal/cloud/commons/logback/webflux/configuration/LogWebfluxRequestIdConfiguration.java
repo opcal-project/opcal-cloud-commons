@@ -28,7 +28,7 @@ public class LogWebfluxRequestIdConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean
-	@Order(Ordered.HIGHEST_PRECEDENCE)
+	@Order(Ordered.HIGHEST_PRECEDENCE + 1)
 	public LogWebfluxRequestIdFilter logWebfluxRequestIdFilter() {
 		return new LogWebfluxRequestIdFilter();
 	}

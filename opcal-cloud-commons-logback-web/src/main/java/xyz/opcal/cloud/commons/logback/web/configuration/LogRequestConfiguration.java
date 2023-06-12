@@ -39,7 +39,7 @@ public class LogRequestConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean
-	@Order(Ordered.HIGHEST_PRECEDENCE)
+	@Order(Ordered.HIGHEST_PRECEDENCE + 2)
 	public LogRequestFilter logRequestFilter(ObjectMapper objectMapper, LogRequestConfig logRequestConfig) {
 		return new LogRequestFilter(objectMapper, logRequestConfig);
 	}

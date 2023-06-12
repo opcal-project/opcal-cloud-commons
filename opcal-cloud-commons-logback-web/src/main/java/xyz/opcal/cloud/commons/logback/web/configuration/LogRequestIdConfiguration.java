@@ -27,7 +27,7 @@ public class LogRequestIdConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean
-	@Order(Ordered.HIGHEST_PRECEDENCE)
+	@Order(Ordered.HIGHEST_PRECEDENCE + 1)
 	public LogRequestIdFilter logRequestIdFilter() {
 		return new LogRequestIdFilter();
 	}
