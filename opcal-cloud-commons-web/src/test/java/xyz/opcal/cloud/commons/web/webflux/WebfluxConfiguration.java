@@ -21,7 +21,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.config.EnableWebFlux;
 
 import xyz.opcal.cloud.commons.web.annotation.EnableReactiveRequestId;
-import xyz.opcal.cloud.commons.web.observation.reactive.ReactiveRequestObservationConvention;
 
 @Configuration
 @EnableWebFlux
@@ -33,8 +32,4 @@ public class WebfluxConfiguration {
 		return new PetController();
 	}
 
-	@Bean
-	ReactiveRequestObservationConvention ReactiveRequestObservationConvention() {
-		return new ReactiveRequestObservationConvention();
-	}
 }

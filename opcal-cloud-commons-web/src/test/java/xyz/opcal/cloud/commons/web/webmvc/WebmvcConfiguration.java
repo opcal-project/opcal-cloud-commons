@@ -21,7 +21,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import xyz.opcal.cloud.commons.web.annotation.EnableRequestId;
-import xyz.opcal.cloud.commons.web.observation.servlet.ServletRequestObservationConvention;
 
 @Configuration
 @EnableRequestId
@@ -33,8 +32,4 @@ public class WebmvcConfiguration {
 		return new PersonController();
 	}
 
-	@Bean
-	ServletRequestObservationConvention servletRequestObservationConvention() {
-		return new ServletRequestObservationConvention();
-	}
 }
