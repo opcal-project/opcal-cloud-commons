@@ -20,6 +20,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -37,6 +39,7 @@ public class LogRequestConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean
+	@Order(Ordered.HIGHEST_PRECEDENCE)
 	public LogRequestFilter logRequestFilter(ObjectMapper objectMapper, LogRequestConfig logRequestConfig) {
 		return new LogRequestFilter(objectMapper, logRequestConfig);
 	}

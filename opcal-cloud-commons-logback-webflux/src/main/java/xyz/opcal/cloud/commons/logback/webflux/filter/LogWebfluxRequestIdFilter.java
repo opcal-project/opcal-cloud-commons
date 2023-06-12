@@ -17,7 +17,7 @@
 package xyz.opcal.cloud.commons.logback.webflux.filter;
 
 import org.slf4j.MDC;
-import org.springframework.core.annotation.Order;
+
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
@@ -26,7 +26,6 @@ import reactor.core.publisher.Mono;
 import xyz.opcal.cloud.commons.logback.OpcalLogbackConstants;
 import xyz.opcal.cloud.commons.web.utils.ServerHttpRequestUtils;
 
-@Order(-99)
 public class LogWebfluxRequestIdFilter implements WebFilter {
 
 	@Override

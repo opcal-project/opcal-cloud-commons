@@ -18,6 +18,8 @@ package xyz.opcal.cloud.commons.logback.webflux.configuration;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
 import xyz.opcal.cloud.commons.logback.webflux.filter.LogWebfluxRequestIdFilter;
 import xyz.opcal.cloud.commons.logback.webflux.filter.MDCCleanFilter;
@@ -26,12 +28,14 @@ public class LogWebfluxRequestIdConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean
+	@Order(Ordered.HIGHEST_PRECEDENCE)
 	public LogWebfluxRequestIdFilter logWebfluxRequestIdFilter() {
 		return new LogWebfluxRequestIdFilter();
 	}
 
 	@Bean
 	@ConditionalOnMissingBean
+	@Order(Ordered.LOWEST_PRECEDENCE)
 	public MDCCleanFilter mdcCleanFilter() {
 		return new MDCCleanFilter();
 	}
