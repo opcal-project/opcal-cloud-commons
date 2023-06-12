@@ -19,22 +19,20 @@ package xyz.opcal.cloud.commons.logback.web.filter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.web.http.LogRequestWrapper;
@@ -44,7 +42,6 @@ import xyz.opcal.cloud.commons.web.WebConstants;
 import xyz.opcal.cloud.commons.web.utils.HttpServletRequestUtils;
 
 @Slf4j
-@Order(-90)
 public class LogRequestFilter extends OncePerRequestFilter {
 
 	private static final Logger requestLogger = LoggerFactory.getLogger("requestLogger");

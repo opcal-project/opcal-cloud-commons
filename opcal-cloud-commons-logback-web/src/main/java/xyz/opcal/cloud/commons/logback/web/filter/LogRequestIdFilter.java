@@ -18,21 +18,18 @@ package xyz.opcal.cloud.commons.logback.web.filter;
 
 import java.io.IOException;
 
+import org.slf4j.MDC;
+
+import org.springframework.web.filter.OncePerRequestFilter;
+
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import org.slf4j.MDC;
-
-import org.springframework.core.annotation.Order;
-import org.springframework.web.filter.OncePerRequestFilter;
-
 import xyz.opcal.cloud.commons.logback.OpcalLogbackConstants;
 import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
 import xyz.opcal.cloud.commons.web.utils.HttpServletRequestUtils;
 
-@Order(-99)
 public class LogRequestIdFilter extends OncePerRequestFilter {
 
 	/**

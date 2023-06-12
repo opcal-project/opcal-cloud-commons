@@ -17,15 +17,14 @@
 package xyz.opcal.cloud.commons.logback.webflux.filter;
 
 import org.slf4j.MDC;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
+
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 
 import reactor.core.publisher.Mono;
 
-@Order(Ordered.LOWEST_PRECEDENCE)
+
 public class MDCCleanFilter implements WebFilter {
 
 	@Override
