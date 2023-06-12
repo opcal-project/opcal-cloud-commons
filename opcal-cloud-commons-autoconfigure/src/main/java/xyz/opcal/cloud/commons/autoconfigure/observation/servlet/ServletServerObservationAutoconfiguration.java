@@ -16,27 +16,26 @@
 
 package xyz.opcal.cloud.commons.autoconfigure.observation.servlet;
 
-import org.springframework.boot.actuate.autoconfigure.observation.web.servlet.WebMvcObservationAutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import io.micrometer.observation.Observation;
-import io.micrometer.observation.ObservationRegistry;
+import xyz.opcal.cloud.commons.web.configuration.RequestIdConfiguration;
 import xyz.opcal.cloud.commons.web.observation.servlet.ServletRequestObservationConvention;
-import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
 
-@AutoConfiguration(after = { WebMvcObservationAutoConfiguration.class })
+@AutoConfiguration
 @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
 @ConditionalOnClass({ DispatcherServlet.class, Observation.class })
-@ConditionalOnBean(ObservationRegistry.class)
+@Import(RequestIdConfiguration.class)
 public class ServletServerObservationAutoconfiguration {
 
 	@Bean
-	@ConditionalOnBean(RequestIdFilter.class)
+	@ConditionalOnMissingBean
 	ServletRequestObservationConvention servletRequestObservationConvention() {
 		return new ServletRequestObservationConvention();
 	}

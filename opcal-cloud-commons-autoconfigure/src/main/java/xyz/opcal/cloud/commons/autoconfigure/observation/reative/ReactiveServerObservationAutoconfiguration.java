@@ -16,27 +16,25 @@
 
 package xyz.opcal.cloud.commons.autoconfigure.observation.reative;
 
-import org.springframework.boot.actuate.autoconfigure.observation.web.reactive.WebFluxObservationAutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 
 import io.micrometer.observation.Observation;
-import io.micrometer.observation.ObservationRegistry;
 import xyz.opcal.cloud.commons.web.configuration.ReactiveRequestIdConfiguration;
 import xyz.opcal.cloud.commons.web.observation.reactive.ReactiveRequestObservationConvention;
-import xyz.opcal.cloud.commons.web.reactive.filter.ReactiveRequestIdFilter;
 
-@AutoConfiguration(after = { WebFluxObservationAutoConfiguration.class, ReactiveRequestIdConfiguration.class })
-@ConditionalOnClass(Observation.class)
-@ConditionalOnBean(ObservationRegistry.class)
+@AutoConfiguration
 @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
+@ConditionalOnClass(Observation.class)
+@Import(ReactiveRequestIdConfiguration.class)
 public class ReactiveServerObservationAutoconfiguration {
 
 	@Bean
-	@ConditionalOnBean(ReactiveRequestIdFilter.class)
+	@ConditionalOnMissingBean
 	ReactiveRequestObservationConvention reactiveRequestObservationConvention() {
 		return new ReactiveRequestObservationConvention();
 	}

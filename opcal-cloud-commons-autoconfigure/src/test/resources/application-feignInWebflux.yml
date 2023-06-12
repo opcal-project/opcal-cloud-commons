@@ -1,7 +1,0 @@
-opcal:
-  cloud:
-    web:
-      reactive:
-        request-id: true
-    feign:
-      request-id: true
