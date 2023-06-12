@@ -19,15 +19,22 @@ package xyz.opcal.cloud.commons.web.webflux;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.config.EnableWebFlux;
+
 import xyz.opcal.cloud.commons.web.annotation.EnableReactiveRequestId;
+import xyz.opcal.cloud.commons.web.observation.reactive.ReactiveRequestObservationConvention;
 
 @Configuration
 @EnableWebFlux
 @EnableReactiveRequestId
 public class WebfluxConfiguration {
 
-    @Bean
-    public PetController petController() {
-        return new PetController();
-    }
+	@Bean
+	public PetController petController() {
+		return new PetController();
+	}
+
+	@Bean
+	ReactiveRequestObservationConvention ReactiveRequestObservationConvention() {
+		return new ReactiveRequestObservationConvention();
+	}
 }
