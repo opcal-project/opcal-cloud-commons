@@ -30,7 +30,7 @@ import xyz.opcal.cloud.commons.web.observation.servlet.ServletRequestObservation
 
 @AutoConfiguration
 @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
-@ConditionalOnClass({ DispatcherServlet.class, Observation.class })
+@ConditionalOnClass({ DispatcherServlet.class, Observation.class, RequestIdConfiguration.class })
 @Import(RequestIdConfiguration.class)
 public class ServletServerObservationAutoconfiguration {
 

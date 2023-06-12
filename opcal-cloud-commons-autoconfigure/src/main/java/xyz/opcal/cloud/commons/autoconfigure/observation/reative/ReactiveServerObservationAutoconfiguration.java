@@ -29,7 +29,7 @@ import xyz.opcal.cloud.commons.web.observation.reactive.ReactiveRequestObservati
 
 @AutoConfiguration
 @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
-@ConditionalOnClass(Observation.class)
+@ConditionalOnClass({ Observation.class, ReactiveRequestIdConfiguration.class })
 @Import(ReactiveRequestIdConfiguration.class)
 public class ReactiveServerObservationAutoconfiguration {
 
