@@ -16,7 +16,10 @@
 
 package xyz.opcal.cloud.commons.web.configuration;
 
+import javax.servlet.DispatcherType;
+
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -30,5 +33,14 @@ public class RequestIdConfiguration {
 	@Order(Ordered.HIGHEST_PRECEDENCE)
 	public RequestIdFilter requestIdFilter() {
 		return new RequestIdFilter();
+	}
+
+	@Bean
+	@ConditionalOnMissingBean
+	public FilterRegistrationBean<RequestIdFilter> requestIdFilterRegistration(RequestIdFilter requestIdFilter) {
+		FilterRegistrationBean<RequestIdFilter> registration = new FilterRegistrationBean<>(requestIdFilter);
+		registration.setOrder(Ordered.HIGHEST_PRECEDENCE);
+		registration.setDispatcherTypes(DispatcherType.REQUEST, DispatcherType.ASYNC, DispatcherType.FORWARD, DispatcherType.INCLUDE, DispatcherType.ERROR);
+		return registration;
 	}
 }
