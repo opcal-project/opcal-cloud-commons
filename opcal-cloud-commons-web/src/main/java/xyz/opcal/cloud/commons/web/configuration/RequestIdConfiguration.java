@@ -20,6 +20,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
 import jakarta.servlet.DispatcherType;
 import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
@@ -28,6 +29,7 @@ public class RequestIdConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean
+	@Order(Ordered.HIGHEST_PRECEDENCE)
 	public RequestIdFilter requestIdFilter() {
 		return new RequestIdFilter();
 	}
