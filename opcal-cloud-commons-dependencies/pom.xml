@@ -15,7 +15,7 @@
 
     <properties>
         <!-- dependencies version -->
-        <google-guava.version>32.1.1-jre</google-guava.version>
+        <google-guava.version>32.1.2-jre</google-guava.version>
         <commons-io.version>2.13.0</commons-io.version>
         <spring-boot-admin.version>2.7.10</spring-boot-admin.version>
         <playtika-feign-reactive.version>3.3.0</playtika-feign-reactive.version>
