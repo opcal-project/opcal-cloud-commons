@@ -18,7 +18,7 @@
         <google-guava.version>32.1.2-jre</google-guava.version>
         <commons-io.version>2.13.0</commons-io.version>
         <spring-boot-admin.version>3.0.4</spring-boot-admin.version>
-        <testcontainers.version>1.18.3</testcontainers.version>
+        <testcontainers.version>1.19.0</testcontainers.version>
         <spring-cloud.version>2022.0.4</spring-cloud.version>
     </properties>
 
