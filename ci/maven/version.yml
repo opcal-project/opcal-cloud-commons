@@ -41,3 +41,5 @@ version-registers:
     update-policy: LATEST
   - property-name: jacoco-maven-plugin.version
     update-policy: LATEST
+  - property-name: ossindex-maven-plugin.version
+    update-policy: LATEST
