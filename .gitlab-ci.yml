@@ -24,6 +24,7 @@ cache:
     - ./mvnw -U clean $MAVEN_CLI_OPTS test verify sonar:sonar -Psonar-config -Dgpg.skip=true
     - curl -Os https://uploader.codecov.io/latest/linux/codecov
     - chmod +x codecov && ./codecov -t ${CODECOV_TOKEN} -R $(pwd)
+    - ./mvnw clean ossindex:audit
 
 .deploy-template: &deploy-template
   stage: deploy
