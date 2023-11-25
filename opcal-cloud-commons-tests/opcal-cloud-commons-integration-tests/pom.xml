@@ -5,7 +5,7 @@
     <parent>
         <groupId>xyz.opcal.cloud</groupId>
         <artifactId>opcal-cloud-commons-tests</artifactId>
-        <version>3.1.6.0-SNAPSHOT</version>
+        <version>3.1.6.1-SNAPSHOT</version>
     </parent>
     <artifactId>opcal-cloud-commons-integration-tests</artifactId>
     <name>opcal-cloud-commons-integration-tests</name>
