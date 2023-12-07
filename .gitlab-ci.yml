@@ -24,7 +24,6 @@ cache:
     - ./mvnw -U clean $MAVEN_CLI_OPTS test verify sonar:sonar -Psonar-config -Dgpg.skip=true
     - curl -Os https://uploader.codecov.io/latest/linux/codecov
     - chmod +x codecov && ./codecov -t ${CODECOV_TOKEN} -R $(pwd)
-    - ./mvnw clean install ossindex:audit
 
 .deploy-template: &deploy-template
   stage: deploy
@@ -62,6 +61,7 @@ deploy-snapshot:
     SONAR_USER_HOME: "/root/.sonar/${CI_PROJECT_NAME}"
   script:
     - ./mvnw -U clean $MAVEN_CLI_OPTS deploy -Dgpg.passphrase=${GPG_PASSPHRASE} -Dmaven.test.skip=true -s settings.xml
+    - ./mvnw clean ossindex:audit
   tags:
     - build
   rules:
