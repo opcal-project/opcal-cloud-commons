@@ -20,7 +20,7 @@
         <spring-boot-admin.version>2.7.14</spring-boot-admin.version>
         <playtika-feign-reactive.version>3.3.0</playtika-feign-reactive.version>
         <testcontainers.version>1.19.3</testcontainers.version>
-        <spring-cloud.version>2021.0.8</spring-cloud.version>
+        <spring-cloud.version>2021.0.9</spring-cloud.version>
     </properties>
 
     <licenses>
