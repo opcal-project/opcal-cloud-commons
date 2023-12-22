@@ -8,10 +8,10 @@ commons project module for system
 ## Release Train Table
 |  Release  |   Branch  | Spring Boot | Spring Cloud |
 |   :---:   |   :---:   |    :---:    |     :---:    |
-| 3.2.0.0-SNAPSHOT   |   main    |   3.2.0-SNAPSHOT     |   2023.0.0-SNAPSHOT   |
-| 3.1.6.0   |   3.1.x   |   3.1.6     |   2022.0.4   |
-| 3.0.13.0  |   3.0.x   |   3.0.13    |   2022.0.4   |
-| 2.7.18.0  |   2.7.x   |   2.7.18    |   2021.0.8   |
+| 3.2.1.0   |   main    |   3.2.1     |   2023.0.0   |
+| 3.1.7.0   |   3.1.x   |   3.1.7     |   2022.0.4   |
+| 3.0.13.1  |   3.0.x   |   3.0.13    |   2022.0.4   |
+| 2.7.18.1  |   2.7.x   |   2.7.18    |   2021.0.9   |
 
 ## How to Use
 ### Using maven parent
