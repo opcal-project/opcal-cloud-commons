@@ -9,7 +9,7 @@
 
 	<groupId>xyz.opcal.cloud</groupId>
 	<artifactId>opcal-cloud-commons</artifactId>
-	<version>2.7.18.1-SNAPSHOT</version>
+	<version>2.7.18.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>opcal-cloud-commons</name>
 	<description>commons project module for system</description>
@@ -108,7 +108,7 @@
 			<dependency>
 				<groupId>xyz.opcal.cloud</groupId>
 				<artifactId>opcal-cloud-commons-dependencies</artifactId>
-				<version>2.7.18.1-SNAPSHOT</version>
+				<version>2.7.18.2-SNAPSHOT</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
