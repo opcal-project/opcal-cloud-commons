@@ -17,7 +17,7 @@
         <!-- dependencies version -->
         <google-guava.version>33.0.0-jre</google-guava.version>
         <commons-io.version>2.15.1</commons-io.version>
-        <spring-boot-admin.version>2.7.14</spring-boot-admin.version>
+        <spring-boot-admin.version>2.7.15</spring-boot-admin.version>
         <playtika-feign-reactive.version>3.3.0</playtika-feign-reactive.version>
         <testcontainers.version>1.19.3</testcontainers.version>
         <spring-cloud.version>2021.0.9</spring-cloud.version>
