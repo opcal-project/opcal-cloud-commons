@@ -20,6 +20,10 @@ cache:
 .test-templete : &test-templete
   stage: test
   script:
+    - |
+      if [ ${MAVEN_DEBUG} == "true" ]; then
+        export MAVEN_CLI_OPTS="${MAVEN_CLI_OPTS} -e -X"
+      fi
     - apt update && apt install curl -y
     - ./mvnw -U clean $MAVEN_CLI_OPTS test verify sonar:sonar -Psonar-config -Dgpg.skip=true
     - curl -Os https://uploader.codecov.io/latest/linux/codecov
@@ -31,6 +35,10 @@ cache:
     - apt-get update && apt-get install -y gnupg2
     - export GPG_TTY=$(tty)
     - echo "${GPG_PRI}" | gpg --batch --import
+    - |
+      if [ ${MAVEN_DEBUG} == "true" ]; then
+        export MAVEN_CLI_OPTS="${MAVEN_CLI_OPTS} -e -X"
+      fi
     
 test:
   <<: *test-templete
@@ -79,9 +87,6 @@ deploy-release :
   script:
     - SNAPSHOT_VERSION=$(./mvnw help:evaluate -Dexpression=project.version | grep "^[^\\[]" |grep -v Download |grep -v Progress)
     - RELEASE_VERSION=${SNAPSHOT_VERSION/-SNAPSHOT/}
-#    - ./mvnw versions:set -DnewVersion=${RELEASE_VERSION}
-#    - ./mvnw versions:set -DnewVersion=${RELEASE_VERSION} -pl opcal-cloud-commons-dependencies
-#    - ./mvnw versions:set -DnewVersion=${RELEASE_VERSION} -pl opcal-cloud-starter-parent
     - ./ci/script/versions-set.sh ${RELEASE_VERSION}
     - ./mvnw -U clean $MAVEN_CLI_OPTS deploy -Dgpg.passphrase=${GPG_PASSPHRASE} -Dmaven.test.skip=true -s settings.xml
   only:
