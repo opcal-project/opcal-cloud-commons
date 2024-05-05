@@ -1,5 +1,3 @@
 spring:
   application:
     name: '@project.artifactId@'
-  main:
-    web-application-type: REACTIVE

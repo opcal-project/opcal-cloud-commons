@@ -1,3 +1,6 @@
+spring:
+  application:
+    name: 'logback-webflux-junit'
 opcal:
   cloud:
     log:
