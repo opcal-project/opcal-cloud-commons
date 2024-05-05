@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
 <configuration>
-    <property name="CONSOLE_LOG_PATTERN" value="%gray(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}) %highlight(${LOG_LEVEL_PATTERN:-%5p}) %yellow(${PID:- }) %gray(---) %magenta([%32.32currentThreadId]) %cyan(%-40.40logger{39}) %gray(:) %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
-    <property name="FILE_LOG_PATTERN" value="%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%32.32currentThreadId] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+    <property name="CONSOLE_LOG_PATTERN" value="%gray(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSSXXX}}) %highlight(${LOG_LEVEL_PATTERN:-%5p}) %yellow(${PID:- }) %gray(---) %gray(%applicationName[%15.15t]) %gray(${LOG_CORRELATION_PATTERN:-}) %magenta([%32.32currentThreadId]) %cyan(%-40.40logger{39}) %gray(:) %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+    <property name="FILE_LOG_PATTERN" value="%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSSXXX}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- %applicationName[%t] ${LOG_CORRELATION_PATTERN:-} [%32.32currentThreadId] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="xyz.opcal.cloud.commons.logback.OpcalPatternLayoutEncoder">

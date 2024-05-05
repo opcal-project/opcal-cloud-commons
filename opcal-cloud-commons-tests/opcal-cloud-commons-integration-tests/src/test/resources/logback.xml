@@ -6,7 +6,7 @@
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <conversionRule conversionWord="currentThreadId" converterClass="xyz.opcal.cloud.commons.logback.OpcalThreadClassicConverter"/>
 
-    <property name="logPattern" value="%gray(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}) %highlight(${LOG_LEVEL_PATTERN:-%5p}) %yellow(${PID:- }) %gray(---) %magenta([%32.32currentThreadId]) %cyan(%-40.40logger{39}) %gray(:) %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+    <property name="logPattern" value="%gray(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSSXXX}}) %highlight(${LOG_LEVEL_PATTERN:-%5p}) %yellow(${PID:- }) %gray(---) %gray(%applicationName[%15.15t]) %gray(${LOG_CORRELATION_PATTERN:-}) %magenta([%32.32currentThreadId]) %cyan(%-40.40logger{39}) %gray(:) %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
