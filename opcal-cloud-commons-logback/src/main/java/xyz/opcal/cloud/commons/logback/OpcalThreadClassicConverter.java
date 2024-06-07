@@ -32,11 +32,11 @@ public class OpcalThreadClassicConverter extends ClassicConverter {
 
 	@Override
 	public String convert(ILoggingEvent event) {
-		String systemId = event.getMDCPropertyMap().get(OpcalLogbackConstants.MDC_THREAD_ID);
-		if (StringUtils.isBlank(systemId)) {
-			systemId = StringUtils.replace(UUID.nameUUIDFromBytes(String.valueOf(Thread.currentThread().getId()).getBytes()).toString(), "-", "" + "");
+		String mdcThreadId = event.getMDCPropertyMap().get(OpcalLogbackConstants.MDC_THREAD_ID);
+		if (StringUtils.isBlank(mdcThreadId)) {
+			mdcThreadId = StringUtils.replace(UUID.nameUUIDFromBytes(String.valueOf(Thread.currentThread().getId()).getBytes()).toString(), "-", "");
 		}
-		return systemId;
+		return mdcThreadId;
 
 	}
 
