@@ -1,3 +1,7 @@
+spring:
+  output:
+    ansi:
+      enabled: always
 
 logging:
   config: classpath:logback-converter.xml
