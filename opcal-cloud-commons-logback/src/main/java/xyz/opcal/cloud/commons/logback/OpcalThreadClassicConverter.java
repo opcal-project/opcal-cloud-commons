@@ -30,13 +30,18 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
  */
 public class OpcalThreadClassicConverter extends ClassicConverter {
 
+	private static final long UP_TIMESTAMP = System.currentTimeMillis();
+
 	@Override
 	public String convert(ILoggingEvent event) {
-		String systemId = event.getMDCPropertyMap().get(OpcalLogbackConstants.MDC_THREAD_ID);
-		if (StringUtils.isBlank(systemId)) {
-			systemId = StringUtils.replace(UUID.nameUUIDFromBytes(String.valueOf(Thread.currentThread().getId()).getBytes()).toString(), "-", "" + "");
+		String mdcThreadId = event.getMDCPropertyMap().get(OpcalLogbackConstants.MDC_THREAD_ID);
+		if (StringUtils.isBlank(mdcThreadId)) {
+			mdcThreadId = StringUtils.replace(
+					UUID.nameUUIDFromBytes(String.valueOf(UP_TIMESTAMP + Thread.currentThread().getId()).getBytes()).toString(),
+					"-",
+					"");
 		}
-		return systemId;
+		return mdcThreadId;
 
 	}
 
