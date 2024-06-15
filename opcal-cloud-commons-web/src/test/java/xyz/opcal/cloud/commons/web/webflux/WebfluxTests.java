@@ -26,11 +26,14 @@ import org.springframework.web.context.WebApplicationContext;
 class WebfluxTests {
 
 	@Test
-	void springMvcTest(WebApplicationContext wac) throws Exception {
+	void springMvcTest(WebApplicationContext wac) {
 		long id = 22;
 		WebTestClient webTestClient = WebTestClient.bindToApplicationContext(wac).build();
-		webTestClient.get().uri("/pet/{id}", id)
+		webTestClient
+				.get()
+				.uri("/pet/{id}", id)
 				.accept(MediaType.APPLICATION_JSON)
-				.exchange().expectStatus().isOk();
+				.exchange()
+				.expectStatus().isOk();
 	}
 }
