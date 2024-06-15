@@ -1,5 +1,0 @@
-opcal:
-  cloud:
-    log:
-      servlet:
-        request-id: true

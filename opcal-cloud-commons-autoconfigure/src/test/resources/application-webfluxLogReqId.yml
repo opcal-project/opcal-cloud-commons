@@ -1,5 +1,0 @@
-opcal:
-  cloud:
-    log:
-      reactive:
-        request-id: true
