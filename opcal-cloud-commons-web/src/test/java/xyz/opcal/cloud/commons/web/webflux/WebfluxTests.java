@@ -26,7 +26,7 @@ import org.springframework.web.context.WebApplicationContext;
 class WebfluxTests {
 
 	@Test
-	void springMvcTest(WebApplicationContext wac) throws Exception {
+	void springMvcTest(WebApplicationContext wac) {
 		long id = 22;
 		WebTestClient webTestClient = WebTestClient.bindToApplicationContext(wac).build();
 		webTestClient.get().uri("/pet/{id}", id)
