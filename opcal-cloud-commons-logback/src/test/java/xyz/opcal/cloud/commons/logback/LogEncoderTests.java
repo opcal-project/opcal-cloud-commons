@@ -16,6 +16,7 @@
 
 package xyz.opcal.cloud.commons.logback;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.MethodOrderer;
@@ -26,6 +27,7 @@ import org.slf4j.MDC;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import ch.qos.logback.classic.LoggerContext;
 import lombok.extern.slf4j.Slf4j;
 import xyz.opcal.cloud.commons.logback.configuration.LogTestConfiguration;
 
@@ -38,6 +40,7 @@ class LogEncoderTests {
 	@Test
 	@Order(0)
 	void testEncoder() {
+
 		assertTrue(System.currentTimeMillis() > 0);
 		log.info("current logger encoder tests");
 	}
@@ -52,5 +55,15 @@ class LogEncoderTests {
 		} finally {
 			MDC.clear();
 		}
+	}
+
+	@Test
+	@Order(2)
+	void start() {
+		assertDoesNotThrow(() -> {
+			OpcalPatternLayoutEncoder encoder = new OpcalPatternLayoutEncoder();
+			encoder.setContext(new LoggerContext());
+			encoder.start();
+		});
 	}
 }
