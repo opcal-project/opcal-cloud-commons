@@ -1,6 +1,0 @@
-
-opcal:
-  cloud:
-    web:
-      reactive:
-        request-id: true
