@@ -16,8 +16,8 @@
     <properties>
         <!-- dependencies version -->
         <google-guava.version>33.3.1-jre</google-guava.version>
-        <commons-io.version>2.17.0</commons-io.version>
-        <spring-boot-admin.version>3.3.5</spring-boot-admin.version>
+        <commons-io.version>2.18.0</commons-io.version>
+        <spring-boot-admin.version>3.3.6</spring-boot-admin.version>
         <spring-cloud.version>2024.0.0-SNAPSHOT</spring-cloud.version>
     </properties>
 
