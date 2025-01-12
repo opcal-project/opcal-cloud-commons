@@ -37,6 +37,8 @@ pipeline {
                 script {
                     sh 'printenv'
                     skipCi = sh (script: "git log -1 --pretty=%B | grep '\\[skip ci\\]'", returnStatus: true)
+                    echo "${skipCi}"
+                    echo "${env.TAG_NAME}"
                     if (skipCi != 0 && env.TAG_NAME == null) {
                         echo "pipeline build..."
                     } else {
