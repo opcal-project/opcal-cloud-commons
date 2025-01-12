@@ -55,7 +55,7 @@ pipeline {
                         arbitraryFileCache(cacheName: '', cacheValidityDecidingFile: '', compressionMethod: 'TARGZ_BEST_SPEED', excludes: '', includes: '**/*', path: '/root/.m2'),
                         arbitraryFileCache(cacheName: '', cacheValidityDecidingFile: '', compressionMethod: 'TARGZ_BEST_SPEED', excludes: '', includes: '**/*', path: '/root/.sonar')
                 ],
-                        defaultBranch: 'main',
+                        defaultBranch: '3.2.x',
                         maxCacheSize: 0) {
                     container("temurin-jdk-17") {
                         withCredentials([
