@@ -19,13 +19,16 @@ pipeline {
         stage('Validation') {
             steps {
                 script {
+//                    sh 'printenv'
                     skipCi = sh (script: "git log -1 --pretty=%B | grep '\\[skip ci\\]'", returnStatus: true)
-                    if (skipCi != 0 && env.TAG_NAME == null) {
-                        echo "pipeline build..."
-                    } else {
+                    echo "${skipCi}"
+                    echo "${env.TAG_NAME}"
+                    if (skipCi == 0 && env.TAG_NAME == null) {
                         echo "Skipping this pipeline by commit message mark!"
                         currentBuild.result = "ABORTED"
                         throw new org.jenkinsci.plugins.workflow.steps.FlowInterruptedException(hudson.model.Result.ABORTED)
+                    } else {
+                        echo "pipeline build..."
                     }
                 }
             }
@@ -39,7 +42,6 @@ pipeline {
                         defaultBranch: 'main',
                         maxCacheSize: 0) {
                     container("temurin-jdk-17") {
-//                        sh 'printenv'
                         withCredentials([
                                 file(credentialsId: 'GPG_PRI', variable: 'GPG_PRI'),
                                 string(credentialsId: 'GPG_PASSPHRASE', variable: 'MAVEN_GPG_PASSPHRASE'),
