@@ -1,4 +1,20 @@
 
+/*
+ * Copyright 2020-2025 Opcal
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 pipeline {
     agent {
         kubernetes {
@@ -19,6 +35,7 @@ pipeline {
         stage('Validation') {
             steps {
                 script {
+                    sh 'printenv'
                     skipCi = sh (script: "git log -1 --pretty=%B | grep '\\[skip ci\\]'", returnStatus: true)
                     if (skipCi != 0 && env.TAG_NAME == null) {
                         echo "pipeline build..."
@@ -39,7 +56,6 @@ pipeline {
                         defaultBranch: 'main',
                         maxCacheSize: 0) {
                     container("temurin-jdk-17") {
-//                        sh 'printenv'
                         withCredentials([
                                 file(credentialsId: 'GPG_PRI', variable: 'GPG_PRI'),
                                 string(credentialsId: 'GPG_PASSPHRASE', variable: 'MAVEN_GPG_PASSPHRASE'),
