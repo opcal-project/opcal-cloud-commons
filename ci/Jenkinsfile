@@ -1,0 +1,87 @@
+
+pipeline {
+    agent {
+        kubernetes {
+            cloud 'kubernetes'
+            inheritFrom 'github-jdk-17-build'
+        }
+    }
+
+    parameters {
+        booleanParam(name: 'MAVEN_DEBUG', defaultValue: false, description: 'Enable maven debug logs')
+    }
+
+    environment {
+        MAVEN_CLI_OPTS = "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+    }
+
+    stages {
+        stage('Validation') {
+            steps {
+                script {
+                    skipCi = sh (script: "git log -1 --pretty=%B | grep '\\[skip ci\\]'", returnStatus: true)
+                    if (skipCi != 0 && env.TAG_NAME == null) {
+                        echo "pipeline build..."
+                    } else {
+                        echo "Skipping this pipeline by commit message mark!"
+                        currentBuild.result = "ABORTED"
+                        throw new org.jenkinsci.plugins.workflow.steps.FlowInterruptedException(hudson.model.Result.ABORTED)
+                    }
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                cache(caches: [
+                        arbitraryFileCache(cacheName: '', cacheValidityDecidingFile: '', compressionMethod: 'TARGZ_BEST_SPEED', excludes: '', includes: '**/*', path: '/root/.m2'),
+                        arbitraryFileCache(cacheName: '', cacheValidityDecidingFile: '', compressionMethod: 'TARGZ_BEST_SPEED', excludes: '', includes: '**/*', path: '/root/.sonar')
+                ],
+                        defaultBranch: 'main',
+                        maxCacheSize: 0) {
+                    container("temurin-jdk-17") {
+//                        sh 'printenv'
+                        withCredentials([
+                                file(credentialsId: 'GPG_PRI', variable: 'GPG_PRI'),
+                                string(credentialsId: 'GPG_PASSPHRASE', variable: 'MAVEN_GPG_PASSPHRASE'),
+                                usernamePassword(credentialsId: 'opcal-ossrh', passwordVariable: 'OSSRH_P', usernameVariable: 'OSSRH_U')
+                        ]) {
+                            script {
+                                sh 'cat ${GPG_PRI} > /tmp/signkey.gpg'
+                                sh 'gpg --allow-secret-key-import --batch --import /tmp/signkey.gpg'
+                                if (params.MAVEN_DEBUG == true) {
+                                    env.MAVEN_CLI_DEBUG = " -e -X";
+                                } else {
+                                    env.MAVEN_CLI_DEBUG = "";
+                                }
+                                if (env.CHANGE_URL == null) {
+                                    // non-PR build
+                                    sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} deploy -s settings.xml"
+                                } else {
+                                    // PR build
+                                    sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} test -Dgpg.skip=true"
+                                }
+                                sh "./mvnw ossindex:audit"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+        failure {
+            withCredentials([
+                    string(credentialsId: 'ALERT_MAIL', variable: 'SEND_TO')
+            ]) {
+                emailext(
+                        to: "${SEND_TO}",
+                        subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${env.currentResult}!",
+                        body: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${currentBuild.currentResult}. \n\nCheck console output at ${env.BUILD_URL} to view the results."
+                )
+            }
+        }
+    }
+}
