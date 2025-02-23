@@ -9,7 +9,7 @@
 
 	<groupId>xyz.opcal.cloud</groupId>
 	<artifactId>opcal-cloud-starter-parent</artifactId>
-	<version>3.3.9.0-SNAPSHOT</version>
+	<version>3.3.9.0</version>
 	<packaging>pom</packaging>
 	<description>opcal cloud starter parent pom</description>
 	<name>opcal-cloud-starter-parent</name>
@@ -63,7 +63,7 @@
 			<dependency>
 				<groupId>xyz.opcal.cloud</groupId>
 				<artifactId>opcal-cloud-commons-dependencies</artifactId>
-				<version>3.3.9.0-SNAPSHOT</version>
+				<version>3.3.9.0</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
