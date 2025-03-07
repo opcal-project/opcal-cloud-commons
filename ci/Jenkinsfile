@@ -1,9 +1,8 @@
 
 pipeline {
     agent {
-        kubernetes {
-            cloud 'kubernetes'
-            inheritFrom 'github-jdk-17-build'
+        node {
+            label 'linux'
         }
     }
 
@@ -13,13 +12,14 @@ pipeline {
 
     environment {
         MAVEN_CLI_OPTS = "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+        JAVA_HOME = "${JAVA17_HOME}"
+        PATH = "${JAVA_HOME}/bin:${PATH}"
     }
 
     stages {
         stage('Validation') {
             steps {
                 script {
-//                    sh 'printenv'
                     skipCi = sh (script: "git log -1 --pretty=%B | grep '\\[skip ci\\]'", returnStatus: true)
                     echo "${skipCi}"
                     echo "${env.TAG_NAME}"
@@ -35,37 +35,26 @@ pipeline {
         }
         stage('Build') {
             steps {
-                cache(caches: [
-                        arbitraryFileCache(cacheName: '', cacheValidityDecidingFile: '', compressionMethod: 'TARGZ_BEST_SPEED', excludes: '', includes: '**/*', path: '/root/.m2'),
-                        arbitraryFileCache(cacheName: '', cacheValidityDecidingFile: '', compressionMethod: 'TARGZ_BEST_SPEED', excludes: '', includes: '**/*', path: '/root/.sonar')
-                ],
-                        defaultBranch: 'main',
-                        maxCacheSize: 0) {
-                    container("temurin-jdk-17") {
-//                        sh 'printenv'
-                        withCredentials([
-                                file(credentialsId: 'GPG_PRI', variable: 'GPG_PRI'),
-                                string(credentialsId: 'GPG_PASSPHRASE', variable: 'MAVEN_GPG_PASSPHRASE'),
-                                usernamePassword(credentialsId: 'opcal-ossrh', passwordVariable: 'OSSRH_P', usernameVariable: 'OSSRH_U')
-                        ]) {
-                            script {
-                                sh 'cat ${GPG_PRI} > /tmp/signkey.gpg'
-                                sh 'gpg --allow-secret-key-import --batch --import /tmp/signkey.gpg'
-                                if (params.MAVEN_DEBUG == true) {
-                                    env.MAVEN_CLI_DEBUG = " -e -X";
-                                } else {
-                                    env.MAVEN_CLI_DEBUG = "";
-                                }
-                                if (env.CHANGE_URL == null) {
-                                    // non-PR build
-                                    sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} deploy -s settings.xml"
-                                } else {
-                                    // PR build
-                                    sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} test -Dgpg.skip=true"
-                                }
-                                sh "./mvnw ossindex:audit"
-                            }
+                withCredentials([
+                        file(credentialsId: 'GPG_PRI', variable: 'GPG_PRI'),
+                        string(credentialsId: 'GPG_PASSPHRASE', variable: 'MAVEN_GPG_PASSPHRASE'),
+                        usernamePassword(credentialsId: 'opcal-ossrh', passwordVariable: 'OSSRH_P', usernameVariable: 'OSSRH_U')
+                ]) {
+                    script {
+                        sh "gpg --allow-secret-key-import --batch --import \$GPG_PRI"
+                        if (params.MAVEN_DEBUG == true) {
+                            env.MAVEN_CLI_DEBUG = " -e -X";
+                        } else {
+                            env.MAVEN_CLI_DEBUG = "";
                         }
+                        if (env.CHANGE_URL == null) {
+                            // non-PR build
+                            sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} deploy -s settings.xml"
+                        } else {
+                            // PR build
+                            sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} test -Dgpg.skip=true"
+                        }
+                        sh "./mvnw ossindex:audit"
                     }
                 }
             }
