@@ -1,15 +1,16 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>xyz.opcal.build</groupId>
         <artifactId>opcal-commons-build</artifactId>
-        <version>3.4.3</version>
+        <version>3.3.9</version>
         <relativePath/>
     </parent>
 
     <groupId>xyz.opcal.cloud</groupId>
     <artifactId>opcal-cloud-commons</artifactId>
-    <version>3.4.3.1-SNAPSHOT</version>
+    <version>3.3.9.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>opcal-cloud-commons</name>
     <description>commons project module for system</description>
@@ -70,6 +71,13 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <id>opcal-sonatype-snapshots</id>
+            <url>https://s01.oss.sonatype.org/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
@@ -104,7 +112,7 @@
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-dependencies</artifactId>
-                <version>3.4.3.1-SNAPSHOT</version>
+                <version>3.3.9.1-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -140,7 +148,9 @@
                 <sonar.projectKey>opcal-project_opcal-cloud-commons</sonar.projectKey>
                 <sonar.organization>opcal-project</sonar.organization>
                 <sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey>
-                <sonar.exclusions>**/*Application.java,**/ServletInitializer.java,**/.flattened-pom.xml,**/opcal-cloud-commons-tests/**</sonar.exclusions>
+                <sonar.exclusions>
+                    **/*Application.java,**/ServletInitializer.java,**/.flattened-pom.xml,**/opcal-cloud-commons-tests/**
+                </sonar.exclusions>
             </properties>
         </profile>
         <profile>
