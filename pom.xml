@@ -78,13 +78,6 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-        <repository>
-            <id>s01-sonatype-snapshots</id>
-            <url>https://s01.oss.sonatype.org/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
