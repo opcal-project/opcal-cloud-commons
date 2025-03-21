@@ -19,6 +19,7 @@ package xyz.opcal.cloud.commons.logback;
 import org.springframework.boot.logging.logback.ApplicationNameConverter;
 import org.springframework.boot.logging.logback.ColorConverter;
 import org.springframework.boot.logging.logback.CorrelationIdConverter;
+import org.springframework.boot.logging.logback.EnclosedInSquareBracketsConverter;
 import org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter;
 import org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter;
 
@@ -50,6 +51,7 @@ public class OpcalPatternLayoutEncoder extends PatternLayoutEncoderBase<ILogging
 		PatternLayout.DEFAULT_CONVERTER_MAP.put("applicationName", ApplicationNameConverter.class.getName());
 		PatternLayout.DEFAULT_CONVERTER_MAP.put("clr", ColorConverter.class.getName());
 		PatternLayout.DEFAULT_CONVERTER_MAP.put("correlationId", CorrelationIdConverter.class.getName());
+		PatternLayout.DEFAULT_CONVERTER_MAP.put("esb", EnclosedInSquareBracketsConverter.class.getName());
 		PatternLayout.DEFAULT_CONVERTER_MAP.put("wex", WhitespaceThrowableProxyConverter.class.getName());
 		PatternLayout.DEFAULT_CONVERTER_MAP.put("wEx", ExtendedWhitespaceThrowableProxyConverter.class.getName());
 		PatternLayout.DEFAULT_CONVERTER_MAP.put(OpcalLogbackConstants.CURRENT_THREAD_ID, OpcalThreadClassicConverter.class.getName());

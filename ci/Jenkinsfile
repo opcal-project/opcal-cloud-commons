@@ -10,10 +10,6 @@ pipeline {
         booleanParam(name: 'MAVEN_DEBUG', defaultValue: false, description: 'Enable maven debug logs')
     }
 
-//    options {
-//        disableConcurrentBuilds()
-//    }
-
     environment {
         MAVEN_CLI_OPTS = "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
         JAVA_HOME = "${JAVA17_HOME}"
