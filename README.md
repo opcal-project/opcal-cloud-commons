@@ -8,8 +8,8 @@ commons project module for system
 ## Release Train Table
 | Release  | Branch | Spring Boot | Spring Cloud |
 |:--------:|:------:|:-----------:|:------------:|
-| 3.4.3.0  |  main  |    3.4.3    |   2024.0.0   |
-| 3.3.9.0  | 3.3.x  |    3.3.9    |   2023.0.5   |
+| 3.4.4.0  |  main  |    3.4.4    |   2024.0.1   |
+| 3.3.10.0 | 3.3.x  |   3.3.10    |   2023.0.5   |
 | 3.2.12.2 | 3.2.x  |   3.2.12    |   2023.0.5   |
 
 ## How to Use
