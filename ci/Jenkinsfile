@@ -6,6 +6,10 @@ pipeline {
         }
     }
 
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+    }
+
     parameters {
         booleanParam(name: 'MAVEN_DEBUG', defaultValue: false, description: 'Enable maven debug logs')
     }
