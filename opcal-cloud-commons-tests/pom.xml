@@ -54,8 +54,6 @@
 				<artifactId>central-publishing-maven-plugin</artifactId>
 				<version>${central-publishing-maven-plugin.version}</version>
 				<configuration>
-					<skipPublishing>true</skipPublishing>
-					<ignorePublishedComponents>true</ignorePublishedComponents>
 					<excludeArtifacts>
 						<excludeArtifact>opcal-cloud-commons-tests</excludeArtifact>
 						<excludeArtifact>opcal-cloud-commons-integration-tests</excludeArtifact>
