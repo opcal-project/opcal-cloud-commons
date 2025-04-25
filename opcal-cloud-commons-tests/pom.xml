@@ -48,5 +48,22 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
+				<version>${central-publishing-maven-plugin.version}</version>
+				<extensions>true</extensions>
+				<configuration combine.children="override">
+					<skipPublishing>true</skipPublishing>
+					<ignorePublishedComponents>true</ignorePublishedComponents>
+					<excludeArtifacts>
+						<excludeArtifact>opcal-cloud-commons-tests</excludeArtifact>
+						<excludeArtifact>opcal-cloud-commons-integration-tests</excludeArtifact>
+						<excludeArtifact>opcal-cloud-commons-integration-web-tests</excludeArtifact>
+					</excludeArtifacts>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>
