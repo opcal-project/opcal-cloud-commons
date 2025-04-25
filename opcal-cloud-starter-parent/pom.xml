@@ -40,9 +40,9 @@
 
 	<url>https://gitlab.com/opcal-project/opcal-cloud-commons/opcal-cloud-starter-parent</url>
 	<scm>
-		<url>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git/opcal-cloud-starter-parent</url>
-		<connection>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git/opcal-cloud-starter-parent</connection>
-		<developerConnection>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git/opcal-cloud-starter-parent</developerConnection>
+		<url>scm:git:git@github.com:opcal-project/opcal-cloud-commons.git/opcal-cloud-starter-parent</url>
+		<connection>scm:git:git@github.com:opcal-project/opcal-cloud-commons.git/opcal-cloud-starter-parent</connection>
+		<developerConnection>scm:git:git@github.com:opcal-project/opcal-cloud-commons.git/opcal-cloud-starter-parent</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
