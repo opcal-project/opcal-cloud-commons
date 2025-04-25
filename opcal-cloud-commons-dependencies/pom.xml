@@ -127,9 +127,10 @@
                     <updatePomFile>true</updatePomFile>
                     <flattenMode>bom</flattenMode>
                     <pomElements>
-                        <parent>expand</parent>
+                        <parent>flatten</parent>
                         <distributionManagement>remove</distributionManagement>
                         <repositories>remove</repositories>
+                        <build>remove</build>
                     </pomElements>
                 </configuration>
             </plugin>
