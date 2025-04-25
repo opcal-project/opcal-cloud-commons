@@ -188,4 +188,8 @@
         </pluginRepository>
     </pluginRepositories>
 
+    <distributionManagement>
+
+    </distributionManagement>
+
 </project>

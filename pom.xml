@@ -173,6 +173,9 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+    </distributionManagement>
+
     <repositories>
         <repository>
             <name>Central Portal Snapshots</name>
