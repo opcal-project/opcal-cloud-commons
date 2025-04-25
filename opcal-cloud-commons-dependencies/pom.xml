@@ -3,7 +3,7 @@
     <parent>
         <groupId>xyz.opcal.build</groupId>
         <artifactId>opcal-commons-build-dependencies-parent</artifactId>
-        <version>3.3.10</version>
+        <version>3.3.11.1</version>
         <relativePath/>
     </parent>
     <groupId>xyz.opcal.cloud</groupId>
@@ -28,17 +28,6 @@
             <distribution>manual</distribution>
         </license>
     </licenses>
-
-    <distributionManagement>
-        <repository>
-            <id>central</id>
-            <url>https://central.sonatype.com</url>
-        </repository>
-        <snapshotRepository>
-            <id>central</id>
-            <url>https://central.sonatype.com/</url>
-        </snapshotRepository>
-    </distributionManagement>
 
     <url>https://gitlab.com/opcal-project/opcal-cloud-commons/opcal-cloud-commons-dependencies</url>
     <scm>
