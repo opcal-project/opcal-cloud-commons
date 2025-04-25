@@ -173,9 +173,6 @@
         </plugins>
     </build>
 
-    <distributionManagement>
-    </distributionManagement>
-
     <repositories>
         <repository>
             <name>Central Portal Snapshots</name>
@@ -231,6 +228,17 @@
             <url>https://repo.spring.io/snapshot</url>
         </pluginRepository>
     </pluginRepositories>
+
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <url>https://central.sonatype.com</url>
+        </repository>
+        <snapshotRepository>
+            <id>central</id>
+            <url>https://central.sonatype.com/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <modules>
         <module>opcal-cloud-commons-dependencies</module>
