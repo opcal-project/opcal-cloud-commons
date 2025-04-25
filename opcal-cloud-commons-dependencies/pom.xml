@@ -128,6 +128,8 @@
                     <flattenMode>bom</flattenMode>
                     <pomElements>
                         <parent>flatten</parent>
+                        <dependencyManagement>extended_interpolate</dependencyManagement>
+                        <properties>remove</properties>
                         <distributionManagement>remove</distributionManagement>
                         <repositories>remove</repositories>
                         <build>remove</build>
