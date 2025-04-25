@@ -28,9 +28,9 @@
     </licenses>
 
     <scm>
-        <url>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git</url>
-        <connection>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git</connection>
-        <developerConnection>scm:git:git@gitlab.com:opcal-project/opcal-cloud-commons.git</developerConnection>
+        <url>scm:git:git@github.com:opcal-project/opcal-cloud-commons.git</url>
+        <connection>scm:git:git@github.com:opcal-project/opcal-cloud-commons.git</connection>
+        <developerConnection>scm:git:git@github.com:opcal-project/opcal-cloud-commons.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
