@@ -21,23 +21,23 @@ version-registers:
     update-policy: LATEST
   # plugins
   - property-name: maven-compiler-plugin.version
-    update-policy: LATEST
+    update-policy: MINOR
   - property-name: maven-release-plugin.version
     update-policy: LATEST
   - property-name: maven-resources-plugin.version
-    update-policy: LATEST
+    update-policy: MINOR
   - property-name: maven-gpg-plugin.version
     update-policy: LATEST
   - property-name: maven-javadoc-plugin.version
     update-policy: LATEST
   - property-name: maven-source-plugin.version
-    update-policy: LATEST
+    update-policy: MINOR
   - property-name: maven-surefire-plugin.version
     update-policy: LATEST
   - property-name: maven-failsafe-plugin.version
     update-policy: LATEST
   - property-name: maven-jar-plugin.version
-    update-policy: LATEST
+    update-policy: MINOR
   - property-name: versions-maven-plugin.version
     update-policy: LATEST
   - property-name: flatten-maven-plugin.version
