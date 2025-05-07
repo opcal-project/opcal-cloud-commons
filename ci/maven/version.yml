@@ -2,6 +2,7 @@ dependencies: #{#WORKSPACE}/dependencies.properties
 update-reports:
   - #{#WORKSPACE}/target/site/property-updates-aggregate-report.html
   - #{#WORKSPACE}/target/reports/property-updates-aggregate-report.html
+  - #{#WORKSPACE}/opcal-cloud-starter-parent/target/reports/property-updates-aggregate-report.html
 parent-reports:
   - #{#WORKSPACE}/target/site/parent-updates-report.html
   - #{#WORKSPACE}/target/reports/parent-updates-report.html
@@ -20,23 +21,23 @@ version-registers:
     update-policy: LATEST
   # plugins
   - property-name: maven-compiler-plugin.version
-    update-policy: LATEST
+    update-policy: MINOR
   - property-name: maven-release-plugin.version
     update-policy: LATEST
   - property-name: maven-resources-plugin.version
-    update-policy: LATEST
+    update-policy: MINOR
   - property-name: maven-gpg-plugin.version
     update-policy: LATEST
   - property-name: maven-javadoc-plugin.version
     update-policy: LATEST
   - property-name: maven-source-plugin.version
-    update-policy: LATEST
+    update-policy: MINOR
   - property-name: maven-surefire-plugin.version
     update-policy: LATEST
   - property-name: maven-failsafe-plugin.version
     update-policy: LATEST
   - property-name: maven-jar-plugin.version
-    update-policy: LATEST
+    update-policy: MINOR
   - property-name: versions-maven-plugin.version
     update-policy: LATEST
   - property-name: flatten-maven-plugin.version
