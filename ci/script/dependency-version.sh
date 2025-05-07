@@ -23,6 +23,7 @@ do
   value=$(props value ${PROPERTIES_FILE} ${key})
   echo "key: ${key} - value: ${value}"
   "${ROOT_PATH}"/mvnw versions:set-property -Dproperty=${key} -DnewVersion=${value} >> /dev/null 2>&1
+  "${ROOT_PATH}"/mvnw versions:set-property -DprofileId=build -Dproperty=${key} -DnewVersion=${value} >> /dev/null 2>&1
 done
 
 "${ROOT_PATH}"/mvnw versions:commit
