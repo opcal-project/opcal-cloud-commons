@@ -147,6 +147,7 @@
                                 <profiles>remove</profiles>
                                 <distributionManagement>remove</distributionManagement>
                                 <repositories>remove</repositories>
+                                <pluginRepositories>remove</pluginRepositories>
                                 <build>remove</build>
                             </pomElements>
                         </configuration>
