@@ -120,24 +120,35 @@
                     <autoPublish>true</autoPublish>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>flatten-maven-plugin</artifactId>
-                <configuration combine.self="override">
-                    <updatePomFile>true</updatePomFile>
-                    <flattenMode>bom</flattenMode>
-                    <pomElements>
-                        <parent>keep</parent>
-                        <dependencyManagement>keep</dependencyManagement>
-                        <properties>keep</properties>
-                        <distributionManagement>remove</distributionManagement>
-                        <repositories>remove</repositories>
-                        <build>remove</build>
-                    </pomElements>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>build</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>flatten-maven-plugin</artifactId>
+                        <configuration combine.self="override">
+                            <updatePomFile>true</updatePomFile>
+                            <flattenMode>bom</flattenMode>
+                            <pomElements>
+                                <parent>flatten</parent>
+                                <dependencyManagement>extended_interpolate</dependencyManagement>
+                                <properties>remove</properties>
+                                <profiles>remove</profiles>
+                                <distributionManagement>remove</distributionManagement>
+                                <repositories>remove</repositories>
+                                <build>remove</build>
+                            </pomElements>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <repositories>
         <repository>
