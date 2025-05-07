@@ -127,15 +127,15 @@
             <properties>
                 <javadoc.failOnError>false</javadoc.failOnError>
                 <javadoc.failOnWarnings>false</javadoc.failOnWarnings>
-                <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
+                <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
                 <maven-release-plugin.version>3.0.1</maven-release-plugin.version>
                 <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
                 <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
-                <maven-javadoc-plugin.version>3.6.3</maven-javadoc-plugin.version>
+                <maven-javadoc-plugin.version>3.11.2</maven-javadoc-plugin.version>
                 <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
                 <maven-surefire-plugin.version>3.2.3</maven-surefire-plugin.version>
-                <maven-failsafe-plugin.version>3.2.3</maven-failsafe-plugin.version>
-                <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
+                <maven-failsafe-plugin.version>3.5.3</maven-failsafe-plugin.version>
+                <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
                 <ossindex-maven-plugin.version>3.1.0</ossindex-maven-plugin.version>
                 <central-publishing-maven-plugin.version>0.7.0</central-publishing-maven-plugin.version>
             </properties>
