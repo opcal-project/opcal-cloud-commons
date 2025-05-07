@@ -54,7 +54,7 @@ pipeline {
                         }
                         if (env.CHANGE_URL == null) {
                             // non-PR build
-                            sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} deploy -s settings.xml"
+                            sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} deploy -Pbuild -s settings.xml"
                         } else {
                             // PR build
                             sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} test -Dgpg.skip=true"

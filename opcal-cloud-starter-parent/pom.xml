@@ -122,9 +122,6 @@
 	<profiles>
 		<profile>
 			<id>build</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<properties>
 				<javadoc.failOnError>false</javadoc.failOnError>
 				<javadoc.failOnWarnings>false</javadoc.failOnWarnings>
