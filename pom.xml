@@ -85,8 +85,8 @@
             <id>sonar-config</id>
             <properties>
                 <!-- sonar -->
-                <sonar.projectKey>opcal-project_opcal-cloud-commons</sonar.projectKey>
-                <sonar.organization>opcal-project</sonar.organization>
+                <sonar.projectKey>gh_opcal-project_opcal-cloud-commons</sonar.projectKey>
+                <sonar.organization>gh-opcal-project</sonar.organization>
                 <sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey>
                 <sonar.exclusions>**/*Application.java,**/ServletInitializer.java,**/.flattened-pom.xml,**/opcal-cloud-commons-tests/**</sonar.exclusions>
             </properties>

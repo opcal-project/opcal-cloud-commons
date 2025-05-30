@@ -15,6 +15,7 @@ pipeline {
     }
 
     environment {
+        SONAR_HOST_URL = 'https://sonarcloud.io'
         MAVEN_CLI_OPTS = "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
         JAVA_HOME = "${JAVA17_HOME}"
         PATH = "${JAVA_HOME}/bin:${PATH}"
@@ -66,6 +67,17 @@ pipeline {
                             // PR build
                             sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} test -Pbuild -Dgpg.skip=true"
                         }
+                    }
+                }
+            }
+        }
+        stage('Analysis') {
+            steps {
+                withCredentials([
+                        string(credentialsId: 'SONAR_TOKEN-opcal-cloud-commons', variable: 'SONAR_TOKEN'),
+                ]) {
+                    script {
+                        sh "./mvnw sonar:sonar -Psonar-config -Dsonar.branch.name=${env.GIT_BRANCH}"
                         sh "./mvnw ossindex:audit -Pbuild"
                     }
                 }
