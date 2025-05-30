@@ -77,7 +77,7 @@ pipeline {
                         string(credentialsId: 'SONAR_TOKEN-opcal-cloud-commons', variable: 'SONAR_TOKEN'),
                 ]) {
                     script {
-                        sh "./mvnw sonar:sonar -Psonar-config"
+                        sh "./mvnw sonar:sonar -Psonar-config -Dsonar.branch.name=${env.GIT_BRANCH}"
                         sh "./mvnw ossindex:audit -Pbuild"
                     }
                 }
