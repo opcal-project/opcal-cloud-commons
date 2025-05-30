@@ -63,10 +63,7 @@ pipeline {
                         }
                         if (env.CHANGE_URL == null) {
                             // non-PR build
-                            sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} verify deploy sonar:sonar \
-                                    -Dsonar.projectKey=gh_opcal-project_opcal-cloud-commons \
-                                    -Dsonar.organization=gh-opcal-project \
-                                    -Pbuild -s settings.xml"
+                            sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} deploy verify sonar:sonar -Psonar-config -Pbuild -s settings.xml"
                         } else {
                             // PR build
                             sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} test -Pbuild -Dgpg.skip=true"
