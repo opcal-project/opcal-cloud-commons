@@ -15,6 +15,7 @@ pipeline {
     }
 
     environment {
+        SONAR_HOST_URL = 'https://sonarcloud.io'
         MAVEN_CLI_OPTS = "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
         JAVA_HOME = "${JAVA17_HOME}"
         PATH = "${JAVA_HOME}/bin:${PATH}"
@@ -47,6 +48,7 @@ pipeline {
         stage('Build') {
             steps {
                 withCredentials([
+                        string(credentialsId: 'SONAR_TOKEN-opcal-cloud-commons', variable: 'SONAR_TOKEN'),
                         file(credentialsId: 'GPG_PRI', variable: 'GPG_PRI'),
                         string(credentialsId: 'GPG_PASSPHRASE', variable: 'MAVEN_GPG_PASSPHRASE'),
                         usernamePassword(credentialsId: 'opcal-ossrh', passwordVariable: 'OSSRH_P', usernameVariable: 'OSSRH_U'),
@@ -61,7 +63,10 @@ pipeline {
                         }
                         if (env.CHANGE_URL == null) {
                             // non-PR build
-                            sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} deploy -Pbuild -s settings.xml"
+                            sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} verify deploy sonar:sonar \
+                                    -Dsonar.projectKey=gh_opcal-project_opcal-cloud-commons \
+                                    -Dsonar.organization=gh-opcal-project \
+                                    -Pbuild -s settings.xml"
                         } else {
                             // PR build
                             sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} test -Pbuild -Dgpg.skip=true"
