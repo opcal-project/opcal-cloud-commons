@@ -48,7 +48,6 @@ pipeline {
         stage('Build') {
             steps {
                 withCredentials([
-                        string(credentialsId: 'SONAR_TOKEN-opcal-cloud-commons', variable: 'SONAR_TOKEN'),
                         file(credentialsId: 'GPG_PRI', variable: 'GPG_PRI'),
                         string(credentialsId: 'GPG_PASSPHRASE', variable: 'MAVEN_GPG_PASSPHRASE'),
                         usernamePassword(credentialsId: 'opcal-ossrh', passwordVariable: 'OSSRH_P', usernameVariable: 'OSSRH_U'),
@@ -68,6 +67,16 @@ pipeline {
                             // PR build
                             sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} test -Pbuild -Dgpg.skip=true"
                         }
+                    }
+                }
+            }
+        }
+        stage('Analysis') {
+            steps {
+                withCredentials([
+                        string(credentialsId: 'SONAR_TOKEN-opcal-cloud-commons', variable: 'SONAR_TOKEN'),
+                ]) {
+                    script {
                         sh "./mvnw verify sonar:sonar -Psonar-config"
                         sh "./mvnw ossindex:audit -Pbuild"
                     }
