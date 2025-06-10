@@ -17,18 +17,17 @@
 package xyz.opcal.cloud.commons.logback.webflux.filter;
 
 import org.slf4j.MDC;
-
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 
 import reactor.core.publisher.Mono;
-
+import xyz.opcal.cloud.commons.logback.OpcalLogbackConstants;
 
 public class MDCCleanFilter implements WebFilter {
 
 	@Override
 	public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
-		return chain.filter(exchange).doFinally(signalType -> MDC.clear());
+		return chain.filter(exchange).doFinally(signalType -> MDC.remove(OpcalLogbackConstants.MDC_THREAD_ID));
 	}
 }
