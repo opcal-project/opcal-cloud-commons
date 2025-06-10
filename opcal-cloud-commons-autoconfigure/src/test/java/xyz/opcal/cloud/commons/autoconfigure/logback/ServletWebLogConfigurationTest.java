@@ -25,7 +25,6 @@ import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 import org.springframework.cloud.autoconfigure.RefreshAutoConfiguration;
 
 import xyz.opcal.cloud.commons.logback.web.filter.LogRequestFilter;
-import xyz.opcal.cloud.commons.logback.web.filter.LogRequestIdFilter;
 import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
 
 class ServletWebLogConfigurationTest {
@@ -41,7 +40,7 @@ class ServletWebLogConfigurationTest {
 				.withPropertyValues("opcal.cloud.log.servlet.request=true")
 				.run(context -> {
 					assertThat(context).hasSingleBean(RequestIdFilter.class);
-					assertThat(context).hasSingleBean(LogRequestIdFilter.class);
+					assertThat(context).hasBean("logRequestIdFilter");
 					assertThat(context).hasSingleBean(LogRequestFilter.class);
 				});
 	}
@@ -52,7 +51,7 @@ class ServletWebLogConfigurationTest {
 				.withPropertyValues("opcal.cloud.log.servlet.request-id=true")
 				.run(context -> {
 					assertThat(context).hasSingleBean(RequestIdFilter.class);
-					assertThat(context).hasSingleBean(LogRequestIdFilter.class);
+					assertThat(context).hasBean("logRequestIdFilter");
 					assertThat(context).doesNotHaveBean(LogRequestFilter.class);
 				});
 	}

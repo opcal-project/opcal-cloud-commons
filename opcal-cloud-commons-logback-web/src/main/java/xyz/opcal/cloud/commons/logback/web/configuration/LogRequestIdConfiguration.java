@@ -17,19 +17,23 @@
 package xyz.opcal.cloud.commons.logback.web.configuration;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 
 import xyz.opcal.cloud.commons.logback.web.filter.LogRequestIdFilter;
 
 public class LogRequestIdConfiguration {
 
+	private static final String FILTER_NAME = "logRequestIdFilter";
+
 	@Bean
-	@ConditionalOnMissingBean
-	@Order(Ordered.HIGHEST_PRECEDENCE + 1)
-	public LogRequestIdFilter logRequestIdFilter() {
-		return new LogRequestIdFilter();
+	@ConditionalOnMissingBean(name = FILTER_NAME)
+	public FilterRegistrationBean<LogRequestIdFilter> logRequestIdFilter() {
+		var registration = new FilterRegistrationBean<>(new LogRequestIdFilter());
+		registration.setName(FILTER_NAME);
+		registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 1);
+		return registration;
 	}
 
 }

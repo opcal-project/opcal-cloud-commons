@@ -17,36 +17,28 @@
 package xyz.opcal.cloud.commons.logback.web.filter;
 
 import java.io.IOException;
+import java.io.Serial;
 
 import org.slf4j.MDC;
-import org.springframework.web.filter.OncePerRequestFilter;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import xyz.opcal.cloud.commons.logback.OpcalLogbackConstants;
-import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
 import xyz.opcal.cloud.commons.web.utils.HttpServletRequestUtils;
 
-public class LogRequestIdFilter extends OncePerRequestFilter {
+public class LogRequestIdFilter extends HttpFilter {
 
-	/**
-	 * Filter Chain after RequestIdFilter, requestId is not null.
-	 * 
-	 * @see RequestIdFilter
-	 * @param request
-	 * @param response
-	 * @param filterChain
-	 * @throws ServletException
-	 * @throws IOException
-	 */
+	@Serial
+	private static final long serialVersionUID = 5444083606503588492L;
+
 	@Override
-	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-
+	protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
 		MDC.put(OpcalLogbackConstants.MDC_THREAD_ID, HttpServletRequestUtils.getRequestId(request));
 		try {
-			filterChain.doFilter(request, response);
+			chain.doFilter(request, response);
 		} finally {
 			MDC.remove(OpcalLogbackConstants.MDC_THREAD_ID);
 		}
