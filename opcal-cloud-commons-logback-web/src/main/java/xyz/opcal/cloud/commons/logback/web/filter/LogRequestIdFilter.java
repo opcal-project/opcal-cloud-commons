@@ -19,7 +19,6 @@ package xyz.opcal.cloud.commons.logback.web.filter;
 import java.io.IOException;
 
 import org.slf4j.MDC;
-
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import jakarta.servlet.FilterChain;
@@ -49,7 +48,7 @@ public class LogRequestIdFilter extends OncePerRequestFilter {
 		try {
 			filterChain.doFilter(request, response);
 		} finally {
-			MDC.clear();
+			MDC.remove(OpcalLogbackConstants.MDC_THREAD_ID);
 		}
 	}
 }
