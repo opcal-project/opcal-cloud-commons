@@ -19,7 +19,11 @@ package xyz.opcal.cloud.commons.logback.webflux;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import org.springframework.boot.test.web.reactive.server.WebTestClientBuilderCustomizer;
+import org.springframework.context.annotation.Bean;
 import xyz.opcal.cloud.commons.logback.webflux.annotation.EnableLogWebfluxRequest;
+
+import java.time.Duration;
 
 @EnableLogWebfluxRequest
 @SpringBootApplication
@@ -29,4 +33,8 @@ public class LogWebfluxApplication {
 		SpringApplication.run(LogWebfluxApplication.class, args);
 	}
 
+	@Bean
+	WebTestClientBuilderCustomizer webClientCustomizer() {
+		return builder -> builder.responseTimeout(Duration.ofSeconds(20));
+	}
 }

@@ -30,6 +30,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
+
 import xyz.opcal.cloud.commons.web.WebConstants;
 
 
@@ -106,5 +107,37 @@ class LogWebfluxTests {
 				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
 				.header(WebConstants.HEADER_X_REAL_IP, IP_4) //
 				.exchange().expectStatus().isOk();
+	}
+
+	@Test
+	@Order(3)
+	void testFlux() {
+		webTestClient.get().uri("/flux") //
+				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
+				.header(WebConstants.HEADER_X_REAL_IP, IP_4) //
+				.exchange().expectStatus().isOk()
+				.expectBodyList(Integer.class).consumeWith(System.out::println);
+	}
+
+	@Test
+	@Order(4)
+	void testEvent() {
+		webTestClient.get().uri("/event") //
+				.accept(MediaType.TEXT_EVENT_STREAM) //
+				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
+				.header(WebConstants.HEADER_X_REAL_IP, IP_4) //
+				.exchange().expectStatus().isOk()
+				.expectBodyList(Integer.class).consumeWith(System.out::println);
+	}
+
+	@Test
+	@Order(5)
+	void testStream() {
+		webTestClient.get().uri("/stream") //
+				.accept(MediaType.APPLICATION_NDJSON) //
+				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
+				.header(WebConstants.HEADER_X_REAL_IP, IP_4) //
+				.exchange().expectStatus().isOk()
+				.expectBodyList(Integer.class).consumeWith(System.out::println);
 	}
 }

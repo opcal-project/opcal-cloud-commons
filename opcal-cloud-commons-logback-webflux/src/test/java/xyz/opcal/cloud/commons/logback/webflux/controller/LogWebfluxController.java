@@ -16,11 +16,13 @@
 
 package xyz.opcal.cloud.commons.logback.webflux.controller;
 
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Slf4j
@@ -64,4 +67,21 @@ public class LogWebfluxController {
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
+	@GetMapping(value = { "/flux" })
+	public Flux<Integer> flux() {
+		var intFlux = Flux.fromArray(new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+		return intFlux.delayElements(Duration.ofMillis(50));
+	}
+
+	@GetMapping(value = { "/event" }, produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	public Flux<Integer> event() {
+		var intFlux = Flux.fromArray(new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+		return intFlux.delayElements(Duration.ofMillis(50));
+	}
+
+	@GetMapping(value = { "/stream" }, produces = MediaType.APPLICATION_NDJSON_VALUE)
+	public Flux<Integer> stream() {
+		var intFlux = Flux.fromArray(new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+		return intFlux.delayElements(Duration.ofMillis(50));
+	}
 }
