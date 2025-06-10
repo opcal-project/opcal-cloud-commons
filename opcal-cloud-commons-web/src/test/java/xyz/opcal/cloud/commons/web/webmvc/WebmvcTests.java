@@ -25,7 +25,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.web.context.WebApplicationContext;
-import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
 
 @SpringJUnitWebConfig(WebmvcConfiguration.class)
 class WebmvcTests {
@@ -40,6 +39,6 @@ class WebmvcTests {
 
 	@Test
 	void getFilterInstance(WebApplicationContext wac) {
-		assertNotNull(wac.getBean(RequestIdFilter.class));
+		assertNotNull(wac.getBean("requestIdFilter"));
 	}
 }

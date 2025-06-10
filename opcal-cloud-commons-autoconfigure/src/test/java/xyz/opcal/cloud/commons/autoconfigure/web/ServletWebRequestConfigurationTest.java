@@ -22,8 +22,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.AutoConfigurations;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 
-import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
-
 class ServletWebRequestConfigurationTest {
 
 	private final ApplicationContextRunner contextRunner = new ApplicationContextRunner()
@@ -33,7 +31,7 @@ class ServletWebRequestConfigurationTest {
 	@Test
 	void enableServletRequestId() {
 		this.contextRunner.run(context -> {
-			assertThat(context).hasSingleBean(RequestIdFilter.class);
+			assertThat(context).hasBean("requestIdFilter");
 		});
 	}
 }
