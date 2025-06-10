@@ -16,6 +16,7 @@
 
 package xyz.opcal.cloud.commons.logback.web.configuration;
 
+import jakarta.servlet.DispatcherType;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -33,6 +34,7 @@ public class LogRequestIdConfiguration {
 		var registration = new FilterRegistrationBean<>(new LogRequestIdFilter());
 		registration.setName(FILTER_NAME);
 		registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 1);
+		registration.setDispatcherTypes(DispatcherType.REQUEST, DispatcherType.ASYNC, DispatcherType.FORWARD, DispatcherType.INCLUDE, DispatcherType.ERROR);
 		return registration;
 	}
 
