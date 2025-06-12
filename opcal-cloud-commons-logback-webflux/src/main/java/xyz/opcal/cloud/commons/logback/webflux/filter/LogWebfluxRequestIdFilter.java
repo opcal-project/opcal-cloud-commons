@@ -29,8 +29,11 @@ public class LogWebfluxRequestIdFilter implements WebFilter {
 
 	@Override
 	public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
-		MDC.put(OpcalLogbackConstants.MDC_THREAD_ID, ServerHttpRequestUtils.getRequestId(exchange.getRequest()));
-		return chain.filter(exchange);
+
+		return chain.filter(exchange).contextWrite(context -> {
+			MDC.put(OpcalLogbackConstants.MDC_THREAD_ID, ServerHttpRequestUtils.getRequestId(exchange.getRequest()));
+			return context.put(OpcalLogbackConstants.MDC_THREAD_ID, ServerHttpRequestUtils.getRequestId(exchange.getRequest()));
+		});
 	}
 
 }
