@@ -16,20 +16,15 @@
 
 package xyz.opcal.cloud.commons.logback.webflux.http;
 
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.Channels;
-
 import org.reactivestreams.Publisher;
-
 import org.springframework.core.io.buffer.DataBuffer;
-import org.springframework.core.io.buffer.DataBufferUtils;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.http.server.reactive.ServerHttpResponseDecorator;
 import org.springframework.util.FastByteArrayOutputStream;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import xyz.opcal.cloud.commons.logback.webflux.utils.BufferUtils;
 
 public class LogResponseDecorator extends ServerHttpResponseDecorator {
 
@@ -42,24 +37,14 @@ public class LogResponseDecorator extends ServerHttpResponseDecorator {
 
 	@Override
 	public Mono<Void> writeWith(Publisher<? extends DataBuffer> body) {
-		return super.writeWith(DataBufferUtils.join(body).doOnNext(dataBuffer -> transferBuffer(dataBuffer, bodyStream)));
+
+		return super.writeWith(BufferUtils.bufferingWrap(body, BufferUtils.outputStreamConsume(bodyStream)));
 	}
 
 	@Override
 	public Mono<Void> writeAndFlushWith(Publisher<? extends Publisher<? extends DataBuffer>> body) {
 		return super.writeAndFlushWith(
-				Flux.from(body).map(publisher -> DataBufferUtils.join(publisher).map(dataBuffer -> transferBuffer(dataBuffer, bodyStream))));
-	}
-
-	private DataBuffer transferBuffer(DataBuffer dataBuffer, FastByteArrayOutputStream outputStream) {
-		try {
-			var tmp = ByteBuffer.allocate(dataBuffer.capacity());
-			dataBuffer.toByteBuffer(tmp);
-			Channels.newChannel(outputStream).write(tmp);
-		} catch (IOException e) {
-			// do nothing
-		}
-		return dataBuffer;
+				Flux.from(body).map(publisher -> BufferUtils.bufferingWrap(publisher, BufferUtils.outputStreamConsume(bodyStream))));
 	}
 
 	@Override

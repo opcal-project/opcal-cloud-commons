@@ -16,16 +16,13 @@
 
 package xyz.opcal.cloud.commons.logback.webflux.http;
 
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.Channels;
-
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpRequestDecorator;
 import org.springframework.util.FastByteArrayOutputStream;
 
 import reactor.core.publisher.Flux;
+import xyz.opcal.cloud.commons.logback.webflux.utils.BufferUtils;
 
 public class LogRequestDecorator extends ServerHttpRequestDecorator {
 
@@ -38,15 +35,7 @@ public class LogRequestDecorator extends ServerHttpRequestDecorator {
 
 	@Override
 	public Flux<DataBuffer> getBody() {
-		return super.getBody().doOnNext(dataBuffer -> {
-			try {
-				var tmp = ByteBuffer.allocate(dataBuffer.capacity());
-				dataBuffer.toByteBuffer(tmp);
-				Channels.newChannel(bodyStream).write(tmp);
-			} catch (IOException e) {
-				// do nothing
-			}
-		});
+		return Flux.from(BufferUtils.bufferingWrap(super.getBody(), BufferUtils.outputStreamConsume(bodyStream)));
 	}
 
 	@Override
