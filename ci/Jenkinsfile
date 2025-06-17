@@ -51,7 +51,6 @@ pipeline {
                         file(credentialsId: 'GPG_PRI', variable: 'GPG_PRI'),
                         string(credentialsId: 'GPG_PASSPHRASE', variable: 'MAVEN_GPG_PASSPHRASE'),
                         usernamePassword(credentialsId: 'opcal-ossrh', passwordVariable: 'OSSRH_P', usernameVariable: 'OSSRH_U'),
-                        usernamePassword(credentialsId: 'opcal-project-ghcr', passwordVariable: 'GH_P', usernameVariable: 'GH_U'),
                         string(credentialsId: 'httpbin-ci-token', variable: 'CI_TOKEN')
                 ]) {
                     script {

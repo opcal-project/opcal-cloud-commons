@@ -7,10 +7,5 @@
 			<username>${env.OSSRH_U}</username>
 			<password>${env.OSSRH_P}</password>
 		</server>
-		<server>
-			<id>github</id>
-			<username>${env.GH_U}</username>
-			<password>${env.GH_P}</password>
-		</server>
 	</servers>
 </settings>
