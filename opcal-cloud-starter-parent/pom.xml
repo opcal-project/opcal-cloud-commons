@@ -374,6 +374,13 @@
         </profile>
     </profiles>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/opcal-project/opcal-cloud-commons</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <repositories>
         <repository>
             <name>Central Portal Snapshots</name>
