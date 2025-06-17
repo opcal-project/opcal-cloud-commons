@@ -205,8 +205,8 @@
     </distributionManagement>
 
     <repositories>
-        <name>Opcal Github Snapshots</name>
         <repository>
+            <name>Opcal Github Snapshots</name>
             <id>github</id>
             <url>https://maven.pkg.github.com/opcal-project/all</url>
             <releases>
