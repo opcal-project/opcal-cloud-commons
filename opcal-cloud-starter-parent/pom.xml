@@ -295,6 +295,12 @@
                                 <fail>false</fail>
                             </configuration>
                         </plugin>
+                        <plugin>
+                            <groupId>org.sonatype.central</groupId>
+                            <artifactId>central-publishing-maven-plugin</artifactId>
+                            <version>${central-publishing-maven-plugin.version}</version>
+                            <extensions>true</extensions>
+                        </plugin>
                     </plugins>
                 </pluginManagement>
                 <plugins>
@@ -340,7 +346,6 @@
                     <plugin>
                         <groupId>org.sonatype.central</groupId>
                         <artifactId>central-publishing-maven-plugin</artifactId>
-                        <version>${central-publishing-maven-plugin.version}</version>
                         <extensions>true</extensions>
                         <configuration>
                             <publishingServerId>github</publishingServerId>
@@ -362,7 +367,6 @@
                     <plugin>
                         <groupId>org.sonatype.central</groupId>
                         <artifactId>central-publishing-maven-plugin</artifactId>
-                        <version>${central-publishing-maven-plugin.version}</version>
                         <extensions>true</extensions>
                         <configuration>
                             <publishingServerId>central</publishingServerId>
