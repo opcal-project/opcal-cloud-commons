@@ -261,6 +261,7 @@
     </pluginRepositories>
 
     <modules>
+        <module>opcal-cloud-commons-dependencies</module>
         <module>opcal-cloud-starter-parent</module>
         <module>opcal-cloud-commons-web</module>
         <module>opcal-cloud-commons-logback</module>
@@ -269,6 +270,5 @@
         <module>opcal-cloud-commons-logback-webflux</module>
         <module>opcal-cloud-commons-autoconfigure</module>
         <module>opcal-cloud-commons-tests</module>
-        <module>opcal-cloud-commons-dependencies</module>
     </modules>
 </project>
