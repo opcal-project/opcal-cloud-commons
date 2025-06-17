@@ -165,7 +165,7 @@
                 <configuration>
                     <publishingServerId>central</publishingServerId>
                     <autoPublish>true</autoPublish>
-                    <centralSnapshotsUrl/>
+                    <centralSnapshotsUrl>https://maven.pkg.github.com/opcal-project/opcal-cloud-commons</centralSnapshotsUrl>
                 </configuration>
             </plugin>
             <plugin>
