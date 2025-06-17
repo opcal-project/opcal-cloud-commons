@@ -199,6 +199,10 @@
 
     <distributionManagement>
         <snapshotRepository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/opcal-project/opcal-cloud-commons</url>
+        </snapshotRepository>
+        <snapshotRepository>
             <id>central</id>
             <url>https://central.sonatype.com/repository/maven-snapshots/</url>
         </snapshotRepository>
