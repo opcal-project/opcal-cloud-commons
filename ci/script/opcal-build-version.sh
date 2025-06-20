@@ -24,3 +24,4 @@ echo "spring boot version is [${SPRING_BOOT_VERSION}]"
 
 # spring boot parent version
 xmlstarlet edit -P -L -O -u "/_:project/_:parent/_:version" -v "${SPRING_BOOT_VERSION}" "${ROOT_PATH}"/opcal-cloud-starter-parent/pom.xml
+echo "parent module version update is done!"
