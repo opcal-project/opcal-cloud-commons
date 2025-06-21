@@ -8,7 +8,7 @@
     </parent>
     <groupId>xyz.opcal.cloud</groupId>
     <artifactId>opcal-cloud-commons-dependencies</artifactId>
-    <version>3.4.7.0-SNAPSHOT</version>
+    <version>3.4.7.0</version>
     <packaging>pom</packaging>
     <name>opcal-cloud-commons-dependencies</name>
     <description>bom project</description>
@@ -71,32 +71,32 @@
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-autoconfigure</artifactId>
-                <version>3.4.7.0-SNAPSHOT</version>
+                <version>3.4.7.0</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback</artifactId>
-                <version>3.4.7.0-SNAPSHOT</version>
+                <version>3.4.7.0</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback-http</artifactId>
-                <version>3.4.7.0-SNAPSHOT</version>
+                <version>3.4.7.0</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-web</artifactId>
-                <version>3.4.7.0-SNAPSHOT</version>
+                <version>3.4.7.0</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback-web</artifactId>
-                <version>3.4.7.0-SNAPSHOT</version>
+                <version>3.4.7.0</version>
             </dependency>
             <dependency>
                 <groupId>xyz.opcal.cloud</groupId>
                 <artifactId>opcal-cloud-commons-logback-webflux</artifactId>
-                <version>3.4.7.0-SNAPSHOT</version>
+                <version>3.4.7.0</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
