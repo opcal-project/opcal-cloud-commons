@@ -86,6 +86,7 @@ pipeline {
                         string(credentialsId: 'SONARQUBE_OPCAL_LOCAL_TOKEN', variable: 'SONAR_TOKEN'),
                 ]) {
                     script {
+                        env.SONAR_USER_HOME = "/home/jenkins/.sonar/opcal"
                         sh "./mvnw sonar:sonar -Psonar-config -Dsonar.branch.name=${env.GIT_BRANCH} -Dsonar.projectName='opcal-cloud-commons'"
                     }
                 }
