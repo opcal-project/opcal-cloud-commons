@@ -8,4 +8,5 @@
 			<password>${env.OSSRH_P}</password>
 		</server>
 	</servers>
+    <localRepository>${env.WORKSPACE}/.m2/repository</localRepository>
 </settings>
