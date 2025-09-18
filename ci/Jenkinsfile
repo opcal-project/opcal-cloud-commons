@@ -32,7 +32,7 @@ pipeline {
                             manual = true
                         }
                     }
-                    skipCi = sh (script: "git log -1 --pretty=%B | grep '\\[skip ci\\]'", returnStatus: true)
+                    def skipCi = sh (script: "git log -1 --pretty=%B | grep '\\[skip ci\\]'", returnStatus: true)
                     echo "${skipCi}"
                     echo "${env.TAG_NAME}"
                     if (manual == false && skipCi == 0 && env.TAG_NAME == null) {
