@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
     <name>opcal-cloud-commons</name>
     <description>commons project module for system</description>
-    <url>https://gitlab.com/opcal-project/opcal-cloud-commons</url>
+    <url>https://github.com/opcal-project/opcal-cloud-commons</url>
 
     <properties>
 
@@ -22,7 +22,7 @@
     <licenses>
         <license>
             <name>Apache v2</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
             <distribution>manual</distribution>
         </license>
     </licenses>

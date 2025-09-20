@@ -23,12 +23,12 @@
     <licenses>
         <license>
             <name>Apache v2</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
             <distribution>manual</distribution>
         </license>
     </licenses>
 
-    <url>https://gitlab.com/opcal-project/opcal-cloud-commons/opcal-cloud-commons-dependencies</url>
+    <url>https://github.com/opcal-project/opcal-cloud-commons/opcal-cloud-commons-dependencies</url>
     <scm>
         <url>scm:git:git@github.com:opcal-project/opcal-cloud-commons.git/opcal-cloud-commons-dependencies</url>
         <connection>scm:git:git@github.com:opcal-project/opcal-cloud-commons.git/opcal-cloud-commons-dependencies</connection>
