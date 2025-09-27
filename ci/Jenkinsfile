@@ -16,7 +16,7 @@ pipeline {
 
     environment {
         SONAR_HOST_URL = 'https://sonarcloud.io'
-        MAVEN_CLI_OPTS = "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true -s settings.xml"
+        MAVEN_ARGS = "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true -s settings.xml"
         JAVA_HOME = tool name: 'temurin-17_linux', type: 'jdk'
         PATH = "${JAVA_HOME}/bin:${PATH}"
     }
@@ -62,10 +62,10 @@ pipeline {
                         }
                         if (env.CHANGE_URL == null) {
                             // non-PR build
-                            sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} deploy -Pbuild"
+                            sh "./mvnw -U clean ${env.MAVEN_CLI_DEBUG} deploy -Pbuild"
                         } else {
                             // PR build
-                            sh "./mvnw -U clean ${env.MAVEN_CLI_OPTS} ${env.MAVEN_CLI_DEBUG} test -Pbuild -Dgpg.skip=true"
+                            sh "./mvnw -U clean ${env.MAVEN_CLI_DEBUG} test -Pbuild -Dgpg.skip=true"
                         }
                     }
                 }
@@ -77,8 +77,8 @@ pipeline {
                         string(credentialsId: 'SONAR_TOKEN-opcal-cloud-commons', variable: 'SONAR_TOKEN'),
                 ]) {
                     script {
-                        sh "./mvnw ${env.MAVEN_CLI_OPTS} sonar:sonar -Psonar-config -Dsonar.branch.name=${env.GIT_BRANCH}"
-                        sh "./mvnw ${env.MAVEN_CLI_OPTS} ossindex:audit -Pbuild"
+                        sh "./mvnw sonar:sonar -Psonar-config -Dsonar.branch.name=${env.GIT_BRANCH}"
+                        sh "./mvnw ossindex:audit -Pbuild"
                     }
                 }
             }
