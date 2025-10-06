@@ -16,19 +16,15 @@
 
 package xyz.opcal.cloud.commons.integration;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.junit.jupiter.api.Test;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.autoconfigure.endpoint.web.WebEndpointProperties;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.boot.web.server.test.LocalServerPort;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.test.web.reactive.server.WebTestClient;
 
 @SpringBootTest(classes = EndpointIntegrationTests.ClientApp.class, properties = {
 		"management.endpoints.web.exposure.include=*" }, webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -39,11 +35,12 @@ class EndpointIntegrationTests {
 	@LocalServerPort
 	private int port;
 
+	@Autowired
+	WebTestClient webTestClient;
+
 	@Test
 	void webAccess() {
-		TestRestTemplate template = new TestRestTemplate();
-		ResponseEntity<String> entity = template.getForEntity("http://localhost:" + this.port + BASE_PATH + "/info", String.class);
-		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
+		webTestClient.get().uri("http://localhost:" + this.port + BASE_PATH + "/info").exchange().expectStatus().isOk();
 	}
 
 	@Configuration

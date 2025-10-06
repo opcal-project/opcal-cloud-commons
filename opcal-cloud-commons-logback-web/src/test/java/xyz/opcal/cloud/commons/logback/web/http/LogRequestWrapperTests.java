@@ -24,18 +24,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import jakarta.servlet.ServletInputStream;
-
 import org.junit.jupiter.api.Test;
-
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletRequest;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
+import jakarta.servlet.ServletInputStream;
 import lombok.extern.slf4j.Slf4j;
+import tools.jackson.databind.ObjectMapper;
 
 @Slf4j
 class LogRequestWrapperTests {
@@ -43,7 +39,7 @@ class LogRequestWrapperTests {
 	private static final ObjectMapper objectMapper = new ObjectMapper();
 
 	@Test
-	void test() throws JsonProcessingException {
+	void test() {
 		Map<String, Object> content = new HashMap<>();
 		content.put("name", "apple");
 		content.put("quantity", 10);

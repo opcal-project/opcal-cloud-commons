@@ -19,7 +19,7 @@ package xyz.opcal.cloud.commons.web.context;
 import java.util.Map;
 import java.util.Objects;
 
-import org.springframework.lang.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import lombok.experimental.UtilityClass;
 

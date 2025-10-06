@@ -16,7 +16,6 @@
 
 package xyz.opcal.cloud.commons.logback;
 
-import org.springframework.boot.logging.logback.ApplicationNameConverter;
 import org.springframework.boot.logging.logback.ColorConverter;
 import org.springframework.boot.logging.logback.CorrelationIdConverter;
 import org.springframework.boot.logging.logback.EnclosedInSquareBracketsConverter;
@@ -28,9 +27,8 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.pattern.PatternLayoutEncoderBase;
 
 /**
- * A logback pattern layout encoder which will convert custom thread id to the
- * pattern and integrating with Spring's logback converters. Usage in
- * logback.xml
+ * A logback pattern layout encoder which will convert custom thread id to the pattern and
+ * integrating with Spring's logback converters. Usage in logback.xml
  * 
  * <pre>
  * {@code
@@ -48,7 +46,6 @@ public class OpcalPatternLayoutEncoder extends PatternLayoutEncoderBase<ILogging
 
 	@Override
 	public void start() {
-		PatternLayout.DEFAULT_CONVERTER_MAP.put("applicationName", ApplicationNameConverter.class.getName());
 		PatternLayout.DEFAULT_CONVERTER_MAP.put("clr", ColorConverter.class.getName());
 		PatternLayout.DEFAULT_CONVERTER_MAP.put("correlationId", CorrelationIdConverter.class.getName());
 		PatternLayout.DEFAULT_CONVERTER_MAP.put("esb", EnclosedInSquareBracketsConverter.class.getName());

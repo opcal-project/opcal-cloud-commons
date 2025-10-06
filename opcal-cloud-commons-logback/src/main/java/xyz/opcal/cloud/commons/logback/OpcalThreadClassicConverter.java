@@ -19,6 +19,7 @@ package xyz.opcal.cloud.commons.logback;
 import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 
 import ch.qos.logback.classic.pattern.ClassicConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;
@@ -36,7 +37,7 @@ public class OpcalThreadClassicConverter extends ClassicConverter {
 	public String convert(ILoggingEvent event) {
 		String mdcThreadId = event.getMDCPropertyMap().get(OpcalLogbackConstants.MDC_THREAD_ID);
 		if (StringUtils.isBlank(mdcThreadId)) {
-			mdcThreadId = StringUtils.replace(
+			mdcThreadId = Strings.CS.replace(
 					UUID.nameUUIDFromBytes(String.valueOf(UP_TIMESTAMP + Thread.currentThread().getId()).getBytes()).toString(),
 					"-",
 					"");

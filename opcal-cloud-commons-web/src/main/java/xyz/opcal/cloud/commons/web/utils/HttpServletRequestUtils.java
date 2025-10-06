@@ -16,12 +16,11 @@
 
 package xyz.opcal.cloud.commons.web.utils;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.constraints.NotNull;
-
-import org.apache.commons.lang3.StringUtils;
-
 import lombok.experimental.UtilityClass;
 import xyz.opcal.cloud.commons.web.WebConstants;
 
@@ -42,7 +41,7 @@ public class HttpServletRequestUtils {
 		if (StringUtils.isBlank(ip)) {
 			ip = cleanHeaderTaint(request, WebConstants.HEADER_X_REAL_IP);
 		}
-		if (StringUtils.isBlank(ip) || StringUtils.equals(ip, WebConstants.LOCALHOST_IP)) {
+		if (StringUtils.isBlank(ip) || Strings.CS.equals(ip, WebConstants.LOCALHOST_IP)) {
 			ip = request.getRemoteAddr();
 		}
 		return ip;

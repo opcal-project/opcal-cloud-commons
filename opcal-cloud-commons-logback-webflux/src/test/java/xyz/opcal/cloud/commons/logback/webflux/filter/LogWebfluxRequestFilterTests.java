@@ -45,12 +45,10 @@ import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebHandler;
 import org.springframework.web.server.handler.FilteringWebHandler;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import lombok.Getter;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import tools.jackson.databind.ObjectMapper;
 import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.webflux.http.LogRequestDecorator;
 import xyz.opcal.cloud.commons.logback.webflux.http.LogResponseDecorator;
@@ -70,8 +68,8 @@ class LogWebfluxRequestFilterTests {
 		BaseBuilder<?> requestBuilder = MockServerHttpRequest.get("/disable/index");
 		new FilteringWebHandler(targetHandler,
 				Arrays.asList(new ReactiveRequestIdFilter(), new LogWebfluxRequestIdFilter(), new LogWebfluxRequestFilter(logWebfluxConfig)))
-						.handle(MockServerWebExchange.from(requestBuilder)) //
-						.block(Duration.ZERO);
+				.handle(MockServerWebExchange.from(requestBuilder)) //
+				.block(Duration.ZERO);
 
 		assertThat(targetHandler.getRequest(), not(instanceOf(LogRequestDecorator.class)));
 		assertThat(targetHandler.getResponse(), not(instanceOf(LogResponseDecorator.class)));
@@ -85,8 +83,8 @@ class LogWebfluxRequestFilterTests {
 		BaseBuilder<?> requestBuilder = MockServerHttpRequest.get("/static/a.pdf").header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_PDF_VALUE);
 		new FilteringWebHandler(targetHandler,
 				Arrays.asList(new ReactiveRequestIdFilter(), new LogWebfluxRequestIdFilter(), new LogWebfluxRequestFilter(logWebfluxConfig)))
-						.handle(MockServerWebExchange.from(requestBuilder)) //
-						.block(Duration.ZERO);
+				.handle(MockServerWebExchange.from(requestBuilder)) //
+				.block(Duration.ZERO);
 
 		assertThat(targetHandler.getRequest(), not(instanceOf(LogRequestDecorator.class)));
 		assertThat(targetHandler.getResponse(), not(instanceOf(LogResponseDecorator.class)));
@@ -94,7 +92,7 @@ class LogWebfluxRequestFilterTests {
 
 	@Test
 	@Order(3)
-	void testFilter() throws JsonProcessingException {
+	void testFilter() {
 		Map<String, Object> requestBody = new HashMap<>();
 		requestBody.put("name", "apple");
 		requestBody.put("quantity", 10);
@@ -106,8 +104,8 @@ class LogWebfluxRequestFilterTests {
 
 		new FilteringWebHandler(targetHandler,
 				Arrays.asList(new ReactiveRequestIdFilter(), new LogWebfluxRequestIdFilter(), new LogWebfluxRequestFilter(new LogRequestConfig())))
-						.handle(MockServerWebExchange.from(request)) //
-						.block(Duration.ZERO);
+				.handle(MockServerWebExchange.from(request)) //
+				.block(Duration.ZERO);
 
 		assertThat(targetHandler.getRequest(), instanceOf(LogRequestDecorator.class));
 		assertThat(targetHandler.getResponse(), instanceOf(LogResponseDecorator.class));

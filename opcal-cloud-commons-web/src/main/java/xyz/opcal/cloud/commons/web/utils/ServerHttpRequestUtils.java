@@ -21,10 +21,9 @@ import java.net.InetSocketAddress;
 import java.util.Objects;
 import java.util.Optional;
 
-import jakarta.validation.constraints.NotNull;
-
 import org.apache.commons.lang3.StringUtils;
-
+import org.apache.commons.lang3.Strings;
+import org.jspecify.annotations.NonNull;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 
 import lombok.experimental.UtilityClass;
@@ -33,21 +32,21 @@ import xyz.opcal.cloud.commons.web.WebConstants;
 @UtilityClass
 public class ServerHttpRequestUtils {
 
-	public static String cleanHeaderTaint(@NotNull ServerHttpRequest request, String headerName) {
+	public static String cleanHeaderTaint(@NonNull ServerHttpRequest request, String headerName) {
 		return TaintUtils.cleanTaint(request.getHeaders().getFirst(headerName));
 	}
 
-	public static String getRequestId(@NotNull ServerHttpRequest request) {
+	public static String getRequestId(@NonNull ServerHttpRequest request) {
 		return cleanHeaderTaint(request, WebConstants.HEADER_X_REQUEST_ID);
 	}
 
-	public static String getIp(@NotNull ServerHttpRequest request) {
+	public static String getIp(@NonNull ServerHttpRequest request) {
 		String workerClientIp = cleanHeaderTaint(request, WebConstants.HEADER_W_CONNECTING_IP);
 		String ip = StringUtils.isNotBlank(workerClientIp) ? workerClientIp : cleanHeaderTaint(request, WebConstants.HEADER_CF_CONNECTING_IP);
 		if (StringUtils.isBlank(ip)) {
 			ip = cleanHeaderTaint(request, WebConstants.HEADER_X_REAL_IP);
 		}
-		if (StringUtils.isBlank(ip) || StringUtils.equals(ip, WebConstants.LOCALHOST_IP)) {
+		if (StringUtils.isBlank(ip) || Strings.CS.equals(ip, WebConstants.LOCALHOST_IP)) {
 			ip = remoteIp(request.getRemoteAddress());
 		}
 		return ip;

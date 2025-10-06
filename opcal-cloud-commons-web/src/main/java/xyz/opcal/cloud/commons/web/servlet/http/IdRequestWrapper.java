@@ -21,11 +21,10 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 
+import org.apache.commons.lang3.Strings;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;
-
-import org.apache.commons.lang3.StringUtils;
-
 import lombok.Getter;
 import xyz.opcal.cloud.commons.web.WebConstants;
 
@@ -41,7 +40,7 @@ public class IdRequestWrapper extends HttpServletRequestWrapper {
 
 	@Override
 	public String getHeader(String name) {
-		if (StringUtils.equalsIgnoreCase(name, WebConstants.HEADER_X_REQUEST_ID)) {
+		if (Strings.CI.equals(name, WebConstants.HEADER_X_REQUEST_ID)) {
 			return requestId;
 		}
 		return super.getHeader(name);
@@ -56,7 +55,7 @@ public class IdRequestWrapper extends HttpServletRequestWrapper {
 
 	@Override
 	public Enumeration<String> getHeaders(String name) {
-		if (StringUtils.equalsIgnoreCase(name, WebConstants.HEADER_X_REQUEST_ID)) {
+		if (Strings.CI.equals(name, WebConstants.HEADER_X_REQUEST_ID)) {
 			return Collections.enumeration(Arrays.asList(requestId));
 		}
 		return super.getHeaders(name);

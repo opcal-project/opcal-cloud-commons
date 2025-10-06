@@ -16,14 +16,14 @@
 
 package xyz.opcal.cloud.commons.logback.webflux;
 
+import java.time.Duration;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import org.springframework.boot.test.web.reactive.server.WebTestClientBuilderCustomizer;
+import org.springframework.boot.web.server.test.client.reactive.WebTestClientBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
-import xyz.opcal.cloud.commons.logback.webflux.annotation.EnableLogWebfluxRequest;
 
-import java.time.Duration;
+import xyz.opcal.cloud.commons.logback.webflux.annotation.EnableLogWebfluxRequest;
 
 @EnableLogWebfluxRequest
 @SpringBootApplication
