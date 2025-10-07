@@ -53,7 +53,7 @@ public class ServerHttpRequestUtils {
 		return ip;
 	}
 
-	private String remoteIp(InetSocketAddress inetSocketAddress) {
+	private static String remoteIp(InetSocketAddress inetSocketAddress) {
 		return Optional.ofNullable(inetSocketAddress).stream() //
 				.filter(Objects::nonNull).map(InetSocketAddress::getAddress) //
 				.filter(Objects::nonNull).map(InetAddress::getHostAddress) //
