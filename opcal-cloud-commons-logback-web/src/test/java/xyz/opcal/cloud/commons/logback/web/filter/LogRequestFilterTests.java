@@ -39,7 +39,7 @@ import org.springframework.web.filter.CompositeFilter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import lombok.extern.slf4j.Slf4j;
-import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.web.http.LogRequestWrapper;
 import xyz.opcal.cloud.commons.logback.web.http.LogResponseWrapper;
@@ -49,11 +49,11 @@ import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class LogRequestFilterTests {
 
-	private static final ObjectMapper objectMapper = new ObjectMapper();
+	private static final JsonMapper jsonMapper = new JsonMapper();
 
-	CompositeFilter setup(ObjectMapper objectMapper, LogRequestConfig logRequestConfig) {
+	CompositeFilter setup(JsonMapper mapper, LogRequestConfig logRequestConfig) {
 		CompositeFilter filterProxy = new CompositeFilter();
-		filterProxy.setFilters(Arrays.asList(new RequestIdFilter(), new LogRequestIdFilter(), new LogRequestFilter(objectMapper, logRequestConfig)));
+		filterProxy.setFilters(Arrays.asList(new RequestIdFilter(), new LogRequestIdFilter(), new LogRequestFilter(mapper, logRequestConfig)));
 		return filterProxy;
 	}
 
@@ -70,7 +70,7 @@ class LogRequestFilterTests {
 			assertThat(filterRequest, not(instanceOf(LogRequestWrapper.class)));
 			assertThat(filterResponse, not(instanceOf(LogResponseWrapper.class)));
 		};
-		setup(objectMapper, logRequestConfig).doFilter(request, new MockHttpServletResponse(), filterChain);
+		setup(jsonMapper, logRequestConfig).doFilter(request, new MockHttpServletResponse(), filterChain);
 	}
 
 	@Test
@@ -85,7 +85,7 @@ class LogRequestFilterTests {
 			assertThat(filterRequest, not(instanceOf(LogRequestWrapper.class)));
 			assertThat(filterResponse, not(instanceOf(LogResponseWrapper.class)));
 		};
-		setup(objectMapper, new LogRequestConfig()).doFilter(request, new MockHttpServletResponse(), filterChain);
+		setup(jsonMapper, new LogRequestConfig()).doFilter(request, new MockHttpServletResponse(), filterChain);
 	}
 
 	@Test
@@ -102,7 +102,7 @@ class LogRequestFilterTests {
 		request.setQueryString("ca=123");
 		request.setParameter("ca", "123");
 		request.setContentType(MediaType.APPLICATION_JSON_VALUE);
-		request.setContent(objectMapper.writeValueAsBytes(content));
+		request.setContent(jsonMapper.writeValueAsBytes(content));
 
 		Map<String, Object> result = new HashMap<>();
 		result.put("message", "success");
@@ -117,10 +117,10 @@ class LogRequestFilterTests {
 			assertNotNull(((LogRequestWrapper) filterRequest).getRequestId());
 			assertNotNull(((LogResponseWrapper) filterResponse).getRequestId());
 
-			filterResponse.getOutputStream().write(objectMapper.writeValueAsBytes(result));
+			filterResponse.getOutputStream().write(jsonMapper.writeValueAsBytes(result));
 			log.info("request [{}]", filterRequest);
 		};
 
-		setup(objectMapper, new LogRequestConfig()).doFilter(request, response, filterChain);
+		setup(jsonMapper, new LogRequestConfig()).doFilter(request, response, filterChain);
 	}
 }

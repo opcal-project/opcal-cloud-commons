@@ -26,13 +26,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import tools.jackson.databind.ObjectMapper;
-
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import tools.jackson.databind.json.JsonMapper;
 import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.web.http.LogRequestWrapper;
 import xyz.opcal.cloud.commons.logback.web.http.LogResponseWrapper;
@@ -46,12 +45,12 @@ public class LogRequestFilter extends OncePerRequestFilter {
 	private static final Logger requestLogger = LoggerFactory.getLogger("requestLogger");
 	private static final Logger accessLogger = LoggerFactory.getLogger("accessLogger");
 
-	private final ObjectMapper objectMapper;
+	private final JsonMapper jsonMapper;
 	private final LogRequestConfig logRequestConfig;
 	private PathMatcher disablePathMatcher;
 
-	public LogRequestFilter(ObjectMapper objectMapper, LogRequestConfig logRequestConfig) {
-		this.objectMapper = objectMapper;
+	public LogRequestFilter(JsonMapper jsonMapper, LogRequestConfig logRequestConfig) {
+		this.jsonMapper = jsonMapper;
 		this.logRequestConfig = logRequestConfig;
 		init();
 	}
@@ -90,7 +89,7 @@ public class LogRequestFilter extends OncePerRequestFilter {
 		String requestURI = request.getRequestURI();
 		String method = request.getMethod();
 
-		String parameters = objectMapper.writeValueAsString(request.getParameterMap());
+		String parameters = jsonMapper.writeValueAsString(request.getParameterMap());
 		requestLogger.info("url [{}] method [{}] request id [{}] request parameter [{}] body [{}]", requestURI, method, requestId, parameters, requestBody);
 
 		String remoteIp = HttpServletRequestUtils.getIp(request);

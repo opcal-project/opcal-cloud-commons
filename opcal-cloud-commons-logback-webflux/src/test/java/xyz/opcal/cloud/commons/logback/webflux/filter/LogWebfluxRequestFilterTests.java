@@ -48,7 +48,7 @@ import org.springframework.web.server.handler.FilteringWebHandler;
 import lombok.Getter;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.webflux.http.LogRequestDecorator;
 import xyz.opcal.cloud.commons.logback.webflux.http.LogResponseDecorator;
@@ -57,7 +57,7 @@ import xyz.opcal.cloud.commons.web.reactive.filter.ReactiveRequestIdFilter;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class LogWebfluxRequestFilterTests {
 
-	private static final ObjectMapper objectMapper = new ObjectMapper();
+	private static final JsonMapper objectMapper = new JsonMapper();
 
 	@Test
 	@Order(1)

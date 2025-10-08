@@ -23,7 +23,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
-import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.web.filter.LogRequestFilter;
 
@@ -39,7 +39,7 @@ public class LogRequestConfiguration {
 	@Bean
 	@ConditionalOnMissingBean
 	@Order(Ordered.HIGHEST_PRECEDENCE + 2)
-	public LogRequestFilter logRequestFilter(ObjectMapper objectMapper, LogRequestConfig logRequestConfig) {
+	public LogRequestFilter logRequestFilter(JsonMapper objectMapper, LogRequestConfig logRequestConfig) {
 		return new LogRequestFilter(objectMapper, logRequestConfig);
 	}
 

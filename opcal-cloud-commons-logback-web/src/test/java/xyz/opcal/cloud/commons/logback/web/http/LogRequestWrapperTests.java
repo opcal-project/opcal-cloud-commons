@@ -31,12 +31,12 @@ import org.springframework.mock.web.MockHttpServletRequest;
 
 import jakarta.servlet.ServletInputStream;
 import lombok.extern.slf4j.Slf4j;
-import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 
 @Slf4j
 class LogRequestWrapperTests {
 
-	private static final ObjectMapper objectMapper = new ObjectMapper();
+	private static final JsonMapper objectMapper = new JsonMapper();
 
 	@Test
 	void test() {
