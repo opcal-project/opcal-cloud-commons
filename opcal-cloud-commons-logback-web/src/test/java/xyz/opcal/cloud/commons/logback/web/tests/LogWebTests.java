@@ -28,6 +28,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.resttestclient.TestRestTemplate;
+import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.HttpEntity;
@@ -40,6 +41,7 @@ import org.springframework.http.ResponseEntity;
 import xyz.opcal.cloud.commons.logback.web.LogWebApplication;
 import xyz.opcal.cloud.commons.web.WebConstants;
 
+@AutoConfigureTestRestTemplate
 @SpringBootTest(classes = LogWebApplication.class, webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(OrderAnnotation.class)
 class LogWebTests {
