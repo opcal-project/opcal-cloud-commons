@@ -185,7 +185,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
                 <configuration>
-                    <rulesUri>https://raw.githubusercontent.com/opcal-project/opcal-commons-build/refs/heads/main/ci/maven/rules.xml</rulesUri>
+                    <rulesUri>file://${project.basedir}/ci/maven/rules.xml</rulesUri>
                 </configuration>
             </plugin>
             <plugin>
