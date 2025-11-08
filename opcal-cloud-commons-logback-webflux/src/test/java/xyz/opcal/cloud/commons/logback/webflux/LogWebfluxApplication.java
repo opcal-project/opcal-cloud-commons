@@ -20,7 +20,7 @@ import java.time.Duration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.server.test.client.reactive.WebTestClientBuilderCustomizer;
+import org.springframework.boot.webtestclient.autoconfigure.WebTestClientBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 
 import xyz.opcal.cloud.commons.logback.webflux.annotation.EnableLogWebfluxRequest;
