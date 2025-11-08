@@ -16,7 +16,7 @@
     <properties>
         <!-- dependencies version -->
         <google-guava.version>33.5.0-jre</google-guava.version>
-        <commons-io.version>20030203.000550</commons-io.version>
+        <commons-io.version>2.20.0</commons-io.version>
         <spring-cloud.version>2025.0.0</spring-cloud.version>
     </properties>
 
@@ -115,7 +115,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
                 <configuration>
-                    <rulesUri>https://raw.githubusercontent.com/opcal-project/opcal-commons-build/refs/heads/main/ci/maven/rules.xml</rulesUri>
+                    <rulesUri>https://raw.githubusercontent.com/opcal-project/opcal-cloud-commons/refs/heads/3.5.x/ci/maven/rules.xml</rulesUri>
                 </configuration>
             </plugin>
         </plugins>

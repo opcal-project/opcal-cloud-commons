@@ -324,7 +324,7 @@
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>versions-maven-plugin</artifactId>
                         <configuration>
-                            <rulesUri>https://raw.githubusercontent.com/opcal-project/opcal-commons-build/refs/heads/main/ci/maven/rules.xml</rulesUri>
+                            <rulesUri>https://raw.githubusercontent.com/opcal-project/opcal-cloud-commons/refs/heads/3.5.x/ci/maven/rules.xml</rulesUri>
                         </configuration>
                     </plugin>
                     <plugin>
