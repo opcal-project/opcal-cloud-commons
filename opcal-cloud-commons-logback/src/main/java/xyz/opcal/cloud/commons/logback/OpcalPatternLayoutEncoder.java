@@ -46,12 +46,12 @@ public class OpcalPatternLayoutEncoder extends PatternLayoutEncoderBase<ILogging
 
 	@Override
 	public void start() {
-		PatternLayout.DEFAULT_CONVERTER_MAP.put("clr", ColorConverter.class.getName());
-		PatternLayout.DEFAULT_CONVERTER_MAP.put("correlationId", CorrelationIdConverter.class.getName());
-		PatternLayout.DEFAULT_CONVERTER_MAP.put("esb", EnclosedInSquareBracketsConverter.class.getName());
-		PatternLayout.DEFAULT_CONVERTER_MAP.put("wex", WhitespaceThrowableProxyConverter.class.getName());
-		PatternLayout.DEFAULT_CONVERTER_MAP.put("wEx", ExtendedWhitespaceThrowableProxyConverter.class.getName());
-		PatternLayout.DEFAULT_CONVERTER_MAP.put(OpcalLogbackConstants.CURRENT_THREAD_ID, OpcalThreadClassicConverter.class.getName());
+		PatternLayout.DEFAULT_CONVERTER_SUPPLIER_MAP.put("clr", ColorConverter::new);
+		PatternLayout.DEFAULT_CONVERTER_SUPPLIER_MAP.put("correlationId", CorrelationIdConverter::new);
+		PatternLayout.DEFAULT_CONVERTER_SUPPLIER_MAP.put("esb", EnclosedInSquareBracketsConverter::new);
+		PatternLayout.DEFAULT_CONVERTER_SUPPLIER_MAP.put("wex", WhitespaceThrowableProxyConverter::new);
+		PatternLayout.DEFAULT_CONVERTER_SUPPLIER_MAP.put("wEx", ExtendedWhitespaceThrowableProxyConverter::new);
+		PatternLayout.DEFAULT_CONVERTER_SUPPLIER_MAP.put(OpcalLogbackConstants.CURRENT_THREAD_ID, OpcalThreadClassicConverter::new);
 		PatternLayout patternLayout = new PatternLayout();
 		patternLayout.setContext(context);
 		patternLayout.setPattern(getPattern());
