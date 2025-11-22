@@ -291,6 +291,7 @@
                             <artifactId>ossindex-maven-plugin</artifactId>
                             <version>${ossindex-maven-plugin.version}</version>
                             <configuration>
+                                <authId>ossindex</authId>
                                 <reportFile>${project.build.directory}/ossindex-report.json</reportFile>
                                 <fail>false</fail>
                             </configuration>
