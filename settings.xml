@@ -7,6 +7,11 @@
 			<username>${env.OSSRH_U}</username>
 			<password>${env.OSSRH_P}</password>
 		</server>
+        <server>
+            <id>ossindex</id>
+            <username>${env.OSSINDEX_U}</username>
+            <password>${env.OSSINDEX_P}</password>
+        </server>
 	</servers>
     <localRepository>${env.WORKSPACE}/.m2/repository</localRepository>
 </settings>
