@@ -20,9 +20,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.resttestclient.TestRestTemplate;
+import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.boot.web.server.test.client.TestRestTemplate;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -34,11 +35,13 @@ import xyz.opcal.cloud.commons.web.WebConstants;
 
 @ActiveProfiles("httpbin")
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@AutoConfigureTestRestTemplate
 class HttpbinControllerTests {
 
 	public static final String HTTPBIN_API = "/httpbin/get";
 
-	private @Autowired TestRestTemplate testRestTemplate;
+	@Autowired
+	TestRestTemplate testRestTemplate;
 
 	@Test
 	void httpbin() {

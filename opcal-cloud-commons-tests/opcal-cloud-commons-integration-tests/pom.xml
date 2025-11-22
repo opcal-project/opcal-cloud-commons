@@ -17,6 +17,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>xyz.opcal.cloud</groupId>
+            <artifactId>opcal-cloud-commons-logback</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
@@ -30,8 +34,9 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>xyz.opcal.cloud</groupId>
-            <artifactId>opcal-cloud-commons-logback</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
