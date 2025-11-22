@@ -16,7 +16,6 @@
 
 package xyz.opcal.cloud.commons.integration.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +26,11 @@ import xyz.opcal.cloud.commons.integration.feign.HttpbinFeign;
 @RequestMapping("/httpbin")
 public class HttpbinController {
 
-	private @Autowired HttpbinFeign httpbinFeign;
+	private HttpbinFeign httpbinFeign;
+
+	public HttpbinController(HttpbinFeign httpbinFeign) {
+		this.httpbinFeign = httpbinFeign;
+	}
 
 	@GetMapping("/get")
 	public String httpbinGet() {

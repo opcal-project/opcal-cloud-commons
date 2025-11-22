@@ -26,7 +26,7 @@ import xyz.opcal.cloud.commons.logback.web.configuration.LogRequestIdConfigurati
 import xyz.opcal.cloud.commons.web.configuration.RequestIdConfiguration;
 
 @AutoConfiguration
-public class ServletWebLogConfiguration {
+public final class ServletWebLogConfiguration {
 
 	@Configuration(proxyBeanMethods = false)
 	@ConditionalOnProperty(value = "opcal.cloud.log.servlet.request-id", havingValue = "true")

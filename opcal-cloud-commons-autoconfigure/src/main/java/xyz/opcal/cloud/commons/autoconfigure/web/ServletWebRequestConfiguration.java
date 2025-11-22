@@ -24,7 +24,7 @@ import org.springframework.context.annotation.Import;
 import xyz.opcal.cloud.commons.web.configuration.RequestIdConfiguration;
 
 @AutoConfiguration
-public class ServletWebRequestConfiguration {
+public final class ServletWebRequestConfiguration {
 
 	@Configuration(proxyBeanMethods = false)
 	@ConditionalOnProperty(value = "opcal.cloud.web.servlet.request-id", havingValue = "true")

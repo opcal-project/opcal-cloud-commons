@@ -26,7 +26,7 @@ import xyz.opcal.cloud.commons.logback.webflux.configuration.LogWebfluxRequestId
 import xyz.opcal.cloud.commons.web.configuration.ReactiveRequestIdConfiguration;
 
 @AutoConfiguration
-public class ReactiveWebLogConfiguration {
+public final class ReactiveWebLogConfiguration {
 
 	@Configuration(proxyBeanMethods = false)
 	@ConditionalOnProperty(value = "opcal.cloud.log.reactive.request-id", havingValue = "true")

@@ -24,7 +24,7 @@ import org.springframework.context.annotation.Import;
 import xyz.opcal.cloud.commons.web.configuration.ReactiveRequestIdConfiguration;
 
 @AutoConfiguration
-public class ReactiveWebRequestConfiguration {
+public final class ReactiveWebRequestConfiguration {
 
 	@Configuration(proxyBeanMethods = false)
 	@ConditionalOnProperty(value = "opcal.cloud.web.reactive.request-id", havingValue = "true")
