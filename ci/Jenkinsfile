@@ -75,11 +75,17 @@ pipeline {
             steps {
                 withCredentials([
                         string(credentialsId: 'SONAR_TOKEN-opcal-cloud-commons', variable: 'SONAR_TOKEN'),
+                        usernamePassword(credentialsId: 'ossindex-token', passwordVariable: 'OSSINDEX_P', usernameVariable: 'OSSINDEX_U'),
                 ]) {
                     script {
                         sh "./mvnw sonar:sonar -Psonar-config -Dsonar.branch.name=${env.GIT_BRANCH}"
                         sh "./mvnw ossindex:audit -Pbuild"
                     }
+                }
+                withSonarQubeEnv('sqscan') {
+                    sh """
+                        ./mvnw sonar:sonar -Dsonar.projectKey=xyz.opcal.build:opcal-commons-build -Dsonar.projectName='opcal-commons-build'
+                    """
                 }
             }
         }
