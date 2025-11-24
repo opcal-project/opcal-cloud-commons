@@ -18,7 +18,7 @@
         <google-guava.version>33.5.0-jre</google-guava.version>
         <commons-io.version>2.21.0</commons-io.version>
         <commons-text.version>1.14.0</commons-text.version>
-        <spring-cloud.version>2025.1.0-RC1</spring-cloud.version>
+        <spring-cloud.version>2025.1.0</spring-cloud.version>
     </properties>
 
     <licenses>
