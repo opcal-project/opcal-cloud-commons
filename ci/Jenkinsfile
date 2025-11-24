@@ -84,7 +84,7 @@ pipeline {
                 }
                 withSonarQubeEnv('sqscan') {
                     sh """
-                        ./mvnw sonar:sonar -Psonar-config -Dsonar.projectKey=xyz.opcal.cloud:opcal-cloud-commons -Dsonar.projectName='opcal-cloud-commons'
+                        ./mvnw sonar:sonar -Dsonar.projectKey=xyz.opcal.cloud:opcal-cloud-commons -Dsonar.projectName='opcal-cloud-commons'
                     """
                 }
             }
