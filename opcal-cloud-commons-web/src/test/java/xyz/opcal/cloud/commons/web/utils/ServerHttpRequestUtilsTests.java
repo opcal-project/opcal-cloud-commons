@@ -45,7 +45,7 @@ class ServerHttpRequestUtilsTests {
 		String taintName = "x-taint-header";
 		String taintValue = "1\n2\r3\t4\r\n5";
 		MockServerHttpRequest request = MockServerHttpRequest.get("/").header(taintName, taintValue).build();
-		assertEquals("1_2_3_4__5", ServerHttpRequestUtils.cleanHeaderTaint(request, taintName));
+		assertEquals("1\\n2\\r3\\t4\\r\\n5", ServerHttpRequestUtils.cleanHeaderTaint(request, taintName));
 	}
 
 	@Test

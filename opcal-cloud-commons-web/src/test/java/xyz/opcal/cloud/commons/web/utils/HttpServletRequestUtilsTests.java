@@ -56,7 +56,7 @@ class HttpServletRequestUtilsTests {
 		String taintName = "x-taint-header";
 		String taintValue = "1\n2\r3\t4\r\n5";
 		this.request.addHeader(taintName, taintValue);
-		assertEquals("1_2_3_4__5", HttpServletRequestUtils.cleanHeaderTaint(this.request, taintName));
+		assertEquals("1\\n2\\r3\\t4\\r\\n5", HttpServletRequestUtils.cleanHeaderTaint(this.request, taintName));
 	}
 
 	@Test
