@@ -16,7 +16,7 @@
     <url>https://github.com/opcal-project/opcal-cloud-commons</url>
 
     <properties>
-
+        <sonar-maven-plugin.version>5.3.0.6276</sonar-maven-plugin.version>
     </properties>
 
     <licenses>
@@ -158,6 +158,15 @@
     </profiles>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>${sonar-maven-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.sonatype.central</groupId>
