@@ -48,3 +48,5 @@ version-registers:
     update-policy: LATEST
   - property-name: central-publishing-maven-plugin.version
     update-policy: LATEST
+  - property-name: sonar-maven-plugin.version
+    update-policy: LATEST
