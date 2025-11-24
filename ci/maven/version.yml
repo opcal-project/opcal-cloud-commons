@@ -19,6 +19,8 @@ version-registers:
     update-policy: LATEST
   - property-name: commons-io.version
     update-policy: LATEST
+  - property-name: commons-text.version
+    update-policy: LATEST
   # plugins
   - property-name: maven-compiler-plugin.version
     update-policy: MINOR

@@ -18,6 +18,7 @@ package xyz.opcal.cloud.commons.web.utils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;
+import org.apache.commons.text.StringEscapeUtils;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.constraints.NotNull;
@@ -28,7 +29,7 @@ import xyz.opcal.cloud.commons.web.WebConstants;
 public class HttpServletRequestUtils {
 
 	public static String cleanHeaderTaint(@NotNull HttpServletRequest request, String headerName) {
-		return TaintUtils.cleanTaint(request.getHeader(headerName));
+		return StringEscapeUtils.escapeJava(request.getHeader(headerName));
 	}
 
 	public static String getRequestId(@NotNull HttpServletRequest request) {

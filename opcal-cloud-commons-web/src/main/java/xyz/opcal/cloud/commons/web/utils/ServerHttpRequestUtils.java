@@ -23,6 +23,7 @@ import java.util.Optional;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;
+import org.apache.commons.text.StringEscapeUtils;
 import org.jspecify.annotations.NonNull;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 
@@ -33,7 +34,7 @@ import xyz.opcal.cloud.commons.web.WebConstants;
 public class ServerHttpRequestUtils {
 
 	public static String cleanHeaderTaint(@NonNull ServerHttpRequest request, String headerName) {
-		return TaintUtils.cleanTaint(request.getHeaders().getFirst(headerName));
+		return StringEscapeUtils.escapeJava(request.getHeaders().getFirst(headerName));
 	}
 
 	public static String getRequestId(@NonNull ServerHttpRequest request) {
