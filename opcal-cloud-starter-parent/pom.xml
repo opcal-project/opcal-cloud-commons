@@ -18,8 +18,7 @@
         <java.version>17</java.version>
         <!-- compiler properties -->
         <resource.delimiter>@</resource.delimiter>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
 
         <!-- encoding -->
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
