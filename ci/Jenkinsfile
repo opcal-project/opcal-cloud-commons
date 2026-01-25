@@ -95,6 +95,10 @@ pipeline {
             cleanWs()
         }
         failure {
+            explainError(
+                    maxLines: 10000,
+                    logPattern: '(?i)(error|failed|exception)'
+            )
             withCredentials([
                     string(credentialsId: 'ALERT_MAIL', variable: 'SEND_TO')
             ]) {
