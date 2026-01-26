@@ -40,6 +40,7 @@ version-registers:
     update-policy: MINOR
   - property-name: versions-maven-plugin.version
     update-policy: LATEST
+    enable: false
   - property-name: flatten-maven-plugin.version
     update-policy: LATEST
   - property-name: jacoco-maven-plugin.version
