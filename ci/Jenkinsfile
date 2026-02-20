@@ -97,8 +97,7 @@ pipeline {
         failure {
             script {
                 env.AI_EXPLAIN = explainError(
-                        maxLines: 10000,
-                        logPattern: '(?i)(error|failed|exception)'
+                        maxLines: 100000,
                 )
             }
             withCredentials([
