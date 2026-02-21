@@ -16,7 +16,7 @@ pipeline {
 
     environment {
         SONAR_HOST_URL = 'https://sonarcloud.io'
-        MAVEN_ARGS = "--batch-mode --errors --fail-at-end --show-version --no-transfer-progress -DinstallAtEnd=true -DdeployAtEnd=true -s settings.xml"
+        MAVEN_ARGS = "--batch-mode --errors --fail-at-end --no-transfer-progress -DinstallAtEnd=true -DdeployAtEnd=true -s settings.xml"
         JAVA_HOME = tool name: 'temurin-17_linux', type: 'jdk'
         PATH = "${JAVA_HOME}/bin:${PATH}"
     }
