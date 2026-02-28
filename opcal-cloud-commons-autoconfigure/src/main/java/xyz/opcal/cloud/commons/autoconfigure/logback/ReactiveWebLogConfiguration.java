@@ -1,11 +1,11 @@
 /*
- *  Copyright 2020-2022 Opcal
+ * Copyright 2020-2026 Opcal.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -30,14 +30,14 @@ public final class ReactiveWebLogConfiguration {
 
 	@Configuration(proxyBeanMethods = false)
 	@ConditionalOnProperty(value = "opcal.cloud.log.reactive.request-id", havingValue = "true")
-	@Import(value = { ReactiveRequestIdConfiguration.class, LogWebfluxRequestIdConfiguration.class })
+	@Import({ ReactiveRequestIdConfiguration.class, LogWebfluxRequestIdConfiguration.class })
 	static class AutoLogWebfluxRequestIdConfiguration {
 
 	}
 
 	@Configuration(proxyBeanMethods = false)
 	@ConditionalOnProperty(value = "opcal.cloud.log.reactive.request", havingValue = "true")
-	@Import(value = { ReactiveRequestIdConfiguration.class, LogWebfluxRequestIdConfiguration.class, LogWebfluxRequestConfiguration.class })
+	@Import({ ReactiveRequestIdConfiguration.class, LogWebfluxRequestIdConfiguration.class, LogWebfluxRequestConfiguration.class })
 	static class AutoLogWebfluxRequestConfiguration {
 
 	}

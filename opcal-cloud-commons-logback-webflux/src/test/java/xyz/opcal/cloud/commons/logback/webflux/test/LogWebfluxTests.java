@@ -1,11 +1,11 @@
 /*
- *  Copyright 2020-2022 Opcal
+ * Copyright 2020-2026 Opcal.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,6 +24,7 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
@@ -33,7 +34,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import xyz.opcal.cloud.commons.web.WebConstants;
-
 
 @AutoConfigureWebTestClient
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -56,17 +56,17 @@ class LogWebfluxTests {
 	void testGet() {
 		webTestClient.get().uri(GET_API).exchange().expectStatus().isOk();
 
-		webTestClient.get().uri(GET_API) //
-				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
+		webTestClient.get().uri(GET_API)
+				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()))
 				.exchange().expectStatus().isOk();
 
-		webTestClient.get().uri(GET_API) //
-				.header(WebConstants.HEADER_X_REQUEST_ID, UUID.randomUUID().toString()) //
-				.header(HttpHeaders.CONTENT_TYPE, MediaType.IMAGE_GIF_VALUE) //
+		webTestClient.get().uri(GET_API)
+				.header(WebConstants.HEADER_X_REQUEST_ID, UUID.randomUUID().toString())
+				.header(HttpHeaders.CONTENT_TYPE, MediaType.IMAGE_GIF_VALUE)
 				.exchange().expectStatus().isOk();
 
-		webTestClient.get().uri("/skip/get") //
-				.header(WebConstants.HEADER_X_REQUEST_ID, UUID.randomUUID().toString()) //
+		webTestClient.get().uri("/skip/get")
+				.header(WebConstants.HEADER_X_REQUEST_ID, UUID.randomUUID().toString())
 				.exchange().expectStatus().isOk();
 	}
 
@@ -76,24 +76,24 @@ class LogWebfluxTests {
 
 		webTestClient.post().uri(POST_API).bodyValue(UUID.randomUUID()).exchange().expectStatus().isOk();
 
-		webTestClient.post().uri(POST_API).bodyValue(UUID.randomUUID()) //
-				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
-				.header(WebConstants.HEADER_W_CONNECTING_IP, IP_1) //
+		webTestClient.post().uri(POST_API).bodyValue(UUID.randomUUID())
+				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()))
+				.header(WebConstants.HEADER_W_CONNECTING_IP, IP_1)
 				.exchange().expectStatus().isOk();
 
-		webTestClient.post().uri(POST_API).bodyValue(UUID.randomUUID()) //
-				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
-				.header(WebConstants.HEADER_CF_CONNECTING_IP, IP_2) //
+		webTestClient.post().uri(POST_API).bodyValue(UUID.randomUUID())
+				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()))
+				.header(WebConstants.HEADER_CF_CONNECTING_IP, IP_2)
 				.exchange().expectStatus().isOk();
 
-		webTestClient.post().uri(POST_API).bodyValue(UUID.randomUUID()) //
-				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
-				.header(WebConstants.HEADER_X_REAL_IP, IP_3) //
+		webTestClient.post().uri(POST_API).bodyValue(UUID.randomUUID())
+				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()))
+				.header(WebConstants.HEADER_X_REAL_IP, IP_3)
 				.exchange().expectStatus().isOk();
 
-		webTestClient.post().uri(POST_API).bodyValue(UUID.randomUUID()) //
-				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
-				.header(WebConstants.HEADER_X_REAL_IP, WebConstants.LOCALHOST_IP) //
+		webTestClient.post().uri(POST_API).bodyValue(UUID.randomUUID())
+				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()))
+				.header(WebConstants.HEADER_X_REAL_IP, WebConstants.LOCALHOST_IP)
 				.exchange().expectStatus().isOk();
 	}
 
@@ -105,18 +105,18 @@ class LogWebfluxTests {
 		urlVariables.put("id", System.currentTimeMillis());
 		urlVariables.put("name", UUID.randomUUID());
 
-		webTestClient.delete().uri(DELETE_API, urlVariables) //
-				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
-				.header(WebConstants.HEADER_X_REAL_IP, IP_4) //
+		webTestClient.delete().uri(DELETE_API, urlVariables)
+				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()))
+				.header(WebConstants.HEADER_X_REAL_IP, IP_4)
 				.exchange().expectStatus().isOk();
 	}
 
 	@Test
 	@Order(3)
 	void testFlux() {
-		webTestClient.get().uri("/flux") //
-				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
-				.header(WebConstants.HEADER_X_REAL_IP, IP_4) //
+		webTestClient.get().uri("/flux")
+				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()))
+				.header(WebConstants.HEADER_X_REAL_IP, IP_4)
 				.exchange().expectStatus().isOk()
 				.expectBodyList(Integer.class).consumeWith(System.out::println);
 	}
@@ -124,10 +124,10 @@ class LogWebfluxTests {
 	@Test
 	@Order(4)
 	void testEvent() {
-		webTestClient.get().uri("/event") //
-				.accept(MediaType.TEXT_EVENT_STREAM) //
-				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
-				.header(WebConstants.HEADER_X_REAL_IP, IP_4) //
+		webTestClient.get().uri("/event")
+				.accept(MediaType.TEXT_EVENT_STREAM)
+				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()))
+				.header(WebConstants.HEADER_X_REAL_IP, IP_4)
 				.exchange().expectStatus().isOk()
 				.expectBodyList(Integer.class).consumeWith(System.out::println);
 	}
@@ -135,10 +135,10 @@ class LogWebfluxTests {
 	@Test
 	@Order(5)
 	void testStream() {
-		webTestClient.get().uri("/stream") //
-				.accept(MediaType.APPLICATION_NDJSON) //
-				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis())) //
-				.header(WebConstants.HEADER_X_REAL_IP, IP_4) //
+		webTestClient.get().uri("/stream")
+				.accept(MediaType.APPLICATION_NDJSON)
+				.header(WebConstants.HEADER_X_REQUEST_ID, String.valueOf(System.currentTimeMillis()))
+				.header(WebConstants.HEADER_X_REAL_IP, IP_4)
 				.exchange().expectStatus().isOk()
 				.expectBodyList(Integer.class).consumeWith(System.out::println);
 	}

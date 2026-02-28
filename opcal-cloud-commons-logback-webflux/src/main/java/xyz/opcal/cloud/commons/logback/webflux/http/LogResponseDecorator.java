@@ -1,11 +1,11 @@
 /*
- *  Copyright 2020-2022 Opcal
+ * Copyright 2020-2026 Opcal.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,13 +17,15 @@
 package xyz.opcal.cloud.commons.logback.webflux.http;
 
 import org.reactivestreams.Publisher;
+
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.http.server.reactive.ServerHttpResponseDecorator;
 import org.springframework.util.FastByteArrayOutputStream;
 
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 import xyz.opcal.cloud.commons.logback.webflux.utils.BufferUtils;
 
 public class LogResponseDecorator extends ServerHttpResponseDecorator {
@@ -43,8 +45,7 @@ public class LogResponseDecorator extends ServerHttpResponseDecorator {
 
 	@Override
 	public Mono<Void> writeAndFlushWith(Publisher<? extends Publisher<? extends DataBuffer>> body) {
-		return super.writeAndFlushWith(
-				Flux.from(body).map(publisher -> BufferUtils.bufferingWrap(publisher, BufferUtils.outputStreamConsume(bodyStream))));
+		return super.writeAndFlushWith(Flux.from(body).map(publisher -> BufferUtils.bufferingWrap(publisher, BufferUtils.outputStreamConsume(bodyStream))));
 	}
 
 	@Override

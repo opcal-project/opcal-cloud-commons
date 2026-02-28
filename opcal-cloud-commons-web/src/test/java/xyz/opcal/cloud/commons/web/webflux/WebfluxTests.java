@@ -1,11 +1,11 @@
 /*
- *  Copyright 2020-2022 Opcal
+ * Copyright 2020-2026 Opcal.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,6 +17,7 @@
 package xyz.opcal.cloud.commons.web.webflux;
 
 import org.junit.jupiter.api.Test;
+
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -29,10 +30,7 @@ class WebfluxTests {
 	void springMvcTest(WebApplicationContext wac) {
 		long id = 22;
 		WebTestClient webTestClient = WebTestClient.bindToApplicationContext(wac).build();
-		webTestClient
-				.get()
-				.uri("/pet/{id}", id)
-				.accept(MediaType.APPLICATION_JSON)
+		webTestClient.get().uri("/pet/{id}", id).accept(MediaType.APPLICATION_JSON)
 				.exchange()
 				.expectStatus().isOk();
 	}

@@ -1,11 +1,11 @@
 /*
- *  Copyright 2020-2022 Opcal
+ * Copyright 2020-2026 Opcal.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,19 +16,20 @@
 
 package xyz.opcal.cloud.commons.web.utils;
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+
+import org.springframework.mock.http.server.reactive.MockServerHttpRequest;
+
+import xyz.opcal.cloud.commons.web.WebConstants;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static xyz.opcal.cloud.commons.web.TestConstants.IP_1;
 import static xyz.opcal.cloud.commons.web.TestConstants.IP_2;
 import static xyz.opcal.cloud.commons.web.TestConstants.IP_3;
-
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
-import org.springframework.mock.http.server.reactive.MockServerHttpRequest;
-
-import xyz.opcal.cloud.commons.web.WebConstants;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class ServerHttpRequestUtilsTests {

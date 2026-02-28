@@ -3,7 +3,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.3</version>
+        <version>4.0.4-SNAPSHOT</version>
         <relativePath/>
     </parent>
 
@@ -330,7 +330,9 @@
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>versions-maven-plugin</artifactId>
                         <configuration>
-                            <rulesUri>https://raw.githubusercontent.com/opcal-project/opcal-cloud-commons/refs/heads/main/ci/maven/rules.xml</rulesUri>
+                            <rulesUri>
+                                https://raw.githubusercontent.com/opcal-project/opcal-cloud-commons/refs/heads/main/ci/maven/rules.xml
+                            </rulesUri>
                         </configuration>
                     </plugin>
                     <plugin>

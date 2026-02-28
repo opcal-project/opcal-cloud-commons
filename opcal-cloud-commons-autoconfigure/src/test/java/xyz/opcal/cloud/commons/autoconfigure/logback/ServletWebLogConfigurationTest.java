@@ -1,11 +1,11 @@
 /*
- * Copyright 2020-2024 Opcal
+ * Copyright 2020-2026 Opcal.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,9 +16,8 @@
 
 package xyz.opcal.cloud.commons.autoconfigure.logback;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.junit.jupiter.api.Test;
+
 import org.springframework.boot.autoconfigure.AutoConfigurations;
 import org.springframework.boot.jackson.autoconfigure.JacksonAutoConfiguration;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
@@ -26,32 +25,30 @@ import org.springframework.cloud.autoconfigure.RefreshAutoConfiguration;
 
 import xyz.opcal.cloud.commons.logback.web.filter.LogRequestFilter;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 class ServletWebLogConfigurationTest {
 
 	static ApplicationContextRunner contextRunner() {
-		return new ApplicationContextRunner()
-				.withConfiguration(AutoConfigurations.of(ServletWebLogConfiguration.class, JacksonAutoConfiguration.class, RefreshAutoConfiguration.class));
+		return new ApplicationContextRunner().withConfiguration(
+				AutoConfigurations.of(ServletWebLogConfiguration.class, JacksonAutoConfiguration.class, RefreshAutoConfiguration.class));
 	}
 
 	@Test
 	void enableLogRequest() {
-		contextRunner()
-				.withPropertyValues("opcal.cloud.log.servlet.request=true")
-				.run(context -> {
-					assertThat(context).hasBean("requestIdFilter");
-					assertThat(context).hasBean("logRequestIdFilter");
-					assertThat(context).hasSingleBean(LogRequestFilter.class);
-				});
+		contextRunner().withPropertyValues("opcal.cloud.log.servlet.request=true").run(context -> {
+			assertThat(context).hasBean("requestIdFilter");
+			assertThat(context).hasBean("logRequestIdFilter");
+			assertThat(context).hasSingleBean(LogRequestFilter.class);
+		});
 	}
 
 	@Test
 	void enableLogRequestId() {
-		contextRunner()
-				.withPropertyValues("opcal.cloud.log.servlet.request-id=true")
-				.run(context -> {
-					assertThat(context).hasBean("requestIdFilter");
-					assertThat(context).hasBean("logRequestIdFilter");
-					assertThat(context).doesNotHaveBean(LogRequestFilter.class);
-				});
+		contextRunner().withPropertyValues("opcal.cloud.log.servlet.request-id=true").run(context -> {
+			assertThat(context).hasBean("requestIdFilter");
+			assertThat(context).hasBean("logRequestIdFilter");
+			assertThat(context).doesNotHaveBean(LogRequestFilter.class);
+		});
 	}
 }

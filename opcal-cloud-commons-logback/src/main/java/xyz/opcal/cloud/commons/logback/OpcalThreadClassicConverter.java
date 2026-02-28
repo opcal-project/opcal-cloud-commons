@@ -1,11 +1,11 @@
 /*
- *  Copyright 2020-2022 Opcal
+ * Copyright 2020-2026 Opcal.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -26,7 +26,7 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
 
 /**
  * Custom thread id converter.
- * 
+ *
  * @since 0.1.0
  */
 public class OpcalThreadClassicConverter extends ClassicConverter {
@@ -37,10 +37,8 @@ public class OpcalThreadClassicConverter extends ClassicConverter {
 	public String convert(ILoggingEvent event) {
 		String mdcThreadId = event.getMDCPropertyMap().get(OpcalLogbackConstants.MDC_THREAD_ID);
 		if (StringUtils.isBlank(mdcThreadId)) {
-			mdcThreadId = Strings.CS.replace(
-					UUID.nameUUIDFromBytes(String.valueOf(UP_TIMESTAMP + Thread.currentThread().getId()).getBytes()).toString(),
-					"-",
-					"");
+			var id = UUID.nameUUIDFromBytes(String.valueOf(UP_TIMESTAMP + Thread.currentThread().getId()).getBytes()).toString();
+			mdcThreadId = Strings.CS.replace(id, "-", "");
 		}
 		return mdcThreadId;
 
