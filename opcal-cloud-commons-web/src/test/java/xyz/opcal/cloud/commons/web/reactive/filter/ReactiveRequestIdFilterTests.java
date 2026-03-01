@@ -65,7 +65,7 @@ class ReactiveRequestIdFilterTests {
 		assertEquals(requestId, targetHandler.getRequestId());
 	}
 
-	private final static class RequestIdWebHandler implements WebHandler {
+	private static final class RequestIdWebHandler implements WebHandler {
 
 		@Getter
 		private String requestId;
