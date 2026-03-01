@@ -32,7 +32,6 @@ import org.springframework.http.server.reactive.ServerHttpRequest;
 
 import xyz.opcal.cloud.commons.web.WebConstants;
 
-@SuppressWarnings({ "HideUtilityClassConstructorCheck" })
 @UtilityClass
 public class ServerHttpRequestUtils {
 

@@ -22,7 +22,6 @@ import lombok.NoArgsConstructor;
 /**
  * @since 0.1.0
  */
-@SuppressWarnings({ "HideUtilityClassConstructorCheck" })
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class OpcalLogbackConstants {
 

@@ -26,7 +26,6 @@ import org.springframework.boot.logging.logback.EnclosedInSquareBracketsConverte
 import org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter;
 import org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter;
 
-@SuppressWarnings({ "JavadocStyle" })
 /**
  * A logback pattern layout encoder which will convert custom thread id to the pattern and integrating with Spring's logback converters. Usage in logback.xml.
  *

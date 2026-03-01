@@ -31,7 +31,6 @@ import org.springframework.core.io.buffer.DefaultDataBufferFactory;
 
 import xyz.opcal.cloud.commons.logback.webflux.exception.IOStreamWrapperException;
 
-@SuppressWarnings("HideUtilityClassConstructor")
 @UtilityClass
 public class BufferUtils {
 

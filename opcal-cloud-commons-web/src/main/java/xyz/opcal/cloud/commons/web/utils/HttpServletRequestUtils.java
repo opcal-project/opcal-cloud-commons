@@ -27,7 +27,6 @@ import lombok.experimental.UtilityClass;
 
 import xyz.opcal.cloud.commons.web.WebConstants;
 
-@SuppressWarnings({ "HideUtilityClassConstructorCheck" })
 @UtilityClass
 public class HttpServletRequestUtils {
 

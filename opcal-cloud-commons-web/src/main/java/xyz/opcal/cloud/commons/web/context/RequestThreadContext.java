@@ -23,7 +23,6 @@ import org.jspecify.annotations.Nullable;
 
 import lombok.experimental.UtilityClass;
 
-@SuppressWarnings({ "HideUtilityClassConstructorCheck" })
 @UtilityClass
 public class RequestThreadContext {
 

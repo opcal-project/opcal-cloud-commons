@@ -19,7 +19,6 @@ package xyz.opcal.cloud.commons.web;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-@SuppressWarnings({ "HideUtilityClassConstructorCheck" })
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class WebConstants {
 
