@@ -1,11 +1,11 @@
 /*
- *  Copyright 2020-2022 Opcal
+ * Copyright 2020-2026 Opcal.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,6 +21,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import lombok.extern.slf4j.Slf4j;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -31,15 +35,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.extern.slf4j.Slf4j;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
-
 @Slf4j
 @RestController
 public class LogWebfluxController {
 
-	@GetMapping(value = { "/get", "/skip/get" })
+	@GetMapping({ "/get", "/skip/get" })
 	public Mono<Map<String, Object>> get() {
 		Map<String, Object> result = new HashMap<>();
 		result.put("msg", "success");
@@ -67,7 +67,7 @@ public class LogWebfluxController {
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
-	@GetMapping(value = { "/flux" })
+	@GetMapping({ "/flux" })
 	public Flux<Integer> flux() {
 		var intFlux = Flux.fromArray(new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
 		return intFlux.delayElements(Duration.ofMillis(50));

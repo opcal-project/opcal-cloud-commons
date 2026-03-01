@@ -1,11 +1,11 @@
 /*
- *  Copyright 2020-2022 Opcal
+ * Copyright 2020-2026 Opcal.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,6 +16,10 @@
 
 package xyz.opcal.cloud.commons.logback;
 
+import ch.qos.logback.classic.PatternLayout;
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.pattern.PatternLayoutEncoderBase;
+
 import org.springframework.boot.logging.logback.ApplicationNameConverter;
 import org.springframework.boot.logging.logback.ColorConverter;
 import org.springframework.boot.logging.logback.CorrelationIdConverter;
@@ -23,15 +27,9 @@ import org.springframework.boot.logging.logback.EnclosedInSquareBracketsConverte
 import org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter;
 import org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter;
 
-import ch.qos.logback.classic.PatternLayout;
-import ch.qos.logback.classic.spi.ILoggingEvent;
-import ch.qos.logback.core.pattern.PatternLayoutEncoderBase;
-
 /**
- * A logback pattern layout encoder which will convert custom thread id to the
- * pattern and integrating with Spring's logback converters. Usage in
- * logback.xml
- * 
+ * A logback pattern layout encoder which will convert custom thread id to the pattern and integrating with Spring's logback converters. Usage in logback.xml
+ *
  * <pre>
  * {@code
  * 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">

@@ -1,11 +1,11 @@
 /*
- *  Copyright 2020-2022 Opcal
+ * Copyright 2020-2026 Opcal.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,10 +15,6 @@
  */
 
 package xyz.opcal.cloud.commons.logback.webflux.filter;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.instanceOf;
-import static org.hamcrest.Matchers.not;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -32,6 +28,14 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import lombok.Getter;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -45,16 +49,14 @@ import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebHandler;
 import org.springframework.web.server.handler.FilteringWebHandler;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import lombok.Getter;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.webflux.http.LogRequestDecorator;
 import xyz.opcal.cloud.commons.logback.webflux.http.LogResponseDecorator;
 import xyz.opcal.cloud.commons.web.reactive.filter.ReactiveRequestIdFilter;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.not;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class LogWebfluxRequestFilterTests {
@@ -113,7 +115,7 @@ class LogWebfluxRequestFilterTests {
 		assertThat(targetHandler.getResponse(), instanceOf(LogResponseDecorator.class));
 	}
 
-	private static class LogRequestWebHandler implements WebHandler {
+	private static final class LogRequestWebHandler implements WebHandler {
 
 		@Getter
 		private ServerHttpRequest request;
@@ -127,7 +129,8 @@ class LogWebfluxRequestFilterTests {
 			response = exchange.getResponse();
 			DataBuffer dataBuffer = request.getBody().blockFirst();
 			if (Objects.nonNull(dataBuffer)) {
-				dataBuffer.toString(Charset.defaultCharset());// mock doing something
+				// mock doing something
+				dataBuffer.toString(Charset.defaultCharset());
 				response.setStatusCode(HttpStatus.OK);
 				response.writeAndFlushWith(Flux.just(Flux.just(response.bufferFactory().wrap("ok".getBytes(StandardCharsets.UTF_8)))));
 				return response.writeWith(Flux.just(response.bufferFactory().wrap("ok".getBytes(StandardCharsets.UTF_8))));

@@ -1,11 +1,11 @@
 /*
- *  Copyright 2020-2022 Opcal
+ * Copyright 2020-2026 Opcal.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,23 +16,25 @@
 
 package xyz.opcal.cloud.commons.logback.webflux.filter;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 import java.time.Duration;
 import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.MDC;
+
+import lombok.Getter;
+import reactor.core.publisher.Mono;
+
 import org.springframework.mock.http.server.reactive.MockServerHttpRequest;
 import org.springframework.mock.web.server.MockServerWebExchange;
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebHandler;
 import org.springframework.web.server.handler.FilteringWebHandler;
 
-import lombok.Getter;
-import reactor.core.publisher.Mono;
 import xyz.opcal.cloud.commons.logback.OpcalLogbackConstants;
 import xyz.opcal.cloud.commons.web.reactive.filter.ReactiveRequestIdFilter;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class LogWebfluxRequestIdFilterTests {
 
@@ -45,7 +47,7 @@ class LogWebfluxRequestIdFilterTests {
 		assertNotNull(targetHandler.getMdcThreadId());
 	}
 
-	private static class LogRequestIdWebHandler implements WebHandler {
+	private static final class LogRequestIdWebHandler implements WebHandler {
 
 		@Getter
 		private String mdcThreadId;
