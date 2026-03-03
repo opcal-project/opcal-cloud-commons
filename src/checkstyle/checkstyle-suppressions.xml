@@ -20,6 +20,6 @@
         "https://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
 <suppressions>
     <suppress
-            files="OpcalLogbackConstants*|BufferUtils*|WebConstants*|RequestThreadContext*|HttpServletRequestUtils*|ServerHttpRequestUtils*|TaintUtils*" checks="(HideUtility*)"/>
-    <suppress files="OpcalPatternLayoutEncoder*" checks="(Javadoc*)"/>
+            files="OpcalLogbackConstants*|BufferUtils*|WebConstants*|RequestThreadContext*|HttpServletRequestUtils*|ServerHttpRequestUtils*|TaintUtils*"
+            checks="(HideUtility*)"/>
 </suppressions>
