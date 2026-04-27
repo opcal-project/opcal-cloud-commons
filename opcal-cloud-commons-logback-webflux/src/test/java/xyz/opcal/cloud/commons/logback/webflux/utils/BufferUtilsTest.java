@@ -16,14 +16,14 @@
 
 package xyz.opcal.cloud.commons.logback.webflux.utils;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
 import xyz.opcal.cloud.commons.logback.webflux.exception.IOStreamWrapperException;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class BufferUtilsTest {
 

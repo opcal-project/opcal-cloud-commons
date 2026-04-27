@@ -16,6 +16,12 @@
 
 package xyz.opcal.cloud.commons.web.utils;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static xyz.opcal.cloud.commons.web.TestConstants.IP_1;
+import static xyz.opcal.cloud.commons.web.TestConstants.IP_2;
+import static xyz.opcal.cloud.commons.web.TestConstants.IP_3;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -25,12 +31,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 import xyz.opcal.cloud.commons.web.WebConstants;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static xyz.opcal.cloud.commons.web.TestConstants.IP_1;
-import static xyz.opcal.cloud.commons.web.TestConstants.IP_2;
-import static xyz.opcal.cloud.commons.web.TestConstants.IP_3;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class HttpServletRequestUtilsTests {

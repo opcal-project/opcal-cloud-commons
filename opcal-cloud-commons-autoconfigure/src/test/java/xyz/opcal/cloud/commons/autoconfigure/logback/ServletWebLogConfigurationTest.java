@@ -16,6 +16,8 @@
 
 package xyz.opcal.cloud.commons.autoconfigure.logback;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.Test;
 
 import org.springframework.boot.autoconfigure.AutoConfigurations;
@@ -24,8 +26,6 @@ import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 import org.springframework.cloud.autoconfigure.RefreshAutoConfiguration;
 
 import xyz.opcal.cloud.commons.logback.web.filter.LogRequestFilter;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class ServletWebLogConfigurationTest {
 

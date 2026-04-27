@@ -16,6 +16,12 @@
 
 package xyz.opcal.cloud.commons.web.servlet.filter;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.not;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.IOException;
 
 import jakarta.servlet.ServletException;
@@ -34,12 +40,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import xyz.opcal.cloud.commons.web.WebConstants;
 import xyz.opcal.cloud.commons.web.servlet.http.IdRequestWrapper;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.instanceOf;
-import static org.hamcrest.Matchers.not;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class RequestIdFilterTests {
 

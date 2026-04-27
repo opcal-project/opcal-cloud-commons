@@ -16,6 +16,8 @@
 
 package xyz.opcal.cloud.commons.integration.controller;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +32,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 
 import xyz.opcal.cloud.commons.web.WebConstants;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ActiveProfiles("httpbin")
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)

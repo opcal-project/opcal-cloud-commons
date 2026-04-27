@@ -16,6 +16,8 @@
 
 package xyz.opcal.cloud.commons.logback.webflux.filter;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.time.Duration;
 import java.util.Arrays;
 
@@ -33,8 +35,6 @@ import org.springframework.web.server.handler.FilteringWebHandler;
 
 import xyz.opcal.cloud.commons.logback.OpcalLogbackConstants;
 import xyz.opcal.cloud.commons.web.reactive.filter.ReactiveRequestIdFilter;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class LogWebfluxRequestIdFilterTests {
 

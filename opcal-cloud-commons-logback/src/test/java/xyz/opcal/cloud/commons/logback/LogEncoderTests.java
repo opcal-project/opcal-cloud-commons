@@ -16,6 +16,9 @@
 
 package xyz.opcal.cloud.commons.logback;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -29,9 +32,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import xyz.opcal.cloud.commons.logback.configuration.LogTestConfiguration;
-
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(classes = LogTestConfiguration.class)
 @ActiveProfiles("encoder")

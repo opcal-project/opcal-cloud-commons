@@ -16,6 +16,8 @@
 
 package xyz.opcal.cloud.commons.integration;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,8 +35,6 @@ import org.springframework.test.context.ActiveProfiles;
 
 import xyz.opcal.cloud.commons.integration.entity.User;
 import xyz.opcal.cloud.commons.web.WebConstants;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 @ActiveProfiles("requestId")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)

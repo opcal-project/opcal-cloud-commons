@@ -16,6 +16,9 @@
 
 package xyz.opcal.cloud.commons.web.reactive.filter;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collections;
@@ -35,9 +38,6 @@ import org.springframework.web.server.WebHandler;
 import org.springframework.web.server.handler.FilteringWebHandler;
 
 import xyz.opcal.cloud.commons.web.WebConstants;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class ReactiveRequestIdFilterTests {
 

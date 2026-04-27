@@ -16,17 +16,17 @@
 
 package xyz.opcal.cloud.commons.web.context;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.Collections;
 import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 
 import xyz.opcal.cloud.commons.web.utils.PrivateConstructorUtils;
-
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class RequestThreadContextTests {
 
