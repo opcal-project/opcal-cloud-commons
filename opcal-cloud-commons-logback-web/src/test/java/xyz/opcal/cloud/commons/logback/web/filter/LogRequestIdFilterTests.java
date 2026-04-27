@@ -16,6 +16,8 @@
 
 package xyz.opcal.cloud.commons.logback.web.filter;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -33,8 +35,6 @@ import org.springframework.web.filter.CompositeFilter;
 
 import xyz.opcal.cloud.commons.logback.OpcalLogbackConstants;
 import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class LogRequestIdFilterTests {
 

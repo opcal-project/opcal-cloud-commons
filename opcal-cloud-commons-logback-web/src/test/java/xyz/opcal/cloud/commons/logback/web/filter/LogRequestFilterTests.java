@@ -16,6 +16,11 @@
 
 package xyz.opcal.cloud.commons.logback.web.filter;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.not;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -42,11 +47,6 @@ import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.web.http.LogRequestWrapper;
 import xyz.opcal.cloud.commons.logback.web.http.LogResponseWrapper;
 import xyz.opcal.cloud.commons.web.servlet.filter.RequestIdFilter;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.instanceOf;
-import static org.hamcrest.Matchers.not;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @Slf4j
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)

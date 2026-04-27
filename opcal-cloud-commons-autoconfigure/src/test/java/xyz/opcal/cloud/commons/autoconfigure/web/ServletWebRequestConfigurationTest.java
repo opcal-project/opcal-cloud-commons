@@ -16,12 +16,12 @@
 
 package xyz.opcal.cloud.commons.autoconfigure.web;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.Test;
 
 import org.springframework.boot.autoconfigure.AutoConfigurations;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class ServletWebRequestConfigurationTest {
 

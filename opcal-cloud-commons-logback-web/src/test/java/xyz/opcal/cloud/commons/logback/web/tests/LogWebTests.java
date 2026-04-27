@@ -16,6 +16,8 @@
 
 package xyz.opcal.cloud.commons.logback.web.tests;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -39,8 +41,6 @@ import org.springframework.http.ResponseEntity;
 
 import xyz.opcal.cloud.commons.logback.web.LogWebApplication;
 import xyz.opcal.cloud.commons.web.WebConstants;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @AutoConfigureTestRestTemplate
 @SpringBootTest(classes = LogWebApplication.class, webEnvironment = WebEnvironment.RANDOM_PORT)

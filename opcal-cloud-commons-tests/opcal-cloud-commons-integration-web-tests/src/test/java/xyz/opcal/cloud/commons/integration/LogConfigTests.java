@@ -16,6 +16,9 @@
 
 package xyz.opcal.cloud.commons.integration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.apache.commons.lang3.ArrayUtils;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
@@ -28,9 +31,6 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.ActiveProfiles;
 
 import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ActiveProfiles("logconfig")
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)

@@ -16,6 +16,8 @@
 
 package xyz.opcal.cloud.commons.integration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,8 +40,6 @@ import org.springframework.test.context.ActiveProfiles;
 import xyz.opcal.cloud.commons.integration.entity.User;
 import xyz.opcal.cloud.commons.integration.entity.UserResult;
 import xyz.opcal.cloud.commons.web.WebConstants;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ActiveProfiles("request")
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)

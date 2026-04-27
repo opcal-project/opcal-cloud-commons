@@ -16,6 +16,8 @@
 
 package xyz.opcal.cloud.commons.autoconfigure.logback;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.Test;
 
 import org.springframework.boot.autoconfigure.AutoConfigurations;
@@ -27,8 +29,6 @@ import xyz.opcal.cloud.commons.logback.webflux.filter.LogWebfluxRequestFilter;
 import xyz.opcal.cloud.commons.logback.webflux.filter.LogWebfluxRequestIdFilter;
 import xyz.opcal.cloud.commons.logback.webflux.filter.MDCCleanFilter;
 import xyz.opcal.cloud.commons.web.reactive.filter.ReactiveRequestIdFilter;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class ReactiveWebLogConfigurationTest {
 

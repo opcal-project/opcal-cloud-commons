@@ -16,6 +16,10 @@
 
 package xyz.opcal.cloud.commons.logback.webflux.filter;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.not;
+
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
@@ -51,10 +55,6 @@ import xyz.opcal.cloud.commons.logback.http.config.LogRequestConfig;
 import xyz.opcal.cloud.commons.logback.webflux.http.LogRequestDecorator;
 import xyz.opcal.cloud.commons.logback.webflux.http.LogResponseDecorator;
 import xyz.opcal.cloud.commons.web.reactive.filter.ReactiveRequestIdFilter;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.instanceOf;
-import static org.hamcrest.Matchers.not;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class LogWebfluxRequestFilterTests {

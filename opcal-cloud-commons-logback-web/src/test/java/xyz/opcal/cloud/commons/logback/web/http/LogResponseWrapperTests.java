@@ -16,6 +16,8 @@
 
 package xyz.opcal.cloud.commons.logback.web.http;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.IOException;
 import java.util.UUID;
 
@@ -26,8 +28,6 @@ import org.junit.jupiter.api.Test;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.mock.web.MockHttpServletResponse;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Slf4j
 class LogResponseWrapperTests {

@@ -16,6 +16,9 @@
 
 package xyz.opcal.cloud.commons.logback.web.http;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,9 +34,6 @@ import tools.jackson.databind.json.JsonMapper;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletRequest;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Slf4j
 class LogRequestWrapperTests {
