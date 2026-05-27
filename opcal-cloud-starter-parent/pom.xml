@@ -132,11 +132,11 @@
                 <maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
                 <maven-source-plugin.version>3.4.0</maven-source-plugin.version>
                 <maven-surefire-plugin.version>3.2.3</maven-surefire-plugin.version>
-                <maven-failsafe-plugin.version>3.5.5</maven-failsafe-plugin.version>
+                <maven-failsafe-plugin.version>3.5.6</maven-failsafe-plugin.version>
                 <maven-jar-plugin.version>3.5.0</maven-jar-plugin.version>
                 <ossindex-maven-plugin.version>3.2.0</ossindex-maven-plugin.version>
                 <central-publishing-maven-plugin.version>0.10.0</central-publishing-maven-plugin.version>
-                <sonar-maven-plugin.version>5.6.0.6792</sonar-maven-plugin.version>
+                <sonar-maven-plugin.version>5.7.0.6970</sonar-maven-plugin.version>
             </properties>
             <build>
                 <pluginManagement>
