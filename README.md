@@ -8,7 +8,7 @@ commons project module for system
 | Release  | Branch | Spring Boot | Spring Cloud |
 |:--------:|:------:|:-----------:|:------------:|
 | 4.0.7.0  | 4.0.x  |    4.0.7    |   2025.1.1   |
-| 3.5.15.0 | 3.5.x  |   3.5.15    |   2025.0.2  |
+| 3.5.16.0 | 3.5.x  |   3.5.16    |   2025.0.2  |
 
 ## How to Use
 ### Using maven parent
