@@ -221,6 +221,14 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>opcal-github</id>
+            <name>GitHub</name>
+            <url>https://maven.pkg.github.com/opcal-project/opcal-commons-build</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <repositories>
         <repository>
             <name>Opcal GitHub</name>
