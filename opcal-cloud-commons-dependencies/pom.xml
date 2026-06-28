@@ -149,7 +149,20 @@
         </profile>
     </profiles>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>opcal-github</id>
+            <name>GitHub</name>
+            <url>https://maven.pkg.github.com/opcal-project/opcal-commons-build</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <repositories>
+        <repository>
+            <name>Opcal GitHub</name>
+            <id>opcal-github</id>
+            <url>https://maven.pkg.github.com/opcal-project/*</url>
+        </repository>
         <repository>
             <name>Central Portal Snapshots</name>
             <id>central-portal-snapshots</id>
