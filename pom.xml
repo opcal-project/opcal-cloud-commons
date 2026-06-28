@@ -223,6 +223,11 @@
 
     <repositories>
         <repository>
+            <name>Opcal GitHub</name>
+            <id>opcal-github</id>
+            <url>https://maven.pkg.github.com/opcal-project/*</url>
+        </repository>
+        <repository>
             <name>Central Portal Snapshots</name>
             <id>central-portal-snapshots</id>
             <url>https://central.sonatype.com/repository/maven-snapshots/</url>
