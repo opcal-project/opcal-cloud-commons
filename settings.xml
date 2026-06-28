@@ -12,6 +12,11 @@
             <username>${env.OSSINDEX_U}</username>
             <password>${env.OSSINDEX_P}</password>
         </server>
+		<server>
+			<id>opcal-github</id>
+			<username>${env.gh_name}</username>
+			<password>${env.gh_token}</password>
+		</server>
 	</servers>
     <localRepository>${env.WORKSPACE}/.m2/repository</localRepository>
 </settings>
