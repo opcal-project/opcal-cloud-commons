@@ -203,7 +203,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
                 <configuration>
-                    <rulesUri>https://raw.githubusercontent.com/opcal-project/opcal-cloud-commons/refs/heads/main/ci/maven/rules.xml</rulesUri>
+                    <rulesUri>file://${session.executionRootDirectory}/ci/maven/rules.xml</rulesUri>
                 </configuration>
             </plugin>
             <plugin>
