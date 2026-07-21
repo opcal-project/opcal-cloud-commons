@@ -153,7 +153,7 @@
         <snapshotRepository>
             <id>opcal-github</id>
             <name>GitHub</name>
-            <url>https://maven.pkg.github.com/opcal-project/opcal-commons-build</url>
+            <url>https://maven.pkg.github.com/opcal-project/opcal-cloud-commons</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -187,27 +187,11 @@
             </releases>
         </repository>
         <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
             <id>opcal-sonatype-public</id>
             <url>https://s01.oss.sonatype.org/content/groups/public/</url>
         </repository>
     </repositories>
     <pluginRepositories>
-        <pluginRepository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
         <pluginRepository>
             <id>spring-snapshots</id>
             <name>Spring Snapshots</name>
