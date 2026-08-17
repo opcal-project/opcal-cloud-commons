@@ -15,7 +15,7 @@
 
     <properties>
         <!-- dependencies version -->
-        <google-guava.version>33.6.0-jre</google-guava.version>
+        <google-guava.version>33.7.0-jre</google-guava.version>
         <commons-io.version>2.22.0</commons-io.version>
         <spring-cloud.version>2025.0.3</spring-cloud.version>
     </properties>
