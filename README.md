@@ -7,7 +7,7 @@ commons project module for system
 ## Release Train Table
 | Release  | Branch | Spring Boot |    Spring Cloud     |
 |:--------:|:------:|:-----------:|:-------------------:|
-| 4.0.8.0  | 4.0.x  |    4.0.8    |      2025.1.3       |
+| 4.0.9.0  | 4.0.x  |    4.0.9    |      2025.1.4       |
 | 3.5.16.0 | 3.5.x  |   3.5.16    |      2025.0.2       |
 
 ## How to Use
