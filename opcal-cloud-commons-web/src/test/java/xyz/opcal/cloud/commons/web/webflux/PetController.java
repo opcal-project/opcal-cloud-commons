@@ -31,7 +31,7 @@ import xyz.opcal.cloud.commons.web.domain.Pet;
 @RestController
 public class PetController {
 
-	public static final String[] NAMES = new String[] { "Dog", "Cat", "Rabbit" };
+	public static final String[] NAMES = { "Dog", "Cat", "Rabbit" };
 
 	@GetMapping({ "/pet/{id}" })
 	public Mono<Pet> getPet(@PathVariable long id) {
