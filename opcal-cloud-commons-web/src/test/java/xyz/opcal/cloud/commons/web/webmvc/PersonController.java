@@ -30,7 +30,7 @@ import xyz.opcal.cloud.commons.web.domain.Person;
 @RestController
 public class PersonController {
 
-	public static final String[] NAMES = new String[] { "Mike", "Marry", "David" };
+	public static final String[] NAMES = { "Mike", "Marry", "David" };
 
 	@GetMapping({ "/person/{id}" })
 	public Person getPerson(@PathVariable long id) {

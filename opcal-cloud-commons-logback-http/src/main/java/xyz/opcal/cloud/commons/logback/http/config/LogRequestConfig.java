@@ -30,7 +30,7 @@ import org.springframework.http.MediaType;
 @RefreshScope
 public class LogRequestConfig {
 
-	private String[] disableMediaTypes = new String[] { MediaType.APPLICATION_PDF_VALUE.toLowerCase(), MediaType.APPLICATION_XHTML_XML_VALUE.toLowerCase(),
+	private String[] disableMediaTypes = { MediaType.APPLICATION_PDF_VALUE.toLowerCase(), MediaType.APPLICATION_XHTML_XML_VALUE.toLowerCase(),
 			MediaType.IMAGE_GIF_VALUE.toLowerCase(), MediaType.IMAGE_JPEG_VALUE.toLowerCase(), MediaType.IMAGE_PNG_VALUE.toLowerCase(),
 			MediaType.TEXT_HTML_VALUE.toLowerCase(), MediaType.TEXT_MARKDOWN_VALUE.toLowerCase() };
 	private String[] disablePaths;

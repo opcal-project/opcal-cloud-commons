@@ -34,7 +34,7 @@ public class LogResponseWrapper extends HttpServletResponseWrapper {
 	@Getter
 	private String requestId;
 
-	private ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	private final ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
 	public LogResponseWrapper(String requestId, HttpServletResponse response) {
 		super(response);
